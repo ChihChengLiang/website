@@ -17,9 +17,6 @@
           {{ partial "svg-icon.html" (dict "context" . "icon" "arrow-right") }}
         </h5>
       </a>
-      <p>
-        <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-      </p>
       {{ partial "article/info-footer.html" . }}
     </li>
   {{ end }}
