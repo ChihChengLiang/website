@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="article {{ with site.Params.chalk.scrollappear_enabled }}scrollappear{{ end }}">
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    {{ partial "article/info-footer.html" . }}
+  </header>
+
+  <div class="article-content">
+    {{ .Content }}
+  </div>
+
+  {{ with site.Params.discus_identifier }}
+    <div id="disqus_thread" class="article-comments"></div>
+    <script src="https://{{ site.Params.discus_identifier }}.disqus.com/embed.js" async defer></script>
+    <noscript>Please enable JavaScript to view the comments.</noscript>
+  {{ end }}
+</article>
+{{ end }}
