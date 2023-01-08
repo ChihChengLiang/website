@@ -1,4 +1,21 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = 'papercss-hugo-theme'
+title = "CC's blog"
+theme = 'chalk'
+
+[params.chalk]
+  # chalk theme parameters
+  about_enabled = true # Change to true if you wish to show an icon in the navigation that redirects to the about page
+  scrollappear_enabled = true
+  theme_toggle = true
+  rss_enabled = true
+  local_fonts = false
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[taxonomies]
+  tag = "tags"
+
