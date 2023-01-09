@@ -1,4 +1,4 @@
-baseURL = 'https://chihchengliang.github.io/website/'
+baseURL = 'https://blog.liangcc.me/'
 languageCode = 'en-us'
 title = "CC's blog"
 theme = 'chalk'
