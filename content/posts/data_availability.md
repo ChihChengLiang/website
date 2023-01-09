@@ -1,5 +1,5 @@
 ---
-title: "🗒️資料可得性 (Data Availability)"
+title: "📝資料可得性 (Data Availability)"
 date: 2022-07-29T00:35:59+08:00
 draft: false
 tags: ["zh-TW"]

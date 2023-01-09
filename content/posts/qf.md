@@ -1,5 +1,5 @@
 ---
-title: "🗒️Quadratic Finance in plain words"
+title: "📝Quadratic Finance in plain words"
 date: 2022-06-20T21:45:09.524Z
 draft: false
 ---
