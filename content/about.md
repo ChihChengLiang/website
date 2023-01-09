@@ -10,13 +10,22 @@ I share thoughts that I'm too shy to share in public but would tell you in a pri
 
 Articles are highly noisy. Opinions and errors are mine. Ideas are stolen from people and poorly referenced.
 
-Feedbacks are more than welcome!
+Feedback is welcomed! But I might not reply due to limited bandwidth.
 
 ## Social
 
 - https://github.com/ChihChengLiang
 - https://twitter.com/ChihChengLiang
 - https://cryptodon.lol/@liangcc
+
+## Past projects I was involved
+
+- 2021-04 Zkevm
+- 2020-06 Hubble
+- 2020-04 MACI
+- 2020-02 Semaphore Authentication
+- 2020 Trinity and Beacon chain
+- 2017-11 Pyethapp Casper
 
 ## Writings
 
