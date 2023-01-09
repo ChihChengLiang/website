@@ -29,7 +29,7 @@ Feedback is welcomed! But I might not reply due to limited bandwidth.
 
 ## Writings
 
-Many of my past writings since 2016 were on [Medium](https://medium.com/@chihchengliang)](https://medium.com/@chihchengliang). Selected articles:
+Many of my past writings since 2016 were on [Medium](https://medium.com/@chihchengliang). Selected articles:
 
 - 2022 [讀《地平線：一部全球科學史》（暫譯）](https://medium.com/@chihchengliang/horizons-book-7465e3e43ee3)
 - 2022 [倫敦升級之後的 gas 費用計算](https://medium.com/taipei-ethereum-meetup/eip-1559-tx-fee-232576cc11dc)
