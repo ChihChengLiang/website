@@ -1,0 +1,93 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>📝全節點 Demo - CC's blog</title><meta name=description content="先備知識 主網路
+以太坊系統的本體是一個點對點網路。 全節點大概要同步個一天以上 全節點大概要吃掉 250 GB 的硬碟空間 主網路 要用真的以太幣才能部署合約 測試網路 有水龍頭可以領測試用的測試幣 「狀態」的讀取，免費 「狀態」的寫入，要送花費 gas 的交易 三天前的準備 先同步好一個全節點，當天可以快速展示
+Demo 主網路 步驟：
+展示全節點的 Log 展示連接上全節點，並瀏覽合約裡面的資料 決策：要讀什麼合約的資料出來玩比較好玩呢？
+設定全節點 sudo apt install build-essential 安裝 golang
+wget -q -O - https://git.io/vQhTU | bash 下載並建置 Geth
+git clone https://github.com/ethereum/go-ethereum.git cd go-ethereum make geth 跑主網路
+geth Demo 從全節點取得資料 geth attach <要找 ipc path> 瀏覽區塊、交易相關資料 net.version 解釋主網路和其他測試網路 eth.getBlockNumber() eth.getBlockByNumber(100) 挑幾個區塊裡面重要的欄位解釋 瀏覽帳戶餘額 解釋帳戶是什麼，私鑰公鑰數位簽章。EOA 與合約帳戶
+eth.getBalance 瀏覽合約資料 eth.getCode() 選一個合約地址，看 bytecode 與 etherscan 上面的是否吻合 呼叫函式與瀏覽合約狀態 (這項看起來需要 js library 配合比較容易做)"><meta name=author content><link rel=icon type=image/x-icon href=http://example.org/images/favicon-dark.ico><link rel=apple-touch-icon href=http://example.org/images/apple-touch-icon-dark.png><link rel=stylesheet type=text/css title=light id=light href=http://example.org/stylesheets/light.css><link rel=stylesheet type=text/css title=dark id=dark href=http://example.org/stylesheets/dark.css disabled><link rel="preload stylesheet" as=style href=http://example.org/custom.min.css><link rel="preload stylesheet" as=style href=http://example.org/an-old-hope.min.css><script defer src=http://example.org/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><meta name=generator content="Hugo 0.109.0"><meta property="og:title" content="📝全節點 Demo"><meta property="og:description" content="先備知識 主網路
+以太坊系統的本體是一個點對點網路。 全節點大概要同步個一天以上 全節點大概要吃掉 250 GB 的硬碟空間 主網路 要用真的以太幣才能部署合約 測試網路 有水龍頭可以領測試用的測試幣 「狀態」的讀取，免費 「狀態」的寫入，要送花費 gas 的交易 三天前的準備 先同步好一個全節點，當天可以快速展示
+Demo 主網路 步驟：
+展示全節點的 Log 展示連接上全節點，並瀏覽合約裡面的資料 決策：要讀什麼合約的資料出來玩比較好玩呢？
+設定全節點 sudo apt install build-essential 安裝 golang
+wget -q -O - https://git.io/vQhTU | bash 下載並建置 Geth
+git clone https://github.com/ethereum/go-ethereum.git cd go-ethereum make geth 跑主網路
+geth Demo 從全節點取得資料 geth attach <要找 ipc path> 瀏覽區塊、交易相關資料 net.version 解釋主網路和其他測試網路 eth.getBlockNumber() eth.getBlockByNumber(100) 挑幾個區塊裡面重要的欄位解釋 瀏覽帳戶餘額 解釋帳戶是什麼，私鑰公鑰數位簽章。EOA 與合約帳戶
+eth.getBalance 瀏覽合約資料 eth.getCode() 選一個合約地址，看 bytecode 與 etherscan 上面的是否吻合 呼叫函式與瀏覽合約狀態 (這項看起來需要 js library 配合比較容易做)"><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/posts/full_node_demo/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-02-28T13:35:56+00:00"><meta property="article:modified_time" content="2021-02-28T13:35:56+00:00"><meta itemprop=name content="📝全節點 Demo"><meta itemprop=description content="先備知識 主網路
+以太坊系統的本體是一個點對點網路。 全節點大概要同步個一天以上 全節點大概要吃掉 250 GB 的硬碟空間 主網路 要用真的以太幣才能部署合約 測試網路 有水龍頭可以領測試用的測試幣 「狀態」的讀取，免費 「狀態」的寫入，要送花費 gas 的交易 三天前的準備 先同步好一個全節點，當天可以快速展示
+Demo 主網路 步驟：
+展示全節點的 Log 展示連接上全節點，並瀏覽合約裡面的資料 決策：要讀什麼合約的資料出來玩比較好玩呢？
+設定全節點 sudo apt install build-essential 安裝 golang
+wget -q -O - https://git.io/vQhTU | bash 下載並建置 Geth
+git clone https://github.com/ethereum/go-ethereum.git cd go-ethereum make geth 跑主網路
+geth Demo 從全節點取得資料 geth attach <要找 ipc path> 瀏覽區塊、交易相關資料 net.version 解釋主網路和其他測試網路 eth.getBlockNumber() eth.getBlockByNumber(100) 挑幾個區塊裡面重要的欄位解釋 瀏覽帳戶餘額 解釋帳戶是什麼，私鑰公鑰數位簽章。EOA 與合約帳戶
+eth.getBalance 瀏覽合約資料 eth.getCode() 選一個合約地址，看 bytecode 與 etherscan 上面的是否吻合 呼叫函式與瀏覽合約狀態 (這項看起來需要 js library 配合比較容易做)"><meta itemprop=datePublished content="2021-02-28T13:35:56+00:00"><meta itemprop=dateModified content="2021-02-28T13:35:56+00:00"><meta itemprop=wordCount content="205"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="📝全節點 Demo"><meta name=twitter:description content="先備知識 主網路
+以太坊系統的本體是一個點對點網路。 全節點大概要同步個一天以上 全節點大概要吃掉 250 GB 的硬碟空間 主網路 要用真的以太幣才能部署合約 測試網路 有水龍頭可以領測試用的測試幣 「狀態」的讀取，免費 「狀態」的寫入，要送花費 gas 的交易 三天前的準備 先同步好一個全節點，當天可以快速展示
+Demo 主網路 步驟：
+展示全節點的 Log 展示連接上全節點，並瀏覽合約裡面的資料 決策：要讀什麼合約的資料出來玩比較好玩呢？
+設定全節點 sudo apt install build-essential 安裝 golang
+wget -q -O - https://git.io/vQhTU | bash 下載並建置 Geth
+git clone https://github.com/ethereum/go-ethereum.git cd go-ethereum make geth 跑主網路
+geth Demo 從全節點取得資料 geth attach <要找 ipc path> 瀏覽區塊、交易相關資料 net.version 解釋主網路和其他測試網路 eth.getBlockNumber() eth.getBlockByNumber(100) 挑幾個區塊裡面重要的欄位解釋 瀏覽帳戶餘額 解釋帳戶是什麼，私鑰公鑰數位簽章。EOA 與合約帳戶
+eth.getBalance 瀏覽合約資料 eth.getCode() 選一個合約地址，看 bytecode 與 etherscan 上面的是否吻合 呼叫函式與瀏覽合約狀態 (這項看起來需要 js library 配合比較容易做)"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script></head><body><main class=main><div class="grid grid-centered"><div class=grid-cell><nav class="header-nav scrollappear"><a href=/ class=header-logo title="CC's blog">CC's blog</a><ul class=header-links><li><a href=/about title=About><svg xmlns="http://www.w3.org/2000/svg" class="icon-about"><use href="http://example.org/icons/about.svg#icon-about" xlink:href="http://example.org/icons/about.svg#icon-about"/></svg></a></li><li><a href=/index.xml rel="noreferrer noopener" target=_blank title=RSS><svg xmlns="http://www.w3.org/2000/svg" class="icon-rss"><use href="http://example.org/icons/rss.svg#icon-rss" xlink:href="http://example.org/icons/rss.svg#icon-rss"/></svg></a></li><li><a onclick=toggle() title="Toggle Theme"><svg xmlns="http://www.w3.org/2000/svg" class="icon-theme"><use href="http://example.org/icons/theme.svg#icon-theme" xlink:href="http://example.org/icons/theme.svg#icon-theme"/></svg></a></li></ul></nav><article class="article scrollappear"><header class=article-header><h1>📝全節點 Demo</h1><div class=article-list-footer><span class=article-list-date>Feb 28, 2021</span>
+<span class=article-list-divider>-</span>
+<span class=article-list-minutes>1 minute read</span></div></header><div class=article-content><h2 id=先備知識>先備知識</h2><p>主網路</p><ol><li>以太坊系統的本體是一個點對點網路。</li><li>全節點大概要同步個一天以上</li><li>全節點大概要吃掉 250 GB 的硬碟空間</li><li>主網路 要用真的以太幣才能部署合約</li><li>測試網路 有水龍頭可以領測試用的測試幣</li><li>「狀態」的讀取，免費</li><li>「狀態」的寫入，要送花費 gas 的交易</li></ol><h2 id=三天前的準備>三天前的準備</h2><p>先同步好一個全節點，當天可以快速展示</p><h2 id=demo-主網路>Demo 主網路</h2><p>步驟：</p><ol><li>展示全節點的 Log</li><li>展示連接上全節點，並瀏覽合約裡面的資料</li></ol><p>決策：要讀什麼合約的資料出來玩比較好玩呢？</p><h2 id=設定全節點>設定全節點</h2><pre tabindex=0><code>sudo apt install build-essential
+</code></pre><p>安裝 golang</p><pre tabindex=0><code>wget -q -O - https://git.io/vQhTU | bash
+</code></pre><p>下載並建置 Geth</p><pre tabindex=0><code>git clone https://github.com/ethereum/go-ethereum.git
+cd go-ethereum
+make geth
+</code></pre><p>跑主網路</p><pre tabindex=0><code>geth
+</code></pre><h2 id=demo-從全節點取得資料>Demo 從全節點取得資料</h2><pre tabindex=0><code>geth attach &lt;要找 ipc path&gt;
+</code></pre><h3 id=瀏覽區塊交易相關資料>瀏覽區塊、交易相關資料</h3><ul><li>net.version<ul><li>解釋主網路和其他測試網路</li></ul></li><li>eth.getBlockNumber()</li><li>eth.getBlockByNumber(100)<ul><li>挑幾個區塊裡面重要的欄位解釋</li></ul></li></ul><h3 id=瀏覽帳戶餘額>瀏覽帳戶餘額</h3><p>解釋帳戶是什麼，私鑰公鑰數位簽章。EOA 與合約帳戶</p><ul><li>eth.getBalance</li></ul><h3 id=瀏覽合約資料>瀏覽合約資料</h3><ul><li>eth.getCode()<ul><li>選一個合約地址，看 bytecode 與 etherscan 上面的是否吻合</li></ul></li></ul><h3 id=呼叫函式與瀏覽合約狀態>呼叫函式與瀏覽合約狀態</h3><p>(這項看起來需要 js library 配合比較容易做)</p><h2 id=相關連結>相關連結</h2><ul><li><a href=https://ethstats.net/>https://ethstats.net/</a></li><li><a href=https://www.ethernodes.org/>https://www.ethernodes.org/</a></li></ul><hr><h1 id=網頁-demo>網頁 Demo</h1><h2 id=前言>前言</h2><p>我知道全節點同步下來全網的狀態</p><ul><li>區塊鏈怎麼執行我的業務邏輯？<ul><li>利用部署到區塊鏈的程式碼</li><li>利用狀態的資料與</li></ul></li><li>我要怎麼更改區塊鏈上面的狀態？</li><li>我要怎麼讓使用者看到區塊鏈上面的狀態？</li></ul><p>在人們偷懶把所有的功能委託給 Infura 與 Metamask ，這些核心的問題很難自行釐清。這個 Demo 的用意在於用最少程式，看到資料怎麼透過網頁與全節點網路互動。</p><h2 id=節點>節點</h2><p>跑測試網路</p><pre tabindex=0><code>geth --goerli
+</code></pre><p>水龍頭 <a href=https://goerli-faucet.slock.it/>https://goerli-faucet.slock.it/</a></p><h2 id=部署合約>部署合約</h2><ol><li>安裝 Solidity</li></ol><p>很簡單的 Solidity</p><pre tabindex=0><code>// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+
+contract Hello {
+     string name = &#34;&#34;;
+    
+    function sayHello() external view returns(string memory){
+        return name;
+    }
+    
+    function changeName(string calldata _name) external {
+        name = _name;
+    }
+}
+</code></pre><h2 id=demo-網頁>Demo 網頁</h2><p>ethers.js 套件</p><pre tabindex=0><code>wget https://cdn.ethers.io/lib/ethers-5.0.esm.min.js
+</code></pre><h2 id=在網頁上顯示合約內的資料>在網頁上顯示合約內的資料</h2><p>網頁 code</p><pre tabindex=0><code>&lt;html&gt;
+
+&lt;head&gt; &lt;/head&gt;
+
+&lt;body&gt;
+    &lt;script type=&#34;module&#34;&gt;
+        import { ethers } from &#34;./ethers-5.0.esm.min.js&#34;;
+        // 讓瀏覽器 console 可以拿到 ethers
+        window.ethers = ethers;
+
+        // const provider = new ethers.providers.JsonRpcProvider(&#34;http://localhost:8545&#34;);
+        // console.log(&#34;provider&#34;, provider)
+        // const signer = provider.getSigner()
+        // console.log(&#34;signer&#34;, signer)
+        // signer.getAddress().then(x =&gt; console.log(x))
+        // console.log(provider.getBlockNumber())
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><p>geth 必須要把權限打開</p><pre tabindex=0><code>geth --http --http.api personal,eth,net,web3  --http.corsdomain &#39;*&#39;
+</code></pre></div></article><footer class="footer scrollappear"><p><span>&copy; 2023 <a href=http://example.org/>CC's blog</a></span>
+<span>Powered by <a href=https://gohugo.io/ rel=noopener target=_blank>Hugo</a></span>
+<span>Theme is based on <a href=https://github.com/nielsenramon/chalk rel="noreferrer noopener" target=_blank>Chalk</a></span></p></footer></div></div></main><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js></script>
+<script src=http://example.org/javascripts/zooming.min.js></script>
+<script src=http://example.org/javascripts/retina.min.js></script>
+<script src=http://example.org/javascripts/svgxuse.min.js></script>
+<script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script>
+<script src=http://example.org/javascripts/vendor.min.js></script>
+<script src=http://example.org/javascripts/webfonts.min.js></script>
+<script src=http://example.org/javascripts/scrollappear.min.js></script>
+<script src=http://example.org/javascripts/application.min.js></script>
+<script src=http://example.org/javascripts/themetoggle.min.js></script></body></html>
