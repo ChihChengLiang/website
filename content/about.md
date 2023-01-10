@@ -4,11 +4,9 @@ date: 2023-01-06T00:35:59+08:00
 draft: false
 ---
 
-## About this blog
+Research engineer @[Privacy and Scaling Explorations team](https://appliedzkp.org/), Ethereum Foundation.
 
 I share thoughts that I'm too shy to share in public but would tell you in a private chat.
-
-Articles are highly noisy. Opinions and errors are mine. Ideas are stolen from people and poorly referenced.
 
 Feedback is welcomed! But I might not reply due to limited bandwidth.
 
