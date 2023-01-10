@@ -8,7 +8,7 @@ Research engineer @[Privacy and Scaling Explorations team](https://appliedzkp.or
 
 I share thoughts that I'm too shy to share in public but would tell you in a private chat.
 
-Feedback is welcomed! But I might not reply due to limited bandwidth.
+I'm interested in zero-knowledge proofs, applied cryptography, public good funding, and economics in general.
 
 ## Social
 
@@ -16,14 +16,14 @@ Feedback is welcomed! But I might not reply due to limited bandwidth.
 - https://twitter.com/ChihChengLiang
 - https://cryptodon.lol/@liangcc
 
-## Past projects I was involved
+## Projects
 
-- 2021-04 Zkevm
-- 2020-06 Hubble
-- 2020-04 MACI
-- 2020-02 Semaphore Authentication
-- 2020 Trinity and Beacon chain
-- 2017-11 Pyethapp Casper
+- 2021-04 [Zkevm](https://github.com/privacy-scaling-explorations/zkevm-circuits). It creates succinct validity proof for EVM.
+- 2020-06 [Hubble](https://github.com/thehubbleproject/hubble-contracts/), a gas-efficient optimistic rollup
+- 2020-04 [MACI](https://github.com/privacy-scaling-explorations/maci/), a bribing-resistant voting infrastructure.
+- 2020-02 [Semaphore Authentication](https://github.com/ChihChengLiang/semaphore_auth). Anonymous login.
+- 2020 [Trinity](https://github.com/ethereum/trinity). Prototyping the Beacon chain on a new Python client
+- 2017-11 [Pyethapp Casper](https://github.com/karlfloersch/pyethereum). Prototyping Casper on a Python client
 
 ## Writings
 
@@ -35,8 +35,6 @@ Many of my past writings since 2016 were on [Medium](https://medium.com/@chihche
 
 ## About the name
 
-My passport name, or [slave name](https://twitter.com/VitalikButerin/status/1535211774697414660), is Chih-Cheng Liang. The Chinese characters are <ruby><rb>梁智程</rb><rt>Liang-Chih-Cheng</rt></ruby>.
+My full name is Chih-Cheng Liang. The Chinese characters are <ruby><rb>梁智程</rb><rt>Liang-Chih-Cheng</rt></ruby>.
 
 In Mandarin, the family name is the first name and the given name is the last name.
-
-You can call me CC to make our lives easier.
