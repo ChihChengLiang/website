@@ -19,3 +19,7 @@ theme = 'chalk'
 [taxonomies]
   tag = "tags"
 
+[params]
+  description = 'Random thoughts'
+  images = ['images/Keyslockstravel.png']
+  title = "CC's blog"
