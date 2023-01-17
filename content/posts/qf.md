@@ -1,10 +1,8 @@
 ---
-title: "📝Quadratic Finance in plain words"
+title: "📝Quadratic Funding in plain words"
 date: 2022-06-20T21:45:09.524Z
 draft: false
 ---
-
-# QF in plain words
 
 This is my quick compilation of all the QF-related sources I've seen recently. The goal is to give high-level intuitions before diving into the math.
 
@@ -13,7 +11,7 @@ There are two challenges in public good funding:
 - How do you get the money?
 - How do you distribute the money when you get it?
 
-In a private good situation, users pay for what they get. They can pay it now for the things they benefit from. Incentives send the right signal to the market. 
+In a private good situation, users pay for what they get. They can pay it now for the things they benefit from. Incentives send the right signal to the market.
 
 In the public good situation. Free rider problem blocks that signal. The market is not able to get the signal of what public good is valuable.
 
@@ -65,7 +63,7 @@ Once the individual has the incentive to donate. This leads to the second conseq
 
 ### A guide to user
 
-As a user of QF. You just entered some QF and see a list of projects
+Suppose you see a QF website listing some projects, what would be a rational way to participate?
 
 - If none of the projects resonates with you and you have no interest in the field. Leave ASAP and do not spend anything there.
 - If it's a field or a cause you feel important, and you want to see it grow. However, you are unfamiliar with any specific project. You can choose to donate to the matching pool.
