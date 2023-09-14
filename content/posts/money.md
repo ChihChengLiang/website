@@ -40,6 +40,12 @@ Back to the crypto scene, there are some desired usecases for crypto.
 ### Macro finance involves difficult math
 
 
+### The existing problem of stable coins
+
+No marcro variable. Pegging is out-sourcing the duty to central banks and sweap the problem away.
+
+Uniswap shows some light on doing a decentralized price oracle.
+
 ## Opportunities in Crypto
 
 Most money theorists are dismissive with crypto. I'd say the reason is most of the professionals stopped at Bitcoin level and are unaware of the capabilities of general computing blockchain can do.
