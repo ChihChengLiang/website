@@ -1,12 +1,12 @@
 ---
-title: "Schwartz-Zippel Example"
+title: "Schwartz-Zippel Note"
 date: 2023-10-17T21:15:02+08:00
 draft: true
 ---
 
 Schwartz-Zippel Lemma is frequently used in Snark interactive proofs.
 
-For a "non-zero", $m$-variate polynomial $P: \mathbb{F}^m \to \mathbb{F}$ with degree $d$, defined on a finite field $\mathbb{F}$, the lemma states
+For a *non-zero*, $m$-variate polynomial $P: \mathbb{F}^m \to \mathbb{F}$ with degree $d$, defined on a finite field $\mathbb{F}$, the lemma states
 
 $$
 \Pr_{X \in \mathbb{F}^m}{[P(X) = 0]} \le \frac{d}{|\mathbb{F}|}
@@ -40,9 +40,9 @@ Since $P(X)$ is a degree two polynomial and $\mathbb{Z}_{101}$ is a prime field,
 
 ### Zero Check
 
-We know a polynomial $P$ with degree $d$ but none of its coefficients. We have an API to evaluate the polynomial on some points and we want to determine if $P(X) := 0$. To check that for sure we have to check $d+1$ points and see the evaluations are all zero. But with Schwartz-Zippel, we can check just one point to conclude with high confidence.
+We know a polynomial $P$ with degree $d$ but none of its coefficients. We have an API to evaluate the polynomial on some points, and we want to determine if $P(X) := 0$. To check that for sure, we have to check $d+1$ points and see the evaluations are all zero. But with Schwartz-Zippel, we can check just one point to conclude with high confidence.
 
-In usual Snarks settings, the field size is a roughly 256 bits number, so that $|\mathbb{F}| \approx 2^{255}$. The polynomial we use has degree usually $2^{20}$. So the probablity of the polynomial evaluating to zero would be 
+In usual Snarks settings, the field size is roughly 256 bits, so $|\mathbb{F}| \approx 2^{255}$. The polynomial we use has a degree usually $2^{20}$. So the probability of the polynomial evaluating to zero would be
 
 $$
 \frac{d}{|\mathbb{F}|} = \frac{2^{20}}{2^{235}} = \frac{1}{2^{235}}
@@ -50,7 +50,7 @@ $$
 
 Which is practically a very tiny probability.
 
-If $P(X)$ is a non-zero polynomial and we randomly sample a $x$ on $\mathbb{F}$ and got $P(x) = 0$. It would be too lucky for that to happen! We can reasonably believe $P(X)$ is a zero polynomial, i.e. $P(X) := 0$
+Suppose $P(X)$ is a non-zero polynomial. Randomly sampling a $x$ on $\mathbb{F}$ and then getting $P(x) = 0$ is like finding a needle in the ocean. We can reasonably believe $P(X)$ is a zero polynomial, i.e. $P(X) := 0$
 
 ### Equality Check
 
