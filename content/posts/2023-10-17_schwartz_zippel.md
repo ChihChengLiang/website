@@ -45,7 +45,7 @@ We know a polynomial $P$ with degree $d$ but none of its coefficients. We have a
 In usual Snarks settings, the field size is roughly 256 bits, so $|\mathbb{F}| \approx 2^{255}$. The polynomial we use has a degree usually $2^{20}$. So the probability of the polynomial evaluating to zero would be
 
 $$
-\frac{d}{|\mathbb{F}|} = \frac{2^{20}}{2^{235}} = \frac{1}{2^{235}}
+\frac{d}{|\mathbb{F}|} = \frac{2^{20}}{2^{255}} = \frac{1}{2^{235}}
 $$
 
 Which is practically a very tiny probability.
