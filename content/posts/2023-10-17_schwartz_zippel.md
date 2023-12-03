@@ -1,7 +1,7 @@
 ---
 title: "Schwartz-Zippel Note"
 date: 2023-10-17T21:15:02+08:00
-draft: true
+draft: false
 ---
 
 Schwartz-Zippel Lemma is frequently used in Snark interactive proofs.
