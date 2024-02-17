@@ -6,15 +6,13 @@ draft: false
 
 Research engineer @[Privacy and Scaling Explorations team](https://appliedzkp.org/), Ethereum Foundation.
 
-I share thoughts that I'm too shy to share in public but would tell you in a private chat.
-
 I'm interested in zero-knowledge proofs, applied cryptography, public good funding, and economics in general.
 
 ## Social
 
 - https://github.com/ChihChengLiang
 - https://twitter.com/ChihChengLiang
-- https://cryptodon.lol/@liangcc
+- Farcaster: @liangcc
 
 ## Projects
 
@@ -35,6 +33,8 @@ Many of my past writings since 2016 were on [Medium](https://medium.com/@chihche
 
 ## About the name
 
-My full name is Chih-Cheng Liang. The Chinese characters are <ruby><rb>梁智程</rb><rt>Liang-Chih-Cheng</rt></ruby>.
+My full name is Chih-Cheng Liang. The Chinese characters are <ruby>
+  梁 <rp>(</rp><rt>Liang</rt><rp>)</rp> 智 <rp>(</rp><rt>Chih</rt><rp>)</rp> 程 <rp>(</rp><rt>Cheng</rt><rp>)</rp>
+</ruby>.
 
 In Mandarin, the family name is the first name and the given name is the last name.
