@@ -35,8 +35,11 @@
   <meta property="og:type" content="website">
 {{- end }}
 
-{{- with partial "_funcs/get-page-images" . }}
-  {{- range . | first 6 }}
+{{- $images := partial "_funcs/get-page-images" . }}
+{{- if .Params.image }}
+  <meta property="og:image" content="{{ (path.Join .RelPermalink .Params.image) | absURL }}">
+{{- else }}
+  {{- range $images | first 6 }}
     <meta property="og:image" content="{{ .Permalink }}">
   {{- end }}
 {{- end }}
