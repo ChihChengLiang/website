@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>zh-TW on CC's blog</title><link>https://liangcc.me/tags/zh-tw/</link><description>Recent content in zh-TW on CC's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 29 Jul 2022 00:35:59 +0800</lastBuildDate><atom:link href="https://liangcc.me/tags/zh-tw/index.xml" rel="self" type="application/rss+xml"/><item><title>📝資料可得性 (Data Availability)</title><link>https://liangcc.me/posts/data_availability/</link><pubDate>Fri, 29 Jul 2022 00:35:59 +0800</pubDate><guid>https://liangcc.me/posts/data_availability/</guid><description>在資料分片的環境底下，我們不能讓全節點去完整下載其他分片上所有的資料，否則就失去分片的意義了。
-但我們仍然要顧慮一種情況：某個分片上的惡意節點，發佈了承諾，卻窩藏承諾背後的資料沒有發布。如果說在其他分片上的全節點，都乖乖收下了帶有這個承諾的區塊，這會是個危險的情況。相當於整個系統產出了一個區塊，但區塊上屬於該分片上的資料，除了惡意節點外沒有人知道是什麼。
-要解決這個問題可以引入兩個機制：抽樣挑戰和糾刪碼。
-抽樣挑戰是我們可以把該分片需要發布的資料切成幾等份，並要求全節點對其抽樣。例如切為 256 份，並對其抽取 75 份。全節點必須在抽樣的 75 份的資料都有正確回應的情況下，才能收下區塊。注意這時候惡意節點的選擇變成到底 256 份的資料中要發布幾份和窩藏幾份。抽樣挑戰的好處是全節點只要少少的抽樣，惡意節點必須發布很大比例的資料（例如 250 份），才能讓全網大部分的全節點完成挑戰並收下區塊。
-但發布很大比例的資料仍然不夠，只要惡意節點能夠窩藏一份資料，這區塊就是一個資料不完整的不合格區塊。所以我們除了抽樣挑戰外還需要糾刪碼。
-糾刪碼是原來資料的延伸，我們可以把原本的 256 份延伸出另外 256 份糾刪碼，總共 512 份。糾刪碼的性質是只要能在 512 份中取得任何 256 份，就能還原出原本資料的 256 份。惡意節點要通過抽樣挑戰，現在必須發布 512 份中大比例的份額，例如 500 份。但這 500 份足夠讓網路中的節點湊出剩下任何窩藏的 12 份了。
-網路中的節點必須完成抽樣挑戰才能收下區塊。節點有抽不到的份額而沒辦法完成挑戰時，可以等別的節點分享從糾刪碼還原回來的份額，最終還是能完成。當整個網路都收下某個區塊時，我們可以確認原本資料的 256 份都是有發布出來的。而且這中間滿足擴容的條件，也就是全節點都只有下載少於 256 份的資料。
-數學細節 抽樣挑戰 假設 256 份裡面，惡意節點釋出了 X 比例的份額。節點抽樣 75 份，都沒抽到窩藏部分的機率是 $X^{75}$ 。在 X 為 50% 時，機率是 $10^{-23}$ ，在 X 為 75% 時，機率還是 $10^{-10}$ 的極小數字。但在 X 為 99% 時，機率上升到 0.47 了。</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zh-TW on CC's blog</title><link>https://liangcc.me/tags/zh-tw/</link><description>Recent content in Zh-TW on CC's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 29 Jul 2022 00:35:59 +0800</lastBuildDate><atom:link href="https://liangcc.me/tags/zh-tw/index.xml" rel="self" type="application/rss+xml"/><item><title>📝資料可得性 (Data Availability)</title><link>https://liangcc.me/posts/data_availability/</link><pubDate>Fri, 29 Jul 2022 00:35:59 +0800</pubDate><guid>https://liangcc.me/posts/data_availability/</guid><description>&lt;p>在資料分片的環境底下，我們不能讓全節點去完整下載其他分片上所有的資料，否則就失去分片的意義了。&lt;/p>
+&lt;p>但我們仍然要顧慮一種情況：某個分片上的惡意節點，發佈了承諾，卻窩藏承諾背後的資料沒有發布。如果說在其他分片上的全節點，都乖乖收下了帶有這個承諾的區塊，這會是個危險的情況。相當於整個系統產出了一個區塊，但區塊上屬於該分片上的資料，除了惡意節點外沒有人知道是什麼。&lt;/p>
+&lt;p>要解決這個問題可以引入兩個機制：抽樣挑戰和糾刪碼。&lt;/p>
+&lt;p>抽樣挑戰是我們可以把該分片需要發布的資料切成幾等份，並要求全節點對其抽樣。例如切為 256 份，並對其抽取 75 份。全節點必須在抽樣的 75 份的資料都有正確回應的情況下，才能收下區塊。注意這時候惡意節點的選擇變成到底 256 份的資料中要發布幾份和窩藏幾份。抽樣挑戰的好處是全節點只要少少的抽樣，惡意節點必須發布很大比例的資料（例如 250 份），才能讓全網大部分的全節點完成挑戰並收下區塊。&lt;/p>
+&lt;p>但發布很大比例的資料仍然不夠，只要惡意節點能夠窩藏一份資料，這區塊就是一個資料不完整的不合格區塊。所以我們除了抽樣挑戰外還需要糾刪碼。&lt;/p>
+&lt;p>糾刪碼是原來資料的延伸，我們可以把原本的 256 份延伸出另外 256 份糾刪碼，總共 512 份。糾刪碼的性質是只要能在 512 份中取得任何 256 份，就能還原出原本資料的 256 份。惡意節點要通過抽樣挑戰，現在必須發布 512 份中大比例的份額，例如 500 份。但這 500 份足夠讓網路中的節點湊出剩下任何窩藏的 12 份了。&lt;/p>
+&lt;p>網路中的節點必須完成抽樣挑戰才能收下區塊。節點有抽不到的份額而沒辦法完成挑戰時，可以等別的節點分享從糾刪碼還原回來的份額，最終還是能完成。當整個網路都收下某個區塊時，我們可以確認原本資料的 256 份都是有發布出來的。而且這中間滿足擴容的條件，也就是全節點都只有下載少於 256 份的資料。&lt;/p>
+&lt;hr>
+&lt;h2 id="數學細節">數學細節&lt;/h2>
+&lt;h3 id="抽樣挑戰">抽樣挑戰&lt;/h3>
+&lt;p>假設 256 份裡面，惡意節點釋出了 X 比例的份額。節點抽樣 75 份，都沒抽到窩藏部分的機率是 $X^{75}$ 。在 X 為 50% 時，機率是 $10^{-23}$ ，在 X 為 75% 時，機率還是 $10^{-10}$ 的極小數字。但在 X 為 99% 時，機率上升到 0.47 了。&lt;/p></description></item></channel></rss>
