@@ -7,7 +7,7 @@ draft: false
 
 I'm interested in zero-knowledge proofs, applied cryptography, public good funding, and economics in general.
 
-Previously at [Privacy and Scaling Explorations team](https://appliedzkp.org/) and Ethereum Foundation.
+Previously at [Privacy and Scaling Explorations team](https://pse.dev/) and Ethereum Foundation.
 
 ## Social
 
