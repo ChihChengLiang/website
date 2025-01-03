@@ -106,7 +106,7 @@ Where are we getting from all the above theories and equations? How can we apply
 
 The first benefit from the FTPL is that the money demand and supply are gone. QTM equation exists no more. This means we no longer need to care about the issuance or justify how users will hold crypto. We can just assume users get crypto only to do whatever they like to do on chain, then dump all their holdings once they got the business done. 
 
-It turns out Vitalik has had this insight all the time. I was planning to quote his [On Medium-of-Exchange Token Valuations](https://vitalik.ca/general/2017/10/17/moe.html) post, because that's where I remember I see the QTM equation in the cryptocurrency context. Vitalik proposed the applications should burn the token instead of making it a "medium of exchange"(MOE) token. The MOE token "depends crucially on the holding time" and creates an easily manipulatable multi-equilibrium game. He proposed
+It turns out Vitalik has had this insight all the time. I was planning to quote his [On Medium-of-Exchange Token Valuations](https://vitalik.eth.limo/general/2017/10/17/moe.html) post, because that's where I remember I see the QTM equation in the cryptocurrency context. Vitalik proposed the applications should burn the token instead of making it a "medium of exchange"(MOE) token. The MOE token "depends crucially on the holding time" and creates an easily manipulatable multi-equilibrium game. He proposed
 
 > If developers want to front-load revenue to fund initial development, then they can sell a token, with the property that all fees paid are used to buy back some of the token and burn it; this would make the token backed by the future expected value of upcoming fees spent inside the system.
 
