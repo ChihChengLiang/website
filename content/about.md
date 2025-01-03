@@ -4,9 +4,10 @@ date: 2023-01-06T00:35:59+08:00
 draft: false
 ---
 
-Research engineer @[Privacy and Scaling Explorations team](https://appliedzkp.org/), Ethereum Foundation.
 
 I'm interested in zero-knowledge proofs, applied cryptography, public good funding, and economics in general.
+
+Previously at [Privacy and Scaling Explorations team](https://appliedzkp.org/) and Ethereum Foundation.
 
 ## Social
 
