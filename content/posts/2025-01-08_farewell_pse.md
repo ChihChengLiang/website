@@ -10,3 +10,4 @@ My journey with the Ethereum Foundation began in late 2017. As a former local co
 
 As we enter 2025, the ecosystem is entering an exciting golden era of cryptography and PSE is in good hands. Over the years, I've reflected on the technologies we've been building, and I've realized how little I truly understand the world we aim to change. That realization has motivated me to dive deeper into reality and pursue independent research in economics.
 
+Monetary theory and modern macroeconomics would be my first step. Progresses and updates will be posted on this blog. Stay tuned and keep in touch.
