@@ -49,7 +49,7 @@ In 1986, the first version of software freedom is published [^freedom]. The mode
 > - The freedom to redistribute copies so you can help others (freedom 2).
 > - The freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.
 
-To summarize, you should be able to run, study, change, and share the code.
+To summarize, you should be able to run, study, modify, and share the code.
 
 ### Rationales behind the freedoms
 
@@ -77,20 +77,40 @@ The software back then and the most of the software today do not work too differ
 
 Note that the for all these to work, we need open sourced copmilers and operating systems. (TODO: What about hardwares?)
 
-A nasty compiler and a nasty operating system can block unauthorized code. I can see why Richard Stallman builds GNU project as the first step to counter the Unix situation. Although the vision of having a free operating system, is first completed by Linux, which was built by Linus Torvalds in 1990s. 
-
-
-
-
+A nasty compiler and a nasty operating system can block unauthorized code. I can see why Richard Stallman builds GNU project as the first step to counter the Unix situation. Although the vision of having a free operating system, is first completed by Linux, which was built by Linus Torvalds in 1990s.
 
 ## Open source camps
+
+1997, Eric Raymond published the "The Cathedral and the Bazaar."
+1998, inspired by the writing, Netscape browser is released as a free software. Raymond considered the Netscape action is a great chance to convince the business world to release their source code.
+
+In a meeting of 1998, the group of people decided to rebrand the free-software as "open source" for the coprate world to adopt it. [^os_history] They modified the Debian Free Software Guidelines as open source definitions and founded the open source initiative.
+
+The open source definition has 10 points. [^osd] I don't intend to go into details. Unlike the Software freedom definitions, which focusing on what users can do with the software, the open source definition only qualify what properties of a license should satisfy.
+
+The rationales of the 10 points, as the annotated version shows, are mostly defenses against open washing and ill-licensing tricks. The OSI-AI page [^osi_ai] cites the freedom of run, study, modify, and share.
+
+So in the philosophical root, the open source movement is still free software but more means to ends.
 
 ## Free Software Foundation's take on AI
 
 In October 2024, Free Software Foundation released a post [^fsf_ai] on their view point of AI.
 
+It cites the difficulty to find the "source code" of the machine learning model.
+
+Freedom may not equal to justice.
+
+## Open source Initiative's take on AI
+
+
+
 
 ## Why do we want freedom?
+
+- Developement
+- Justice
+- Geopolitics
+
 
 
 [^freedom]:https://www.gnu.org/bulletins/bull1.txt
@@ -99,4 +119,6 @@ In October 2024, Free Software Foundation released a post [^fsf_ai] on their vie
 [^manifesto]:https://www.gnu.org/gnu/manifesto.html
 [^fsf_20yrs]: https://www.gnu.org/philosophy/use-free-software.html
 [^fsf_ai]: https://www.fsf.org/news/fsf-is-working-on-freedom-in-machine-learning-applications
-
+[^os_history]:https://web.archive.org/web/20021001164015/http://www.opensource.org/docs/history.php
+[^osd]:https://opensource.org/definition-annotated
+[^osi_ai]: https://opensource.org/ai
