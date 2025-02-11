@@ -6,13 +6,13 @@ draft: false
 
 Recently, the release of Deepseek sparked a global discussion. It was released under an MIT license, which excited open source builders like me.
 
-However, people also questioned the license and whether Deepseek is truly an open source project. After all, the so-called open-washing, the behavior of making a product look open-sourced but in fact is not, is too common, making people skeptical of new projects. Here are some precedents. OpenAI, the company behind ChatGPT, is ironically not "open" despite its name suggesting otherwise. Llama, released by Meta under a customized Meta license, which imposed certain restrictions on profiting with the model, is also considered not truly open-sourced.
+However, people also questioned the license and whether Deepseek is truly an open source project. After all, the so-called open-washing, the behavior of making a product look open-sourced but in fact is not, is too common, making people skeptical of new projects. Here are some precedents. OpenAI, the company behind ChatGPT, is ironically not "open" despite its name suggesting otherwise. Llama, released by Meta under a customized LLaMA license, which forbids commercial use (i.e., a 'research-only' restriction), is also considered not truly open-sourced.
 
 People cite the newly defined OSI AI definition as a checklist to determine if an AI project is considered open source. This includes releasing the model weights, source code for training the model, and input parameters for the training code. The intention here is to let users reproduce the training process to obtain the same weights. However, the training data is not required to be released due to privacy and security concerns. OSI has been known for its focus on practicality.
 
 All of these make me wonder, what makes a project open-sourced? Why do we want that? Is the OSI AI definition enough?
 
-I remember in 2013, I was excited by the beginning of MOOC. Lots of high-quality courses from prestigious universities were released for free. Andrew Ng, the founder of Coursera, instructed a Machine Learning course. He proposed that GPU would be the future of machine learning. I also heard the term "Deep Learning" for the first time.
+I remember in 2013, I was excited by the beginning of MOOC. Lots of high-quality courses from prestigious universities were released for free. Andrew Ng, the co-founder of Coursera, instructed a Machine Learning course. He (among others) strongly advocated that GPU acceleration would transform the scale of deep learning. I also heard the term "Deep Learning" for the first time.
 
 I was a new graduate with a Finance major back then. I explored different domains of statistics courses like economics, management, psychology, and electrical engineering. Most of them build models to describe the data or draw smart conclusions from data. Machine learning is not too different from that way in terms of predicting things from data. But it stands out with one idea, creating a program without manually writing it.
 
@@ -34,7 +34,7 @@ In this post, I wanted to explore the origin of the two movements and see what s
 
 ### Complaint to Unix System
 
-The story starts with the Unix system in 1969. Bell Labs from AT&T developed it. But then, under an antitrust lawsuit, AT&T was not allowed to operate a computer business. As a result, Bell Labs released the source code of Unix.
+The story starts with the Unix system in 1969. Bell Labs from AT&T developed it. But then, under an antitrust lawsuit, AT&T was not allowed to operate a computer business. As a result, Bell Labs licensed Unix to academic and research institutions, which created a culture of sharing the Unix source among universities.
 
 The Unix system gained popularity. Researchers started to use it. But then in 1984, AT&T divested Bell Labs. Bell Labs now had no restriction to operate a computer business. Bell Labs started to sell Unix as a for-profit product. Users were not allowed to modify the code.
 
@@ -80,7 +80,7 @@ A nasty compiler and a nasty operating system can block unauthorized code. I can
 ## Open Source Camps
 
 In 1997, Eric Raymond published "The Cathedral and the Bazaar."
-In 1998, inspired by the writing, the Netscape browser was released as free software. Raymond considered the Netscape action a great chance to convince the business world to release their source code.
+In 1998, inspired by the writing, the Netscape browser source code was released. Raymond considered the Netscape action a great chance to convince the business world to release their source code.
 
 In a meeting in 1998, a group of people decided to rebrand free software as "open source" for the corporate world to adopt it. [^os_history] They modified the Debian Free Software Guidelines as open source definitions and founded the Open Source Initiative.
 
@@ -98,15 +98,13 @@ It recognizes the difficulty of treating machine learning models like traditiona
 
 "The model parameters are not comprehensible as such by humans, so it is not practical to study or adapt an ML application by analyzing or editing model parameters directly."
 
-It also requires the training data to be released to be qualified as libre.
+But it is the training data that creates a dilemma to the FSF. For a long time, nonfree eqauls unjust because users' freedom to control their own computing is deprived.
 
-It further acknowledges that freedom may not equal justice.
-
-> FSF considers all nonfree software to be unjust to its users because it denies them the freedom to control their own computing. A further question is whether all nonfree ML applications are ethically unjust. It may be that some nonfree ML have valid moral reasons for not releasing training data, such as personal medical data. In that case, we would describe the application as a whole as nonfree. But using it could be ethically excusable if it helps you do a specialized job that is vital for society, such as diagnosing disease or injury. For the FSF to consider usage of such a nonfree ML application to be just, its component software must be free, and the ML application as a whole would have to be distributed to users in a form and manner that reasonably and flexibly supports incremental training, or retraining differently from scratch, or both.
+Now AI created a case to justify nonfree. If an AI is trained on private medical data, it is hard to call it free because you can not retrain and reproduce the weights. But if you use such nonfree model to diagnose a disease then it might be ethical.
 
 ## Open Source Initiative's Take on AI
 
-Released in October 2024, similar to the release of FSF's post, OSI also released an open source AI definition. [^osi_ai]
+Released in October 2024, similar to the release of FSF's post, OSI also released an open source AI definition. [^osi_ai] [^osi_ai_news]
 
 It cites the four freedoms. To qualify as open source AI, share data information of the training data, source code to train and run, and model weights.
 
@@ -129,4 +127,5 @@ The FAQ also mentioned the OSI AI definition does not address ethical issues. It
 [^os_history]: https://web.archive.org/web/20021001164015/http://www.opensource.org/docs/history.php
 [^osd]: https://opensource.org/definition-annotated
 [^osi_ai]: https://opensource.org/ai
+[^osi_ai_news]: https://opensource.org/blog/the-open-source-initiative-announces-the-release-of-the-industrys-first-open-source-ai-definition
 [^osi_ai_faq]: https://hackmd.io/@opensourceinitiative/osaid-faq#Why-do-you-allow-the-exclusion-of-some-training-data
