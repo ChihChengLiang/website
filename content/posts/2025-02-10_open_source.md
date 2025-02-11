@@ -90,22 +90,34 @@ The open source definition has 10 points. [^osd] I don't intend to go into detai
 
 The rationales of the 10 points, as the annotated version shows, are mostly defenses against open washing and ill-licensing tricks. The OSI-AI page [^osi_ai] cites the freedom of run, study, modify, and share.
 
-So in the philosophical root, the open source movement is still free software but more means to ends.
+So in the philosophical root, the open source movement is still free software but more means to ends. But let's say the pre-2000 era, the main goal is to let more business release their source code in a friendly way. Also, for business, they want to get the benefit of "more eye balls and less bugs."
 
 ## Free Software Foundation's take on AI
 
-In October 2024, Free Software Foundation released a post [^fsf_ai] on their view point of AI.
+In October 2024, Free Software Foundation released a post on their view point of AI. [^fsf_ai]
 
-It cites the difficulty to find the "source code" of the machine learning model.
+It recognizes the difficulty to treat machine learning model like the good old software. "Machine learning applications are only partially software," it says. 
 
-Freedom may not equal to justice.
+"The model parameters are not comprehensible as such by humans, so it is not practical to study or adapt an ML application by analyzing or editing model parameters directly."
+
+It also requires the training data to be released to be qualified as libre.
+
+It further acknowledged that freedom may not equal to justice.
+
+> FSF considers all nonfree software to be unjust to its users because it denies them the freedom to control their own computing. A further question is whether all nonfree ML applications are ethically unjust. It may be that some nonfree ML have valid moral reasons for not releasing training data, such as personal medical data. In that case, we would describe the application as a whole as nonfree. But using it could be ethically excusable if it helps you do a specialized job that is vital for society, such as diagnosing disease or injury. For the FSF to consider usage of such a nonfree ML application to be just, its component software must be free, and the ML application as a whole would have to be distributed to users in a form and manner that reasonably and flexibly supports incremental training, or retraining differently from scratch, or both.
 
 ## Open source Initiative's take on AI
 
+Released October 2024, similar to the release of FSF's post, OSI also released an open source AI definition. [^osi_ai]
 
+It cites the four freedoms. To qualify for open sourced AI, share Data Information of the training data, source code to train and run, and model weights. 
 
+A FAQ explains the decision to exclude opening the training data. [^osi_ai_faq] There are cases of definitly not sharable data like Medical data, legally trainable but not sharable like copy-righted data. Even the most sharable data like open data and public domain data could have edge cases like countries have different definitions on them.
+
+The FAQ also mentioned the OSI AI definition does not care about ethical issues. It points the ethical and trustworthy issue to a separate OECD document.
 
 ## Why do we want freedom?
+
 
 - Developement
 - Justice
@@ -122,3 +134,4 @@ Freedom may not equal to justice.
 [^os_history]:https://web.archive.org/web/20021001164015/http://www.opensource.org/docs/history.php
 [^osd]:https://opensource.org/definition-annotated
 [^osi_ai]: https://opensource.org/ai
+[^osi_ai_faq]:https://hackmd.io/@opensourceinitiative/osaid-faq#Why-do-you-allow-the-exclusion-of-some-training-data
