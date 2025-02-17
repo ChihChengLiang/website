@@ -18,94 +18,73 @@ As with "The twenty-six words that changed the internet" (referring to Section 2
 
 ## The Response from the Free Software Camp
 
-### Complaint to Unix System
+### Complaint About the Unix System
 
-The story starts with the Unix system in 1969. Bell Labs from AT&T developed it. But then, under an antitrust lawsuit, AT&T was not allowed to operate a computer business. As a result, Bell Labs licensed Unix to academic and research institutions, which created a culture of sharing the Unix source among universities.
+The story begins with the Unix system, first developed in 1969 by Bell Labs, a research arm of AT&T. Due to antitrust constraints, AT&T was barred from the computer business and thus licensed Unix to academic and research institutions. This policy fostered a culture of sharing Unix source code among universities, which helped it gain widespread popularity.
 
-The Unix system gained popularity. Researchers started to use it. But then in 1984, AT&T divested Bell Labs. Bell Labs now had no restriction to operate a computer business. Bell Labs started to sell Unix as a for-profit product. Users were not allowed to modify the code.
+However, by 1984, AT&T had divested Bell Labs and was free to commercialize its software. Unix became a for-profit product, and users were no longer permitted to modify its code. In response, Richard Stallman launched the GNU project in 1983 to rebuild a free software stack. That stack included essential tools like GNU Emacs (an editor), the GNU Debugger, and the GNU C Compiler.
 
-In response, Richard Stallman tried to re-create a stack of software, the GNU project, in 1983. The GNU project contains an editor GNU EMACs, the GNU Debugger, and a GNU C compiler.
-
-In 1986, the first version of software freedom was published [^freedom]. The modern version of freedom, which adds freedom 0 as a more fundamental one, is defined as follows: [^modern_freedom]
+By 1986, an initial version of “software freedom” principles was published. [^freedom] The modern formulation adds Freedom 0—a more fundamental liberty—and reads as follows: [^modern_freedom]
 
 > - The freedom to run the program as you wish, for any purpose (freedom 0).
 > - The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this.
 > - The freedom to redistribute copies so you can help others (freedom 2).
 > - The freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.
 
-To summarize, you should be able to run, study, modify, and share the code.
+In essence, these four freedoms guarantee the ability to run, study, modify, and share software.
 
 ### Rationales Behind the Freedoms
 
-The movement was motivated by the legal and business environment of AT&T, causing the enterprise to hold the power to make your life as a software user and developer miserable. [^life_and_death]
+AT&T's shift to a proprietary model for Unix illustrated how a company could wield tremendous power over users and developers. [^life_and_death] Stallman and others believed such control harmed both collaboration and user autonomy. Looking deeper, several motivations appear: [^means_ends]
 
-I tried to dig deeper into the rationales behind the 4 freedoms. [^means_ends] Let's say:
+#### Solidarity of Users
 
-#### Solidarity of Users Reason
+The GNU Manifesto [^manifesto] frames software sharing as a moral duty:
 
-The GNU Manifesto says [^manifesto]:
+> I consider that the Golden Rule requires that if I like a program I must share it with other people who like it. Software sellers want to divide the users and conquer them, making each user agree not to share with others. I refuse to break solidarity with other users in this way...
 
-> I consider that the Golden Rule requires that if I like a program I must share it with other people who like it. Software sellers want to divide the users and conquer them, making each user agree not to share with others. I refuse to break solidarity with other users in this way. I cannot in good conscience sign a nondisclosure agreement or a software license agreement.
+The Free Software Foundation's 20-year review echoes that sentiment:
 
-Furthermore, the Free Software Foundation (FSF) 20-year review elaborates more:
-
-> Nonfree software carries with it an antisocial system that prohibits cooperation and community. You are typically unable to see the source code; you cannot tell what nasty tricks, or what foolish bugs, it might contain. If you don't like it, you are helpless to change it. Worst of all, you are forbidden to share it with anyone else. To prohibit sharing software is to cut the bonds of society.
+> Nonfree software ... prohibits cooperation and community. You are typically unable to see the source code... If you don't like it, you are helpless to change it. Worst of all, you are forbidden to share it with anyone else.
 [^fsf_20yrs]
 
-#### Security Reasons
+#### Security and Transparency
 
-From the quote above, we see the security concerns for nasty tricks and bugs in the program.
+This same text highlights security concerns: without open access to source code, users can't detect or fix malicious tricks or bugs. A strong presumption arose that open, inspectable code is inherently safer.
 
-I think the most interesting aspect is the public good. I couldn't find a discussion framing software as goods of non-rivalrousness and non-exclusiveness. The GNU Manifesto [^manifesto] discusses extensively the economic aspect of software development, like "Won't programmers starve?" or "Shouldn't a programmer be able to ask for a reward for his creativity?". Most of the answers didn't cite economic dilemmas but instead said the programmers would contribute in their leisure time and be rewarded with social contribution.
+Interestingly, communities within the Ethereum and broader blockchain space often label open protocols or code as public goods. They employ the formal economic terminology of "non-rival" and "non-excludable" to argue that permissionless networks benefit everyone without diminishing value for any single user. In contrast, the FSF rarely frames software in these precise terms, focusing instead on moral and practical freedoms (run, study, modify, share). While the FSF's stance naturally aligns with a "public good" viewpoint—since copying software doesn't diminish its utility—Richard Stallman's writings generally avoid the language of economics and emphasize user solidarity and autonomy instead.
 
 ### What is the Free Software Movement About?
 
-The software back then and most of the software today do not work too differently. We have human-readable source code, which gets compiled into unreadable executables, then run by machines.
-
-Note that for all these to work, we need open-sourced compilers and operating systems. (TODO: What about hardware?)
-
-A nasty compiler and a nasty operating system can block unauthorized code. I can see why Richard Stallman built the GNU project as the first step to counter the Unix situation. Although the vision of having a free operating system was first completed by Linux, which was built by Linus Torvalds in the 1990s.
+In principle, software then (and now) still involves human-readable source code compiled into machine code. To exercise these freedoms, a community also needs a free compiler and operating system—hence Stallman's push for a GNU operating system to replace proprietary Unix. While Linux, created by Linus Torvalds in the early 1990s, eventually completed that vision, the drive began with Stallman's stand against proprietary software.
 
 ## Open Source Camps
 
-In 1997, Eric Raymond published "The Cathedral and the Bazaar."
-In 1998, inspired by the writing, the Netscape browser source code was released. Raymond considered the Netscape action a great chance to convince the business world to release their source code.
+Eric Raymond's 1997 essay *The Cathedral and the Bazaar* highlighted the benefits of open, collaborative development. In 1998, Netscape released its browser source code, and many saw this as a landmark victory for what was then called "free software."
 
-In a meeting in 1998, a group of people decided to rebrand free software as "open source" for the corporate world to adopt it. [^os_history] They modified the Debian Free Software Guidelines as open source definitions and founded the Open Source Initiative.
+That same year, a group including Raymond rebranded the movement as "open source" to encourage broader corporate adoption. [^os_history] The new Open Source Definition (derived from the Debian Free Software Guidelines) laid out ten points a license must satisfy to be called "open source." [^osd] Rather than emphasizing the user's moral rights, these points focus on license attributes—especially preventing hidden restrictions or "open-washing."
 
-The open source definition has 10 points. [^osd] I don't intend to go into details. Unlike the software freedom definitions, which focus on what users can do with the software, the open source definition only qualifies what properties a license should satisfy.
+While "open source" remains philosophically close to "free software," its creators aimed to attract businesses with arguments like "more eyeballs, fewer bugs." Over time, these two camps—free software and open source—would diverge in rhetoric but often share similar underlying values.
 
-The rationales of the 10 points, as the annotated version shows, are mostly defenses against open washing and ill-licensing tricks. The OSI-AI page [^osi_ai] cites the freedom to run, study, modify, and share.
-
-So in the philosophical root, the open source movement is still free software but more means to ends. But let's say the pre-2000 era, the main goal was to let more businesses release their source code in a friendly way. Also, for businesses, they want to get the benefit of "more eyeballs and fewer bugs."
-
-Now that we've seen how free software and open source principles took shape under very different computing conditions, let's see why these old frameworks hit roadblocks when applied to AI models.
+Now that we've seen how both movements developed in an era of primarily local computing, let's examine why their 1980s frameworks face new complexities in today's AI-driven world.
 
 ## Free Software Foundation's Take on AI
 
-In October 2024, the Free Software Foundation released a post on their viewpoint of AI. [^fsf_ai]
+In October 2024, the Free Software Foundation published an official stance on AI. [^fsf_ai] They acknowledge that machine learning applications only partly resemble traditional software:
 
-It recognizes the difficulty of treating machine learning models like traditional software. "Machine learning applications are only partially software," it says.
+> The model parameters are not comprehensible as such by humans, so it is not practical to study or adapt an ML application by analyzing or editing model parameters directly.
 
-"The model parameters are not comprehensible as such by humans, so it is not practical to study or adapt an ML application by analyzing or editing model parameters directly."
-
-But it is the training data that creates a dilemma for the FSF. For a long time, nonfree equals unjust because users' freedom to control their own computing is deprived.
-
-Now AI has created a case to justify nonfree. If an AI is trained on private medical data, it is hard to call it free because you cannot retrain and reproduce the weights. But if you use such a nonfree model to diagnose a disease, then it might be ethical.
+This raises a key dilemma. For decades, the FSF considered any "nonfree" software unjust because it deprives users of control. But with AI, scenarios arise where using a nonfree model (e.g., one trained on sensitive medical data) could still be ethically defensible—especially if its use saves lives by diagnosing diseases.
 
 ## Open Source Initiative's Take on AI
 
-Released in October 2024, similar to the release of FSF's post, OSI also released an open source AI definition. [^osi_ai] [^osi_ai_news]
+Also in October 2024, the OSI introduced an open source AI definition. [^osi_ai] [^osi_ai_news] It upholds the four freedoms—running, studying, modifying, and sharing—while specifying three key criteria for AI projects:
 
-It cites the four freedoms. To qualify as open source AI share the follows:
+1. Release **model weights**
+2. Provide **data information** about the training set
+3. Make **source code** for training and inference available
 
-1. Model weights
-2. Data information of the training data
-3. Source code to train and run the model.
-
-A FAQ explains the decision to exclude opening the training data. [^osi_ai_faq] There are cases of definitely not sharable data like medical data, legally trainable but not sharable like copyrighted data. Even the most sharable data like open data and public domain data could have edge cases like countries having different definitions of them.
-
-The FAQ also mentioned the OSI AI definition does not address ethical issues. It points the ethical and trustworthy issues to a separate OECD document.
+A related FAQ [^osi_ai_faq] explains why the OSI doesn't require releasing raw training data: privacy, legal restrictions, and regional variations complicate full disclosure. It also notes that the OSI AI definition steers clear of ethical mandates, deferring those questions to separate frameworks like OECD guidelines.
 
 ## Why the 1980s Freedoms Struggle to Apply to AI
 
