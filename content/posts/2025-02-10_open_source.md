@@ -12,9 +12,7 @@ People cite the newly defined OSI AI definition as a checklist to determine if a
 
 All of these make me wonder, what makes a project open-sourced? Why do we want that? Is the OSI AI definition enough?
 
-I remember in 2013, I was excited by the beginning of MOOC. Lots of high-quality courses from prestigious universities were released for free. Andrew Ng, the co-founder of Coursera, instructed a Machine Learning course. He (among others) strongly advocated that GPU acceleration would transform the scale of deep learning. I also heard the term "Deep Learning" for the first time.
-
-I was a new graduate with a Finance major back then. I explored different domains of statistics courses like economics, management, psychology, and electrical engineering. Most of them build models to describe the data or draw smart conclusions from data. Machine learning is not too different from that way in terms of predicting things from data. But it stands out with one idea, creating a program without manually writing it.
+In 2013, I took my first Machine Learning class, instructed by Andrew Ng, on Coursera. Like other statistical fields—economics, management, psychology, or engineering—machine learning involves building models to describe data or make predictions. Yet it stands out by creating a program automatically from data, rather than having every instruction written by hand.
 
 Now fast forward to 10 years later. Machine learning is no longer focusing on specific tasks like telling apples from oranges and cats from dogs. Nowadays, it is general-purpose and does everything. I've been practicing programming for almost 10 years. Nowadays, I tell GPT what I want to write, and then it spits out the code, and I decide whether to apply it. We'll soon see what Andrej Karpathy called [vibe coding](https://x.com/karpathy/status/1886192184808149383), where you just accept everything and leave it to AI to do the rest.
 
