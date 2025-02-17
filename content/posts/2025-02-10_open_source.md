@@ -123,26 +123,25 @@ The FAQ also mentioned the OSI AI definition does not address ethical issues. It
 
 We've learned how the FSF defines freedom and the OSI focuses on licensing practicality. But AI—especially large models—presents new obstacles to those goals.
 
-Let's say software is some instructions to carry out computations from inputs to outputs.
+### Computation cost
 
-The good old software is almost equal to source code. The new software like AI is a perfect spaghetti.
+The first notable things is the cost of freedom changed. Freedoms in the good old software are cheap in nature. The main freedom blocker is the legal friction of the source code. We see both FS and OS camps put lots of emphasis on legal issues.
 
-### Old freedoms are too much to ask
+The AI is computation expensive in the current technology paradigm. The advanced LLM runs on a beefy server, makeing the freedom to run costly. It also takes millions to train, so freedom to modify or reproduce is a luxury. The small model future might mitigate this.
 
-The freedoms to run, study, modify, and share assume these actions are cheap.
+#### Cost to study
 
-It's cheap to compile source code, to run on my device, to understand a program's behavior if I want to, to modify source code by using text editors, and to share with people with floppy disks.
+The computation steps in AI models is represented by a blob of weights, and that messes up Freedom 1 completely. I read the wording again and I find all the wording mean completely different things for AI.
 
-Cost changes with AI.
+Let's deal with the source code first. What is source code? Most of the people agree that binary executables or bytecodes are not consider source codes, as they are unreadable by human. In that line of reasoning, one might not call model weights source code.
 
-- Some big models require beefy servers to run. Some are still fairly cheap to run on a personal device.
-- AI no longer has readable source code. Weights are unreadable but their behaviors are still somehow studiable with some interpretability techniques. [^io]
-- Modifying an AI is expensive. It usually takes millions of dollars to retrain, under the current technology. OSIAI requires the training program and data information to be opened to make modification at least feasible.
-- Sharing weights is not fundamentally too different from traditional software. Sharing training data is difficult for privacy-sensitive cases. Check this box if we don't include training data as part of the system.
+Model weights are already what we can do to reproduce the computation steps. There are also interpretability techniques that help people understand how the program behave, to some degree. [^io] But it'll nowhere come close to how traditional software source code clarity. We'll have to relax or give up freedom 1 a little bit.
 
-As new and old software have such different cost properties, making the old freedom harder to enforce on the new one.
+"Changing the program" means different in AI. One thing I see people trying very hard to do is to modify DeepSeek's default pro-China narrative and make it recognize Taiwan as a country. That can be acheived with prompt enginnering, model fine tune, or other creative approaches. Audrey Tang famously demonstrated a hijack in the chain of thought process to trick DeepSeek giving honest description of a historical fact. [^au_ds] prompt enginnering and Audrey's trick are kind of a function call parameter change instead of a real code change. Model fine tune is more like a real program change.
 
-### Old freedoms are not enough
+"does your computing as your wish" is a monkey paw-ish clause that already unrealistic in the traditional software. One thing I learned in smart contract security is that the human readable source code gives us a false sense of reflecting human intent. [^value_complexity] Source code offers a lot of transparency to how the program works, but it's not 100%. Maybe that motivates us to seek increamental improvement in AI model behavior transparency, instead of a complete control.
+
+#### Ethical implication
 
 Software Freedom was defined to be value-neutral. It doesn't care about whether you use the software to do good or evil. The OSI definition has the "No Discrimination Against Persons or Groups" and "No Discrimination Against Fields of Endeavor" requirements.
 
@@ -158,10 +157,13 @@ Survival of humanity might outweigh software freedom and commercial success.
 
 ## Conclusion
 
-AI has changed the nature of software, especially the source code part. We should either:
+AI has changed the nature of software, especially the source code part. There might be some possibility forward:
 
-1. Tailor a new type of freedom for the new software
-2. Generalize the old freedom to fit wider cases
+1. Bend the technology to make it fit into the 1980 freedoms.
+2. Generalize or bend the old freedom to fit for potential new AI paradigms.
+3. A mixture of two
+
+
 
 [^freedom]: https://www.gnu.org/bulletins/bull1.txt
 [^modern_freedom]: https://www.gnu.org/philosophy/free-sw.en.html
@@ -178,3 +180,5 @@ AI has changed the nature of software, especially the source code part. We shoul
 [^io]: [IO](https://en.wikipedia.org/wiki/Indistinguishability_obfuscation) is not there yet to completely disrupt this whole discussion.
 [^evil]: https://web.archive.org/web/20170608034900/http://dev.hasenj.org/post/3272592502/ibm-and-its-minions
 [^fsf_json]: https://www.gnu.org/licenses/license-list.html#JSON
+[^au_ds]: https://x.com/NOTonlywater/status/1884262704149586000/photo/3
+[^value_complexity]: https://blog.ethereum.org/2016/06/19/thinking-smart-contract-security
