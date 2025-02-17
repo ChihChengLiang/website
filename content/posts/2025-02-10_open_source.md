@@ -51,7 +51,7 @@ To summarize, you should be able to run, study, modify, and share the code.
 
 The movement was motivated by the legal and business environment of AT&T, causing the enterprise to hold the power to make your life as a software user and developer miserable. [^life_and_death]
 
-I've tried to dig deeper into the rationales behind the 4 freedoms. Let's say:
+I've tried to dig deeper into the rationales behind the 4 freedoms. [^means_ends] Let's say:
 
 #### Solidarity of Users Reason
 
@@ -59,11 +59,14 @@ The GNU Manifesto says [^manifesto]
 
 > I consider that the Golden Rule requires that if I like a program I must share it with other people who like it. Software sellers want to divide the users and conquer them, making each user agree not to share with others. I refuse to break solidarity with other users in this way. I cannot in good conscience sign a nondisclosure agreement or a software license agreement.
 
-"antisocial system that prohibits cooperation and community" [^fsf_20yrs]
+Furthermore, Free Software Foundation (FSF hereafter) 20 years review elaborates more.
+
+> Nonfree software carries with it an antisocial system that prohibits cooperation and community. You are typically unable to see the source code; you cannot tell what nasty tricks, or what foolish bugs, it might contain. If you don't like it, you are helpless to change it. Worst of all, you are forbidden to share it with anyone else. To prohibit sharing software is to cut the bonds of society.
+[^fsf_20yrs]
 
 #### Security Reasons
 
-The Free Software Foundation 20 years review [^fsf_20yrs] mentioned that software freedoms allow us to find nasty tricks or foolish bugs in the program.
+From the quote above, we see the security concerns for nasty tricks and bugs in the program.
 
 I think the most interesting is the public good aspect. I couldn't find the discussion to frame software as goods of non-rivalrousness and non-exclusiveness. The GNU Manifesto [^manifesto] discusses extensively the economic aspect of software development like "Won't programmers starve?" or "Shouldn't a programmer be able to ask for a reward for his creativity?". Most of the answers didn't cite economic dilemmas but instead said the programmers would contribute in their leisure time and be rewarded with social contribution.
 
@@ -137,6 +140,7 @@ The FAQ also mentioned the OSI AI definition does not address ethical issues. It
 [^freedom]: https://www.gnu.org/bulletins/bull1.txt
 [^modern_freedom]: https://www.gnu.org/philosophy/free-sw.en.html
 [^life_and_death]: As a friend of mine commented vividly, it's the life and death control [生殺与奪の権利](https://ja.wikipedia.org/wiki/%E7%94%9F%E6%AE%BA%E4%B8%8E%E5%A5%AA%E3%81%AE%E6%A8%A9%E5%88%A9).
+[^means_ends]: I remember a friends' discussion on "Why do we need decentralization?" If we double click the a mean to get an end, and keep double clicking that end, what would we get? Eventally we should get something that is both a mean and an end. Does that motivate us not to double click on Decentralization and Software Freedoms?
 [^manifesto]: https://www.gnu.org/gnu/manifesto.html
 [^fsf_20yrs]: https://www.gnu.org/philosophy/use-free-software.html
 [^fsf_ai]: https://www.fsf.org/news/fsf-is-working-on-freedom-in-machine-learning-applications
