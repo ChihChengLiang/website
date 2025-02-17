@@ -4,29 +4,17 @@ date: 2025-02-10T17:04:18+08:00
 draft: false
 ---
 
-Recently, the release of Deepseek sparked a global discussion. It was released under an MIT license, which excited open source builders like me.
+Recently, Deepseek's release under an MIT license sparked a global conversation: Is it truly open source, or just another example of "open-washing"? The practice of marketing a product as open when crucial parts remain closed is unfortunately common, fueling skepticism among developers. Take OpenAI, which, despite its name, is not fully "open," or Meta's LLaMA, whose license prohibits commercial use—prompting many to question its true openness.
 
-However, people also questioned the license and whether Deepseek is truly an open source project. After all, the so-called open-washing, the behavior of making a product look open-sourced but in fact is not, is too common, making people skeptical of new projects. Here are some precedents. OpenAI, the company behind ChatGPT, is ironically not "open" despite its name suggesting otherwise. Llama, released by Meta under a customized LLaMA license, which forbids commercial use (i.e., a 'research-only' restriction), is also considered not truly open-sourced.
+These examples highlight a bigger question: **What qualifies as open source in the AI era?** The newly proposed OSI AI definition sets a checklist: release model weights, training source code, and training parameters. Yet it stops short of mandating publication of training data, citing privacy and security concerns—a stance reflecting the OSI's trademark pragmatism. Still, is that enough? Are we content with partial transparency?
 
-People cite the newly defined OSI AI definition as a checklist to determine if an AI project is considered open source. This includes releasing the model weights, source code for training the model, and input parameters for the training code. The intention here is to let users reproduce the training process to obtain the same weights. However, the training data is not required to be released due to privacy and security concerns. OSI has been known for its focus on practicality.
+Reflecting on these issues, I'm reminded of my first Machine Learning course in 2013, taught by Andrew Ng, on Coursera. Like other statistical fields—economics, psychology, engineering—machine learning models describe data and make predictions. The key difference is that machine learning **creates programs automatically**, rather than having every line of code written by hand.
 
-All of these make me wonder, what makes a project open-sourced? Why do we want that? Is the OSI AI definition enough?
+Fast-forward a decade: AI is no longer about classifying apples vs. oranges; it's practically universal in scope. Tools like GPT can generate entire programs from natural-language prompts, a style that some, like Andrej Karpathy, refer to as vibe coding. [^vibe] We're inching closer to a future where people casually accept an AI's suggestions and move on.
 
-In 2013, I took my first Machine Learning class, instructed by Andrew Ng, on Coursera. Like other statistical fields—economics, management, psychology, or engineering—machine learning involves building models to describe data or make predictions. Yet it stands out by **creating a program automatically from data, rather than having every instruction written by hand.**
+This evolution raises a crucial point: When a model's "logic" resides in opaque weights rather than human-readable text, do the 1980s principles of free software and open source still apply? Or do we need a new model of "freedom" for AI?
 
-Now fast forward to 10 years later. Machine learning is no longer focusing on specific tasks like telling apples from oranges and cats from dogs. Nowadays, it is general-purpose and does everything. I've been practicing programming for almost 10 years. Nowadays, I tell GPT what I want to write, and then it spits out the code, and I decide whether to apply it. We'll soon see what Andrej Karpathy called [vibe coding](https://x.com/karpathy/status/1886192184808149383), where you just accept everything and leave it to AI to do the rest.
-
-The point here is that the AI model we're using is a new breed of software. It takes some inputs and produces some outputs, but the behavior is no longer specified in readable English, like traditional software. So do the concepts derived from the 1980s, both free software and open source, still make sense in this new scene?
-
----
-
-The lesson from "The twenty-six words that changed the internet" and the story of Section 230 is that our fancy new technology is actually under the ruling of ancient legal concepts. Let's trace the origin of the free software and open source movement.
-
-The two movements were initiated in the 1980s when people used computers very differently from today.
-
-In the past, people used software locally. Today, people mostly use software that interacts with servers. Software as a Service, or SaaS, is the term for that.
-
-In this post, I wanted to explore the origin of the two movements and see what software use cases motivated them. I then look for their latest takes on AI projects. I'm also interested in their responses to all the computer histories like the Internet, SaaS, hardware, cryptography, etc. But those will be topics for future research.
+As with "The twenty-six words that changed the internet" (referring to Section 230), these modern technologies remain bound by older legal and philosophical frameworks. In this post, I'll trace the origins of free software and open source—movements born in the 1980s, when personal computing was the norm—and explore the key use cases that shaped them. I'll also discuss their more recent takes on AI and how they've responded (or not) to shifts like the Internet, SaaS, hardware developments, and cryptography. Some of those topics will be reserved for future research, but my aim here is to see whether the old ideals can—or should—evolve to meet the challenges of 21st-century AI.
 
 ## The Response from the Free Software Camp
 
@@ -157,6 +145,7 @@ AI has changed the nature of software, particularly when it comes to source code
 2. **Revising or extending the freedoms** to accommodate newer AI paradigms.
 3. **Combining both approaches** in a way that balances openness, practicality, and ethical considerations.
 
+[^vibe]: https://x.com/karpathy/status/1886192184808149383
 [^freedom]: https://www.gnu.org/bulletins/bull1.txt
 [^modern_freedom]: https://www.gnu.org/philosophy/free-sw.en.html
 [^life_and_death]: As a friend of mine commented vividly, it's the life and death control [生殺与奪の権利](https://ja.wikipedia.org/wiki/%E7%94%9F%E6%AE%BA%E4%B8%8E%E5%A5%AA%E3%81%AE%E6%A8%A9%E5%88%A9).
