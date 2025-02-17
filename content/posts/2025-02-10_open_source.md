@@ -116,13 +116,16 @@ Historically, this was straightforward: freedom was prioritized over morality. B
 
 In an extreme scenario, the survival of humanity itself could supersede both software freedom and commercial interests.
 
-## Conclusion
+## Conclusion: Towards 21 century Software Freedom Philosophy
 
 AI has changed the nature of software, particularly when it comes to source code. Potential paths forward include:
 
 1. **Adapting the technology** so it fits the original freedoms set out in the 1980s.
 2. **Revising or extending the freedoms** to accommodate newer AI paradigms.
 3. **Combining both approaches** in a way that balances openness, practicality, and ethical considerations.
+
+What would be a up-to-date philosophical concept that is on par with the technology developement is remains to be answered.
+
 
 [^vibe]: https://x.com/karpathy/status/1886192184808149383
 [^freedom]: https://www.gnu.org/bulletins/bull1.txt
