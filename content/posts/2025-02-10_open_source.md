@@ -55,11 +55,11 @@ I've tried to dig deeper into the rationales behind the 4 freedoms. [^means_ends
 
 #### Solidarity of Users Reason
 
-The GNU Manifesto says [^manifesto]
+The GNU Manifesto says [^manifesto]:
 
 > I consider that the Golden Rule requires that if I like a program I must share it with other people who like it. Software sellers want to divide the users and conquer them, making each user agree not to share with others. I refuse to break solidarity with other users in this way. I cannot in good conscience sign a nondisclosure agreement or a software license agreement.
 
-Furthermore, Free Software Foundation (FSF hereafter) 20 years review elaborates more.
+Furthermore, the Free Software Foundation (FSF) 20-year review elaborates more:
 
 > Nonfree software carries with it an antisocial system that prohibits cooperation and community. You are typically unable to see the source code; you cannot tell what nasty tricks, or what foolish bugs, it might contain. If you don't like it, you are helpless to change it. Worst of all, you are forbidden to share it with anyone else. To prohibit sharing software is to cut the bonds of society.
 [^fsf_20yrs]
@@ -68,7 +68,7 @@ Furthermore, Free Software Foundation (FSF hereafter) 20 years review elaborates
 
 From the quote above, we see the security concerns for nasty tricks and bugs in the program.
 
-I think the most interesting is the public good aspect. I couldn't find the discussion to frame software as goods of non-rivalrousness and non-exclusiveness. The GNU Manifesto [^manifesto] discusses extensively the economic aspect of software development like "Won't programmers starve?" or "Shouldn't a programmer be able to ask for a reward for his creativity?". Most of the answers didn't cite economic dilemmas but instead said the programmers would contribute in their leisure time and be rewarded with social contribution.
+I think the most interesting aspect is the public good. I couldn't find a discussion framing software as goods of non-rivalrousness and non-exclusiveness. The GNU Manifesto [^manifesto] discusses extensively the economic aspect of software development, like "Won't programmers starve?" or "Shouldn't a programmer be able to ask for a reward for his creativity?". Most of the answers didn't cite economic dilemmas but instead said the programmers would contribute in their leisure time and be rewarded with social contribution.
 
 ### What is the Free Software Movement About?
 
@@ -93,15 +93,15 @@ So in the philosophical root, the open source movement is still free software bu
 
 ## Free Software Foundation's Take on AI
 
-In October 2024, Free Software Foundation released a post on their view point of AI. [^fsf_ai]
+In October 2024, the Free Software Foundation released a post on their viewpoint of AI. [^fsf_ai]
 
 It recognizes the difficulty of treating machine learning models like traditional software. "Machine learning applications are only partially software," it says.
 
 "The model parameters are not comprehensible as such by humans, so it is not practical to study or adapt an ML application by analyzing or editing model parameters directly."
 
-But it is the training data that creates a dilemma to the FSF. For a long time, nonfree eqauls unjust because users' freedom to control their own computing is deprived.
+But it is the training data that creates a dilemma for the FSF. For a long time, nonfree equals unjust because users' freedom to control their own computing is deprived.
 
-Now AI created a case to justify nonfree. If an AI is trained on private medical data, it is hard to call it free because you can not retrain and reproduce the weights. But if you use such nonfree model to diagnose a disease then it might be ethical.
+Now AI has created a case to justify nonfree. If an AI is trained on private medical data, it is hard to call it free because you cannot retrain and reproduce the weights. But if you use such a nonfree model to diagnose a disease, then it might be ethical.
 
 ## Open Source Initiative's Take on AI
 
@@ -115,54 +115,50 @@ The FAQ also mentioned the OSI AI definition does not address ethical issues. It
 
 ## Reflection so far
 
-Let's say a software is some instructions to carry computations from inputs to derive outputs.
+Let's say software is some instructions to carry computations from inputs to derive outputs.
 
-The good old software is almost equal to source code. The new software like AI is a perfect spagetti.
-
+The good old software is almost equal to source code. The new software like AI is a perfect spaghetti.
 
 ### Old freedoms are too much to ask
 
 The freedoms to run, study, modify, and share assume these actions are cheap.
 
-It's cheap to compile a source code, to run on my device, to understand a programs behavior if I want to, to modify source code by using text editors, and to share with people with floppy disks.
+It's cheap to compile source code, to run on my device, to understand a program's behavior if I want to, to modify source code by using text editors, and to share with people with floppy disks.
 
 Cost changes with AI.
 
 - Some big models require beefy servers to run. Some are still fairly cheap to run on a personal device.
-- AI no longer has readable source code. Weights are unreadable but their behaviours are still somehow studiable with some interpretability techniques. [^io]
-- Modifying an AI is expensive. It usually takes millions of dollars to retrain, under the current technology. OSIAI requires the traning program and data information to be opened to make modification at least feasible.
-- Sharing weights are not fundamentally too different from the traditional software. Sharing training data is difficult for privacy sensitive cases. Check this box if we don't include training data as part of the system.
+- AI no longer has readable source code. Weights are unreadable but their behaviors are still somehow studiable with some interpretability techniques. [^io]
+- Modifying an AI is expensive. It usually takes millions of dollars to retrain, under the current technology. OSIAI requires the training program and data information to be opened to make modification at least feasible.
+- Sharing weights is not fundamentally too different from traditional software. Sharing training data is difficult for privacy-sensitive cases. Check this box if we don't include training data as part of the system.
 
-As new and old software have so much different cost properties, making the old freedom harder to enforce on the new one.
-
+As new and old software have such different cost properties, making the old freedom harder to enforce on the new one.
 
 ### Old freedoms are not enough
 
-Software Freedom was defined to be value neutral. It doesn't care about whether you use the software to do goods or evil. The OSI definition has the "No Discrimination Against Persons or Groups" and "No Discrimination Against Fields of Endeavor" requirements.
+Software Freedom was defined to be value-neutral. It doesn't care about whether you use the software to do good or evil. The OSI definition has the "No Discrimination Against Persons or Groups" and "No Discrimination Against Fields of Endeavor" requirements.
 
-There was a famous case of JSON license "The Software should be used for Good, not Evil." and the story of JSLint author licensing to IBM to do the evil. [^evil] FSF considers that license non-free. [^fsf_json]
+There was a famous case of the JSON license "The Software should be used for Good, not Evil." and the story of JSLint author licensing to IBM to do the evil. [^evil] FSF considers that license non-free. [^fsf_json]
 
-In some sense there's a hidden trade off between freedom and software harms caused by bad use cases. How bad could it be if the software is used by a really bad party? It would be a great legal obstacle to use a software if an user has to consider the moral implications.
+In some sense, there's a hidden trade-off between freedom and software harms caused by bad use cases. How bad could it be if the software is used by a really bad party? It would be a great legal obstacle to use software if a user has to consider the moral implications.
 
-I think in the old software, the choise is easy. Freedom is more important than morality.
+I think in the old software, the choice is easy. Freedom is more important than morality.
 
-With AI so powerful that might empower the adversaries to a overwhelming deal, it might motivate people to put ethical goals on top of freedom. The culture shift happened in Manhattan Project before, where scientists in the project stopped publishing scientific results in the open, to avoid the risk of aiding the enemy.
+With AI so powerful that it might empower adversaries to an overwhelming deal, it might motivate people to put ethical goals on top of freedom. The culture shift happened in the Manhattan Project before, where scientists in the project stopped publishing scientific results in the open, to avoid the risk of aiding the enemy.
 
-Survival of huamnity might outweight software freedom and commercial success.
+Survival of humanity might outweigh software freedom and commercial success.
 
 ## Conclusion
 
-The AI changed the nature of software, especially the source code part. We should either
+AI has changed the nature of software, especially the source code part. We should either:
 
-1. tailer a new type of freedom for the new Software
-2. generalize the old freedom to fit wider cases
-
-
+1. Tailor a new type of freedom for the new software
+2. Generalize the old freedom to fit wider cases
 
 [^freedom]: https://www.gnu.org/bulletins/bull1.txt
 [^modern_freedom]: https://www.gnu.org/philosophy/free-sw.en.html
 [^life_and_death]: As a friend of mine commented vividly, it's the life and death control [生殺与奪の権利](https://ja.wikipedia.org/wiki/%E7%94%9F%E6%AE%BA%E4%B8%8E%E5%A5%AA%E3%81%AE%E6%A8%A9%E5%88%A9).
-[^means_ends]: I remember a friends' discussion on "Why do we need decentralization?" If we double click the a mean to get an end, and keep double clicking that end, what would we get? Eventally we should get something that is both a mean and an end. Does that motivate us not to double click on Decentralization and Software Freedoms?
+[^means_ends]: I remember a friend's discussion on "Why do we need decentralization?" If we double click a mean to get an end, and keep double clicking that end, what would we get? Eventually, we should get something that is both a mean and an end. Does that motivate us not to double click on Decentralization and Software Freedoms?
 [^manifesto]: https://www.gnu.org/gnu/manifesto.html
 [^fsf_20yrs]: https://www.gnu.org/philosophy/use-free-software.html
 [^fsf_ai]: https://www.fsf.org/news/fsf-is-working-on-freedom-in-machine-learning-applications
@@ -171,6 +167,6 @@ The AI changed the nature of software, especially the source code part. We shoul
 [^osi_ai]: https://opensource.org/ai
 [^osi_ai_news]: https://opensource.org/blog/the-open-source-initiative-announces-the-release-of-the-industrys-first-open-source-ai-definition
 [^osi_ai_faq]: https://hackmd.io/@opensourceinitiative/osaid-faq#Why-do-you-allow-the-exclusion-of-some-training-data
-[^io]: [IO](https://en.wikipedia.org/wiki/Indistinguishability_obfuscation) is not there yet to completely distrupt this whole discussion.
+[^io]: [IO](https://en.wikipedia.org/wiki/Indistinguishability_obfuscation) is not there yet to completely disrupt this whole discussion.
 [^evil]: https://web.archive.org/web/20170608034900/http://dev.hasenj.org/post/3272592502/ibm-and-its-minions
 [^fsf_json]: https://www.gnu.org/licenses/license-list.html#JSON
