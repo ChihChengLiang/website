@@ -121,49 +121,41 @@ The FAQ also mentioned the OSI AI definition does not address ethical issues. It
 
 ## Why the 1980s Freedoms Struggle to Apply to AI
 
-We've learned how the FSF defines freedom and the OSI focuses on licensing practicality. But AI—especially large models—presents new obstacles to those goals.
+We've seen how the FSF defines freedom and the OSI focuses on licensing practicality. However, AI—especially large models—presents new obstacles that these older frameworks didn't anticipate.
 
 ### Computation cost
 
-The first notable things is the cost of freedom changed. Freedoms in the good old software are cheap in nature. The main freedom blocker is the legal friction of the source code. We see both FS and OS camps put lots of emphasis on legal issues.
+A key shift is that the "cost" of freedom has changed. In traditional software, freedoms were relatively cheap to exercise, with legal barriers (e.g., closed source) being the main hurdle. Both the FSF and OSI therefore placed much emphasis on licensing and legal issues.
 
-The AI is computation expensive in the current technology paradigm. The advanced LLM runs on a beefy server, makeing the freedom to run costly. It also takes millions to train, so freedom to modify or reproduce is a luxury. The small model future might mitigate this.
+In contrast, AI can be computationally expensive. Advanced LLMs run on powerful servers, making it costly to exercise the freedom to run them. Training can also require millions of dollars, so the freedom to modify or reproduce a model can feel like a luxury. That said, the rise of smaller, more efficient models could make these freedoms more practical in the future.
 
 #### Cost to study
 
-The computation steps in AI models is represented by a blob of weights, and that messes up Freedom 1 completely. I read the wording again and I find all the wording mean completely different things for AI.
+Because an AI model's behavior is defined by a blob of weights, "Freedom 1" (the freedom to study how the program works) becomes more complicated. If we treat source code as the human-readable form needed for modifications, then model weights—like binary executables—arguably don't qualify.
 
-Let's deal with the source code first. What is source code? Most of the people agree that binary executables or bytecodes are not consider source codes, as they are unreadable by human. In that line of reasoning, one might not call model weights source code.
+Of course, those weights are what reproduce the AI's logic, and we do have interpretability techniques that can shed light on a model's inner workings. However, these techniques don't match the transparency offered by traditional software source code. In other words, we might have to relax or partially forgo "Freedom 1." [^io]
 
-Model weights are already what we can do to reproduce the computation steps. There are also interpretability techniques that help people understand how the program behave, to some degree. [^io] But it'll nowhere come close to how traditional software source code clarity. We'll have to relax or give up freedom 1 a little bit.
+"Changing the program" also works differently in AI. For example, some people try to alter DeepSeek's default pro-China stance so it recognizes Taiwan as a country. They can do this through prompt engineering, model fine-tuning, or other creative hacks. Audrey Tang famously demonstrated a "hijack" in the chain-of-thought process to extract an honest historical account from DeepSeek. [^au_ds] Prompt engineering and Audrey's trick function more like "tweaking parameters" than editing code, whereas fine-tuning is a closer analogue to a real software modification.
 
-"Changing the program" means different in AI. One thing I see people trying very hard to do is to modify DeepSeek's default pro-China narrative and make it recognize Taiwan as a country. That can be acheived with prompt enginnering, model fine tune, or other creative approaches. Audrey Tang famously demonstrated a hijack in the chain of thought process to trick DeepSeek giving honest description of a historical fact. [^au_ds] prompt enginnering and Audrey's trick are kind of a function call parameter change instead of a real code change. Model fine tune is more like a real program change.
-
-"does your computing as your wish" is a monkey paw-ish clause that already unrealistic in the traditional software. One thing I learned in smart contract security is that the human readable source code gives us a false sense of reflecting human intent. [^value_complexity] Source code offers a lot of transparency to how the program works, but it's not 100%. Maybe that motivates us to seek increamental improvement in AI model behavior transparency, instead of a complete control.
+Finally, the clause "does your computing as you wish" can be a monkey's paw—even in traditional software. From smart contract security work, we know that having human-readable source code doesn't guarantee it reflects human intent. [^value_complexity] While source code is more transparent than binary, it's not 100%. Perhaps this realization nudges us toward incremental improvements in AI transparency rather than expecting complete control.
 
 #### Ethical implication
 
-Software Freedom was defined to be value-neutral. It doesn't care about whether you use the software to do good or evil. The OSI definition has the "No Discrimination Against Persons or Groups" and "No Discrimination Against Fields of Endeavor" requirements.
+Software freedom was originally defined to be value-neutral. It doesn't address whether software is used for good or evil. Likewise, the OSI definition contains "No Discrimination Against Persons or Groups" and "No Discrimination Against Fields of Endeavor."
 
-There was a famous case of the JSON license "The Software should be used for Good, not Evil." and the story of JSLint author licensing to IBM to do the evil. [^evil] FSF considers that license non-free. [^fsf_json]
+This philosophy has sometimes conflicted with attempts at imposing moral clauses. For instance, the JSON license famously stated "The software shall be used for Good, not Evil," which the FSF deemed non-free. [^fsf_json] [^evil] In practice, requiring users to consider ethical implications can become a significant legal hurdle.
 
-In some sense, there's a hidden trade-off between freedom and software harms caused by bad use cases. How bad could it be if the software is used by a really bad party? It would be a great legal obstacle to use software if a user has to consider the moral implications.
+Historically, this was straightforward: freedom was prioritized over morality. But as AI becomes more advanced—potentially facilitating weapons development—people may feel compelled to put ethical concerns above unqualified freedom. The Manhattan Project provides a precedent: scientists voluntarily stopped publishing research to avoid helping enemy forces.
 
-I think in the old software, the choice is easy. Freedom is more important than morality.
-
-It's forseable more advanced AI is capable of making Molotov cocktails, bioweapens, and nukes. With AI so powerful that it might empower adversaries to an overwhelming deal, it might motivate people to put ethical goals on top of freedom. The culture shift happened in the Manhattan Project before, where scientists in the project stopped publishing scientific results in the open, to avoid the risk of aiding the enemy.
-
-Survival of humanity might outweigh software freedom and commercial success.
+In an extreme scenario, the survival of humanity itself could supersede both software freedom and commercial interests.
 
 ## Conclusion
 
-AI has changed the nature of software, especially the source code part. There might be some possibility forward:
+AI has changed the nature of software, particularly when it comes to source code. Potential paths forward include:
 
-1. Bend the technology to make it fit into the 1980 freedoms.
-2. Generalize or bend the old freedom to fit potential new AI paradigms.
-3. A mixture of two
-
-
+1. **Adapting the technology** so it fits the original freedoms set out in the 1980s.
+2. **Revising or extending the freedoms** to accommodate newer AI paradigms.
+3. **Combining both approaches** in a way that balances openness, practicality, and ethical considerations.
 
 [^freedom]: https://www.gnu.org/bulletins/bull1.txt
 [^modern_freedom]: https://www.gnu.org/philosophy/free-sw.en.html
