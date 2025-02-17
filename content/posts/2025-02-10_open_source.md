@@ -113,29 +113,51 @@ A FAQ explains the decision to exclude opening the training data. [^osi_ai_faq] 
 
 The FAQ also mentioned the OSI AI definition does not address ethical issues. It points the ethical and trustworthy issues to a separate OECD document.
 
-## Why Do We Want Freedom?
+## Reflection so far
 
+Let's say a software is some instructions to carry computations from inputs to derive outputs.
 
-## Relfection so far
+The good old software is almost equal to source code. The new software like AI is a perfect spagetti.
 
 
 ### Old freedoms are too much to ask
 
-#### Freedom is costly: AI takes millions to train
+The freedoms to run, study, modify, and share assume these actions are cheap.
 
+It's cheap to compile a source code, to run on my device, to understand a programs behavior if I want to, to modify source code by using text editors, and to share with people with floppy disks.
 
-#### No source code. No intention.
+Cost changes with AI.
+
+- Some big models require beefy servers to run. Some are still fairly cheap to run on a personal device.
+- AI no longer has readable source code. Weights are unreadable but their behaviours are still somehow studiable with some interpretability techniques. [^io]
+- Modifying an AI is expensive. It usually takes millions of dollars to retrain, under the current technology. OSIAI requires the traning program and data information to be opened to make modification at least feasible.
+- Sharing weights are not fundamentally too different from the traditional software. Sharing training data is difficult for privacy sensitive cases. Check this box if we don't include training data as part of the system.
+
+As new and old software have so much different cost properties, making the old freedom harder to enforce on the new one.
 
 
 ### Old freedoms are not enough
 
- Justice needs more than run/study/modify and commercial success
+Software Freedom was defined to be value neutral. It doesn't care about whether you use the software to do goods or evil. The OSI definition has the "No Discrimination Against Persons or Groups" and "No Discrimination Against Fields of Endeavor" requirements.
+
+There was a famous case of JSON license "The Software should be used for Good, not Evil." and the story of JSLint author licensing to IBM to do the evil. [^evil] FSF considers that license non-free. [^fsf_json]
+
+In some sense there's a hidden trade off between freedom and software harms caused by bad use cases. How bad could it be if the software is used by a really bad party? It would be a great legal obstacle to use a software if an user has to consider the moral implications.
+
+I think in the old software, the choise is easy. Freedom is more important than morality.
+
+With AI so powerful that might empower the adversaries to a overwhelming deal, it might motivate people to put ethical goals on top of freedom. The culture shift happened in Manhattan Project before, where scientists in the project stopped publishing scientific results in the open, to avoid the risk of aiding the enemy.
+
+Survival of huamnity might outweight software freedom and commercial success.
+
+## Conclusion
+
+The AI changed the nature of software, especially the source code part. We should either
+
+1. tailer a new type of freedom for the new Software
+2. generalize the old freedom to fit wider cases
 
 
-
-- Development
-- Justice
-- Geopolitics
 
 [^freedom]: https://www.gnu.org/bulletins/bull1.txt
 [^modern_freedom]: https://www.gnu.org/philosophy/free-sw.en.html
@@ -149,3 +171,6 @@ The FAQ also mentioned the OSI AI definition does not address ethical issues. It
 [^osi_ai]: https://opensource.org/ai
 [^osi_ai_news]: https://opensource.org/blog/the-open-source-initiative-announces-the-release-of-the-industrys-first-open-source-ai-definition
 [^osi_ai_faq]: https://hackmd.io/@opensourceinitiative/osaid-faq#Why-do-you-allow-the-exclusion-of-some-training-data
+[^io]: [IO](https://en.wikipedia.org/wiki/Indistinguishability_obfuscation) is not there yet to completely distrupt this whole discussion.
+[^evil]: https://web.archive.org/web/20170608034900/http://dev.hasenj.org/post/3272592502/ibm-and-its-minions
+[^fsf_json]: https://www.gnu.org/licenses/license-list.html#JSON
