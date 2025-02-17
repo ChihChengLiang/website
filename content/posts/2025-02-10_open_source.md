@@ -114,6 +114,24 @@ The FAQ also mentioned the OSI AI definition does not address ethical issues. It
 
 ## Why Do We Want Freedom?
 
+
+## Relfection so far
+
+
+### Old freedoms are too much to ask
+
+#### Freedom is costly: AI takes millions to train
+
+
+#### No source code. No intention.
+
+
+### Old freedoms are not enough
+
+ Justice needs more than run/study/modify and commercial success
+
+
+
 - Development
 - Justice
 - Geopolitics
