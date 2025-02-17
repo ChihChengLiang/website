@@ -51,7 +51,7 @@ To summarize, you should be able to run, study, modify, and share the code.
 
 The movement was motivated by the legal and business environment of AT&T, causing the enterprise to hold the power to make your life as a software user and developer miserable. [^life_and_death]
 
-I've tried to dig deeper into the rationales behind the 4 freedoms. [^means_ends] Let's say:
+I tried to dig deeper into the rationales behind the 4 freedoms. [^means_ends] Let's say:
 
 #### Solidarity of Users Reason
 
@@ -91,6 +91,8 @@ The rationales of the 10 points, as the annotated version shows, are mostly defe
 
 So in the philosophical root, the open source movement is still free software but more means to ends. But let's say the pre-2000 era, the main goal was to let more businesses release their source code in a friendly way. Also, for businesses, they want to get the benefit of "more eyeballs and fewer bugs."
 
+Now that we've seen how free software and open source principles took shape under very different computing conditions, let's see why these old frameworks hit roadblocks when applied to AI models.
+
 ## Free Software Foundation's Take on AI
 
 In October 2024, the Free Software Foundation released a post on their viewpoint of AI. [^fsf_ai]
@@ -107,15 +109,21 @@ Now AI has created a case to justify nonfree. If an AI is trained on private med
 
 Released in October 2024, similar to the release of FSF's post, OSI also released an open source AI definition. [^osi_ai] [^osi_ai_news]
 
-It cites the four freedoms. To qualify as open source AI, share data information of the training data, source code to train and run, and model weights.
+It cites the four freedoms. To qualify as open source AI share the follows:
+
+1. Model weights
+2. Data information of the training data
+3. Source code to train and run the model.
 
 A FAQ explains the decision to exclude opening the training data. [^osi_ai_faq] There are cases of definitely not sharable data like medical data, legally trainable but not sharable like copyrighted data. Even the most sharable data like open data and public domain data could have edge cases like countries having different definitions of them.
 
 The FAQ also mentioned the OSI AI definition does not address ethical issues. It points the ethical and trustworthy issues to a separate OECD document.
 
-## Reflection so far
+## Why the 1980s Freedoms Struggle to Apply to AI
 
-Let's say software is some instructions to carry computations from inputs to derive outputs.
+We've learned how the FSF defines freedom and the OSI focuses on licensing practicality. But AI—especially large models—presents new obstacles to those goals.
+
+Let's say software is some instructions to carry out computations from inputs to outputs.
 
 The good old software is almost equal to source code. The new software like AI is a perfect spaghetti.
 
