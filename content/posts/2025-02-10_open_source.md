@@ -151,7 +151,7 @@ In some sense, there's a hidden trade-off between freedom and software harms cau
 
 I think in the old software, the choice is easy. Freedom is more important than morality.
 
-With AI so powerful that it might empower adversaries to an overwhelming deal, it might motivate people to put ethical goals on top of freedom. The culture shift happened in the Manhattan Project before, where scientists in the project stopped publishing scientific results in the open, to avoid the risk of aiding the enemy.
+It's forseable more advanced AI is capable of making Molotov cocktails, bioweapens, and nukes. With AI so powerful that it might empower adversaries to an overwhelming deal, it might motivate people to put ethical goals on top of freedom. The culture shift happened in the Manhattan Project before, where scientists in the project stopped publishing scientific results in the open, to avoid the risk of aiding the enemy.
 
 Survival of humanity might outweigh software freedom and commercial success.
 
@@ -160,7 +160,7 @@ Survival of humanity might outweigh software freedom and commercial success.
 AI has changed the nature of software, especially the source code part. There might be some possibility forward:
 
 1. Bend the technology to make it fit into the 1980 freedoms.
-2. Generalize or bend the old freedom to fit for potential new AI paradigms.
+2. Generalize or bend the old freedom to fit potential new AI paradigms.
 3. A mixture of two
 
 
