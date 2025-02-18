@@ -138,7 +138,7 @@ Ultimately, **what an up-to-date philosophical framework for software freedom lo
 
 ---
 
-**Note on the use of GPT**: This is an article that I tried more aggresive revise from ChatGPT. It has shortened the article and improved the flow, so significantly that I felt sacrificing authenticity worth it. The whole editing process is available in the footnote pull request. [^pr]
+**Note on the Use of GPT**: In this article, I relied on a more intensive editing pass from ChatGPT. Although it shortened the text and enhanced its flow, I recognize that some authenticity was sacrificed. On balance, I found the trade-off worthwhile. The complete editing process is documented in the footnote pull request. [^pr]
 
 
 [^vibe]: https://x.com/karpathy/status/1886192184808149383
