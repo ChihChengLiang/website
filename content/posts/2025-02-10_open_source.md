@@ -120,8 +120,8 @@ In an extreme scenario, the survival of humanity itself could supersede both sof
 
 AI has changed the nature of software, particularly when it comes to source code. Potential paths forward include:
 
-1. **Adapting the technology** so it fits the original freedoms set out in the 1980s.
-2. **Revising or extending the freedoms** to accommodate newer AI paradigms.
+1. **Adapting the technology** so it fits the original freedoms set out in the 1980s. This means reduce cost of computation with more small models, cost of comprehension with more interpretability technique, and cost of conscience with more built-in security mechanisms.
+2. **Revising or extending the freedoms** to accommodate newer AI paradigms. This can be dropping the wording of source code and lowering the expectation of interpretability from the freedoms. Focusing on the public good aspects like reproducibility and accessiblity for scientists and builder communities. Finally adding some drops of ethical elements in it.
 3. **Combining both approaches** in a way that balances openness, practicality, and ethical considerations.
 
 What would be a up-to-date philosophical concept that is on par with the technology developement is remains to be answered.
