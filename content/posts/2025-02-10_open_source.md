@@ -2,7 +2,12 @@
 title: "What Do We Really Want From Open Source AI?"
 date: 2025-02-10T17:04:18+08:00
 draft: false
+images:
+- images/steampunk_sloth.png
 ---
+
+
+![](images/steampunk_sloth.png)
 
 Recently, Deepseek's release under an MIT license sparked a global conversation: Is it truly open source, or just another example of "open-washing"? The practice of marketing a product as open when crucial parts remain closed is unfortunately common, fueling skepticism among developers. Take OpenAI, which, despite its name, is not fully "open," or Meta's LLaMA, whose license prohibits commercial use—prompting many to question its true openness.
 
