@@ -136,6 +136,11 @@ AI has fundamentally changed what we mean by “software,” especially regardin
 
 Ultimately, **what an up-to-date philosophical framework for software freedom looks like in an AI-driven world remains an open question.** As technology continues to evolve, so must our notions of freedom, collaboration, and responsibility.
 
+---
+
+**Note on the use of GPT**: This is an article that I tried more aggresive revise from ChatGPT. It has shortened the article and improved the flow, so significantly that I felt sacrificing authenticity worth it. The whole editing process is available in the footnote pull request. [^pr]
+
+
 [^vibe]: https://x.com/karpathy/status/1886192184808149383
 [^freedom]: https://www.gnu.org/bulletins/bull1.txt
 [^modern_freedom]: https://www.gnu.org/philosophy/free-sw.en.html
@@ -154,3 +159,4 @@ Ultimately, **what an up-to-date philosophical framework for software freedom lo
 [^fsf_json]: https://www.gnu.org/licenses/license-list.html#JSON
 [^au_ds]: https://x.com/NOTonlywater/status/1884262704149586000/photo/3
 [^value_complexity]: https://blog.ethereum.org/2016/06/19/thinking-smart-contract-security
+[^pr]: https://github.com/ChihChengLiang/website/pull/2
