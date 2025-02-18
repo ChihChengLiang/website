@@ -116,16 +116,20 @@ Historically, this was straightforward: freedom was prioritized over morality. B
 
 In an extreme scenario, the survival of humanity itself could supersede both software freedom and commercial interests.
 
-## Conclusion: Towards 21 century Software Freedom Philosophy
+## Conclusion: Toward a 21st-Century Software Freedom Philosophy
 
-AI has changed the nature of software, particularly when it comes to source code. Potential paths forward include:
+AI has fundamentally changed what we mean by “software,” especially regarding source code. Potential ways forward include:
 
-1. **Adapting the technology** so it fits the original freedoms set out in the 1980s. This means reduce cost of computation with more small models, cost of comprehension with more interpretability technique, and cost of conscience with more built-in security mechanisms.
-2. **Revising or extending the freedoms** to accommodate newer AI paradigms. This can be dropping the wording of source code and lowering the expectation of interpretability from the freedoms. Focusing on the public good aspects like reproducibility and accessiblity for scientists and builder communities. Finally adding some drops of ethical elements in it.
-3. **Combining both approaches** in a way that balances openness, practicality, and ethical considerations.
+1. **Adapting the Technology**
+   Reduce the computational burden with smaller models, increase interpretability through better techniques, and embed stronger security mechanisms to address ethical concerns. In essence, reshape AI so it better fits the 1980s freedoms.
 
-What would be a up-to-date philosophical concept that is on par with the technology developement is remains to be answered.
+2. **Revising or Extending the Freedoms**
+   Update terminology around “source code,” recognizing that giant weight matrices are not inherently human-readable. Place greater emphasis on reproducibility and accessibility for researchers and developers, while folding in ethical considerations that the original frameworks did not explicitly address.
 
+3. **Combining Both Approaches**
+   Strike a balance between openness, practicality, and ethical safeguards—leveraging flexible technology while preserving the spirit of software freedom.
+
+Ultimately, **what an up-to-date philosophical framework for software freedom looks like in an AI-driven world remains an open question.** As technology continues to evolve, so must our notions of freedom, collaboration, and responsibility.
 
 [^vibe]: https://x.com/karpathy/status/1886192184808149383
 [^freedom]: https://www.gnu.org/bulletins/bull1.txt
