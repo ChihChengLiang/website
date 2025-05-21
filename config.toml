@@ -21,5 +21,5 @@ theme = 'chalk'
 
 [params]
   description = 'Random thoughts'
-  images = ['images/Keyslockstravel.png']
+  images = ['images/buffaloes.png']
   title = "CC's blog"
