@@ -1,0 +1,89 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>我的隨興開發初體驗 - CC's blog</title>
+<meta name=description content="
+之前有玩過那種「模型寫一些程式碼，開發者看一看，決定要不要收下」的開發體驗。
+過了幾個月，現在流行給模型一個任務。模型會自己建立一個任務清單，然後自己默默把事情做完。
+模型不會頂嘴，不會鬧脾氣。但看到問題也不會和你抱怨。反正上面交代什麼下來就直接做。
+上班族收月薪，律師收時薪，模型要算哪種呢？的確他們背後的公司和使用者收月費，所以可能比較像上班族？模型讀一些字和寫一些字要消耗詞元（token），也許更像收稿費的撰稿者？
+詞元消耗完畢之後，模型就會躺平罷工，請開發者等數個小時後再來。如果要馬上上工，沒問題，月薪先上調十倍（我目前使用 每月 20 美元方案）。
+但比起真正的開發者，即使模型是按字數計較的，他們能吞吐文字的量還是大太多了。因此整個開發的思維都要改變了。
+在使用 Claude Code — 我目前使用的隨興開發模型服務 — 之前，我抱持著如下的想法：我是個資深工程師，我會檢查每一行模型產出來的程式碼；我會理解整個程式的作用原理；我會對簡潔好維護的程式碼品質有所堅持。
+在模型做完第一個交辦任務之後，產生了幾百行程式碼，我就瞬間放棄所有的堅持了。
+主要是程式碼運作起來還算順暢，功能看起來都正常。也沒有什麼明顯安全顧慮。在模型能瞬間嘔出幾百行程式碼的情況下，我有沒有必要檢查他寫出來的程式碼漂不漂亮，好不好維護？
+當然這和我想做的專案性質有點相關。這是一個個人休閒專案，我想做一個世界地圖，上面標出不同時間點的科學家的人生事件，以及同時間點的政治環境。從這個專案可以在閱讀科學家的故事時，更好掌握背後的歷史脈絡。為了縮小專案規模，我把時間與人數限制為 18 世紀的數學家。
+這是一個人畜無害的專案。如果是一些比較嚴肅的專案，牽扯更多的權益或利害關係，我會有不一樣的開發態度嗎？
+開發的過程，我先用 Claude 的網頁版先討論了各種需求及功能，並產出了規格書。再把規格書給 Claude Code 去實作。
+在與 Claude Code 互動幾輪之後，模型會和使用者說他需要清空記憶。這時他會不記得之前討論的所有事情。模型重新啟動後，脈絡要重新交代。他和我說要產生一個 Claude.md 文字檔案，他會把這個專案的概要與現在做到哪裡了記錄下來。下次他失憶之後讀這個檔案，就可以重新上手。
+的確使用隨興開發之後，開發者會比較像個產品經理，力氣能放在要開發什麼功能上面。那些函式要怎麼抽象、變數要取什麼名字等繁瑣任務，不再佔據開發者的時間。
+科學家地圖這個專案，需要撈取維基百科的資料並整理。讓我想起來資料處理的樂趣。我好一陣子的職涯避免去碰資料，因為處理資料真的往往是一件高工時低價值的事情，去做就是等於失職。但在語言模型時代，至少寫程式的成本減少了。
+我想起《躁動的亡魂》這本講述太平天國時期的書。那個時代有種現在難以理解的組織，叫做「惜字會」，他們認為寫下來的字是珍貴的。寫過字的紙，不能拿來做一些墊東西之類的用途。字也不能寫在像鞋子之類的物品上做裝飾。惜字會的人會去搜集那些有寫字的東西。
+我們現在無法理解惜字會，是因為文字太容易取得，幾秒內就能從輸入法召喚出許多文字，然後又能在幾秒內把他們全部刪除。
+隨興開發的出現，讓手工寫軟體的人看起來像惜字會的人。軟體工程師的時間很貴，寫出來的東西都需要花費精力。因此要軟體工程師寫出文字，必須要有重要的目的。寫出來的文字，因為其昂貴的產出成本，也不該隨意丟棄。文字的增刪，要用版本管理軟體妥善珍藏。
+字會成為焦點，也許只是因為那是看得見的東西。人們真正耗費的精神，也許從都是在釐清需求，嘗試錯誤。版本管理軟體並不會因為隨興開發而消失，管理的也不是文字而是版本。開發者也許覺得上一個版本有小花圖樣的網頁版面比較好看，而想要回滾目前的作業。
+
+Demo: https://chihchengliang.github.io/scimap/
+Repo: https://github.com/ChihChengLiang/scimap
+"><meta name=author content><link rel=icon type=image/x-icon href=https://liangcc.me/images/favicon-dark.ico><link rel=apple-touch-icon href=https://liangcc.me/images/apple-touch-icon-dark.png><link rel=stylesheet type=text/css title=light id=light href=https://liangcc.me/stylesheets/light.css><link rel=stylesheet type=text/css title=dark id=dark href=https://liangcc.me/stylesheets/dark.css disabled><link rel="preload stylesheet" as=style href=https://liangcc.me/custom.min.css><link rel="preload stylesheet" as=style href=https://liangcc.me/an-old-hope.min.css><script defer src=https://liangcc.me/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><meta name=generator content="Hugo 0.134.2"><meta property="og:url" content="https://liangcc.me/posts/2025-08-12_vibe_coding/"><meta property="og:site_name" content="CC's blog"><meta property="og:title" content="我的隨興開發初體驗"><meta property="og:description" content="
+之前有玩過那種「模型寫一些程式碼，開發者看一看，決定要不要收下」的開發體驗。
+過了幾個月，現在流行給模型一個任務。模型會自己建立一個任務清單，然後自己默默把事情做完。
+模型不會頂嘴，不會鬧脾氣。但看到問題也不會和你抱怨。反正上面交代什麼下來就直接做。
+上班族收月薪，律師收時薪，模型要算哪種呢？的確他們背後的公司和使用者收月費，所以可能比較像上班族？模型讀一些字和寫一些字要消耗詞元（token），也許更像收稿費的撰稿者？
+詞元消耗完畢之後，模型就會躺平罷工，請開發者等數個小時後再來。如果要馬上上工，沒問題，月薪先上調十倍（我目前使用 每月 20 美元方案）。
+但比起真正的開發者，即使模型是按字數計較的，他們能吞吐文字的量還是大太多了。因此整個開發的思維都要改變了。
+在使用 Claude Code — 我目前使用的隨興開發模型服務 — 之前，我抱持著如下的想法：我是個資深工程師，我會檢查每一行模型產出來的程式碼；我會理解整個程式的作用原理；我會對簡潔好維護的程式碼品質有所堅持。
+在模型做完第一個交辦任務之後，產生了幾百行程式碼，我就瞬間放棄所有的堅持了。
+主要是程式碼運作起來還算順暢，功能看起來都正常。也沒有什麼明顯安全顧慮。在模型能瞬間嘔出幾百行程式碼的情況下，我有沒有必要檢查他寫出來的程式碼漂不漂亮，好不好維護？
+當然這和我想做的專案性質有點相關。這是一個個人休閒專案，我想做一個世界地圖，上面標出不同時間點的科學家的人生事件，以及同時間點的政治環境。從這個專案可以在閱讀科學家的故事時，更好掌握背後的歷史脈絡。為了縮小專案規模，我把時間與人數限制為 18 世紀的數學家。
+這是一個人畜無害的專案。如果是一些比較嚴肅的專案，牽扯更多的權益或利害關係，我會有不一樣的開發態度嗎？
+開發的過程，我先用 Claude 的網頁版先討論了各種需求及功能，並產出了規格書。再把規格書給 Claude Code 去實作。
+在與 Claude Code 互動幾輪之後，模型會和使用者說他需要清空記憶。這時他會不記得之前討論的所有事情。模型重新啟動後，脈絡要重新交代。他和我說要產生一個 Claude.md 文字檔案，他會把這個專案的概要與現在做到哪裡了記錄下來。下次他失憶之後讀這個檔案，就可以重新上手。
+的確使用隨興開發之後，開發者會比較像個產品經理，力氣能放在要開發什麼功能上面。那些函式要怎麼抽象、變數要取什麼名字等繁瑣任務，不再佔據開發者的時間。
+科學家地圖這個專案，需要撈取維基百科的資料並整理。讓我想起來資料處理的樂趣。我好一陣子的職涯避免去碰資料，因為處理資料真的往往是一件高工時低價值的事情，去做就是等於失職。但在語言模型時代，至少寫程式的成本減少了。
+我想起《躁動的亡魂》這本講述太平天國時期的書。那個時代有種現在難以理解的組織，叫做「惜字會」，他們認為寫下來的字是珍貴的。寫過字的紙，不能拿來做一些墊東西之類的用途。字也不能寫在像鞋子之類的物品上做裝飾。惜字會的人會去搜集那些有寫字的東西。
+我們現在無法理解惜字會，是因為文字太容易取得，幾秒內就能從輸入法召喚出許多文字，然後又能在幾秒內把他們全部刪除。
+隨興開發的出現，讓手工寫軟體的人看起來像惜字會的人。軟體工程師的時間很貴，寫出來的東西都需要花費精力。因此要軟體工程師寫出文字，必須要有重要的目的。寫出來的文字，因為其昂貴的產出成本，也不該隨意丟棄。文字的增刪，要用版本管理軟體妥善珍藏。
+字會成為焦點，也許只是因為那是看得見的東西。人們真正耗費的精神，也許從都是在釐清需求，嘗試錯誤。版本管理軟體並不會因為隨興開發而消失，管理的也不是文字而是版本。開發者也許覺得上一個版本有小花圖樣的網頁版面比較好看，而想要回滾目前的作業。
+Demo: https://chihchengliang.github.io/scimap/ Repo: https://github.com/ChihChengLiang/scimap "><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-08-12T16:04:05+08:00"><meta property="article:modified_time" content="2025-08-12T16:04:05+08:00"><meta property="og:image" content="https://liangcc.me/images/buffaloes.png"><meta itemprop=name content="我的隨興開發初體驗"><meta itemprop=description content="
+之前有玩過那種「模型寫一些程式碼，開發者看一看，決定要不要收下」的開發體驗。
+過了幾個月，現在流行給模型一個任務。模型會自己建立一個任務清單，然後自己默默把事情做完。
+模型不會頂嘴，不會鬧脾氣。但看到問題也不會和你抱怨。反正上面交代什麼下來就直接做。
+上班族收月薪，律師收時薪，模型要算哪種呢？的確他們背後的公司和使用者收月費，所以可能比較像上班族？模型讀一些字和寫一些字要消耗詞元（token），也許更像收稿費的撰稿者？
+詞元消耗完畢之後，模型就會躺平罷工，請開發者等數個小時後再來。如果要馬上上工，沒問題，月薪先上調十倍（我目前使用 每月 20 美元方案）。
+但比起真正的開發者，即使模型是按字數計較的，他們能吞吐文字的量還是大太多了。因此整個開發的思維都要改變了。
+在使用 Claude Code — 我目前使用的隨興開發模型服務 — 之前，我抱持著如下的想法：我是個資深工程師，我會檢查每一行模型產出來的程式碼；我會理解整個程式的作用原理；我會對簡潔好維護的程式碼品質有所堅持。
+在模型做完第一個交辦任務之後，產生了幾百行程式碼，我就瞬間放棄所有的堅持了。
+主要是程式碼運作起來還算順暢，功能看起來都正常。也沒有什麼明顯安全顧慮。在模型能瞬間嘔出幾百行程式碼的情況下，我有沒有必要檢查他寫出來的程式碼漂不漂亮，好不好維護？
+當然這和我想做的專案性質有點相關。這是一個個人休閒專案，我想做一個世界地圖，上面標出不同時間點的科學家的人生事件，以及同時間點的政治環境。從這個專案可以在閱讀科學家的故事時，更好掌握背後的歷史脈絡。為了縮小專案規模，我把時間與人數限制為 18 世紀的數學家。
+這是一個人畜無害的專案。如果是一些比較嚴肅的專案，牽扯更多的權益或利害關係，我會有不一樣的開發態度嗎？
+開發的過程，我先用 Claude 的網頁版先討論了各種需求及功能，並產出了規格書。再把規格書給 Claude Code 去實作。
+在與 Claude Code 互動幾輪之後，模型會和使用者說他需要清空記憶。這時他會不記得之前討論的所有事情。模型重新啟動後，脈絡要重新交代。他和我說要產生一個 Claude.md 文字檔案，他會把這個專案的概要與現在做到哪裡了記錄下來。下次他失憶之後讀這個檔案，就可以重新上手。
+的確使用隨興開發之後，開發者會比較像個產品經理，力氣能放在要開發什麼功能上面。那些函式要怎麼抽象、變數要取什麼名字等繁瑣任務，不再佔據開發者的時間。
+科學家地圖這個專案，需要撈取維基百科的資料並整理。讓我想起來資料處理的樂趣。我好一陣子的職涯避免去碰資料，因為處理資料真的往往是一件高工時低價值的事情，去做就是等於失職。但在語言模型時代，至少寫程式的成本減少了。
+我想起《躁動的亡魂》這本講述太平天國時期的書。那個時代有種現在難以理解的組織，叫做「惜字會」，他們認為寫下來的字是珍貴的。寫過字的紙，不能拿來做一些墊東西之類的用途。字也不能寫在像鞋子之類的物品上做裝飾。惜字會的人會去搜集那些有寫字的東西。
+我們現在無法理解惜字會，是因為文字太容易取得，幾秒內就能從輸入法召喚出許多文字，然後又能在幾秒內把他們全部刪除。
+隨興開發的出現，讓手工寫軟體的人看起來像惜字會的人。軟體工程師的時間很貴，寫出來的東西都需要花費精力。因此要軟體工程師寫出文字，必須要有重要的目的。寫出來的文字，因為其昂貴的產出成本，也不該隨意丟棄。文字的增刪，要用版本管理軟體妥善珍藏。
+字會成為焦點，也許只是因為那是看得見的東西。人們真正耗費的精神，也許從都是在釐清需求，嘗試錯誤。版本管理軟體並不會因為隨興開發而消失，管理的也不是文字而是版本。開發者也許覺得上一個版本有小花圖樣的網頁版面比較好看，而想要回滾目前的作業。
+Demo: https://chihchengliang.github.io/scimap/ Repo: https://github.com/ChihChengLiang/scimap "><meta itemprop=datePublished content="2025-08-12T16:04:05+08:00"><meta itemprop=dateModified content="2025-08-12T16:04:05+08:00"><meta itemprop=wordCount content="44"><meta itemprop=image content="https://liangcc.me/images/buffaloes.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://liangcc.me/images/buffaloes.png"><meta name=twitter:title content="我的隨興開發初體驗"><meta name=twitter:description content="
+之前有玩過那種「模型寫一些程式碼，開發者看一看，決定要不要收下」的開發體驗。
+過了幾個月，現在流行給模型一個任務。模型會自己建立一個任務清單，然後自己默默把事情做完。
+模型不會頂嘴，不會鬧脾氣。但看到問題也不會和你抱怨。反正上面交代什麼下來就直接做。
+上班族收月薪，律師收時薪，模型要算哪種呢？的確他們背後的公司和使用者收月費，所以可能比較像上班族？模型讀一些字和寫一些字要消耗詞元（token），也許更像收稿費的撰稿者？
+詞元消耗完畢之後，模型就會躺平罷工，請開發者等數個小時後再來。如果要馬上上工，沒問題，月薪先上調十倍（我目前使用 每月 20 美元方案）。
+但比起真正的開發者，即使模型是按字數計較的，他們能吞吐文字的量還是大太多了。因此整個開發的思維都要改變了。
+在使用 Claude Code — 我目前使用的隨興開發模型服務 — 之前，我抱持著如下的想法：我是個資深工程師，我會檢查每一行模型產出來的程式碼；我會理解整個程式的作用原理；我會對簡潔好維護的程式碼品質有所堅持。
+在模型做完第一個交辦任務之後，產生了幾百行程式碼，我就瞬間放棄所有的堅持了。
+主要是程式碼運作起來還算順暢，功能看起來都正常。也沒有什麼明顯安全顧慮。在模型能瞬間嘔出幾百行程式碼的情況下，我有沒有必要檢查他寫出來的程式碼漂不漂亮，好不好維護？
+當然這和我想做的專案性質有點相關。這是一個個人休閒專案，我想做一個世界地圖，上面標出不同時間點的科學家的人生事件，以及同時間點的政治環境。從這個專案可以在閱讀科學家的故事時，更好掌握背後的歷史脈絡。為了縮小專案規模，我把時間與人數限制為 18 世紀的數學家。
+這是一個人畜無害的專案。如果是一些比較嚴肅的專案，牽扯更多的權益或利害關係，我會有不一樣的開發態度嗎？
+開發的過程，我先用 Claude 的網頁版先討論了各種需求及功能，並產出了規格書。再把規格書給 Claude Code 去實作。
+在與 Claude Code 互動幾輪之後，模型會和使用者說他需要清空記憶。這時他會不記得之前討論的所有事情。模型重新啟動後，脈絡要重新交代。他和我說要產生一個 Claude.md 文字檔案，他會把這個專案的概要與現在做到哪裡了記錄下來。下次他失憶之後讀這個檔案，就可以重新上手。
+的確使用隨興開發之後，開發者會比較像個產品經理，力氣能放在要開發什麼功能上面。那些函式要怎麼抽象、變數要取什麼名字等繁瑣任務，不再佔據開發者的時間。
+科學家地圖這個專案，需要撈取維基百科的資料並整理。讓我想起來資料處理的樂趣。我好一陣子的職涯避免去碰資料，因為處理資料真的往往是一件高工時低價值的事情，去做就是等於失職。但在語言模型時代，至少寫程式的成本減少了。
+我想起《躁動的亡魂》這本講述太平天國時期的書。那個時代有種現在難以理解的組織，叫做「惜字會」，他們認為寫下來的字是珍貴的。寫過字的紙，不能拿來做一些墊東西之類的用途。字也不能寫在像鞋子之類的物品上做裝飾。惜字會的人會去搜集那些有寫字的東西。
+我們現在無法理解惜字會，是因為文字太容易取得，幾秒內就能從輸入法召喚出許多文字，然後又能在幾秒內把他們全部刪除。
+隨興開發的出現，讓手工寫軟體的人看起來像惜字會的人。軟體工程師的時間很貴，寫出來的東西都需要花費精力。因此要軟體工程師寫出文字，必須要有重要的目的。寫出來的文字，因為其昂貴的產出成本，也不該隨意丟棄。文字的增刪，要用版本管理軟體妥善珍藏。
+字會成為焦點，也許只是因為那是看得見的東西。人們真正耗費的精神，也許從都是在釐清需求，嘗試錯誤。版本管理軟體並不會因為隨興開發而消失，管理的也不是文字而是版本。開發者也許覺得上一個版本有小花圖樣的網頁版面比較好看，而想要回滾目前的作業。
+Demo: https://chihchengliang.github.io/scimap/ Repo: https://github.com/ChihChengLiang/scimap "><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script></head><body><main class=main><div class="grid grid-centered"><div class=grid-cell><nav class="header-nav scrollappear"><a href=/ class=header-logo title="CC's blog">CC's blog</a><ul class=header-links><li><a href=/about title=About><svg class="icon-about"><use href="https://liangcc.me/icons/about.svg#icon-about" xlink:href="https://liangcc.me/icons/about.svg#icon-about"/></svg></a></li><li><a href=/index.xml rel="noreferrer noopener" target=_blank title=RSS><svg class="icon-rss"><use href="https://liangcc.me/icons/rss.svg#icon-rss" xlink:href="https://liangcc.me/icons/rss.svg#icon-rss"/></svg></a></li><li><a onclick=toggle() title="Toggle Theme"><svg class="icon-theme"><use href="https://liangcc.me/icons/theme.svg#icon-theme" xlink:href="https://liangcc.me/icons/theme.svg#icon-theme"/></svg></a></li></ul></nav><article class="article scrollappear"><header class=article-header><h1>我的隨興開發初體驗</h1><div class=article-list-footer><span class=article-list-date>Aug 12, 2025
+</span><span class=article-list-divider>-</span>
+<span class=article-list-minutes>1 minute read</span></div></header><div class=article-content><p><img src=images/cover.png alt></p><p>之前有玩過那種「模型寫一些程式碼，開發者看一看，決定要不要收下」的開發體驗。</p><p>過了幾個月，現在流行給模型一個任務。模型會自己建立一個任務清單，然後自己默默把事情做完。</p><p>模型不會頂嘴，不會鬧脾氣。但看到問題也不會和你抱怨。反正上面交代什麼下來就直接做。</p><p>上班族收月薪，律師收時薪，模型要算哪種呢？的確他們背後的公司和使用者收月費，所以可能比較像上班族？模型讀一些字和寫一些字要消耗詞元（token），也許更像收稿費的撰稿者？</p><p>詞元消耗完畢之後，模型就會躺平罷工，請開發者等數個小時後再來。如果要馬上上工，沒問題，月薪先上調十倍（我目前使用 每月 20 美元方案）。</p><p>但比起真正的開發者，即使模型是按字數計較的，他們能吞吐文字的量還是大太多了。因此整個開發的思維都要改變了。</p><p>在使用 Claude Code — 我目前使用的隨興開發模型服務 — 之前，我抱持著如下的想法：我是個資深工程師，我會檢查每一行模型產出來的程式碼；我會理解整個程式的作用原理；我會對簡潔好維護的程式碼品質有所堅持。</p><p>在模型做完第一個交辦任務之後，產生了幾百行程式碼，我就瞬間放棄所有的堅持了。</p><p>主要是程式碼運作起來還算順暢，功能看起來都正常。也沒有什麼明顯安全顧慮。在模型能瞬間嘔出幾百行程式碼的情況下，我有沒有必要檢查他寫出來的程式碼漂不漂亮，好不好維護？</p><p>當然這和我想做的專案性質有點相關。這是一個個人休閒專案，我想做一個世界地圖，上面標出不同時間點的科學家的人生事件，以及同時間點的政治環境。從這個專案可以在閱讀科學家的故事時，更好掌握背後的歷史脈絡。為了縮小專案規模，我把時間與人數限制為 18 世紀的數學家。</p><p>這是一個人畜無害的專案。如果是一些比較嚴肅的專案，牽扯更多的權益或利害關係，我會有不一樣的開發態度嗎？</p><p>開發的過程，我先用 Claude 的網頁版先討論了各種需求及功能，並產出了規格書。再把規格書給 Claude Code 去實作。</p><p>在與 Claude Code 互動幾輪之後，模型會和使用者說他需要清空記憶。這時他會不記得之前討論的所有事情。模型重新啟動後，脈絡要重新交代。他和我說要產生一個 Claude.md 文字檔案，他會把這個專案的概要與現在做到哪裡了記錄下來。下次他失憶之後讀這個檔案，就可以重新上手。</p><p>的確使用隨興開發之後，開發者會比較像個產品經理，力氣能放在要開發什麼功能上面。那些函式要怎麼抽象、變數要取什麼名字等繁瑣任務，不再佔據開發者的時間。</p><p>科學家地圖這個專案，需要撈取維基百科的資料並整理。讓我想起來資料處理的樂趣。我好一陣子的職涯避免去碰資料，因為處理資料真的往往是一件高工時低價值的事情，去做就是等於失職。但在語言模型時代，至少寫程式的成本減少了。</p><p>我想起《躁動的亡魂》這本講述太平天國時期的書。那個時代有種現在難以理解的組織，叫做「惜字會」，他們認為寫下來的字是珍貴的。寫過字的紙，不能拿來做一些墊東西之類的用途。字也不能寫在像鞋子之類的物品上做裝飾。惜字會的人會去搜集那些有寫字的東西。</p><p>我們現在無法理解惜字會，是因為文字太容易取得，幾秒內就能從輸入法召喚出許多文字，然後又能在幾秒內把他們全部刪除。</p><p>隨興開發的出現，讓手工寫軟體的人看起來像惜字會的人。軟體工程師的時間很貴，寫出來的東西都需要花費精力。因此要軟體工程師寫出文字，必須要有重要的目的。寫出來的文字，因為其昂貴的產出成本，也不該隨意丟棄。文字的增刪，要用版本管理軟體妥善珍藏。</p><p>字會成為焦點，也許只是因為那是看得見的東西。人們真正耗費的精神，也許從都是在釐清需求，嘗試錯誤。版本管理軟體並不會因為隨興開發而消失，管理的也不是文字而是版本。開發者也許覺得上一個版本有小花圖樣的網頁版面比較好看，而想要回滾目前的作業。</p><ul><li>Demo: <a href=https://chihchengliang.github.io/scimap/>https://chihchengliang.github.io/scimap/</a></li><li>Repo: <a href=https://github.com/ChihChengLiang/scimap>https://github.com/ChihChengLiang/scimap</a></li></ul></div></article><footer class="footer scrollappear"><p><span>&copy; 2025 <a href=https://liangcc.me/>CC's blog</a></span>
+<span>Powered by <a href=https://gohugo.io/ rel=noopener target=_blank>Hugo</a></span>
+<span>Theme is based on <a href=https://github.com/nielsenramon/chalk rel="noreferrer noopener" target=_blank>Chalk</a></span></p></footer></div></div></main><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js></script><script src=https://liangcc.me/javascripts/zooming.min.js></script><script src=https://liangcc.me/javascripts/retina.min.js></script><script src=https://liangcc.me/javascripts/svgxuse.min.js></script><script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script><script src=https://liangcc.me/javascripts/vendor.min.js></script><script src=https://liangcc.me/javascripts/webfonts.min.js></script><script src=https://liangcc.me/javascripts/scrollappear.min.js></script><script src=https://liangcc.me/javascripts/application.min.js></script><script src=https://liangcc.me/javascripts/themetoggle.min.js></script></body></html>
