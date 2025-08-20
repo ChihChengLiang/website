@@ -60,7 +60,37 @@ Before we getting into that, maybe we can talk about what makes a good name. I h
 
 Immediately comes up to my mind is the concept that I'm going to name it "derivatives." This concept is usually introduced with a "age>18 proof" -- a zero knowledge proof that convinces a verifier that your age is greater than 18 years old. You present a QR code to a bouncer and walked into a night club. Behind that QR code is a machine verifiable cryptographic message, derived from your government issued digital identity that attest to your legal name, age, and other attributes, reveals only the fact you are older than 18 but nothing else.
 
+The setup is benefitial because alternatively, you have to present your full ID to the bouncer and reveal information unneeded for the application. Selective disclosure is the main featured offered by the tool.
+
+The tools achiving the "age>18 proof" are sometime called zkID, anonynous credentials, due to the project AnonCred.
+
+But that seems not the full picture. Both zkID and anonynous credential suggest the scope is limited to one type of data -- ID, and only one ID.
+
+I'm grateful to be invited to 0xPARC residency in 2024 and witnessed the birth of the ideas detailed in [this blog post](https://0xparc.org/blog/programmable-cryptography-1).
+
+In the blog post we see two ideas defined:
+- Universal Protocol:
+- Universal Cryptographic Adapters:
+- pod https://pod.org/
 
 ![](https://0xparc.org/static/universal_adapter.png)
+Universal Cryptographic Adapters. Source: [0xparc blog](https://0xparc.org/blog/programmable-cryptography-1)
 
-https://0xparc.org/blog/programmable-cryptography-1#user-content-fn-4
+In the diagram, we see an universal cryptographic adapters takes three sources of inputs from the left, digitally signed data from the IRS, signed data from your bank, and a state proof from the Ethereum blockchain. On the right, an aggregated claim that this person has a financial score 96.
+
+- Universal Protocol
+- Naming the tools but not the application. 0xparc has this humility to avoid the later. We are early in the internet and could not predict the TikTok.
+  - pattern: programmable but not software
+
+
+- [zkemail](https://zk.email/)
+  - [zkp2p](https://www.zkp2p.xyz/)
+  - Account recovery
+- [zkpdf](https://pse.dev/blog/zkpdf-unlocking-verifiable-data)
+- [tlsnotary](https://tlsnotary.org/) / [zk tls](https://github.com/the3cloud/zktls)
+
+
+offensive defensive
+
+
+zk wrapped ID https://vitalik.eth.limo/general/2025/06/28/zkid.html
