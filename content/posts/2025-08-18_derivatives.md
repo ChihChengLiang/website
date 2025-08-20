@@ -4,93 +4,72 @@ date: 2025-08-18T16:19:12+08:00
 draft: false
 ---
 
-> The world was so recent that many things lacked names, and in order to indicate them it was necessary to point.
-> -- Gabriel García Márquez
 
-Two things I've been doing recently: exploring AI and reflecting on communications.
+I'm proposing to name the class of applications like "age > 18" proof as "Derivatives."
 
-I vibe coded a [map](https://chihchengliang.github.io/scimap/) to explore life events of 18 century mathematicians and a [brainstorming app](https://brainstorm-claude-d1vhb9vpv-chih-cheng-liangs-projects.vercel.app/) for my favorite ritual without subscribing Figma.
+### Examples
 
-I tried Suno AI and got mindblown by the music quality of v4.5 model.
+- **ID Derivatives** are claims derived from your ID. A "age > 18" proof is a claim about your age derived from an age attribute of your digitally issued identity.
+- **Portfolio Derivatives** are claims derived from your financial assets. A credit score about your financial health can be derived from multiple sources of asset your own -- IRS signed tax statement, a bank balance from a TLS secured webpage, and a merkle proof of your crypto balance. [^0xparc]
+- **Email Derivatives** are claims extracted from your email, with tools like [zkemail](https://zk.email/). The applications are massive here but I show just one: You can recover your crypto account by presenting your recovery email derivative.
+- **Composite Derivatives**: Remix the aboves to unlock new interesting applications.
 
-By spitting out images, code, and music, LLMs empower skill-less users to craft stunning work. What determines the outcome quality is how well the users express themselves and figure out their desire. Fluency in the domain language matters. 
+### Definitions
 
-<figure>
-  <img src="image_prompt.png" >
-  <figcaption>
-  Questions to consider when prompting an image 
-  <a target="_blank" href="https://dallery.gallery/wp-content/uploads/2022/07/The-DALL%C2%B7E-2-prompt-book-v1.02.pdf
-  ">[source]</a>
-  </figcaption>
-</figure>
+An **explicit claim** is a non-trivial fact about a person, recorded in the form of data. For example, these are consider explicit claims: your name or date of birth on your ID, the bank balance from your banking website, or your account balance from Ethereum blockchain. The degree that people can treat an explicit claim as fact depends on the quality the data being generated and registered. A merkle proof of balance on Ethereum is certainly a fact. But a date of birth registered with bribery would be a corrupted claim.
+
+An **Implicit claim** is a fact deducted from the application mechanism. For example, proving knowledge of a secret field in an ID establishs the implicit claim that you are the holder of the ID -- you are the only person on the earth capable of crafting the deriviative passing the verification. If your secret is stolen, then the implicit claim is considered invalid.
+
+A **Derivable** is a piece of data contains one or multiple explicit claims.
+
+A **Derivative** is a piece of computationally verifiable data, encapsulating claims derived from derivables.
+
+Foundamentally, a derivative offers a statement pieced together from one or multiple explicit and implicit claims, sliced and diced from the derivables the claims belong to.
+
+### Properties
+
+A derivative is useful because of the following properties:
+
+- **Splittable**: a.k.a. Selective Disclosure. A derivable is usually a bundle of multiple explicit claims. A splitting property means you can expose just a subset of them. The main benefit is privacy, you reveal your age without revealing your name together.
+- **Transformable**: A derivative should not be limited to the face value of the data, they should able to compute from that data. Your ID only register your date of birth. It requires computation to derive age from the date of birth. Another cheap step of computation to tell age greater than 18 or not gives you the benefit of privacy by covering the actual age. Note that the computation step is not arbitrary on the runtime, it is a verification process agreed beforehand.
+- **Jointable**: A derivative can be derived from multiple derivables like the credit score use case mentioned above.
+- **Second Derivatives**: A derivative can be a derivable for another new derivative. Just like what you can do in calculus.
 
 
-The prompts for images are somehow straigteforward. One might not know what is a "dutch angle," but it could be illustrated with an image, or a text description like "shot from a weird bottom up angle."
+## Motivation
 
-For coding, modern people are well versed in the languages of buttons and text. Minor expertise might be required to tell what is a "navbar". Major expertise help you diagnosis the deep JavaScript and CSS issues and unstuck the LLM from an unproductive bug fixing. A trained person is also more likely to foresee the complexcity involving multi-user interaction.
+Problem with exising terms
 
-Music frustrates me, but mostly that's due to my lack of training. Music genres are many and you have to register them by listening one by one. If you know the name of your favorite sound, you can get what you want quickly. If you don't know, then you wait till you encounter a similar song that has prompts attached to it, labelling that sound for you.
+- Existing terms are defined around the toolings and the cryptographic technics, but not the inner workings of applications. 
+- Good cryptography is hidden cryptography. You no longer see "https" in browser url bar unless you deliberately do so. You don't say let me text my friend with end-to-end encryption, you say "let me text my friend." If the cryptography is opening a new set of application, we should name that application and leave that technicallity behind. Users have no bandwidth and no reason to verify the use of the cryptography.
 
-In general, things you can see or point, like UI, are somehow manageable. Invisible things are somehow less trackable, but audible things are still okay. All you have to do is train an embedding of ideas in your brain, and summon one with a good name.
 
----
-
-The experience of prompting makes me wonder, what about the language of the blockchain domain? If we are only allowed to build products with prompts, what would that developer experience feel like?
-
-Many might agree, our language is terrible. Like, how do we even call our domain? 
-
-- A blockchain domain? It is bad because it's not the definitive feature, some might explore a technical design without blocks and chains.
-- distributed ledger technology? It doesn't capture the computing part.
-- Decentralized computing? It is better but it includes project requires no strong consensus.
-- World computer is something I like, but it says almost nothing.
-- Ethereum is the one I would use, because it captures an instance with all required elements. But it is also a label of a very specific project and excludes all the relative projects.
-
-More over, most of our terms, especially the values delivered to users, decribe something abstract, intangible, and invisible. Decentrailization, trustless, privacy, security.
-
-Many terms are poorly defined. Notably, a ZK rollup has no zero-knowledge property.
-
-Terms are judged because they exist, could there be potential inexistent terms remain to be coined, or minted?
-
-Before we getting into that, maybe we can talk about what makes a good name. I haven't found a systemetic method for naming things, but I find the following points reasonable:
 
 - You're repeatedly encountering something that requires lengthy explanation each time
 - A name would help you notice patterns or make distinctions that matter
 - It enables better coordination between people working on something together
 - The act of naming itself forces useful clarity about what you're actually dealing with
 
-Immediately comes up to my mind is the concept that I'm going to name it "derivatives." This concept is usually introduced with a "age>18 proof" -- a zero knowledge proof that convinces a verifier that your age is greater than 18 years old. You present a QR code to a bouncer and walked into a night club. Behind that QR code is a machine verifiable cryptographic message, derived from your government issued digital identity that attest to your legal name, age, and other attributes, reveals only the fact you are older than 18 but nothing else.
+- limited 
 
-The setup is benefitial because alternatively, you have to present your full ID to the bouncer and reveal information unneeded for the application. Selective disclosure is the main featured offered by the tool.
-
-The tools achiving the "age>18 proof" are sometime called zkID, anonynous credentials, due to the project AnonCred.
-
-But that seems not the full picture. Both zkID and anonynous credential suggest the scope is limited to one type of data -- ID, and only one ID.
-
-I'm grateful to be invited to 0xPARC residency in 2024 and witnessed the birth of the ideas detailed in [this blog post](https://0xparc.org/blog/programmable-cryptography-1).
-
-In the blog post we see two ideas defined:
-- Universal Protocol:
-- Universal Cryptographic Adapters:
-- pod https://pod.org/
-
-![](https://0xparc.org/static/universal_adapter.png)
-Universal Cryptographic Adapters. Source: [0xparc blog](https://0xparc.org/blog/programmable-cryptography-1)
-
-In the diagram, we see an universal cryptographic adapters takes three sources of inputs from the left, digitally signed data from the IRS, signed data from your bank, and a state proof from the Ethereum blockchain. On the right, an aggregated claim that this person has a financial score 96.
-
-- Universal Protocol
-- Naming the tools but not the application. 0xparc has this humility to avoid the later. We are early in the internet and could not predict the TikTok.
-  - pattern: programmable but not software
+## Inspiration
 
 
-- [zkemail](https://zk.email/)
-  - [zkp2p](https://www.zkp2p.xyz/)
-  - Account recovery
-- [zkpdf](https://pse.dev/blog/zkpdf-unlocking-verifiable-data)
-- [tlsnotary](https://tlsnotary.org/) / [zk tls](https://github.com/the3cloud/zktls)
+It's like financial derivative, where you have derivatives assets -- futures and options -- from the underlying assets -- stocks or commodities.
+
+It's also like the derivatives in the field of copyright and art, where people derive new works from their predecessor.
+
+The Zk derivatives are facts derived from the your underlying private digital assets -- ID card, bank statements, and emails.
 
 
-offensive defensive
+## Alternatives
+
+Here we'll argue the limitation of potential alternatives.
 
 
-zk wrapped ID https://vitalik.eth.limo/general/2025/06/28/zkid.html
+- selective disclosure: too restrictive on the imagination. People only think about fields on an ID but not the networks of possibility you can derive from the basic secrets.
+
+- Anonymous credentials
+- ZK ID / ZK wrapped ID
+- Universal Protocol / Universal Cryptographic Adapters / PODs
+
