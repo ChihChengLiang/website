@@ -7,14 +7,14 @@ draft: false
 
 I'm proposing to name the class of applications like "age > 18" proof as "Derivatives."
 
-### Examples
+## Examples
 
 - **ID Derivatives** are claims derived from your ID. A "age > 18" proof is a claim about your age derived from an age attribute of your digitally issued identity.
 - **Portfolio Derivatives** are claims derived from your financial assets. A credit score about your financial health can be derived from multiple sources of asset your own -- IRS signed tax statement, a bank balance from a TLS secured webpage, and a merkle proof of your crypto balance. [^0xparc]
 - **Email Derivatives** are claims extracted from your email, with tools like [zkemail](https://zk.email/). The applications are massive here but I show just one: You can recover your crypto account by presenting your recovery email derivative.
 - **Composite Derivatives**: Remix the aboves to unlock new interesting applications.
 
-### Definitions
+## Definitions
 
 An **explicit claim** is a non-trivial fact about a person, recorded in the form of data. For example, these are consider explicit claims: your name or date of birth on your ID, the bank balance from your banking website, or your account balance from Ethereum blockchain. The degree that people can treat an explicit claim as fact depends on the quality the data being generated and registered. A merkle proof of balance on Ethereum is certainly a fact. But a date of birth registered with bribery would be a corrupted claim.
 
@@ -38,38 +38,43 @@ A derivative is useful because of the following properties:
 
 ## Motivation
 
-Problem with exising terms
+Exising terms have some problems, here are some general problem and I'll go into specifics in the last section.
 
 - Existing terms are defined around the toolings and the cryptographic technics, but not the inner workings of applications. 
-- Good cryptography is hidden cryptography. You no longer see "https" in browser url bar unless you deliberately do so. You don't say let me text my friend with end-to-end encryption, you say "let me text my friend." If the cryptography is opening a new set of application, we should name that application and leave that technicallity behind. Users have no bandwidth and no reason to verify the use of the cryptography.
+- A good cryptography is hidden cryptography. You no longer see "https" in browser url bar unless you deliberately do so. You don't say let me text my friend with end-to-end encryption, you say "let me text my friend." If the cryptography is opening a new set of application, we should name that application and leave that technicallity behind. Users have no bandwidth and no reason to verify the use of the cryptography.
 
-
+Then what makes a good name? How do we know a name doesn't exist? Here are some huristics:
 
 - You're repeatedly encountering something that requires lengthy explanation each time
 - A name would help you notice patterns or make distinctions that matter
 - It enables better coordination between people working on something together
 - The act of naming itself forces useful clarity about what you're actually dealing with
 
-- limited 
+I think the name derivative fits them:
 
-## Inspiration
+- I realized the absence of the name costs me lengthy explanation each time.
+- The name derivative is straightforward on the usage patterns: data derived from other data.
+- It enables better coordination with non-cryptographer and application designers.
+- By focusing on derivatives and claims we can focus on users' experience and problems, not just abstract cryptographic terms. 
 
+The name derivative took inspiration from two fields:
 
-It's like financial derivative, where you have derivatives assets -- futures and options -- from the underlying assets -- stocks or commodities.
-
-It's also like the derivatives in the field of copyright and art, where people derive new works from their predecessor.
-
-The Zk derivatives are facts derived from the your underlying private digital assets -- ID card, bank statements, and emails.
+- In **Finance**, derivatives assets, like futures and options, are derived from the underlying assets, like stocks or commodities.
+- In **Copyright and Art**, people derive new works from their predecessor.
 
 
 ## Alternatives
 
 Here we'll argue the limitation of potential alternatives.
 
+- Verifiable Credentials [^vc]: Used in standardization works. Very specific to ID. It excludes email derivative use case.
+- Anonymous Credentials [^anonCred]: Used in academic works. Very specific to ID and privacy application.
+- ZK ID / ZK wrapped ID [^zkid]: Used in blogging space and blockchain space. Emphasize on ID and cryptography tooling.
+- Universal Protocol / Universal Cryptographic Adapters / PODs [^0xparc] [^pod]: 0xPARC pictured the most generalized use case and closest to the meaning assigned to derivative. A POD is an derivative and can later be a derivable. Universal Cryptographic Adapters extracts raw derivables into PODs. Finally, the Universal Protocol free interactions between PODs. I think the distinction between derivative and 0xPARC terms is that the latter are for the infrastructure to enable the former. Universal Protocol, Universal Cryptographic Adapters, and PODs, each term alone seems unable to capture the whole class of applications.
 
-- selective disclosure: too restrictive on the imagination. People only think about fields on an ID but not the networks of possibility you can derive from the basic secrets.
 
-- Anonymous credentials
-- ZK ID / ZK wrapped ID
-- Universal Protocol / Universal Cryptographic Adapters / PODs
-
+[^0xparc]: This is an example borrowed from https://0xparc.org/blog/programmable-cryptography-1
+[^anonCred]: example usage https://eprint.iacr.org/2024/2010
+[^vc]: https://www.w3.org/TR/vc-data-model-2.0/#dfn-verifiable-credential
+[^zkid]: https://vitalik.eth.limo/general/2025/06/28/zkid.html
+[^pod]: https://pod.org/
