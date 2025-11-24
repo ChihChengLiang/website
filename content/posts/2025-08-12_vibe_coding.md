@@ -1,48 +1,49 @@
 ---
-title: "我的隨興開發初體驗"
+title: "My First Vibe Coding Experience"
 date: 2025-08-12T16:04:05+08:00
 draft: false
 ---
 
 ![](images/cover.png)
 
-之前有玩過那種「模型寫一些程式碼，開發者看一看，決定要不要收下」的開發體驗。
 
-過了幾個月，現在流行給模型一個任務。模型會自己建立一個任務清單，然後自己默默把事情做完。
+I used to experience that kind of development workflow where "the model writes some code, the developer takes a look, and decides whether to accept it."
 
-模型不會頂嘴，不會鬧脾氣。但看到問題也不會和你抱怨。反正上面交代什麼下來就直接做。
+A few months have passed, and now the trend is to give the model a task. The model creates its own task list and quietly completes the work by itself.
 
-上班族收月薪，律師收時薪，模型要算哪種呢？的確他們背後的公司和使用者收月費，所以可能比較像上班族？模型讀一些字和寫一些字要消耗詞元（token），也許更像收稿費的撰稿者？
+Models don't talk back or throw tantrums. But they also won't complain when they see problems. Whatever instructions come from above, they just execute directly.
 
-詞元消耗完畢之後，模型就會躺平罷工，請開發者等數個小時後再來。如果要馬上上工，沒問題，月薪先上調十倍（我目前使用 每月 20 美元方案）。
+Office workers receive monthly salaries, lawyers charge hourly rates—which category should models fall into? Indeed, the companies behind them charge their users monthly fees, so perhaps they're more like office workers? Models consume tokens when reading and writing text, so maybe they're more like writers paid by the word?
 
-但比起真正的開發者，即使模型是按字數計較的，他們能吞吐文字的量還是大太多了。因此整個開發的思維都要改變了。
+Once the tokens are exhausted, the model will lie flat and go on strike, asking developers to come back after several hours. If you need them to work immediately, no problem—just increase the monthly salary tenfold (I'm currently using the $20/month plan).
 
-在使用 Claude Code — 我目前使用的隨興開發模型服務 — 之前，我抱持著如下的想法：我是個資深工程師，我會檢查每一行模型產出來的程式碼；我會理解整個程式的作用原理；我會對簡潔好維護的程式碼品質有所堅持。
+But compared to real developers, even though models count by the word, the amount of text they can process is still vastly greater. Therefore, the entire development mindset needs to change.
 
-在模型做完第一個交辦任務之後，產生了幾百行程式碼，我就瞬間放棄所有的堅持了。
+Before using Claude Code—the vibe-coding model service I currently use—I held the following beliefs: I'm a senior engineer; I will examine every line of code the model produces; I will understand the operating principles of the entire program; I will insist on clean, maintainable code quality.
 
-主要是程式碼運作起來還算順暢，功能看起來都正常。也沒有什麼明顯安全顧慮。在模型能瞬間嘔出幾百行程式碼的情況下，我有沒有必要檢查他寫出來的程式碼漂不漂亮，好不好維護？
+After the model completed its first assigned task and generated several hundred lines of code, I instantly abandoned all these principles.
 
-當然這和我想做的專案性質有點相關。這是一個個人休閒專案，我想做一個世界地圖，上面標出不同時間點的科學家的人生事件，以及同時間點的政治環境。從這個專案可以在閱讀科學家的故事時，更好掌握背後的歷史脈絡。為了縮小專案規模，我把時間與人數限制為 18 世紀的數學家。
+Mainly because the code runs fairly smoothly, and the functionality appears normal. There are no obvious security concerns. When a model can instantly vomit out hundreds of lines of code, is it necessary for me to check whether the code it writes is elegant or maintainable?
 
-這是一個人畜無害的專案。如果是一些比較嚴肅的專案，牽扯更多的權益或利害關係，我會有不一樣的開發態度嗎？
+Of course, this is somewhat related to the nature of the project I want to work on. This is a personal leisure project—I want to create a world map marking life events of scientists at different points in time, along with the political environment of those times. Through this project, when reading stories about scientists, one can better grasp the historical context behind them. To reduce the project's scope, I've limited the time period and number of people to 18th-century mathematicians.
 
-開發的過程，我先用 Claude 的網頁版先討論了各種需求及功能，並產出了規格書。再把規格書給 Claude Code 去實作。
+This is a harmless project. If it were a more serious project involving more rights or interests, would I have a different development attitude?
 
-在與 Claude Code 互動幾輪之後，模型會和使用者說他需要清空記憶。這時他會不記得之前討論的所有事情。模型重新啟動後，脈絡要重新交代。他和我說要產生一個 Claude.md 文字檔案，他會把這個專案的概要與現在做到哪裡了記錄下來。下次他失憶之後讀這個檔案，就可以重新上手。
+During the development process, I first discussed various requirements and features using Claude's web version and produced a specification document. Then I gave the specification to Claude Code for implementation.
 
-的確使用隨興開發之後，開發者會比較像個產品經理，力氣能放在要開發什麼功能上面。那些函式要怎麼抽象、變數要取什麼名字等繁瑣任務，不再佔據開發者的時間。
+After several rounds of interaction with Claude Code, the model tells the user it needs to clear its memory. At this point, it won't remember anything previously discussed. After the model restarts, the context needs to be re-established. It told me to create a Claude.md text file where it would record the project overview and current progress. Next time after it loses its memory, it can read this file to get back on track.
 
-科學家地圖這個專案，需要撈取維基百科的資料並整理。讓我想起來資料處理的樂趣。我好一陣子的職涯避免去碰資料，因為處理資料真的往往是一件高工時低價值的事情，去做就是等於失職。但在語言模型時代，至少寫程式的成本減少了。
+Indeed, after using vibe coding, developers become more like product managers, able to focus their energy on what features to develop. Those tedious tasks like how to abstract functions and what to name variables no longer occupy the developer's time.
 
-我想起《躁動的亡魂》這本講述太平天國時期的書。那個時代有種現在難以理解的組織，叫做「惜字會」，他們認為寫下來的字是珍貴的。寫過字的紙，不能拿來做一些墊東西之類的用途。字也不能寫在像鞋子之類的物品上做裝飾。惜字會的人會去搜集那些有寫字的東西。
+The scientist map project requires scraping and organizing Wikipedia data. This reminds me of the joy of data processing. I've avoided touching data for a while in my career because data processing is often a high-effort, low-value task—doing it is essentially dereliction of duty. But in the era of language models, at least the cost of writing code has decreased.
 
-我們現在無法理解惜字會，是因為文字太容易取得，幾秒內就能從輸入法召喚出許多文字，然後又能在幾秒內把他們全部刪除。
+I'm reminded of "What Remains: Coming to Terms with Civil War in 19th Century China," a [book](https://www.sup.org/books/asian-studies/what-remains) about the Taiping Rebellion period. That era had an organization that's hard for us to understand now, called the "Cherish Character Society" (惜字會). They believed that written characters were precious. Paper with writing on it couldn't be used for mundane purposes like padding. Characters also couldn't be written on items like shoes for decoration. Members of the Cherish Character Society would collect things with writing on them.
 
-隨興開發的出現，讓手工寫軟體的人看起來像惜字會的人。軟體工程師的時間很貴，寫出來的東西都需要花費精力。因此要軟體工程師寫出文字，必須要有重要的目的。寫出來的文字，因為其昂貴的產出成本，也不該隨意丟棄。文字的增刪，要用版本管理軟體妥善珍藏。
+We can't understand the Cherish Character Society now because text is too easily obtained—within seconds, we can summon many characters from an input method, and then delete them all within seconds.
 
-字會成為焦點，也許只是因為那是看得見的東西。人們真正耗費的精神，也許從都是在釐清需求，嘗試錯誤。版本管理軟體並不會因為隨興開發而消失，管理的也不是文字而是版本。開發者也許覺得上一個版本有小花圖樣的網頁版面比較好看，而想要回滾目前的作業。
+The emergence of vibe-coding makes people who manually write software look like members of the Cherish Character Society. Software engineers' time is expensive, and everything they write requires effort. Therefore, for software engineers to produce text, there must be an important purpose. The text produced, due to its expensive production cost, shouldn't be casually discarded. The addition and deletion of text must be properly treasured using version control software.
+
+Perhaps characters become the focus only because they're visible. What people truly expend their mental energy on has perhaps always been clarifying requirements and trial and error. Version control software won't disappear because of vibe-coding; what's being managed isn't text but versions. Developers might feel that the previous version with small flower patterns on the webpage looked better and want to roll back the current work.
 
 - Demo: https://chihchengliang.github.io/scimap/
 - Repo: https://github.com/ChihChengLiang/scimap
