@@ -4,8 +4,9 @@ date: 2025-08-12T16:04:05+08:00
 draft: false
 ---
 
-![](images/cover.png)
+{{< translation type="machine" from="Chinese" />}}
 
+![](images/cover.png)
 
 I used to experience that kind of development workflow where "the model writes some code, the developer takes a look, and decides whether to accept it."
 

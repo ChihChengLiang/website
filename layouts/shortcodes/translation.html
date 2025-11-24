@@ -1,0 +1,47 @@
+{{ $type := .Get "type" | default "machine" }}
+{{ $from := .Get "from" | default "Chinese" }}
+
+<div class="translation-notice">
+  <em>
+    {{- if .Inner -}}
+        {{ .Inner }}
+    {{ else }}
+        {{ if eq $type "machine" }}
+            Original post in {{ $from }}. This post is machine translated and manually revised.
+        {{ else if eq $type "human" }}
+            Original post in {{ $from }}. Translated by the author.
+        {{- end -}}
+    {{ end }}
+  </em>
+</div>
+
+<style>
+.translation-notice {
+  padding: 12px 16px;
+  margin: 20px 0;
+  background-color: rgba(255, 193, 7, 0.1); // Light amber background
+  border-left: 3px solid #ffc107; // Amber border
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #666;
+  
+  a {
+    color: inherit;
+    text-decoration: underline;
+    
+    &:hover {
+      color: #333;
+    }
+  }
+}
+
+// For dark theme
+.dark {
+  .translation-notice {
+    background-color: rgba(255, 193, 7, 0.05);
+    border-left-color: #ff9800;
+    color: #aaa;
+  }
+}
+
+</style>
