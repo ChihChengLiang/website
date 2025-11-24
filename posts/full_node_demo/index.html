@@ -67,7 +67,7 @@ Demo 主網路 步驟：
 wget -q -O - https://git.io/vQhTU | bash 下載並建置 Geth
 git clone https://github.com/ethereum/go-ethereum.git cd go-ethereum make geth 跑主網路
 geth Demo 從全節點取得資料 geth attach <要找 ipc path> 瀏覽區塊、交易相關資料 net.version 解釋主網路和其他測試網路 eth.getBlockNumber() eth.getBlockByNumber(100) 挑幾個區塊裡面重要的欄位解釋 瀏覽帳戶餘額 解釋帳戶是什麼，私鑰公鑰數位簽章。EOA 與合約帳戶
-eth.getBalance 瀏覽合約資料 eth.getCode() 選一個合約地址，看 bytecode 與 etherscan 上面的是否吻合 呼叫函式與瀏覽合約狀態 (這項看起來需要 js library 配合比較容易做)"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-02-28T13:35:56+00:00"><meta property="article:modified_time" content="2021-02-28T13:35:56+00:00"><meta property="og:image" content="https://liangcc.me/images/buffaloes.png"><meta itemprop=name content="📝全節點 Demo"><meta itemprop=description content="先備知識 主網路
+eth.getBalance 瀏覽合約資料 eth.getCode() 選一個合約地址，看 bytecode 與 etherscan 上面的是否吻合 呼叫函式與瀏覽合約狀態 (這項看起來需要 js library 配合比較容易做)"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-02-28T13:35:56+00:00"><meta property="article:modified_time" content="2021-02-28T13:35:56+00:00"><meta property="og:image" content="https://liangcc.me/images/buffaloes.png"><meta itemprop=name content="📝全節點 Demo"><meta itemprop=description content="先備知識 主網路
 以太坊系統的本體是一個點對點網路。 全節點大概要同步個一天以上 全節點大概要吃掉 250 GB 的硬碟空間 主網路 要用真的以太幣才能部署合約 測試網路 有水龍頭可以領測試用的測試幣 「狀態」的讀取，免費 「狀態」的寫入，要送花費 gas 的交易 三天前的準備 先同步好一個全節點，當天可以快速展示
 Demo 主網路 步驟：
 展示全節點的 Log 展示連接上全節點，並瀏覽合約裡面的資料 決策：要讀什麼合約的資料出來玩比較好玩呢？

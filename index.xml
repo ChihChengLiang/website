@@ -1,37 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CC's blog</title><link>https://liangcc.me/</link><description>Recent content on CC's blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 18 Aug 2025 16:19:12 +0800</lastBuildDate><atom:link href="https://liangcc.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Derivatives</title><link>https://liangcc.me/posts/2025-08-18_derivatives/</link><pubDate>Mon, 18 Aug 2025 16:19:12 +0800</pubDate><guid>https://liangcc.me/posts/2025-08-18_derivatives/</guid><description>&lt;p>I&amp;rsquo;m proposing to name the class of applications like &amp;ldquo;age &amp;gt; 18&amp;rdquo; proofs as &amp;ldquo;Derivatives.&amp;rdquo;&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CC's blog</title><link>https://liangcc.me/</link><description>Recent content on CC's blog</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 18 Aug 2025 16:19:12 +0800</lastBuildDate><atom:link href="https://liangcc.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Derivatives</title><link>https://liangcc.me/posts/2025-08-18_derivatives/</link><pubDate>Mon, 18 Aug 2025 16:19:12 +0800</pubDate><guid>https://liangcc.me/posts/2025-08-18_derivatives/</guid><description>&lt;p>I&amp;rsquo;m proposing to name the class of applications like &amp;ldquo;age &amp;gt; 18&amp;rdquo; proofs as &amp;ldquo;Derivatives.&amp;rdquo;&lt;/p>
 &lt;h2 id="examples">Examples&lt;/h2>
 &lt;p>&lt;strong>ID Derivatives&lt;/strong> are claims derived from your ID. An &amp;ldquo;age &amp;gt; 18&amp;rdquo; proof is a claim about your age derived from an age attribute of your digitally issued identity.&lt;/p>
-&lt;p>&lt;strong>Portfolio Derivatives&lt;/strong> are claims derived from your financial assets. A credit score about your financial health can be derived from multiple sources of assets you own &amp;ndash; an IRS-signed tax statement, a bank balance from a TLS-secured webpage, and a merkle proof of your crypto balance. &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p></description></item><item><title>我的隨興開發初體驗</title><link>https://liangcc.me/posts/2025-08-12_vibe_coding/</link><pubDate>Tue, 12 Aug 2025 16:04:05 +0800</pubDate><guid>https://liangcc.me/posts/2025-08-12_vibe_coding/</guid><description>&lt;p>&lt;img src="images/cover.png" alt="">&lt;/p>
-&lt;p>之前有玩過那種「模型寫一些程式碼，開發者看一看，決定要不要收下」的開發體驗。&lt;/p>
-&lt;p>過了幾個月，現在流行給模型一個任務。模型會自己建立一個任務清單，然後自己默默把事情做完。&lt;/p>
-&lt;p>模型不會頂嘴，不會鬧脾氣。但看到問題也不會和你抱怨。反正上面交代什麼下來就直接做。&lt;/p>
-&lt;p>上班族收月薪，律師收時薪，模型要算哪種呢？的確他們背後的公司和使用者收月費，所以可能比較像上班族？模型讀一些字和寫一些字要消耗詞元（token），也許更像收稿費的撰稿者？&lt;/p>
-&lt;p>詞元消耗完畢之後，模型就會躺平罷工，請開發者等數個小時後再來。如果要馬上上工，沒問題，月薪先上調十倍（我目前使用 每月 20 美元方案）。&lt;/p>
-&lt;p>但比起真正的開發者，即使模型是按字數計較的，他們能吞吐文字的量還是大太多了。因此整個開發的思維都要改變了。&lt;/p>
-&lt;p>在使用 Claude Code — 我目前使用的隨興開發模型服務 — 之前，我抱持著如下的想法：我是個資深工程師，我會檢查每一行模型產出來的程式碼；我會理解整個程式的作用原理；我會對簡潔好維護的程式碼品質有所堅持。&lt;/p>
-&lt;p>在模型做完第一個交辦任務之後，產生了幾百行程式碼，我就瞬間放棄所有的堅持了。&lt;/p>
-&lt;p>主要是程式碼運作起來還算順暢，功能看起來都正常。也沒有什麼明顯安全顧慮。在模型能瞬間嘔出幾百行程式碼的情況下，我有沒有必要檢查他寫出來的程式碼漂不漂亮，好不好維護？&lt;/p>
-&lt;p>當然這和我想做的專案性質有點相關。這是一個個人休閒專案，我想做一個世界地圖，上面標出不同時間點的科學家的人生事件，以及同時間點的政治環境。從這個專案可以在閱讀科學家的故事時，更好掌握背後的歷史脈絡。為了縮小專案規模，我把時間與人數限制為 18 世紀的數學家。&lt;/p>
-&lt;p>這是一個人畜無害的專案。如果是一些比較嚴肅的專案，牽扯更多的權益或利害關係，我會有不一樣的開發態度嗎？&lt;/p>
-&lt;p>開發的過程，我先用 Claude 的網頁版先討論了各種需求及功能，並產出了規格書。再把規格書給 Claude Code 去實作。&lt;/p>
-&lt;p>在與 Claude Code 互動幾輪之後，模型會和使用者說他需要清空記憶。這時他會不記得之前討論的所有事情。模型重新啟動後，脈絡要重新交代。他和我說要產生一個 Claude.md 文字檔案，他會把這個專案的概要與現在做到哪裡了記錄下來。下次他失憶之後讀這個檔案，就可以重新上手。&lt;/p>
-&lt;p>的確使用隨興開發之後，開發者會比較像個產品經理，力氣能放在要開發什麼功能上面。那些函式要怎麼抽象、變數要取什麼名字等繁瑣任務，不再佔據開發者的時間。&lt;/p>
-&lt;p>科學家地圖這個專案，需要撈取維基百科的資料並整理。讓我想起來資料處理的樂趣。我好一陣子的職涯避免去碰資料，因為處理資料真的往往是一件高工時低價值的事情，去做就是等於失職。但在語言模型時代，至少寫程式的成本減少了。&lt;/p>
-&lt;p>我想起《躁動的亡魂》這本講述太平天國時期的書。那個時代有種現在難以理解的組織，叫做「惜字會」，他們認為寫下來的字是珍貴的。寫過字的紙，不能拿來做一些墊東西之類的用途。字也不能寫在像鞋子之類的物品上做裝飾。惜字會的人會去搜集那些有寫字的東西。&lt;/p>
-&lt;p>我們現在無法理解惜字會，是因為文字太容易取得，幾秒內就能從輸入法召喚出許多文字，然後又能在幾秒內把他們全部刪除。&lt;/p>
-&lt;p>隨興開發的出現，讓手工寫軟體的人看起來像惜字會的人。軟體工程師的時間很貴，寫出來的東西都需要花費精力。因此要軟體工程師寫出文字，必須要有重要的目的。寫出來的文字，因為其昂貴的產出成本，也不該隨意丟棄。文字的增刪，要用版本管理軟體妥善珍藏。&lt;/p>
-&lt;p>字會成為焦點，也許只是因為那是看得見的東西。人們真正耗費的精神，也許從都是在釐清需求，嘗試錯誤。版本管理軟體並不會因為隨興開發而消失，管理的也不是文字而是版本。開發者也許覺得上一個版本有小花圖樣的網頁版面比較好看，而想要回滾目前的作業。&lt;/p>
-&lt;ul>
-&lt;li>Demo: &lt;a href="https://chihchengliang.github.io/scimap/">https://chihchengliang.github.io/scimap/&lt;/a>&lt;/li>
-&lt;li>Repo: &lt;a href="https://github.com/ChihChengLiang/scimap">https://github.com/ChihChengLiang/scimap&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Sybil Advantage in Quadratic Voting</title><link>https://liangcc.me/posts/2025-06-16_qv_sybil/</link><pubDate>Mon, 16 Jun 2025 09:10:37 +0800</pubDate><guid>https://liangcc.me/posts/2025-06-16_qv_sybil/</guid><description>&lt;h2 id="quick-quadratic-voting-recap">Quick Quadratic Voting Recap&lt;/h2>
+&lt;p>&lt;strong>Portfolio Derivatives&lt;/strong> are claims derived from your financial assets. A credit score about your financial health can be derived from multiple sources of assets you own &amp;ndash; an IRS-signed tax statement, a bank balance from a TLS-secured webpage, and a merkle proof of your crypto balance. &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p></description></item><item><title>My First Vibe Coding Experience</title><link>https://liangcc.me/posts/2025-08-12_vibe_coding/</link><pubDate>Tue, 12 Aug 2025 16:04:05 +0800</pubDate><guid>https://liangcc.me/posts/2025-08-12_vibe_coding/</guid><description>&lt;div class="translation-notice">
+ &lt;em>
+ 
+ Original post in Chinese. This post is machine translated and manually revised.
+ 
+ &lt;/em>
+&lt;/div>
+
+&lt;style>
+.translation-notice {
+ padding: 12px 16px;
+ margin: 20px 0;
+ background-color: rgba(255, 193, 7, 0.1); 
+ border-left: 3px solid #ffc107; 
+ border-radius: 4px;
+ font-size: 0.9em;
+ color: #666;
+ 
+ a {
+ color: inherit;
+ text-decoration: underline;
+ 
+ &amp;:hover {
+ color: #333;
+ }
+ }
+}
+
+
+.dark {
+ .translation-notice {
+ background-color: rgba(255, 193, 7, 0.05);
+ border-left-color: #ff9800;
+ color: #aaa;
+ }
+}
+
+&lt;/style>
+&lt;p>&lt;img src="https://liangcc.me/posts/2025-08-12_vibe_coding/images/cover.png">&lt;/p>
+&lt;p>I used to experience that kind of development workflow where &amp;ldquo;the model writes some code, the developer takes a look, and decides whether to accept it.&amp;rdquo;&lt;/p></description></item><item><title>Sybil Advantage in Quadratic Voting</title><link>https://liangcc.me/posts/2025-06-16_qv_sybil/</link><pubDate>Mon, 16 Jun 2025 09:10:37 +0800</pubDate><guid>https://liangcc.me/posts/2025-06-16_qv_sybil/</guid><description>&lt;h2 id="quick-quadratic-voting-recap">Quick Quadratic Voting Recap&lt;/h2>
 &lt;p>Quadratic Voting is a voting mechanism that allows voters to express different level of support by spending &amp;ldquo;voice credits&amp;rdquo; (VC) at an increasing cost. The key feature is that casting $X$ votes costs $X^2$ voice credits. For example, 1 vote costs 1 VC, 2 votes costs 4, and 3 votes costs 9.&lt;/p>
-&lt;p>This quadratic cost structure creates a crucial trade-off: voters can express strong preferences on issues they care deeply about, but at a rapidly increasing price.&lt;/p></description></item><item><title>Review: Why Japanese trains are so punctual?</title><link>https://liangcc.me/posts/2025-05-22_train/</link><pubDate>Thu, 22 May 2025 20:10:55 +0800</pubDate><guid>https://liangcc.me/posts/2025-05-22_train/</guid><description>&lt;p>&lt;img src="images/train_cover.jpg" alt="">&lt;/p>
+&lt;p>This quadratic cost structure creates a crucial trade-off: voters can express strong preferences on issues they care deeply about, but at a rapidly increasing price.&lt;/p></description></item><item><title>Review: Why Japanese trains are so punctual?</title><link>https://liangcc.me/posts/2025-05-22_train/</link><pubDate>Thu, 22 May 2025 20:10:55 +0800</pubDate><guid>https://liangcc.me/posts/2025-05-22_train/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2025-05-22_train/images/train_cover.jpg">&lt;/p>
 &lt;p>&lt;a href="https://www.shinchosha.co.jp/ebook/E646271/">Japanese&lt;/a> / &lt;a href="https://www.sanmin.com.tw/product/index/010880197">zh-TW&lt;/a>&lt;/p>
 &lt;p>I&amp;rsquo;ve been wanting to read a book about trains. Why? Because while trains use essentially the same technology worldwide, the &lt;strong>user experience&lt;/strong> varies dramatically from country to country. That difference isn’t technical—it’s cultural. The book &lt;em>定刻発車―日本の鉄道はなぜ世界で最も正確なのか？&lt;/em> (&lt;em>&amp;ldquo;Depart on Time: Why Japanese Railways Are the World&amp;rsquo;s Most Punctual&amp;rdquo;&lt;/em>) explores the historical and cultural factors behind Japan’s railway system.&lt;/p>
 &lt;p>Here are some of my favorite takeaways:&lt;/p>
 &lt;h3 id="the-origins-of-punctuality">The Origins of Punctuality&lt;/h3>
-&lt;p>One of the book’s most surprising insights is that Japan’s famed train punctuality didn’t start with trains. It goes all the way back to the &lt;strong>Edo period&lt;/strong>, 400 years ago, when people coordinated daily life without clocks. Monks rang temple bells on time, guards followed strict shift rotations, and travelers gathered at prearranged hours. Punctuality was already a deeply embedded cultural norm—long before timetables existed.&lt;/p></description></item><item><title>What Do We Really Want From Open Source AI?</title><link>https://liangcc.me/posts/2025-02-10_open_source/</link><pubDate>Mon, 10 Feb 2025 17:04:18 +0800</pubDate><guid>https://liangcc.me/posts/2025-02-10_open_source/</guid><description>&lt;p>&lt;img src="images/steampunk_sloth.png" alt="">&lt;/p>
+&lt;p>One of the book’s most surprising insights is that Japan’s famed train punctuality didn’t start with trains. It goes all the way back to the &lt;strong>Edo period&lt;/strong>, 400 years ago, when people coordinated daily life without clocks. Monks rang temple bells on time, guards followed strict shift rotations, and travelers gathered at prearranged hours. Punctuality was already a deeply embedded cultural norm—long before timetables existed.&lt;/p></description></item><item><title>What Do We Really Want From Open Source AI?</title><link>https://liangcc.me/posts/2025-02-10_open_source/</link><pubDate>Mon, 10 Feb 2025 17:04:18 +0800</pubDate><guid>https://liangcc.me/posts/2025-02-10_open_source/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2025-02-10_open_source/images/steampunk_sloth.png">&lt;/p>
 &lt;p>Recently, Deepseek&amp;rsquo;s release under an MIT license sparked a global conversation: Is it truly open source, or just another example of &amp;ldquo;open-washing&amp;rdquo;? The practice of marketing a product as open when crucial parts remain closed is unfortunately common, fueling skepticism among developers. Take OpenAI, which, despite its name, is not fully &amp;ldquo;open,&amp;rdquo; or Meta&amp;rsquo;s LLaMA, whose license prohibits commercial use—prompting many to question its true openness.&lt;/p>
 &lt;p>These examples highlight a bigger question: &lt;strong>What qualifies as open source in the AI era?&lt;/strong> The newly proposed OSI AI definition sets a checklist: release model weights, training source code, and training parameters. Yet it stops short of mandating publication of training data, citing privacy and security concerns—a stance reflecting the OSI&amp;rsquo;s trademark pragmatism. Still, is that enough? Are we content with partial transparency?&lt;/p></description></item><item><title>2024 in Books: Shaping Technology, Society, and Progress</title><link>https://liangcc.me/posts/2025-01-13_2024_book_review/</link><pubDate>Mon, 13 Jan 2025 18:44:47 +0800</pubDate><guid>https://liangcc.me/posts/2025-01-13_2024_book_review/</guid><description>&lt;style>
 .cover {
@@ -40,11 +56,11 @@
  justify-content: center;
 }
 &lt;/style>
-&lt;p>&lt;img src="images/cover.webp" alt="">&lt;/p>
+&lt;p>&lt;img src="https://liangcc.me/posts/2025-01-13_2024_book_review/images/cover.webp">&lt;/p>
 &lt;p>&lt;em>We thank Yahsin Huang for the review and helpful feedback&lt;/em>&lt;/p>
 &lt;p>It&amp;rsquo;s that time again. This post is a bit overdue - my review of the books I read in 2024.&lt;/p>
 &lt;p>Some of these reviews are quick braindumps from memory, while others come from notes I took after reading, translated to English with GPT&amp;rsquo;s help. I&amp;rsquo;ve used GPT to polish the writing flow, though it can&amp;rsquo;t fix my messy thoughts. As I wrote more, I cared less about perfection. Consider this post as both a GPT-assisted output and a prompt for your own inspiration. While I&amp;rsquo;ve made my best effort to be accurate, there may be factual mistakes. I welcome feedback and discussions in DM, and I&amp;rsquo;ll do my best to respond, though I can&amp;rsquo;t guarantee timely replies.&lt;/p></description></item><item><title>Farewell PSE</title><link>https://liangcc.me/posts/2025-01-08_farewell_pse/</link><pubDate>Wed, 08 Jan 2025 16:36:13 +0800</pubDate><guid>https://liangcc.me/posts/2025-01-08_farewell_pse/</guid><description>&lt;p>December 31, 2024 marks my last day in &lt;a href="https://pse.dev">Privacy and Scaling Explorations&lt;/a>, a team supported by the Ethereum Foundation.&lt;/p>
-&lt;p>My journey with the Ethereum Foundation began in late 2017. As a former local community co-organizer, I was fortunate to be trusted by the smartest and most inspiring people in the ecosystem. Throughout these seven years, I had the chance to contribute to early prototypes of Ethereum Proof of Stake, and later zero knowledge proofs and many exciting cryptography applications.&lt;/p></description></item><item><title>摘要《經濟成長：歷史與回顧》</title><link>https://liangcc.me/posts/2024-09-13_growth/</link><pubDate>Fri, 13 Sep 2024 00:09:10 +0800</pubDate><guid>https://liangcc.me/posts/2024-09-13_growth/</guid><description>&lt;p>&lt;img src="images/monkey_sails.webp" alt="">&lt;/p>
+&lt;p>My journey with the Ethereum Foundation began in late 2017. As a former local community co-organizer, I was fortunate to be trusted by the smartest and most inspiring people in the ecosystem. Throughout these seven years, I had the chance to contribute to early prototypes of Ethereum Proof of Stake, and later zero knowledge proofs and many exciting cryptography applications.&lt;/p></description></item><item><title>摘要《經濟成長：歷史與回顧》</title><link>https://liangcc.me/posts/2024-09-13_growth/</link><pubDate>Fri, 13 Sep 2024 00:09:10 +0800</pubDate><guid>https://liangcc.me/posts/2024-09-13_growth/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2024-09-13_growth/images/monkey_sails.webp">&lt;/p>
 &lt;p>感謝 Yahsin Huang 和 Anton Cheng 審閱與回饋。&lt;/p>
 &lt;p>看了一些人文社科的書之後，我發現了一些傾向。似乎很多主題最後都會收斂到經濟成長。&lt;/p>
 &lt;ul>
@@ -69,7 +85,7 @@
 &lt;p>冷戰之間，美蘇必須競爭資源產出，每天都在比較 GDP 。另外一個把 GDP 指標推向國際的是馬歇爾計畫：要領補助的國家必須建立統計指標，以便衡量補助的效果。&lt;/p>
 &lt;p>因此熱戰冷戰之下，一下子全世界各國都有 GDP 指標了。&lt;/p>
 &lt;p>經濟成長的確會帶來很多好處。經濟上的好處是減少貧窮。非經濟上的利益是更健康的生活、人們受更多教育、人們更快樂。&lt;/p>
-&lt;p>對於國家的領導人而言，專注於 GDP 的成長有很多方便之處。經濟成長之下，失業的人有工作，成長帶來的經濟利益可以用於支付其他的社會議題。另外的好處就是專注成長可以延遲所有社會問題的討論，迴避社會衝突。&lt;/p></description></item><item><title>A Year in Books: Exploring Economics, History, and Identity</title><link>https://liangcc.me/posts/2024-01-24_2023_book_review/</link><pubDate>Wed, 24 Jan 2024 00:50:57 +0800</pubDate><guid>https://liangcc.me/posts/2024-01-24_2023_book_review/</guid><description>&lt;p>&lt;img src="images/cover.webp" alt="">&lt;/p>
+&lt;p>對於國家的領導人而言，專注於 GDP 的成長有很多方便之處。經濟成長之下，失業的人有工作，成長帶來的經濟利益可以用於支付其他的社會議題。另外的好處就是專注成長可以延遲所有社會問題的討論，迴避社會衝突。&lt;/p></description></item><item><title>A Year in Books: Exploring Economics, History, and Identity</title><link>https://liangcc.me/posts/2024-01-24_2023_book_review/</link><pubDate>Wed, 24 Jan 2024 00:50:57 +0800</pubDate><guid>https://liangcc.me/posts/2024-01-24_2023_book_review/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2024-01-24_2023_book_review/images/cover.webp">&lt;/p>
 &lt;p>&lt;em>We thank Yahsin Huang for the review and helpful feedback&lt;/em>&lt;/p>
 &lt;p>I used to think that reading wasn&amp;rsquo;t my thing, but it turns out I read more books than I ever imagined I could.&lt;/p>
 &lt;p>I regret not writing down these reviews sooner. Most of the books were lent out to friends, so I have to rely on my memory here. Please take my recollections with a grain of salt, as they may not be entirely accurate.&lt;/p></description></item><item><title>萬眾期待的鼠托邦 Ratopia 發售了。我體驗到了什麼是法國大革命</title><link>https://liangcc.me/posts/2023-11-07_ratopia/</link><pubDate>Tue, 07 Nov 2023 22:53:00 +0800</pubDate><guid>https://liangcc.me/posts/2023-11-07_ratopia/</guid><description>&lt;p>這是一款建築基地（Base building）、鼠窩模擬(Colony simulation) 類的遊戲。開發團隊是韓國團隊。這款遊戲人們會拿來和同類型的缺氧和泰拉瑞亞比較。&lt;/p>
