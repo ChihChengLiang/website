@@ -23,3 +23,14 @@ theme = 'chalk'
   description = 'Random thoughts'
   images = ['images/buffaloes.png']
   title = "CC's blog"
+
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false  # Keep English at root
+
+[languages]
+  [languages.en]
+    languageName = 'English'
+    weight = 1
+  [languages.zh-TW]
+    languageName = '中文'
+    weight = 2
