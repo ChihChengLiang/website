@@ -1,4 +1,160 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CC's blog</title><link>https://liangcc.me/</link><description>Recent content on CC's blog</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 18 Aug 2025 16:19:12 +0800</lastBuildDate><atom:link href="https://liangcc.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Derivatives</title><link>https://liangcc.me/posts/2025-08-18_derivatives/</link><pubDate>Mon, 18 Aug 2025 16:19:12 +0800</pubDate><guid>https://liangcc.me/posts/2025-08-18_derivatives/</guid><description>&lt;p>I&amp;rsquo;m proposing to name the class of applications like &amp;ldquo;age &amp;gt; 18&amp;rdquo; proofs as &amp;ldquo;Derivatives.&amp;rdquo;&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CC's blog</title><link>https://liangcc.me/</link><description>Recent content on CC's blog</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://liangcc.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Review: Project Hail Mary</title><link>https://liangcc.me/posts/2025-11-21_project_hail_mary/</link><pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/posts/2025-11-21_project_hail_mary/</guid><description>&lt;div class="translation-notice">
+ &lt;em>
+ 
+ Original post in Chinese. This post is machine translated and manually revised.
+ 
+ &lt;/em>
+&lt;/div>
+
+&lt;style>
+.translation-notice {
+ padding: 12px 16px;
+ margin: 20px 0;
+ background-color: rgba(255, 193, 7, 0.1); 
+ border-left: 3px solid #ffc107; 
+ border-radius: 4px;
+ font-size: 0.9em;
+ color: #666;
+ 
+ a {
+ color: inherit;
+ text-decoration: underline;
+ 
+ &amp;:hover {
+ color: #333;
+ }
+ }
+}
+
+
+.dark {
+ .translation-notice {
+ background-color: rgba(255, 193, 7, 0.05);
+ border-left-color: #ff9800;
+ color: #aaa;
+ }
+}
+
+&lt;/style>
+&lt;p>&lt;img src="https://books.google.com/books/content?id=-Ff2DwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=none&amp;source=gbs_api">&lt;/p>
+&lt;p>The movie is coming out in 2026.&lt;/p></description></item><item><title>Review: Technology and the Rise of Great Powers</title><link>https://liangcc.me/posts/2025-11-10_general_purpose_tech/</link><pubDate>Mon, 10 Nov 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/posts/2025-11-10_general_purpose_tech/</guid><description>&lt;div class="translation-notice">
+ &lt;em>
+ 
+ Original post in Chinese. This post is machine translated and manually revised.
+ 
+ &lt;/em>
+&lt;/div>
+
+&lt;style>
+.translation-notice {
+ padding: 12px 16px;
+ margin: 20px 0;
+ background-color: rgba(255, 193, 7, 0.1); 
+ border-left: 3px solid #ffc107; 
+ border-radius: 4px;
+ font-size: 0.9em;
+ color: #666;
+ 
+ a {
+ color: inherit;
+ text-decoration: underline;
+ 
+ &amp;:hover {
+ color: #333;
+ }
+ }
+}
+
+
+.dark {
+ .translation-notice {
+ background-color: rgba(255, 193, 7, 0.05);
+ border-left-color: #ff9800;
+ color: #aaa;
+ }
+}
+
+&lt;/style>
+&lt;p>&lt;img src="https://books.google.com/books/content?id=tNj2EAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=none&amp;source=gbs_api">&lt;/p>
+&lt;p>International relations experts often think that great powers become great because they develop certain key technologies that strengthen national power. Perhaps productivity increases, or military capabilities become formidable, allowing expansion everywhere.&lt;/p></description></item><item><title>Review: Triumph of the City</title><link>https://liangcc.me/posts/2025-11-05_triumph_of_the_city/</link><pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/posts/2025-11-05_triumph_of_the_city/</guid><description>&lt;div class="translation-notice">
+ &lt;em>
+ 
+ Original post in Chinese. This post is machine translated and manually revised.
+ 
+ &lt;/em>
+&lt;/div>
+
+&lt;style>
+.translation-notice {
+ padding: 12px 16px;
+ margin: 20px 0;
+ background-color: rgba(255, 193, 7, 0.1); 
+ border-left: 3px solid #ffc107; 
+ border-radius: 4px;
+ font-size: 0.9em;
+ color: #666;
+ 
+ a {
+ color: inherit;
+ text-decoration: underline;
+ 
+ &amp;:hover {
+ color: #333;
+ }
+ }
+}
+
+
+.dark {
+ .translation-notice {
+ background-color: rgba(255, 193, 7, 0.05);
+ border-left-color: #ff9800;
+ color: #aaa;
+ }
+}
+
+&lt;/style>
+&lt;p>&lt;img src="https://books.google.com/books/content?id=-yWTIKsWGm4C&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api">&lt;/p>
+&lt;p>&amp;ldquo;Triumph of the City&amp;rdquo; is a great book. I&amp;rsquo;ve always wanted to read something about cities, and this book was very satisfying. The author is Edward Glaeser, one of the advisors of &lt;a href="https://sites.google.com/view/jheng-shao-yu">Jheng, Shao-Yu&lt;/a>, who is a cool scholar I&amp;rsquo;ve been following.&lt;/p></description></item><item><title>Review: Lost Colony by Tonio Andrade</title><link>https://liangcc.me/posts/2025-10-07_lost_colony/</link><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/posts/2025-10-07_lost_colony/</guid><description>&lt;div class="translation-notice">
+ &lt;em>
+ 
+ Original post in Chinese. This post is machine translated and manually revised.
+ 
+ &lt;/em>
+&lt;/div>
+
+&lt;style>
+.translation-notice {
+ padding: 12px 16px;
+ margin: 20px 0;
+ background-color: rgba(255, 193, 7, 0.1); 
+ border-left: 3px solid #ffc107; 
+ border-radius: 4px;
+ font-size: 0.9em;
+ color: #666;
+ 
+ a {
+ color: inherit;
+ text-decoration: underline;
+ 
+ &amp;:hover {
+ color: #333;
+ }
+ }
+}
+
+
+.dark {
+ .translation-notice {
+ background-color: rgba(255, 193, 7, 0.05);
+ border-left-color: #ff9800;
+ color: #aaa;
+ }
+}
+
+&lt;/style>
+&lt;p>&lt;img src="https://books.google.com/books/content?id=wGmYDwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api">&lt;/p>
+&lt;p>I finished reading Tonio Andrade&amp;rsquo;s &lt;a href="https://www.eslite.com/product/1001110932643195">[Lost Colony: The Untold Story of China&amp;rsquo;s First Great Victory over the West]&lt;/a>. The original was published in 2011, with the Chinese edition republished in 2017. Many Dutch names in it appear closer to colloquial pronunciations.&lt;/p></description></item><item><title>Data Derivatives</title><link>https://liangcc.me/posts/2025-08-18_derivatives/</link><pubDate>Mon, 18 Aug 2025 16:19:12 +0800</pubDate><guid>https://liangcc.me/posts/2025-08-18_derivatives/</guid><description>&lt;p>I&amp;rsquo;m proposing to name the class of applications like &amp;ldquo;age &amp;gt; 18&amp;rdquo; proofs as &amp;ldquo;Derivatives.&amp;rdquo;&lt;/p>
 &lt;h2 id="examples">Examples&lt;/h2>
 &lt;p>&lt;strong>ID Derivatives&lt;/strong> are claims derived from your ID. An &amp;ldquo;age &amp;gt; 18&amp;rdquo; proof is a claim about your age derived from an age attribute of your digitally issued identity.&lt;/p>
 &lt;p>&lt;strong>Portfolio Derivatives&lt;/strong> are claims derived from your financial assets. A credit score about your financial health can be derived from multiple sources of assets you own &amp;ndash; an IRS-signed tax statement, a bank balance from a TLS-secured webpage, and a merkle proof of your crypto balance. &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p></description></item><item><title>My First Vibe Coding Experience</title><link>https://liangcc.me/posts/2025-08-12_vibe_coding/</link><pubDate>Tue, 12 Aug 2025 16:04:05 +0800</pubDate><guid>https://liangcc.me/posts/2025-08-12_vibe_coding/</guid><description>&lt;div class="translation-notice">
@@ -60,32 +216,46 @@
 &lt;p>&lt;em>We thank Yahsin Huang for the review and helpful feedback&lt;/em>&lt;/p>
 &lt;p>It&amp;rsquo;s that time again. This post is a bit overdue - my review of the books I read in 2024.&lt;/p>
 &lt;p>Some of these reviews are quick braindumps from memory, while others come from notes I took after reading, translated to English with GPT&amp;rsquo;s help. I&amp;rsquo;ve used GPT to polish the writing flow, though it can&amp;rsquo;t fix my messy thoughts. As I wrote more, I cared less about perfection. Consider this post as both a GPT-assisted output and a prompt for your own inspiration. While I&amp;rsquo;ve made my best effort to be accurate, there may be factual mistakes. I welcome feedback and discussions in DM, and I&amp;rsquo;ll do my best to respond, though I can&amp;rsquo;t guarantee timely replies.&lt;/p></description></item><item><title>Farewell PSE</title><link>https://liangcc.me/posts/2025-01-08_farewell_pse/</link><pubDate>Wed, 08 Jan 2025 16:36:13 +0800</pubDate><guid>https://liangcc.me/posts/2025-01-08_farewell_pse/</guid><description>&lt;p>December 31, 2024 marks my last day in &lt;a href="https://pse.dev">Privacy and Scaling Explorations&lt;/a>, a team supported by the Ethereum Foundation.&lt;/p>
-&lt;p>My journey with the Ethereum Foundation began in late 2017. As a former local community co-organizer, I was fortunate to be trusted by the smartest and most inspiring people in the ecosystem. Throughout these seven years, I had the chance to contribute to early prototypes of Ethereum Proof of Stake, and later zero knowledge proofs and many exciting cryptography applications.&lt;/p></description></item><item><title>摘要《經濟成長：歷史與回顧》</title><link>https://liangcc.me/posts/2024-09-13_growth/</link><pubDate>Fri, 13 Sep 2024 00:09:10 +0800</pubDate><guid>https://liangcc.me/posts/2024-09-13_growth/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2024-09-13_growth/images/monkey_sails.webp">&lt;/p>
-&lt;p>感謝 Yahsin Huang 和 Anton Cheng 審閱與回饋。&lt;/p>
-&lt;p>看了一些人文社科的書之後，我發現了一些傾向。似乎很多主題最後都會收斂到經濟成長。&lt;/p>
-&lt;ul>
-&lt;li>[[台灣經濟四百年]] 在講台灣的經濟成長史&lt;/li>
-&lt;li>[[Poor Economics]] 窮人的經濟學，在講為什麼極度貧窮的人沒辦法透過自行累積資本而脫離貧窮。背後的理論基本上是一個經濟成長模型，並探討成長路徑上出現哪些「陷阱」讓窮人陷入貧窮陷阱。&lt;/li>
-&lt;li>[[Power and Progress]] 權力與進步。背後也是個經濟成長模型，但強調人們能主導科技發展的部分。作者算偏左經濟學家。&lt;/li>
-&lt;li>看了 John Cochrane 的很多訪談和部落格。主要是想學他的貨幣理論。他算超右經濟學家吧。他認為經濟成長是經濟學聖杯，他只能貢獻一些貨幣理論這種支微末節。&lt;/li>
-&lt;li>[[為工作而活]] 。作者偏人類學家，則是主張棄成長的方向。&lt;/li>
-&lt;li>我沒看過人類世的資本論，但似乎台灣討論度很高。作者也是主張棄成長。&lt;/li>
-&lt;/ul>
-&lt;p>大致的印象是如果是經濟學家，大多偏向支持經濟成長。很多時候經濟成長當成是一切問題的解方。社會學家、人類學家、環保人士就會偏棄成長方向。&lt;/p>
-&lt;h2 id="經濟成長歷史與回顧">經濟成長：歷史與回顧&lt;/h2>
-&lt;p>最近在書店看到了 &lt;a href="https://www.danielsusskind.com/growth-a-reckoning">Growth: A Reckoning&lt;/a> 這本書。作者 Daniel Susskind ，台灣有出過他的前一本書「不工作的世界」。本來還在猶豫是否真的要花時間去看經濟成長這個題目，Growth 這本書在第二家書店看到的時候才買下去。我覺得這本書算蠻有效率的，回答了很多我心中好奇的問題，數量超出預期。&lt;/p>
-&lt;p>這本書雖然書名是經濟成長，但那比較是個經濟學家的詞。對於關心科技與未來的讀者，我覺得是一個很棒的讀物。經濟成長會告訴你：科技、思想、資本、機器、勞力、教育等等這些事情的優先順序為何。這本書的寫法也是個出圈之作，書裡假設讀者有很少的經濟學知識，對於經濟學背景知識都用很流暢的文筆解釋核心概念。並且左打棄成長支持者，右踢全自由市場、自由貿易支持者。最後也對矽谷圈流行的長期主義做了批評。&lt;/p>
-&lt;p>就如去年剛過世的諾貝爾經濟學獎得主 Robert Lucas 所說：「一旦人們開始思考經濟成長，就很難再去想其他的事情了。」&lt;/p>
-&lt;p>作者認為，追逐經濟成長是一件很新、很神秘、也很危險的人類活動。很新因為持續穩定的經濟成長是二十世紀下半才開始。很神秘是因為我們不知道為什麼以前的成長能成功。很危險是因為經濟成長有很大的潛力也有很大的代價。&lt;/p>
-&lt;p>對經濟學家而言，人類歷史這麼長，只有三件重要的事。前三十萬年是沒有成長的大停滯。然後兩百年前開始有現代的經濟成長，不過不太穩定。接著在大約一百年前才有持續穩定的成長。&lt;/p>
-&lt;h2 id="大戰之下經濟成長成為流行">大戰之下，經濟成長成為流行&lt;/h2>
-&lt;p>古典經濟學家是沒有經濟成長的概念的。經濟成長的追逐有點是個意外。1940 因為要打世界大戰，凱因斯必須要設計一套衡量國家產出的指標，來知道他能為英國籌多少戰爭資源，因此設計出了 GDP 的前身。 1933 美國那邊發生了大蕭條，Kuznets 也去設計了一套衡量國家產出的指標，來暸解到底大蕭條有多慘。&lt;/p>
-&lt;p>為什麼在 1930 以前都沒人想做類似的事情？因為設計國家財富指標是一件危險的事。說出真相的人都被砍頭了。&lt;/p>
-&lt;p>他們兩種設計最主要的差別是，凱因斯是要為戰爭籌錢的，所以有把軍事支出算進去。但 Kuznets 認為軍事支出是個邪惡的支出，不該列在指標裡面。美國在 1940 選擇了凱因斯的設計，畢竟戰爭期間，國防非常重要。&lt;/p>
-&lt;p>冷戰之間，美蘇必須競爭資源產出，每天都在比較 GDP 。另外一個把 GDP 指標推向國際的是馬歇爾計畫：要領補助的國家必須建立統計指標，以便衡量補助的效果。&lt;/p>
-&lt;p>因此熱戰冷戰之下，一下子全世界各國都有 GDP 指標了。&lt;/p>
-&lt;p>經濟成長的確會帶來很多好處。經濟上的好處是減少貧窮。非經濟上的利益是更健康的生活、人們受更多教育、人們更快樂。&lt;/p>
-&lt;p>對於國家的領導人而言，專注於 GDP 的成長有很多方便之處。經濟成長之下，失業的人有工作，成長帶來的經濟利益可以用於支付其他的社會議題。另外的好處就是專注成長可以延遲所有社會問題的討論，迴避社會衝突。&lt;/p></description></item><item><title>A Year in Books: Exploring Economics, History, and Identity</title><link>https://liangcc.me/posts/2024-01-24_2023_book_review/</link><pubDate>Wed, 24 Jan 2024 00:50:57 +0800</pubDate><guid>https://liangcc.me/posts/2024-01-24_2023_book_review/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2024-01-24_2023_book_review/images/cover.webp">&lt;/p>
+&lt;p>My journey with the Ethereum Foundation began in late 2017. As a former local community co-organizer, I was fortunate to be trusted by the smartest and most inspiring people in the ecosystem. Throughout these seven years, I had the chance to contribute to early prototypes of Ethereum Proof of Stake, and later zero knowledge proofs and many exciting cryptography applications.&lt;/p></description></item><item><title>Review: Growth: A Reckoning</title><link>https://liangcc.me/posts/2024-09-13_growth/</link><pubDate>Fri, 13 Sep 2024 00:09:10 +0800</pubDate><guid>https://liangcc.me/posts/2024-09-13_growth/</guid><description>&lt;div class="translation-notice">
+ &lt;em>
+ 
+ Original post in Chinese. This post is machine translated and manually revised.
+ 
+ &lt;/em>
+&lt;/div>
+
+&lt;style>
+.translation-notice {
+ padding: 12px 16px;
+ margin: 20px 0;
+ background-color: rgba(255, 193, 7, 0.1); 
+ border-left: 3px solid #ffc107; 
+ border-radius: 4px;
+ font-size: 0.9em;
+ color: #666;
+ 
+ a {
+ color: inherit;
+ text-decoration: underline;
+ 
+ &amp;:hover {
+ color: #333;
+ }
+ }
+}
+
+
+.dark {
+ .translation-notice {
+ background-color: rgba(255, 193, 7, 0.05);
+ border-left-color: #ff9800;
+ color: #aaa;
+ }
+}
+
+&lt;/style>
+&lt;p>&lt;img src="https://liangcc.me/posts/2024-09-13_growth/images/monkey_sails.webp">&lt;/p>
+&lt;p>Thanks to Yahsin Huang and Anton Cheng for review and feedback.&lt;/p></description></item><item><title>A Year in Books: Exploring Economics, History, and Identity</title><link>https://liangcc.me/posts/2024-01-24_2023_book_review/</link><pubDate>Wed, 24 Jan 2024 00:50:57 +0800</pubDate><guid>https://liangcc.me/posts/2024-01-24_2023_book_review/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2024-01-24_2023_book_review/images/cover.webp">&lt;/p>
 &lt;p>&lt;em>We thank Yahsin Huang for the review and helpful feedback&lt;/em>&lt;/p>
 &lt;p>I used to think that reading wasn&amp;rsquo;t my thing, but it turns out I read more books than I ever imagined I could.&lt;/p>
 &lt;p>I regret not writing down these reviews sooner. Most of the books were lent out to friends, so I have to rely on my memory here. Please take my recollections with a grain of salt, as they may not be entirely accurate.&lt;/p></description></item><item><title>萬眾期待的鼠托邦 Ratopia 發售了。我體驗到了什麼是法國大革命</title><link>https://liangcc.me/posts/2023-11-07_ratopia/</link><pubDate>Tue, 07 Nov 2023 22:53:00 +0800</pubDate><guid>https://liangcc.me/posts/2023-11-07_ratopia/</guid><description>&lt;p>這是一款建築基地（Base building）、鼠窩模擬(Colony simulation) 類的遊戲。開發團隊是韓國團隊。這款遊戲人們會拿來和同類型的缺氧和泰拉瑞亞比較。&lt;/p>

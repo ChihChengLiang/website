@@ -1,0 +1,64 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>隨興開發聽起來很瞎 - CC's blog</title>
+<meta name=description content="隨興開發（Vibe coding）聽起來很瞎。因為遊戲規則是開發者不能去看或動 AI 寫出來的程式。
+也許那是我們才剛穿越到 2025 年，還不習慣這種做法。寫過程式的人，會在過去的經驗中必須了解程式碼的所有細節。或，真的嗎？
+我發現我從來沒有管過編譯器下面的事。假設用 Python 寫了程式，看起來沒問題，執行起來沒什麼問題，我就覺得沒問題了，非常 Vibe。
+一種原因是程式語言編譯後的錯誤，通常很罕見也很安靜，所以人們不怎麼檢查，出事也不怎麼嚴重。
+直接問 AI 有什麼上過頭條的編譯器錯誤，他能給出最接近的答案是 1994 的 Pentium FDIV bug ，和編譯器無關。這個事件是數學系教授在研究數學時，發現有個除法一直算錯，追究下去發現是晶片的問題。
+再對 AI 嚴加逼問之後，發現最近最有名的編譯器錯誤就發生在我們區塊鏈圈子。 2023 年，撰寫合約用的 Vyper 語言，因為編譯器的實作錯誤，用來避免重入攻擊的函式失去效果。駭客因此漏洞從 Defi 專案的合約竊取 7000 萬美金。
+且不說編譯器這麼遙遠的主題。多少工程師是有辦法檢查每個專案依賴的套件？我能做到的就是看起來可疑的套件不要用。
+或整個軟體開發上，為了減少開發者認知負擔，本身就需要重重抽象。套件是別人包好的，開發者可以在不需要知道背後的運作細節的情況使用它。函式也是，當人們寫一個 get_post_by_id ，不用知道背後的實作細解也大概可以想像這段程式的用途。
+所以本來開發上就有某種程度的瞎，與適度的瞎。
+瞎的部分是問題會發生的所在。想辦法補起來就好，但不一定總得靠人力。
+從編譯器的思路出發，隨興開發就好像某種更高階的語言一樣。以往的程式語言，是模擬英文的感覺，但加上非常嚴格的語法，讓人們可以和電腦溝通。高階的程式語言需要經過層層翻譯，先變成比較低階的語言，再變成組合語言，再變成機器碼，叫石頭與磚頭開始工作。
+現在則是我們用非常不精確的人話溝通。 AI 聽得懂，並翻譯成以往的程式語言。這整串流程只是多加了一個 AI 翻譯官。
+1940 年代，人們最早是透過機器碼和組合語言和機器溝通的。早期的高階語言可以拉到 Fortran (1957) 或 LISP (1958) 。
+最早的時候機器超貴，造價是年薪 100 倍（ 1950 機器 100 萬美金，工程師年薪 1 萬美金），但現在工程師的年薪可以買 50~100 台筆電（2025 筆電 2000 美金，工程師年薪 10 萬美金）。因此早期的時候，可以花很多工時，用最接近機器的語言和機器溝通。現代工程師的時間比較貴，用人話才越有效率。
+但人話又可以讓開發這件事情讓非工程師的人勝任。
+Claude Code 開發者的專訪中，他說人們總說隨興開發讓從零到一這件事情變簡單了。他個人覺得是專案要上線前，往往需要放棄的那 2% 功能，現在可以不用倚賴工程師完成。"><meta name=author content><link rel=icon type=image/x-icon href=https://liangcc.me/images/favicon-dark.ico><link rel=apple-touch-icon href=https://liangcc.me/images/apple-touch-icon-dark.png><link rel=stylesheet type=text/css title=light id=light href=https://liangcc.me/stylesheets/light.css><link rel=stylesheet type=text/css title=dark id=dark href=https://liangcc.me/stylesheets/dark.css disabled><link rel="preload stylesheet" as=style href=https://liangcc.me/custom.min.css><link rel="preload stylesheet" as=style href=https://liangcc.me/an-old-hope.min.css><script defer src=https://liangcc.me/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><meta name=generator content="Hugo 0.134.2"><meta property="og:url" content="https://liangcc.me/zh-tw/posts/2025-10-03_vibe_coding2/"><meta property="og:site_name" content="CC's blog"><meta property="og:title" content="隨興開發聽起來很瞎"><meta property="og:description" content="隨興開發（Vibe coding）聽起來很瞎。因為遊戲規則是開發者不能去看或動 AI 寫出來的程式。
+也許那是我們才剛穿越到 2025 年，還不習慣這種做法。寫過程式的人，會在過去的經驗中必須了解程式碼的所有細節。或，真的嗎？
+我發現我從來沒有管過編譯器下面的事。假設用 Python 寫了程式，看起來沒問題，執行起來沒什麼問題，我就覺得沒問題了，非常 Vibe。
+一種原因是程式語言編譯後的錯誤，通常很罕見也很安靜，所以人們不怎麼檢查，出事也不怎麼嚴重。
+直接問 AI 有什麼上過頭條的編譯器錯誤，他能給出最接近的答案是 1994 的 Pentium FDIV bug ，和編譯器無關。這個事件是數學系教授在研究數學時，發現有個除法一直算錯，追究下去發現是晶片的問題。
+再對 AI 嚴加逼問之後，發現最近最有名的編譯器錯誤就發生在我們區塊鏈圈子。 2023 年，撰寫合約用的 Vyper 語言，因為編譯器的實作錯誤，用來避免重入攻擊的函式失去效果。駭客因此漏洞從 Defi 專案的合約竊取 7000 萬美金。
+且不說編譯器這麼遙遠的主題。多少工程師是有辦法檢查每個專案依賴的套件？我能做到的就是看起來可疑的套件不要用。
+或整個軟體開發上，為了減少開發者認知負擔，本身就需要重重抽象。套件是別人包好的，開發者可以在不需要知道背後的運作細節的情況使用它。函式也是，當人們寫一個 get_post_by_id ，不用知道背後的實作細解也大概可以想像這段程式的用途。
+所以本來開發上就有某種程度的瞎，與適度的瞎。
+瞎的部分是問題會發生的所在。想辦法補起來就好，但不一定總得靠人力。
+從編譯器的思路出發，隨興開發就好像某種更高階的語言一樣。以往的程式語言，是模擬英文的感覺，但加上非常嚴格的語法，讓人們可以和電腦溝通。高階的程式語言需要經過層層翻譯，先變成比較低階的語言，再變成組合語言，再變成機器碼，叫石頭與磚頭開始工作。
+現在則是我們用非常不精確的人話溝通。 AI 聽得懂，並翻譯成以往的程式語言。這整串流程只是多加了一個 AI 翻譯官。
+1940 年代，人們最早是透過機器碼和組合語言和機器溝通的。早期的高階語言可以拉到 Fortran (1957) 或 LISP (1958) 。
+最早的時候機器超貴，造價是年薪 100 倍（ 1950 機器 100 萬美金，工程師年薪 1 萬美金），但現在工程師的年薪可以買 50~100 台筆電（2025 筆電 2000 美金，工程師年薪 10 萬美金）。因此早期的時候，可以花很多工時，用最接近機器的語言和機器溝通。現代工程師的時間比較貴，用人話才越有效率。 但人話又可以讓開發這件事情讓非工程師的人勝任。
+Claude Code 開發者的專訪中，他說人們總說隨興開發讓從零到一這件事情變簡單了。他個人覺得是專案要上線前，往往需要放棄的那 2% 功能，現在可以不用倚賴工程師完成。"><meta property="og:locale" content="zh_tw"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-10-03T00:00:00+08:00"><meta property="article:modified_time" content="2025-10-03T00:00:00+08:00"><meta property="og:image" content="https://liangcc.me/images/buffaloes.png"><meta itemprop=name content="隨興開發聽起來很瞎"><meta itemprop=description content="隨興開發（Vibe coding）聽起來很瞎。因為遊戲規則是開發者不能去看或動 AI 寫出來的程式。
+也許那是我們才剛穿越到 2025 年，還不習慣這種做法。寫過程式的人，會在過去的經驗中必須了解程式碼的所有細節。或，真的嗎？
+我發現我從來沒有管過編譯器下面的事。假設用 Python 寫了程式，看起來沒問題，執行起來沒什麼問題，我就覺得沒問題了，非常 Vibe。
+一種原因是程式語言編譯後的錯誤，通常很罕見也很安靜，所以人們不怎麼檢查，出事也不怎麼嚴重。
+直接問 AI 有什麼上過頭條的編譯器錯誤，他能給出最接近的答案是 1994 的 Pentium FDIV bug ，和編譯器無關。這個事件是數學系教授在研究數學時，發現有個除法一直算錯，追究下去發現是晶片的問題。
+再對 AI 嚴加逼問之後，發現最近最有名的編譯器錯誤就發生在我們區塊鏈圈子。 2023 年，撰寫合約用的 Vyper 語言，因為編譯器的實作錯誤，用來避免重入攻擊的函式失去效果。駭客因此漏洞從 Defi 專案的合約竊取 7000 萬美金。
+且不說編譯器這麼遙遠的主題。多少工程師是有辦法檢查每個專案依賴的套件？我能做到的就是看起來可疑的套件不要用。
+或整個軟體開發上，為了減少開發者認知負擔，本身就需要重重抽象。套件是別人包好的，開發者可以在不需要知道背後的運作細節的情況使用它。函式也是，當人們寫一個 get_post_by_id ，不用知道背後的實作細解也大概可以想像這段程式的用途。
+所以本來開發上就有某種程度的瞎，與適度的瞎。
+瞎的部分是問題會發生的所在。想辦法補起來就好，但不一定總得靠人力。
+從編譯器的思路出發，隨興開發就好像某種更高階的語言一樣。以往的程式語言，是模擬英文的感覺，但加上非常嚴格的語法，讓人們可以和電腦溝通。高階的程式語言需要經過層層翻譯，先變成比較低階的語言，再變成組合語言，再變成機器碼，叫石頭與磚頭開始工作。
+現在則是我們用非常不精確的人話溝通。 AI 聽得懂，並翻譯成以往的程式語言。這整串流程只是多加了一個 AI 翻譯官。
+1940 年代，人們最早是透過機器碼和組合語言和機器溝通的。早期的高階語言可以拉到 Fortran (1957) 或 LISP (1958) 。
+最早的時候機器超貴，造價是年薪 100 倍（ 1950 機器 100 萬美金，工程師年薪 1 萬美金），但現在工程師的年薪可以買 50~100 台筆電（2025 筆電 2000 美金，工程師年薪 10 萬美金）。因此早期的時候，可以花很多工時，用最接近機器的語言和機器溝通。現代工程師的時間比較貴，用人話才越有效率。 但人話又可以讓開發這件事情讓非工程師的人勝任。
+Claude Code 開發者的專訪中，他說人們總說隨興開發讓從零到一這件事情變簡單了。他個人覺得是專案要上線前，往往需要放棄的那 2% 功能，現在可以不用倚賴工程師完成。"><meta itemprop=datePublished content="2025-10-03T00:00:00+08:00"><meta itemprop=dateModified content="2025-10-03T00:00:00+08:00"><meta itemprop=wordCount content="94"><meta itemprop=image content="https://liangcc.me/images/buffaloes.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://liangcc.me/images/buffaloes.png"><meta name=twitter:title content="隨興開發聽起來很瞎"><meta name=twitter:description content="隨興開發（Vibe coding）聽起來很瞎。因為遊戲規則是開發者不能去看或動 AI 寫出來的程式。
+也許那是我們才剛穿越到 2025 年，還不習慣這種做法。寫過程式的人，會在過去的經驗中必須了解程式碼的所有細節。或，真的嗎？
+我發現我從來沒有管過編譯器下面的事。假設用 Python 寫了程式，看起來沒問題，執行起來沒什麼問題，我就覺得沒問題了，非常 Vibe。
+一種原因是程式語言編譯後的錯誤，通常很罕見也很安靜，所以人們不怎麼檢查，出事也不怎麼嚴重。
+直接問 AI 有什麼上過頭條的編譯器錯誤，他能給出最接近的答案是 1994 的 Pentium FDIV bug ，和編譯器無關。這個事件是數學系教授在研究數學時，發現有個除法一直算錯，追究下去發現是晶片的問題。
+再對 AI 嚴加逼問之後，發現最近最有名的編譯器錯誤就發生在我們區塊鏈圈子。 2023 年，撰寫合約用的 Vyper 語言，因為編譯器的實作錯誤，用來避免重入攻擊的函式失去效果。駭客因此漏洞從 Defi 專案的合約竊取 7000 萬美金。
+且不說編譯器這麼遙遠的主題。多少工程師是有辦法檢查每個專案依賴的套件？我能做到的就是看起來可疑的套件不要用。
+或整個軟體開發上，為了減少開發者認知負擔，本身就需要重重抽象。套件是別人包好的，開發者可以在不需要知道背後的運作細節的情況使用它。函式也是，當人們寫一個 get_post_by_id ，不用知道背後的實作細解也大概可以想像這段程式的用途。
+所以本來開發上就有某種程度的瞎，與適度的瞎。
+瞎的部分是問題會發生的所在。想辦法補起來就好，但不一定總得靠人力。
+從編譯器的思路出發，隨興開發就好像某種更高階的語言一樣。以往的程式語言，是模擬英文的感覺，但加上非常嚴格的語法，讓人們可以和電腦溝通。高階的程式語言需要經過層層翻譯，先變成比較低階的語言，再變成組合語言，再變成機器碼，叫石頭與磚頭開始工作。
+現在則是我們用非常不精確的人話溝通。 AI 聽得懂，並翻譯成以往的程式語言。這整串流程只是多加了一個 AI 翻譯官。
+1940 年代，人們最早是透過機器碼和組合語言和機器溝通的。早期的高階語言可以拉到 Fortran (1957) 或 LISP (1958) 。
+最早的時候機器超貴，造價是年薪 100 倍（ 1950 機器 100 萬美金，工程師年薪 1 萬美金），但現在工程師的年薪可以買 50~100 台筆電（2025 筆電 2000 美金，工程師年薪 10 萬美金）。因此早期的時候，可以花很多工時，用最接近機器的語言和機器溝通。現代工程師的時間比較貴，用人話才越有效率。 但人話又可以讓開發這件事情讓非工程師的人勝任。
+Claude Code 開發者的專訪中，他說人們總說隨興開發讓從零到一這件事情變簡單了。他個人覺得是專案要上線前，往往需要放棄的那 2% 功能，現在可以不用倚賴工程師完成。"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script></head><body><main class=main><div class="grid grid-centered"><div class=grid-cell><nav class="header-nav scrollappear"><a href=/ class=header-logo title="CC's blog">CC's blog</a><ul class=header-links><li><a href=/about title=About><svg class="icon-about"><use href="https://liangcc.me/icons/about.svg#icon-about" xlink:href="https://liangcc.me/icons/about.svg#icon-about"/></svg></a></li><li><a href=/index.xml rel="noreferrer noopener" target=_blank title=RSS><svg class="icon-rss"><use href="https://liangcc.me/icons/rss.svg#icon-rss" xlink:href="https://liangcc.me/icons/rss.svg#icon-rss"/></svg></a></li><li><a onclick=toggle() title="Toggle Theme"><svg class="icon-theme"><use href="https://liangcc.me/icons/theme.svg#icon-theme" xlink:href="https://liangcc.me/icons/theme.svg#icon-theme"/></svg></a></li></ul></nav><article class="article scrollappear"><header class=article-header><h1>隨興開發聽起來很瞎</h1><div class=article-list-footer><span class=article-list-date>Oct 3, 2025
+</span><span class=article-list-divider>-</span>
+<span class=article-list-minutes>1 minute read</span></div></header><div class=article-content><p>隨興開發（Vibe coding）聽起來很瞎。因為遊戲規則是開發者不能去看或動 AI 寫出來的程式。</p><p>也許那是我們才剛穿越到 2025 年，還不習慣這種做法。寫過程式的人，會在過去的經驗中必須了解程式碼的所有細節。或，真的嗎？</p><p>我發現我從來沒有管過編譯器下面的事。假設用 Python 寫了程式，看起來沒問題，執行起來沒什麼問題，我就覺得沒問題了，非常 Vibe。</p><p>一種原因是程式語言編譯後的錯誤，通常很罕見也很安靜，所以人們不怎麼檢查，出事也不怎麼嚴重。</p><p>直接問 AI 有什麼上過頭條的編譯器錯誤，他能給出最接近的答案是 1994 的 Pentium FDIV bug ，和編譯器無關。這個事件是數學系教授在研究數學時，發現有個除法一直算錯，追究下去發現是晶片的問題。</p><p>再對 AI 嚴加逼問之後，發現最近最有名的編譯器錯誤就發生在我們區塊鏈圈子。 2023 年，撰寫合約用的 Vyper 語言，因為編譯器的實作錯誤，用來避免重入攻擊的函式失去效果。駭客因此漏洞從 Defi 專案的合約竊取 7000 萬美金。</p><p>且不說編譯器這麼遙遠的主題。多少工程師是有辦法檢查每個專案依賴的套件？我能做到的就是看起來可疑的套件不要用。</p><p>或整個軟體開發上，為了減少開發者認知負擔，本身就需要重重抽象。套件是別人包好的，開發者可以在不需要知道背後的運作細節的情況使用它。函式也是，當人們寫一個 get_post_by_id ，不用知道背後的實作細解也大概可以想像這段程式的用途。</p><p>所以本來開發上就有某種程度的瞎，與適度的瞎。</p><p>瞎的部分是問題會發生的所在。想辦法補起來就好，但不一定總得靠人力。</p><p>從編譯器的思路出發，隨興開發就好像某種更高階的語言一樣。以往的程式語言，是模擬英文的感覺，但加上非常嚴格的語法，讓人們可以和電腦溝通。高階的程式語言需要經過層層翻譯，先變成比較低階的語言，再變成組合語言，再變成機器碼，叫石頭與磚頭開始工作。</p><p>現在則是我們用非常不精確的人話溝通。 AI 聽得懂，並翻譯成以往的程式語言。這整串流程只是多加了一個 AI 翻譯官。</p><p>1940 年代，人們最早是透過機器碼和組合語言和機器溝通的。早期的高階語言可以拉到 Fortran (1957) 或 LISP (1958) 。</p><p>最早的時候機器超貴，造價是年薪 100 倍（ 1950 機器 100 萬美金，工程師年薪 1 萬美金），但現在工程師的年薪可以買 50~100 台筆電（2025 筆電 2000 美金，工程師年薪 10 萬美金）。因此早期的時候，可以花很多工時，用最接近機器的語言和機器溝通。現代工程師的時間比較貴，用人話才越有效率。
+但人話又可以讓開發這件事情讓非工程師的人勝任。</p><p>Claude Code 開發者的專訪中，他說人們總說隨興開發讓從零到一這件事情變簡單了。他個人覺得是專案要上線前，往往需要放棄的那 2% 功能，現在可以不用倚賴工程師完成。</p><p>隨興開發在重塑人與機器的溝通，也在重塑人與人之間的合作方式。或也許單個人本身的合作方式也變了。</p><p>產品經理與開發者一直有某種利益衝突的關係。前者需要更多的功能上線，但後者需要為開發新功能帶來的後果負責，那包含開發的耗時與耗神、上線後的故障等。如果一直推了新功能然後又撤掉，開發團隊士氣會燃燒殆盡。</p><p>我自己寫程式的時候，一直要把想要的新功能與自己的耗時和疲勞權衡。但叫 AI 寫程式的時候，我可以一直推功能，一直欠技術債。產品經理腦不會和開發者腦打架。把開發的工作推給 AI 解決了那種利益衝突。</p><p>難道這代表隨興開發之下，真的不再用人眼去看以往的程式語言了嗎？不盡然。在高階語言開發之下，會需要動到低階語言的先例不是沒有。</p><p>人們常會在效能熱點的地方，換成人比較不好理解但高效能的低階語言實作。在區塊鏈圈子看到的是 Defi 或密碼學的數學會用省油的組合語言實作。低階語言效能高的原因其實是高階語言在翻譯下來的過程中，編譯器往往會以保守安全並犧牲效能的方式翻譯。但如果人們在熟悉業務邏輯的情況下撰寫低階語言，可以知道哪些不必要的步驟可以省略，達成節省運算的目的。</p><p>大約一年以前，我需要整合某個新密碼學套件，做某種面向使用者的應用。但因為當時 AI 對一個全新套件以及其密碼學並無理解。我就再把密碼學套件再包成數個符合業務邏輯的函式， AI 就能接手後面的工作了。用函式包裝程式的作法在和人協作的時候很標準，但在和 AI 協作時，好像是為了某種高階語言去用低階語言去最佳化的感覺。</p><p>我們的意念變成機器的行動的距離變近了。開發變得像《猴爪》小說一樣，要小心自己許的願望，並一直調整自己許的願望是什麼。</p><p>這樣想想就覺得還要開口和寫訊息和機器溝通好冗贅。我們需要魔法。</p></div></article><footer class="footer scrollappear"><p><span>&copy; 2025 <a href=https://liangcc.me/>CC's blog</a></span>
+<span>Powered by <a href=https://gohugo.io/ rel=noopener target=_blank>Hugo</a></span>
+<span>Theme is based on <a href=https://github.com/nielsenramon/chalk rel="noreferrer noopener" target=_blank>Chalk</a></span></p></footer></div></div></main><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js></script><script src=https://liangcc.me/javascripts/zooming.min.js></script><script src=https://liangcc.me/javascripts/retina.min.js></script><script src=https://liangcc.me/javascripts/svgxuse.min.js></script><script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script><script src=https://liangcc.me/javascripts/vendor.min.js></script><script src=https://liangcc.me/javascripts/webfonts.min.js></script><script src=https://liangcc.me/javascripts/scrollappear.min.js></script><script src=https://liangcc.me/javascripts/application.min.js></script><script src=https://liangcc.me/javascripts/themetoggle.min.js></script></body></html>
