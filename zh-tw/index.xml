@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CC's blog</title><link>https://liangcc.me/zh-tw/</link><description>Recent content on CC's blog</description><generator>Hugo</generator><language>zh-tw</language><lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://liangcc.me/zh-tw/index.xml" rel="self" type="application/rss+xml"/><item><title>《極限返航》閱讀心得</title><link>https://liangcc.me/zh-tw/posts/2025-11-21_project_hail_mary/</link><pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2025-11-21_project_hail_mary/</guid><description>&lt;p>&lt;img src="https://books.google.com/books/content?id=-Ff2DwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=none&amp;source=gbs_api">&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CC's blog</title><link>https://liangcc.me/zh-tw/</link><description>Recent content on CC's blog</description><generator>Hugo</generator><language>zh-tw</language><lastBuildDate>Fri, 19 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://liangcc.me/zh-tw/index.xml" rel="self" type="application/rss+xml"/><item><title>《智慧簡史》筆記（二）</title><link>https://liangcc.me/zh-tw/posts/2025-12-19_history_of_intelligence_2/</link><pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2025-12-19_history_of_intelligence_2/</guid><description>&lt;p>科技還沒到之前，最厲害的人也只能瞎猜&lt;/p>
+&lt;p>古希臘人看到動物身上有些線狀的東東，會一路連到腦袋，稱他們為神經（nerve 的詞源）。他們從活豬身上做了一些可怕的實驗，知道這些線線可以控制肌肉，也知道感觀會透過線線傳遞。&lt;/p>
+&lt;p>但為什麼線線可以做到這些神奇的事？他們講了一句凱因斯會講的話「線線裡面有動物靈魂（Animal Spirit）」 。阿不對，其實動物靈魂就是凱因斯從希臘人蓋倫借來的詞。&lt;/p>
+&lt;p>希臘人之後再過了快兩千年，牛頓也想來處理這個問題。不過他的理論很像是幣圈朋友會說的話：神經裡有以太（ether）在震盪。&lt;/p>
+&lt;p>在 1700 年之後，人們終於有電的概念，知道電流流過神經，可以讓肌肉收縮。&lt;/p>
+&lt;p>中間人們還得再繞些彎路。不過透過顯微鏡和染色技術，人們還是知道了兩件事：一條神經由多個稱為「神經元（neuron）」的細胞組成，雖然神經元連在一起，但各自有自己的訊號；神經元的電訊號只能從單一方向流動，輸入訊號從樹突 Dendrites 往軸突 Axon 方向輸出。&lt;/p>
+&lt;p>在 1920 ，劍橋的研究者 Edgar Adrian 終於有辦法得出一些關鍵性的結論。研究神經元的難度是因為神經元太小，但要測量雜亂訊號的電磁儀器又太巨大。Edgar 的突破在於找到技術解法，可以測量單一神經元的電訊號。&lt;/p>
+&lt;p>他整理出三個關於神經元的重要發現。&lt;/p>
+&lt;ul>
+&lt;li>全有全無律：神經元的電訊號不是連續的，而是離散一陣一陣的：有訊號或沒訊號。像是敲摩斯代碼這樣。神經元比較不像電源線，比較像電話線。&lt;/li>
+&lt;li>用頻率編碼（Rate coding）：如果電訊號全有全無，哪我們是怎麼感受光線多強？聲音多大？出力多重？我們的感受可不是全有全無，而是有層次的。 Edgar 發現，神經訊號是以送出訊號的頻率來表達刺激強度。送得越頻繁就是刺激越大。&lt;/li>
+&lt;li>適應刺激（Adaption）：頻率編碼有個小問題（稱為擠壓問題 squishing）。同樣是盯著一張白紙看，在日光之下和月光之下看，眼睛從白紙接受的光照量可能差百萬倍。假設神經訊號的輸出有個頻率上限，那勢必要把輸入的百萬倍差距，平均配到最大和最小輸出的範圍。如果白紙上有寫字，那這樣眼睛應該在陰暗之下會超不敏感。可是我們怎麼日光之下和月光之下都能分辨出字來？（書裡是沒提到和考慮瞳孔這類的機制）
+神經元會依照刺激的重複程度，調節輸出的範圍。Edgar 做了個實驗，在蛙腿肌肉上吊個砝碼，並觀察神經元輸出訊號。第一次吊上去時，神經元輸出頻繁的訊號。但吊第二次、第三次時，訊號就變得稀疏。神經元的輸出訊號比較是衡量刺激的變動，而並非刺激本身。他會去抓到刺激的新的基準點在哪。適應刺激這個特性，解決掉了訊號擠壓問題。一旦神經元適應了日光或月光的基準點，輸出信號就能調整成對字體的明暗敏感。&lt;/li>
+&lt;/ul>
+&lt;p>在 Edgar 之後，人們又破解了神經的化學訊號。神經元內用電訊號溝通，神經元間用化學訊號溝通。&lt;/p>
+&lt;p>全有全無、頻率編碼、適應刺激、化學訊號，這些神經元的特性在動物上都是一樣的。從珊瑚蟲、水母、到人類都沒變。&lt;/p>
+&lt;p>最早的動物演化出了神經元（6億年前）、上次提過為了移動而變成兩側對稱的動物（5.5 億年前）則把神經元聚成一團 &amp;ndash; 成為小小的腦袋。他們可以區分好歹、有基本的效價（Valence 情緒價值？？）、能夠做學習關連（association）&lt;/p>
+&lt;p>例如：線蟲分兩組，一組放清水裡挨餓，一組放鹹水裡挨餓。線蟲一般預設鹹水有好吃的，但第二組會學到鹹水代表飢餓。&lt;/p>
+&lt;p>接下來是寒武紀（5億年前），兩側對稱的動物再分出了脊椎動物。無脊椎動物像蚯蚓、螞蟻之類的，他們的腦袋和人們的完全不一樣。但脊椎動物像魚、爬蟲、老鼠的腦袋就和人類很像，他們的胚胎都會把腦袋切成前腦、中腦、後腦三個區域。&lt;/p>
+&lt;p>寒武紀有特殊的環境需求，導致這些魚祖先們需要解鎖一些新的超能力：強化學習、模式辨認等。下回分曉&lt;/p></description></item><item><title>正音班的囚徒困境</title><link>https://liangcc.me/zh-tw/posts/2025-12-15_parent_paranoid/</link><pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2025-12-15_parent_paranoid/</guid><description>&lt;p>好一陣子前，有機會滲透到一團家長裡。大家正煩惱一個問題：小朋友要上小學了，要不要先讓他們去上正音班？&lt;/p>
+&lt;p>咦？那不是發音有問題的小朋友才會去特別加強的嗎？這是我模糊的印象。上次聽到這詞應該是小學了。&lt;/p>
+&lt;p>這群家長們也不是那種想讓小朋友講話字正腔圓的家長。&lt;/p>
+&lt;p>更甚者，這些家長更是反對小朋友花額外時間去上正音班。&lt;/p>
+&lt;p>那為什麼要討論要不要上正音班？&lt;/p>
+&lt;p>因為正音班會早小學老師一步把注音符號過一遍。如果全班很多人都已經會念注音了，那不會的小朋友會不會感到挫折？或老師會不會變得不認真教？&lt;/p>
+&lt;ul>
+&lt;li>小朋友花額外時間事小（報酬-1）&lt;/li>
+&lt;li>小朋友上課感到挫折被排擠更可怕（報酬 -2）&lt;/li>
+&lt;/ul>
+&lt;p>這裡可以聞到囚犯困境結構形成了。簡化的雙人版本是：&lt;/p>
+&lt;ul>
+&lt;li>如果大家都不上正音班，老師正常教，小朋友正常學（所有人報酬 0）。&lt;/li>
+&lt;li>如果別人沒上，但自己上：自己超前進度，但別人受挫（別人 -2 ，自己 +1）&lt;/li>
+&lt;li>反過來，別人上，自己沒上：（別人 +1，自己 -2）&lt;/li>
+&lt;li>大家都上正音班：家長小朋友瞎忙（別人 -1,自己 -1）&lt;/li>
+&lt;/ul>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">別人, 我&lt;/th>
+ &lt;th style="text-align: left">上&lt;/th>
+ &lt;th style="text-align: left">不上&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">上&lt;/td>
+ &lt;td style="text-align: left">-1, -1&lt;/td>
+ &lt;td style="text-align: left">+1,-2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">不上&lt;/td>
+ &lt;td style="text-align: left">-2, +1&lt;/td>
+ &lt;td style="text-align: left">0, 0&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>所以均衡會把大家困在瞎忙又沒取得優勢的正音班，陷入教育軍備競賽的泥沼中&lt;/p>
+&lt;hr>
+&lt;p>複雜一點的情景要考慮一班 30 多人的情況。另外，有些家長認為正音班帶來超前優勢，有些認為在注音有超前優勢沒有意義。&lt;/p>
+&lt;p>如果相信正音班帶來超前優勢的家長少，班上上正音班的是少數，那應該不影響教學品質，多數小朋友也不會受挫吧？&lt;/p>
+&lt;p>班上會有個臨界質量（Critical mass）。如果只有 30% 以下的小朋友上正音班，不愛正音班家長應該小朋友悠哉在家休息也沒事。老師不會快速帶過、小朋友也不會受挫。&lt;/p>
+&lt;p>但如果 70% 以上的小朋友上正音班。就算不愛正音班也得送小孩去正音班。&lt;/p>
+&lt;p>如果其他的家長都猜疑這個比例高，那個人的最佳策略就是都送正音班，這個比例也會突然真的變高。這是正音班式的銀行擠兌。&lt;/p>
+&lt;p>要破解這個局面，可能要有人出來做出一些 commitment ，減少因為猜忌而引發的集體理性瘋狂。例如：一種是大家都不准上正音班。但可能對喜歡正音班的家長不公平，他們可能沒想要取得注音優勢，只是想要小朋友將會字正腔圓。另一種是要求老師一定要照本宣科，就算全部小朋友注音都會了，仍然要假裝他們不會，課本一頁一頁過。&lt;/p>
+&lt;p>把小朋友養成中文怪物，只是我聽到家長話題的其中一個案例。其他還有好幾種決策討論，聽起來都非常的類似。明明多數人都覺得沒有道理的事，也沒人命令他們要做，卻最後都自己主動做下去了。&lt;/p>
+&lt;p>人們不太可能在生活每場賽局中，都是當那位出來修好遊戲的人。那人究竟是要活在抵抗之中，獨自吞下那 -2 的憋屈；還是消極努力，活在 -1 的集體沉淪之下呢？&lt;/p></description></item><item><title>數位憑證筆記</title><link>https://liangcc.me/zh-tw/posts/2025-12-04_zkid/</link><pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2025-12-04_zkid/</guid><description>&lt;p>為什麼數位憑證是個困難的問題？許多國家會在明年就要上路各種數位憑證。不做的話大家都要變成詐騙天堂，但設計不良的數位憑證會讓大家不知不覺變成監控國家。&lt;/p>
+&lt;p>數位憑證背後的技術是密碼學，不管哪種解決方案，使用者看到的介面大概都差不多。大概是商家要使用者揭露某些資料，然後使用者在手機檢查一些要揭露哪些東西，按確定，然後秀給商家一個 QR Code 之類。&lt;/p>
+&lt;p>不過底層用哪種密碼學方案，會影響是不是使用者的隱私受到保障。目前市面上技術方案分為兩種：&lt;/p>
+&lt;ul>
+&lt;li>加鹽雜湊值：像電子雞一樣，功能比較呆板但手機的運算比較輕量&lt;/li>
+&lt;li>ZKID：像手機 App 一樣，功能比較豐富但手機的運算負擔比較重。&lt;/li>
+&lt;/ul>
+
+
+ 
+ &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ &lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/vqBef6XFB4A?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+ >&lt;/iframe>
+ &lt;/div>
+
+&lt;p>YingTong 這一個小時的白板介紹真的是上手這個議題的精華。我這邊略過技術的部分，只筆記各種設計的考量。&lt;/p>
+&lt;p>數位憑證的使用場景，會抽象出三種角色：發行者 (Issuer) 、使用者（Holder 或 Prover）、驗證者（Verifier）。&lt;/p>
+&lt;p>發行者會發行憑證給使用者。&lt;/p>
+&lt;p>使用者在各種應用場景出示（present）憑證所導出的欄位給驗證者看。&lt;/p>
+&lt;p>除此之外，我們可能會假設發行的憑證會註冊在一個公開的註冊表（Registry）上。發行者具有撤銷使用者憑證的權利，註冊表可以看到憑證被註銷的記錄。驗證者在檢驗憑證時，也可能需要去註冊表上面看憑證是不是還有效。&lt;/p>
+&lt;p>有了這些角色之後，我們就能定義一些理想的隱私條件。&lt;/p>
+&lt;p>首先我們想要 &lt;strong>發行者不可觀測（ unobservability）&lt;/strong> ，使用者在出示憑證的時候，發行者不能偵測到哪些憑證被出示了。這樣代表使用者生活中的數位足跡，不會被政府掌握。&lt;/p>
+&lt;p>接著我們想要，即使發行者和一個或多個驗證者串通，他們沒辦法用各種出示記錄去連結到某一個人。這叫 &lt;strong>發行者驗證者不可關聯 Issuer-Verifier unlinkability&lt;/strong> 。許多現行和即將推行的數位憑證，他們是基於加鹽雜湊值這個技術，都違反了這個條件。&lt;/p>
+&lt;p>提供年齡 20 歲的雜湊值，會被爆搜，用 0~100 的歲數帶入就能找出雜湊值的輸入值是什麼，加鹽的意思是在雜湊值輸入加入範圍巨大的隨機數，使爆搜不可行。但現有設計的加鹽雜湊值常是靜態的，代表某甲在兩家商店的揭露雜湊值會長得一樣。多家商店串通便能辨識出顧客。&lt;/p>
+&lt;hr>
+&lt;p>下一個數位憑證的眉角在註銷，或「尚未註銷」。驗證者怎麼知道使用者的憑證仍然是有效，沒被注銷掉的呢？目前市面上有三種解決方案：&lt;/p>
+&lt;p>第一種是使用者自行證明。使用者可以用密碼學的技術，證明自己不在黑名單內。這招有個小小缺陷是使用者出示憑證時必需上網。他要能查詢一個公開註冊表。&lt;/p>
+&lt;p>第二種是頻繁的過期。使用者會有個會過期的令牌（Token）。使用者需要常去找發行人重新註冊。最大的缺點是這招要求使用者的裝置必須和數位憑證綁定，避免使用者把 Token 借給別人。EUID 標準要求裝置綁定。ZK passport 和 Rarimo 則是要求臉部辨識，確定出示憑證的使用者是本人。&lt;/p></description></item><item><title>《智慧簡史》筆記（一）</title><link>https://liangcc.me/zh-tw/posts/2025-12-02_history_of_intelligence_1/</link><pubDate>Tue, 02 Dec 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2025-12-02_history_of_intelligence_1/</guid><description>&lt;p>&lt;img src="https://books.google.com/books/content?id=iu-REAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=2&amp;edge=none&amp;source=gbs_api">&lt;/p>
+&lt;p>&lt;a href="https://www.amazon.ca/Brief-History-Intelligence-Evolution-Future/dp/0008560137">這本&lt;/a> 去年在日本買到的，但因為看書太慢，和各種隨性插隊，現在才開始看。&lt;/p>
+&lt;p>這本從生物演化的角度，講智慧怎麼從簡單變成複雜。作者不免是以人類為本的視角去看智慧這件事，認為生物演化至今已經經歷五個重大突破。在成書的時侯有 GPT 4 ，作者好奇如果有第六重大突破會是什麼？&lt;/p>
+&lt;p>有趣的是作者的身份。他不是什麼大咖學者，只是個賣廣告的機器學習新創老闆。他寫這本書只是因為自己想讀這本書。即使如此，這本書得到了「快思慢想」康納曼的推薦。&lt;/p>
+&lt;p>這本書講了夠多但又不太多的生物學，佐以各種智慧演算法的發展、科技史、自然史。每個突破似乎都有某種重要啟發，因此心得我想順著各個突破邊讀邊寫。&lt;/p>
+&lt;p>第一個智慧的重要突破是「移動」。 6 億年前，出現了「最早具有神經的動物」的祖先，是輻射對稱的。然後 5.5 億年前，出現了第一個左右對稱的動物。現今動物 99% 都是左右對稱，剩 1% 是輻射對稱。（已更正，感謝新一審閱）&lt;/p>
+&lt;p>輻射對稱的生物都是原地不動，等食物飄到自己嘴巴裡就好。為什麼會森谷帝二上身想要輻射對稱呢？因為身體壞掉的部分可以有很多備份。另一個原因是食物可能從四面八方雲集，所以每個方向都配一些觸手。&lt;/p>
+&lt;p>從輻射對稱到左右對稱最重要的目的是要「移動」。他們不等食物飄到嘴巴裡，而是要主動去找食物。既然可以移動，那身體就不用每個方向都長一樣。所以負責移動的肢體配到身體的後邊，嘴巴或感受器官配到前邊，分工節省能量。&lt;/p>
+&lt;p>但因為要移動，就會有「我要往哪裡去？」這種大哉問。這是智慧的起源。&lt;/p>
+&lt;p>首先，必須要知道「好歹」。有食物的地方「好」，往那裡去；有有毒物質的地方「壞」，不要去；太冷或太熱的地方也「壞」，不要去。&lt;/p>
+&lt;p>另外，可能還要有些維持狀態的機制。例如吃飽了，食物可能就沒那麼重要。就不用冒著溫度或毒性的風險取得食物。&lt;/p>
+&lt;p>線蟲的構造超級簡單，有那些有毒物質、冷熱、食物、飽足感的感應器。並且有最原始的神經系統，權衡利害關係。&lt;/p>
+&lt;p>移動方式非常簡單，往好康的地方直走。如果遇到障礙物或壞東西，隨機轉彎。&lt;/p>
+&lt;p>1980 年代，人工智慧分為兩派。符號邏輯派想把人類的智慧直接拆解，試圖取得理解、語言、解決問題、邏輯等高級能力。&lt;/p>
+&lt;p>另一派是機器人學派。 麻省理工的 Rodney Brooks 認為符號邏輯派注定失敗。連低階的智慧都沒辦法掌握，是要怎麼掌握高階的智慧呢？&lt;/p>
+&lt;p>他做了一個思想實驗：如果在 1890 ，研究人工飛行的科學家、工程師，瞬間穿越到 1990 年代，並停留幾個小時。他們看到了現代飛機，並相信人工飛行終將成功。但他們回到 1890 後，開始研究駕駛艙怎麼設計、玻璃怎麼設計、塑膠怎麼做。&lt;/p>
+&lt;p>如果略過簡易的飛機，直接想要製造 747 ，就會什麼飛機都做不出來。&lt;/p>
+&lt;p>因此雖然高等的智慧就長在我們頭上，要研究智慧應該去先從線蟲開始研究。&lt;/p>
+&lt;p>人們可以去論究 Brooks 到底也沒有道理。不過呢，Brooks 在1990 成立一家叫做 iRobot 的公司，並在 2002 年推出 Roomba 掃地機器人。&lt;/p>
+&lt;p>Roomba 充滿了線蟲的智慧。他是一個左右對稱的生物。他直直往前走，看到垃圾就吸，遇到障礙物就轉彎。快沒電了，就往充電處的訊號方向前進。&lt;/p>
+&lt;p>沒有什麼高級智慧，就先在市場先飽飽賺個 20 年。書裡說，市場和演化都一樣，會獎勵便宜和可行的方案。&lt;/p></description></item><item><title>《極限返航》閱讀心得</title><link>https://liangcc.me/zh-tw/posts/2025-11-21_project_hail_mary/</link><pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2025-11-21_project_hail_mary/</guid><description>&lt;p>&lt;img src="https://books.google.com/books/content?id=-Ff2DwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=none&amp;source=gbs_api">&lt;/p>
 &lt;p>Project Hail Mary&lt;/p>
 &lt;p>電影翻「極限返航」，2026 會上映&lt;/p>
 &lt;p>我本來想說我不會再看什麼太空人和外星人的科幻小說了，不過因為是禮物，我就讀了，也很好讀。&lt;/p>
@@ -98,7 +211,30 @@
 &lt;p>人們抱怨台北市中心房價太高。也有人說抱怨市中心房價太高的都是為了想要炒房。明明新北或基隆有些價格適宜的房子為什麼不去買。&lt;/p>
 &lt;p>但如果套本書的說法，這是鼓勵人們往都市邊邊水平發展，是不好的。&lt;/p>
 &lt;p>台北看起來很多很老的四、五樓的公寓，但不像台中有那麼多可以抬頭瞻仰的高樓大廈。&lt;/p>
-&lt;p>台灣似乎不愛讓萬惡建商都更，反而卻要蓋公宅來試圖補救缺少的房屋供給。&lt;/p></description></item><item><title>《決戰熱蘭遮》閱讀心得</title><link>https://liangcc.me/zh-tw/posts/2025-10-07_lost_colony/</link><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2025-10-07_lost_colony/</guid><description>&lt;p>&lt;img src="http://books.google.com/books/content?id=cscJEQAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api">&lt;/p>
+&lt;p>台灣似乎不愛讓萬惡建商都更，反而卻要蓋公宅來試圖補救缺少的房屋供給。&lt;/p></description></item><item><title>[備份] 隱私池的設計</title><link>https://liangcc.me/zh-tw/posts/2025-10-11_privacy_pool/</link><pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2025-10-11_privacy_pool/</guid><description>&lt;p>本文刊載在 &lt;a href="https://medium.com/taipei-ethereum-meetup/privacy-pool-0143430da59c">Taipei Ethereum Meetup 專欄&lt;/a>，此篇為備份。&lt;/p>
+&lt;p>&lt;em>感謝 TEM 審稿者 Kevin, Kimi, Nic 的細心審閱。&lt;/em>&lt;/p>
+&lt;p>最近在參加鐵人賽，寫了有關龍捲風現金（Tornado Cash），以及其繼任者隱私池（Privacy Pool）的文章。 &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> &lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/p>
+&lt;p>鐵人賽的文章比較摘要式的談，但這篇想看一些原始碼的細節。&lt;/p>
+&lt;p>讀者若有具備龍捲風現金的一些基礎知識，會比較能欣賞隱私池的細節。但如果沒有的話也沒關係，可以看一下簡介。&lt;/p>
+&lt;h2 id="簡介">簡介&lt;/h2>
+&lt;p>龍捲風現金是一種打斷幣流的混幣器，目的是讓使用者得到「鏈上」的隱私。合約只有「存款」和「提款」兩個函式。使用者把一筆金額，例如一顆以太幣，存入龍捲風現金合約。過了一段時間之後，也許幾個月，再從合約提款。人們只能知道提款者是眾多存款者之一，但除非有其他已知暴露的資訊，沒辦法知道提款者具體是哪個存款者。&lt;/p>
+&lt;p>提款的交易中，合約會檢查提款者送出的零知識證明。通過這個檢查，代表提款者曾經存款，且不曾提款過。&lt;/p>
+&lt;p>背後用到的密碼學就是雜湊函式和零知識證明。&lt;/p>
+&lt;p>雜湊函式可以用一些合理的方式層層包裝，例如 &lt;code>f(x) = keccak(keccak(x))&lt;/code> 或 &lt;code>g(x) = keccak(a, b, c, keccak(x))&lt;/code>（其中 a, b, c 是常數），這些函式 f, g 都會針對 x 產生出不會撞號的雜湊值。雖然 f 和 g 都用了 keccak ，但 f 和 g 可以「視為」兩種不同的雜湊函式。&lt;/p>
+&lt;p>想像我們有兩種雜湊函式，hash1 和 hash2 。使用者有個秘密的隨機值 &lt;code>random&lt;/code> 。這個隨機值必須從夠大的空間抽樣（例如： 128 位元），讓攻擊者無法用電腦暴力搜索，從雜湊值反推隨機值的數字。&lt;/p>
+&lt;ul>
+&lt;li>存款：留下 &lt;code>hash1(random)&lt;/code>&lt;/li>
+&lt;li>提款：留下 &lt;code>hash2(random)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>外人無法從雜湊值 &lt;code>hash1(random)&lt;/code> 與 &lt;code>hash2(random)&lt;/code> 得知兩者的關聯。&lt;/p>
+&lt;p>因此使用者在提款時：&lt;/p>
+&lt;ol>
+&lt;li>合約先檢查 &lt;code>hash2(random)&lt;/code>不曾出現過，確認該使用者尚未提款。&lt;/li>
+&lt;li>迴路以私密參數接收 &lt;code>hash1(random)&lt;/code>，以公開參數接收 &lt;code>hash2(random)&lt;/code>&lt;/li>
+&lt;li>迴路驗證 &lt;code>hash1(random)&lt;/code> 與 &lt;code>hash2(random)&lt;/code> 背後的隨機值是相同的。這樣驗證存提款是同一個人，卻又不揭露存款者的資訊。&lt;/li>
+&lt;li>最後合約把 &lt;code>hash2(random)&lt;/code> 記錄在鏈上。這樣重複提款時，在步驟一就會失敗。&lt;/li>
+&lt;/ol>
+&lt;p>&lt;code>hash2(random)&lt;/code> 像是在存款名單上，把提款過的人的名字劃掉，但劃掉了誰只有提款者知曉。&lt;/p></description></item><item><title>《決戰熱蘭遮》閱讀心得</title><link>https://liangcc.me/zh-tw/posts/2025-10-07_lost_colony/</link><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2025-10-07_lost_colony/</guid><description>&lt;p>&lt;img src="http://books.google.com/books/content?id=cscJEQAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api">&lt;/p>
 &lt;p>看完了歐陽泰的【&lt;a href="https://www.eslite.com/product/1001110932643195">決戰熱蘭遮&lt;/a>】。這本原文書是 2011 出版，中文 2017 再版，裡面很多荷蘭人的名字看起來比較貼近民間唸法。&lt;/p>
 &lt;p>這本主要在講 1661 鄭成功攻打熱蘭遮堡荷蘭人的故事。為什麼作者想要研究這場戰爭？原來是有世界史上的大哉問要回答。&lt;/p>
 &lt;p>為什麼相對亞洲落後的西歐國家，會在 16 世紀稱霸全球？傳統的史學家提了很多不同的原因：槍炮、財產權、經濟、政治、社會制度等。但傳統史家每提一個原因，全球史學者就會提出反例，說誰誰誰也有那些因素，為什麼他們沒稱霸全球。&lt;/p>
@@ -171,7 +307,20 @@
 &lt;ul>
 &lt;li>Demo: &lt;a href="https://chihchengliang.github.io/scimap/">https://chihchengliang.github.io/scimap/&lt;/a>&lt;/li>
 &lt;li>Repo: &lt;a href="https://github.com/ChihChengLiang/scimap">https://github.com/ChihChengLiang/scimap&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>摘要《經濟成長：歷史與回顧》</title><link>https://liangcc.me/zh-tw/posts/2024-09-13_growth/</link><pubDate>Fri, 13 Sep 2024 00:09:10 +0800</pubDate><guid>https://liangcc.me/zh-tw/posts/2024-09-13_growth/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2024-09-13_growth/images/monkey_sails.webp">&lt;/p>
+&lt;/ul></description></item><item><title>冰汽時代2</title><link>https://liangcc.me/zh-tw/posts/2024-09-26_frostpunk_2/</link><pubDate>Thu, 26 Sep 2024 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2024-09-26_frostpunk_2/</guid><description>&lt;p>&lt;a href="https://store.steampowered.com/app/1601580/Frostpunk_2/">https://store.steampowered.com/app/1601580/Frostpunk_2/&lt;/a>&lt;/p>
+&lt;p>一樣玩家扮演一個類似市長的角色，帶領一個都市度過嚴峻的寒冬。&lt;/p>
+&lt;p>這個都市是工業時代科技，都還是燒煤炭的。&lt;/p>
+&lt;p>與一代最大的差別是多了議會系統。一代的話是市長想頒布什麼法令就頒布 （請搭配遊戲音效：Hear ye! Hear ye! A new law has passed），法令可能會影響兩個指標：市民對未來的希望與市民的滿意度。這兩個指標歸零遊戲就算失敗。&lt;/p>
+&lt;p>二代的話，市長提交法案到議會表決。表決也就過和不過的差別。議會有四群人：大概 10% 維持秩序的忠心支持者、大概 40% 住都市的新倫敦人、大概 40% 喜歡探險的冰原探險者、還有少數 10% 後期才加入的朝聖者。支持者喜歡秩序和發展之類，新倫敦人認為重心應該發展都市和科技，冰原探險者認為人類的未來在於都市外面的冰原，朝聖者認為天然的尚好，都不要搞科技。&lt;/p>
+&lt;p>想要在議會過一個法案，可以先看大概多少人支持，多少人反對，多少人意見搖擺。針對意見搖擺的陣營就可以和他們喬法案，可以說服他們支持或反對現在要通過的法案，然後未來會給他們一些牛肉：可以承諾未來通過他們喜歡的法案、發展他們喜歡的科技、或是給他們下一次議會法案的提案權。喬完之後，議會通過法案的機率機會就確定了。&lt;/p>
+&lt;p>講到科技，遊戲裡面的科技樹也不像傳統遊戲的科技樹一樣，花費一些點數把技能點開就好。每一種科技，例如增加暖氣效能的科技，都有各個陣營喜歡的解決方案。市長支持者和新倫敦人就會喜歡生產效率好的選項，高產出、低勞工投入，但付出高污染和高能源消耗作為代價。探險者和朝聖者則喜歡低污染低耗能的解決方案，但生產效率相對低。&lt;/p>
+&lt;p>二代裡面沒有一代那種只要歸零就會一刀斃命的數值。每種問題：寒冷、疾病、犯罪、資源匱乏只有嚴重和不嚴重的差別。重點還是得平衡取悅四種不同的群體。我是還沒玩到哪個陣營開始作亂的時候，但從遊戲的介面來看，他們隨時準備好激進化。&lt;/p>
+&lt;p>遊戲玩到中間也會忘記什麼時候承諾了誰什麼法案。例如在都市發展重心的法案選項中：有全力發展都市、全力發展對外探險、和一個我忘記是什麼的選項。一開始我承諾了探險者要全力發展探險，但後來因為要喬其他法案，答應新倫敦人要全力發展都市。&lt;/p>
+&lt;p>結果法案在一次表決之後，從發展探險轉向為發展都市。探險者十分不開心，他們會質問為什麼市長會違反承諾。然後我就再提一次法案並再讓全力發展探險通過。於是這法案一翻再翻又翻了回來。&lt;/p>
+&lt;p>這裡覺得有趣的點是，但法案明明是議會通過的阿，怎麼法案被推翻了不是怪議會，而是怪市長違反承諾。的確有辦法喬法案這件事讓市長在這件事上有責任。&lt;/p>
+&lt;p>遊戲介面也看到遊戲後期保留了很多讓議會通過市長獨裁的選項。這和一代差不多，就是讓很嚴峻的環境去考驗玩家是否要犧牲一些價值。聽說一代玩家都在沒什麼掙扎之下，就按了通過童工法案。&lt;/p>
+&lt;p>目前遊戲玩到了面臨抉擇的地方。因為發現了新能源「石油」，所以都市裡的人都非常興奮。科技派的認為我們能把暖爐科技發展到頂尖，在凍原之下融出一塊沒冰的地方。天然派的則是覺得到我們大概以後只能試著和暴雪共存，應該向外探險擴張找到更多可能性。這兩種抉擇各有後期很多無法挽回的後果。第一件能知道的是，選擇落地生根，可以發展比較有效率的全石油暖爐。選擇往外擴張，則是可以發展煤油兼用的暖爐，不怕石油一缺就沒輒。&lt;/p>
+&lt;p>比較現實世界和遊戲世界中的差異，遊戲中的陣營的確因為他們的歷史背景，有不一樣的世界觀與信念。和現實世界的差異是，遊戲中的陣營很知道他們想要的是什麼，能夠正常表態，立場一致。現實中的陣營似乎有時常立場不明無法清楚表態的情況。&lt;/p></description></item><item><title>摘要《經濟成長：歷史與回顧》</title><link>https://liangcc.me/zh-tw/posts/2024-09-13_growth/</link><pubDate>Fri, 13 Sep 2024 00:09:10 +0800</pubDate><guid>https://liangcc.me/zh-tw/posts/2024-09-13_growth/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2024-09-13_growth/images/monkey_sails.webp">&lt;/p>
 &lt;p>感謝 Yahsin Huang 和 Anton Cheng 審閱與回饋。&lt;/p>
 &lt;p>看了一些人文社科的書之後，我發現了一些傾向。似乎很多主題最後都會收斂到經濟成長。&lt;/p>
 &lt;ul>

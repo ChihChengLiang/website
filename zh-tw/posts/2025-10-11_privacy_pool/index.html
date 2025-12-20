@@ -1,0 +1,373 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>[備份] 隱私池的設計 - CC's blog</title>
+<meta name=description content="本文刊載在 Taipei Ethereum Meetup 專欄，此篇為備份。
+感謝 TEM 審稿者 Kevin, Kimi, Nic 的細心審閱。
+最近在參加鐵人賽，寫了有關龍捲風現金（Tornado Cash），以及其繼任者隱私池（Privacy Pool）的文章。 1 2
+鐵人賽的文章比較摘要式的談，但這篇想看一些原始碼的細節。
+讀者若有具備龍捲風現金的一些基礎知識，會比較能欣賞隱私池的細節。但如果沒有的話也沒關係，可以看一下簡介。
+簡介
+龍捲風現金是一種打斷幣流的混幣器，目的是讓使用者得到「鏈上」的隱私。合約只有「存款」和「提款」兩個函式。使用者把一筆金額，例如一顆以太幣，存入龍捲風現金合約。過了一段時間之後，也許幾個月，再從合約提款。人們只能知道提款者是眾多存款者之一，但除非有其他已知暴露的資訊，沒辦法知道提款者具體是哪個存款者。
+提款的交易中，合約會檢查提款者送出的零知識證明。通過這個檢查，代表提款者曾經存款，且不曾提款過。
+背後用到的密碼學就是雜湊函式和零知識證明。
+雜湊函式可以用一些合理的方式層層包裝，例如 f(x) = keccak(keccak(x)) 或 g(x) = keccak(a, b, c, keccak(x))（其中 a, b, c 是常數），這些函式 f, g 都會針對 x 產生出不會撞號的雜湊值。雖然 f 和 g 都用了 keccak ，但 f 和 g 可以「視為」兩種不同的雜湊函式。
+想像我們有兩種雜湊函式，hash1 和 hash2 。使用者有個秘密的隨機值 random 。這個隨機值必須從夠大的空間抽樣（例如： 128 位元），讓攻擊者無法用電腦暴力搜索，從雜湊值反推隨機值的數字。
+
+存款：留下 hash1(random)
+提款：留下 hash2(random)
+
+外人無法從雜湊值 hash1(random) 與 hash2(random) 得知兩者的關聯。
+因此使用者在提款時：
+
+合約先檢查 hash2(random)不曾出現過，確認該使用者尚未提款。
+迴路以私密參數接收 hash1(random)，以公開參數接收 hash2(random)
+迴路驗證 hash1(random) 與 hash2(random) 背後的隨機值是相同的。這樣驗證存提款是同一個人，卻又不揭露存款者的資訊。
+最後合約把 hash2(random) 記錄在鏈上。這樣重複提款時，在步驟一就會失敗。
+
+hash2(random) 像是在存款名單上，把提款過的人的名字劃掉，但劃掉了誰只有提款者知曉。"><meta name=author content><link rel=icon type=image/x-icon href=https://liangcc.me/images/favicon-dark.ico><link rel=apple-touch-icon href=https://liangcc.me/images/apple-touch-icon-dark.png><link rel=stylesheet type=text/css title=light id=light href=https://liangcc.me/stylesheets/light.css><link rel=stylesheet type=text/css title=dark id=dark href=https://liangcc.me/stylesheets/dark.css disabled><link rel="preload stylesheet" as=style href=https://liangcc.me/custom.min.css><link rel="preload stylesheet" as=style href=https://liangcc.me/an-old-hope.min.css><script defer src=https://liangcc.me/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><meta name=generator content="Hugo 0.134.2"><meta property="og:url" content="https://liangcc.me/zh-tw/posts/2025-10-11_privacy_pool/"><meta property="og:site_name" content="CC's blog"><meta property="og:title" content="[備份] 隱私池的設計"><meta property="og:description" content="本文刊載在 Taipei Ethereum Meetup 專欄，此篇為備份。
+感謝 TEM 審稿者 Kevin, Kimi, Nic 的細心審閱。
+最近在參加鐵人賽，寫了有關龍捲風現金（Tornado Cash），以及其繼任者隱私池（Privacy Pool）的文章。 1 2
+鐵人賽的文章比較摘要式的談，但這篇想看一些原始碼的細節。
+讀者若有具備龍捲風現金的一些基礎知識，會比較能欣賞隱私池的細節。但如果沒有的話也沒關係，可以看一下簡介。
+簡介 龍捲風現金是一種打斷幣流的混幣器，目的是讓使用者得到「鏈上」的隱私。合約只有「存款」和「提款」兩個函式。使用者把一筆金額，例如一顆以太幣，存入龍捲風現金合約。過了一段時間之後，也許幾個月，再從合約提款。人們只能知道提款者是眾多存款者之一，但除非有其他已知暴露的資訊，沒辦法知道提款者具體是哪個存款者。
+提款的交易中，合約會檢查提款者送出的零知識證明。通過這個檢查，代表提款者曾經存款，且不曾提款過。
+背後用到的密碼學就是雜湊函式和零知識證明。
+雜湊函式可以用一些合理的方式層層包裝，例如 f(x) = keccak(keccak(x)) 或 g(x) = keccak(a, b, c, keccak(x))（其中 a, b, c 是常數），這些函式 f, g 都會針對 x 產生出不會撞號的雜湊值。雖然 f 和 g 都用了 keccak ，但 f 和 g 可以「視為」兩種不同的雜湊函式。
+想像我們有兩種雜湊函式，hash1 和 hash2 。使用者有個秘密的隨機值 random 。這個隨機值必須從夠大的空間抽樣（例如： 128 位元），讓攻擊者無法用電腦暴力搜索，從雜湊值反推隨機值的數字。
+存款：留下 hash1(random) 提款：留下 hash2(random) 外人無法從雜湊值 hash1(random) 與 hash2(random) 得知兩者的關聯。
+因此使用者在提款時：
+合約先檢查 hash2(random)不曾出現過，確認該使用者尚未提款。 迴路以私密參數接收 hash1(random)，以公開參數接收 hash2(random) 迴路驗證 hash1(random) 與 hash2(random) 背後的隨機值是相同的。這樣驗證存提款是同一個人，卻又不揭露存款者的資訊。 最後合約把 hash2(random) 記錄在鏈上。這樣重複提款時，在步驟一就會失敗。 hash2(random) 像是在存款名單上，把提款過的人的名字劃掉，但劃掉了誰只有提款者知曉。"><meta property="og:locale" content="zh_tw"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-10-11T00:00:00+00:00"><meta property="article:modified_time" content="2025-10-11T00:00:00+00:00"><meta property="og:image" content="https://liangcc.me/images/buffaloes.png"><meta itemprop=name content="[備份] 隱私池的設計"><meta itemprop=description content="本文刊載在 Taipei Ethereum Meetup 專欄，此篇為備份。
+感謝 TEM 審稿者 Kevin, Kimi, Nic 的細心審閱。
+最近在參加鐵人賽，寫了有關龍捲風現金（Tornado Cash），以及其繼任者隱私池（Privacy Pool）的文章。 1 2
+鐵人賽的文章比較摘要式的談，但這篇想看一些原始碼的細節。
+讀者若有具備龍捲風現金的一些基礎知識，會比較能欣賞隱私池的細節。但如果沒有的話也沒關係，可以看一下簡介。
+簡介 龍捲風現金是一種打斷幣流的混幣器，目的是讓使用者得到「鏈上」的隱私。合約只有「存款」和「提款」兩個函式。使用者把一筆金額，例如一顆以太幣，存入龍捲風現金合約。過了一段時間之後，也許幾個月，再從合約提款。人們只能知道提款者是眾多存款者之一，但除非有其他已知暴露的資訊，沒辦法知道提款者具體是哪個存款者。
+提款的交易中，合約會檢查提款者送出的零知識證明。通過這個檢查，代表提款者曾經存款，且不曾提款過。
+背後用到的密碼學就是雜湊函式和零知識證明。
+雜湊函式可以用一些合理的方式層層包裝，例如 f(x) = keccak(keccak(x)) 或 g(x) = keccak(a, b, c, keccak(x))（其中 a, b, c 是常數），這些函式 f, g 都會針對 x 產生出不會撞號的雜湊值。雖然 f 和 g 都用了 keccak ，但 f 和 g 可以「視為」兩種不同的雜湊函式。
+想像我們有兩種雜湊函式，hash1 和 hash2 。使用者有個秘密的隨機值 random 。這個隨機值必須從夠大的空間抽樣（例如： 128 位元），讓攻擊者無法用電腦暴力搜索，從雜湊值反推隨機值的數字。
+存款：留下 hash1(random) 提款：留下 hash2(random) 外人無法從雜湊值 hash1(random) 與 hash2(random) 得知兩者的關聯。
+因此使用者在提款時：
+合約先檢查 hash2(random)不曾出現過，確認該使用者尚未提款。 迴路以私密參數接收 hash1(random)，以公開參數接收 hash2(random) 迴路驗證 hash1(random) 與 hash2(random) 背後的隨機值是相同的。這樣驗證存提款是同一個人，卻又不揭露存款者的資訊。 最後合約把 hash2(random) 記錄在鏈上。這樣重複提款時，在步驟一就會失敗。 hash2(random) 像是在存款名單上，把提款過的人的名字劃掉，但劃掉了誰只有提款者知曉。"><meta itemprop=datePublished content="2025-10-11T00:00:00+00:00"><meta itemprop=dateModified content="2025-10-11T00:00:00+00:00"><meta itemprop=wordCount content="1615"><meta itemprop=image content="https://liangcc.me/images/buffaloes.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://liangcc.me/images/buffaloes.png"><meta name=twitter:title content="[備份] 隱私池的設計"><meta name=twitter:description content="本文刊載在 Taipei Ethereum Meetup 專欄，此篇為備份。
+感謝 TEM 審稿者 Kevin, Kimi, Nic 的細心審閱。
+最近在參加鐵人賽，寫了有關龍捲風現金（Tornado Cash），以及其繼任者隱私池（Privacy Pool）的文章。 1 2
+鐵人賽的文章比較摘要式的談，但這篇想看一些原始碼的細節。
+讀者若有具備龍捲風現金的一些基礎知識，會比較能欣賞隱私池的細節。但如果沒有的話也沒關係，可以看一下簡介。
+簡介 龍捲風現金是一種打斷幣流的混幣器，目的是讓使用者得到「鏈上」的隱私。合約只有「存款」和「提款」兩個函式。使用者把一筆金額，例如一顆以太幣，存入龍捲風現金合約。過了一段時間之後，也許幾個月，再從合約提款。人們只能知道提款者是眾多存款者之一，但除非有其他已知暴露的資訊，沒辦法知道提款者具體是哪個存款者。
+提款的交易中，合約會檢查提款者送出的零知識證明。通過這個檢查，代表提款者曾經存款，且不曾提款過。
+背後用到的密碼學就是雜湊函式和零知識證明。
+雜湊函式可以用一些合理的方式層層包裝，例如 f(x) = keccak(keccak(x)) 或 g(x) = keccak(a, b, c, keccak(x))（其中 a, b, c 是常數），這些函式 f, g 都會針對 x 產生出不會撞號的雜湊值。雖然 f 和 g 都用了 keccak ，但 f 和 g 可以「視為」兩種不同的雜湊函式。
+想像我們有兩種雜湊函式，hash1 和 hash2 。使用者有個秘密的隨機值 random 。這個隨機值必須從夠大的空間抽樣（例如： 128 位元），讓攻擊者無法用電腦暴力搜索，從雜湊值反推隨機值的數字。
+存款：留下 hash1(random) 提款：留下 hash2(random) 外人無法從雜湊值 hash1(random) 與 hash2(random) 得知兩者的關聯。
+因此使用者在提款時：
+合約先檢查 hash2(random)不曾出現過，確認該使用者尚未提款。 迴路以私密參數接收 hash1(random)，以公開參數接收 hash2(random) 迴路驗證 hash1(random) 與 hash2(random) 背後的隨機值是相同的。這樣驗證存提款是同一個人，卻又不揭露存款者的資訊。 最後合約把 hash2(random) 記錄在鏈上。這樣重複提款時，在步驟一就會失敗。 hash2(random) 像是在存款名單上，把提款過的人的名字劃掉，但劃掉了誰只有提款者知曉。"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script></head><body><main class=main><div class="grid grid-centered"><div class=grid-cell><nav class="header-nav scrollappear"><a href=/ class=header-logo title="CC's blog">CC's blog</a><ul class=header-links><li><a href=/about title=About><svg class="icon-about"><use href="https://liangcc.me/icons/about.svg#icon-about" xlink:href="https://liangcc.me/icons/about.svg#icon-about"/></svg></a></li><li><a href=/index.xml rel="noreferrer noopener" target=_blank title=RSS><svg class="icon-rss"><use href="https://liangcc.me/icons/rss.svg#icon-rss" xlink:href="https://liangcc.me/icons/rss.svg#icon-rss"/></svg></a></li><li><a onclick=toggle() title="Toggle Theme"><svg class="icon-theme"><use href="https://liangcc.me/icons/theme.svg#icon-theme" xlink:href="https://liangcc.me/icons/theme.svg#icon-theme"/></svg></a></li></ul></nav><article class="article scrollappear"><header class=article-header><h1>[備份] 隱私池的設計</h1><div class=article-list-footer><span class=article-list-date>Oct 11, 2025
+</span><span class=article-list-divider>-</span>
+<span class=article-list-minutes>8 minute read</span></div></header><div class=article-content><p>本文刊載在 <a href=https://medium.com/taipei-ethereum-meetup/privacy-pool-0143430da59c>Taipei Ethereum Meetup 專欄</a>，此篇為備份。</p><p><em>感謝 TEM 審稿者 Kevin, Kimi, Nic 的細心審閱。</em></p><p>最近在參加鐵人賽，寫了有關龍捲風現金（Tornado Cash），以及其繼任者隱私池（Privacy Pool）的文章。 <sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> <sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p><p>鐵人賽的文章比較摘要式的談，但這篇想看一些原始碼的細節。</p><p>讀者若有具備龍捲風現金的一些基礎知識，會比較能欣賞隱私池的細節。但如果沒有的話也沒關係，可以看一下簡介。</p><h2 id=簡介>簡介</h2><p>龍捲風現金是一種打斷幣流的混幣器，目的是讓使用者得到「鏈上」的隱私。合約只有「存款」和「提款」兩個函式。使用者把一筆金額，例如一顆以太幣，存入龍捲風現金合約。過了一段時間之後，也許幾個月，再從合約提款。人們只能知道提款者是眾多存款者之一，但除非有其他已知暴露的資訊，沒辦法知道提款者具體是哪個存款者。</p><p>提款的交易中，合約會檢查提款者送出的零知識證明。通過這個檢查，代表提款者曾經存款，且不曾提款過。</p><p>背後用到的密碼學就是雜湊函式和零知識證明。</p><p>雜湊函式可以用一些合理的方式層層包裝，例如 <code>f(x) = keccak(keccak(x))</code> 或 <code>g(x) = keccak(a, b, c, keccak(x))</code>（其中 a, b, c 是常數），這些函式 f, g 都會針對 x 產生出不會撞號的雜湊值。雖然 f 和 g 都用了 keccak ，但 f 和 g 可以「視為」兩種不同的雜湊函式。</p><p>想像我們有兩種雜湊函式，hash1 和 hash2 。使用者有個秘密的隨機值 <code>random</code> 。這個隨機值必須從夠大的空間抽樣（例如： 128 位元），讓攻擊者無法用電腦暴力搜索，從雜湊值反推隨機值的數字。</p><ul><li>存款：留下 <code>hash1(random)</code></li><li>提款：留下 <code>hash2(random)</code></li></ul><p>外人無法從雜湊值 <code>hash1(random)</code> 與 <code>hash2(random)</code> 得知兩者的關聯。</p><p>因此使用者在提款時：</p><ol><li>合約先檢查 <code>hash2(random)</code>不曾出現過，確認該使用者尚未提款。</li><li>迴路以私密參數接收 <code>hash1(random)</code>，以公開參數接收 <code>hash2(random)</code></li><li>迴路驗證 <code>hash1(random)</code> 與 <code>hash2(random)</code> 背後的隨機值是相同的。這樣驗證存提款是同一個人，卻又不揭露存款者的資訊。</li><li>最後合約把 <code>hash2(random)</code> 記錄在鏈上。這樣重複提款時，在步驟一就會失敗。</li></ol><p><code>hash2(random)</code> 像是在存款名單上，把提款過的人的名字劃掉，但劃掉了誰只有提款者知曉。</p><h2 id=龍捲風現金的問題>龍捲風現金的問題</h2><p>龍捲風現金的設計是任何人都可以使用，這造成了一些問題。駭客攻擊完合約或交易所後，盜取的幣會往龍捲風現金跑，造成日後追緝不易。</p><p>既然壞人可能從龍捲風現金出來，交易所就不收從龍捲風現金出來的幣。</p><p>因應這種現況，龍捲風現金開發團隊提供一個所謂「<a href=https://docs.torn.cash/tornado-cash-classic/compliance-tool>合規工具</a>」，讓使用者可以對交易所提出零知識證明，去證明自己從龍捲風現金出來的幣，來源是哪個存款地址。讀者可以看出來，使用「合規工具」，就相當於失去使用龍捲風現金的意義。</p><p>Vitalik 和 Ameen Soleimani 等人，在 2023 年發表一篇 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4563364">論文</a>，提出名為 <strong>隱私池（Privacy Pool）</strong> 的設計。其實也就是改良龍捲風現金，並在背後加上一個人工維護的名單，稱作 <strong>關聯集（Association Set）</strong> 。這個名單的設計可以是允許名單或拒絕名單。提款時得先證明自己在允許名單中，或不在拒絕名單中。人們可以去設計自己的名單，看想要美國合規、歐盟合規、或中國合規都可以。</p><h2 id=隱私池>隱私池</h2><p>2025 三月 0xbow 團隊部署了正式版的隱私池 <a href=https://privacypools.com/>https://privacypools.com/</a> 。</p><p>其中關聯集的運作方式是允許名單，在存款打入隱私池合約之後，需要等一陣子。<strong>關聯集提供者（Association Set Provider, ASP）</strong> 會把存款的標籤加到允許名單中。名單在密碼學中，是以雜湊樹表達，在迴路中用雜湊樹根與成員證明即可。</p><h3 id=怒退>怒退</h3><p>隱私池因為增加了關聯集，讓提款不再是無條件能發生。這有一個新問題：那萬一使用者存款了，卻被標記無法提款，錢卡在合約裡怎麼辦？</p><p>這有兩種情況：一種是使用者存款後，被標記為不合規了，不給放到允許清單裡。另一種可能是，使用者已經存款，並提款數次了，但突然被從允許清單移除。</p><p>因應這些情況，隱私池也設計了 <strong>怒退（Ragequit）</strong> 功能。在被清單排除後，使用者可以怒退存款，放棄清理蹤跡並取回自己的餘額。但使用者必須記得第一次存款時是用哪個帳號存的，資產只能回去原來那個地址。否則壞人可以利用怒退來變相清理金流足跡。</p><h3 id=支持不同存提款金額>支持不同存提款金額</h3><p>龍捲風現金同一個幣種，會分三個固定額度的池子，例如 1 ETH, 10 ETH, 100 ETH，並規定存提款就是該固定的額度。目的是為了避免金額差異暴露存提款者的身份。</p><p>在固定額度之下， 假設在 1 ETH 的池子內有 300 人存款，匿名集的大小就是 300 人。 300 人的意思是任何一個最新的提款者，他可能是這 300 人的其中一人，匿名集越大就越難猜中提款者是誰。要挑惕一點的話可以把匿名集扣掉已知曝光的存款者與提款者身份連結。</p><p>隱私池解放了這個限制，設計了 <strong>部分提款功能</strong> ，這讓存款和提款都不再是固定的額度。使用者可以存一大筆金額到合約裡，並每次少量取出。這樣每次取出的部分，可以有各自獨立的足跡。以往一筆大金額就只能有一筆足跡，想要有獨立足跡，必須切碎再重新過合約。</p><p>缺點也很明顯：假設池裡共五個人，前面四個都存 1 ETH ，就第五個存了 100 ETH 。如果第五個使出部分提款 2 ETH ，那就從這五個裡面曝光了。</p><p>曝光小明並不只是害到他本人。原本其他人享有 5 人的匿名集，現在因為小明的行為，匿名集變成 4 人了。</p><p>因此，在一個千餘人存款的池子裡，有各種不同存提款的金額之下，要計算匿名集的大小並不如固定額度的龍捲風現金單純容易。</p><p>不同提款金額帶來了一些方便，卻也讓理清匿名集有多大這件事變困難了。</p><h2 id=程式碼實作>程式碼實作</h2><p>這邊的分析會以 <a href=https://github.com/0xbow-io/privacy-pools-core/tree/v1.1.1>v1.1.1</a> 版本為主。</p><p>專案的零知識證明，<a href=https://github.com/0xbow-io/privacy-pools-core/blob/v1.1.1/packages/circuits/circomkit.json>仍用</a> Circom 語言，配 Groth16 架構，與適用以太坊預編譯能驗證的 bn128 曲線驗證。</p><h3 id=雜湊函式>雜湊函式</h3><p>主要的雜湊函式用迴路友善的 Poseidon 雜湊函式。最近發現 TACEO 有一個 <a href=https://x.com/TACEO_IO/status/1969371023343784155/photo/1>推文</a> 講怎麼在五花八門的雜湊函式中選擇想要的。</p><p>因為 Groth16 使用的是算數迴路，開發者只能使用整數加法和乘法去表達程式的邏輯。 Poseidon 是專門為算數迴路設計的雜湊函式，因為只有用加法與乘法構成，所以在迴路中使用的成本很低。但有些小個性：他只能吃固定數量的參數，所以會看到有 Poseidon(2) 或 Poseidon(3) 之類的區分，前者只能吃兩個參數，後者三個。</p><p>迴路或合約中也會看到 keccak 雜湊函式，目前看起來這是拿來得到標籤用的。keccak 是在 EVM 環境中非常便宜。</p><p>從一些前人的 <a href=https://eprint.iacr.org/2023/681.pdf>評測</a> <a href=https://github.com/chancehudson/poseidon-solidity>來看</a>：</p><ul><li>在 EVM 中，也就是合約中，成本以燃氣 gas 計算<ul><li>keccak 起步價 30 gas ，之後每吸收 32 位元輸入 消耗 6 gas</li><li>poseidon 大概一個參數 10,000 gas （circomlibjs <a href=https://github.com/iden3/circomlibjs/blob/4f094c5be05c1f0210924a3ab204d8fd8da69f49/src/poseidon_gencontract.js#L23>實作</a> （以 JavaScript 撰寫 EVM 操作碼））</li></ul></li><li>在迴路中，成本是消耗多少條限制式<ul><li>keccak 151,357</li><li>poseidon 240</li></ul></li></ul><p>整體而言，keccak 在合約超便宜，迴路中爆貴。 poseidon 則反過來。</p><h3 id=雜湊樹>雜湊樹</h3><p>雜湊樹是用 PSE 團隊開發出來的 <a href=https://github.com/zk-kit/zk-kit.solidity/blob/main/packages/lean-imt/contracts/InternalLeanIMT.sol>LeanIMT</a> ，主要是可以在鏈上增長樹，並且節省燃氣。</p><h2 id=迴路>迴路</h2><p>迴路有三個檔案，我們會略過 <code>merkleTree.circom</code></p><h3 id=commmitmentcircom>commmitment.circom</h3><p>這段就是計算 存款與提款分別留下來的雜湊值。<strong>註銷符（nullifier）</strong> 是一個夠大的隨機數，連結了這兩個雜湊值。</p><ul><li>存款留下 <code>Poseiden(value, label, Poseidon(nullifier, secret))</code> （可以看成 <code>hash1(nullifier)</code>）</li><li>提款留下 <code>Poesidon(nullifier)</code> （可以看成 <code>hash2(nullifier)</code>）</li></ul><p>其中 label 是拿來辨識這筆存款用的標籤。會有池子的代號 pool_scope 與 第幾個存款 nonce 。label 後面註解為 <code>keccak256(pool_scope, nonce) % SNARK_SCALAR_FIELD</code> 。注意 EVM 裡面是 32 位元組為一字，而迴路裡面加減乘除的結果得對一個 254 位元的巨大整數 <code>SNARK_SCALAR_FIELD</code> 取餘數。如果一個數字同時要拿來餵合約和迴路，要記得取餘數，不然合約裡面可以有多個數字對應到一樣的迴路數字，有攻擊空間。</p><pre tabindex=0><code class=language-circom data-lang=circom>pragma circom 2.2.0;
+
+include &#34;../../../node_modules/circomlib/circuits/poseidon.circom&#34;;
+
+/**
+ * @title CommitmentHasher template
+ * @dev Template for computing commitment hashes, precommitments and nullifier hashes
+ */
+template CommitmentHasher() {
+
+  //////////////////////// SIGNALS ////////////////////////
+
+  signal input value;              // Value of commitment
+  signal input label;              // keccak256(pool_scope, nonce) % SNARK_SCALAR_FIELD
+  signal input nullifier;          // Nullifier of commitment
+  signal input secret;             // Secret of commitment
+
+  signal output commitment;        // Commitment hash
+  signal output nullifierHash;     // Nullifier hash
+
+  ///////////////////// END OF SIGNALS /////////////////////
+
+  // 1. Compute nullifier hash
+  component nullifierHasher = Poseidon(1);
+  nullifierHasher.inputs[0] &lt;== nullifier;
+
+  // 2. Compute precommitment
+  component precommitmentHasher = Poseidon(2);
+  precommitmentHasher.inputs[0] &lt;== nullifier;
+  precommitmentHasher.inputs[1] &lt;== secret;
+
+  // 3. Compute commitment hash
+  component commitmentHasher = Poseidon(3);
+  commitmentHasher.inputs[0] &lt;== value;
+  commitmentHasher.inputs[1] &lt;== label;
+  commitmentHasher.inputs[2] &lt;== precommitmentHasher.out;
+
+  // 4. Populate output signals
+  commitment &lt;== commitmentHasher.out;
+  nullifierHash &lt;== nullifierHasher.out;
+}
+</code></pre><h3 id=withdrawcircom>withdraw.circom</h3><p>提款迴路算是迴路中的核心。</p><p>部分提款功能的實作，只是單純在存款束縛（Commitment）中，記載存入的金額。提款時做以下事情：</p><ul><li>檢查提款金額必須小於存款餘額。</li><li>剩餘的存款，製造一個新的存款束縛，放回存款樹。（後面合約處理）</li><li>用註銷符雜湊值註銷舊的存款束縛。（合約記得註銷符雜湊值）</li><li>對於關聯集，也只是在迴路中多放一顆樹，檢查存款標籤的成員證明。</li></ul><p>有個有趣的點是提款者的資訊。以往龍捲風現金，有 <a href=https://github.com/tornadocash/tornado-core/blob/1ef6a263ac6a0e476d063fcb269a9df65a1bd56a/circuits/withdraw.circom#L54-L64>四個相關變數</a>：提款金額的收受地址 <code>_recipient</code>、中繼人小費收受者 <code>_relayer</code>、小費金額 <code>_fee</code> 、還有一個和 ERC20 有關的 <code>_refund</code> 。在龍捲風現金的提款迴路結尾，對四個變數做了沒有意義的平方乘法，意圖是用合約綁定四個變數，好像簽章的效果。</p><p>龍捲風現金，預設提款者是倚賴第三方中繼人。這是因為和合約互動要繳手續費，因此提款帳戶需要有以太幣。若想要提款到完全空白的新地址，可以請中繼人幫忙。提款者在零知識證明中咬住中繼人的地址與要給他們的小費，這樣可以避免中繼人的小費被中途打劫。</p><p>隱私池捨棄龍捲風現金那種把收受地址、中繼人、小費金額等欄位資訊寫死在迴路裡的做法。那些資訊會在合約被檢查，但在迴路內不會用到。隱私池把提款需要的資訊抽象成下列提款結構（<code>struct Withdrawal</code>）。在隱私池的提款迴路內，需要「簽章」的資訊變成提款結構的 keccak 雜湊值，賦值給 <code>context</code> 變數。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-solidity data-lang=solidity><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>Withdrawal</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>address</span> processooor;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>bytes</span> data;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>提款結構中，諧謔稱為處理者（processooor）的地址，可以是實際的提款者或某個合約。提款結構有個資料欄位，可以打包任意資訊。隱私池可以自行提款，也能委託中繼人幫忙。我們後面合約可以看到怎麼做。</p><p>這樣做的好處有兩種：第一是中繼業務所需要的資訊抽象掉了，不用寫死在迴路裡面。合約裡可以做很靈活的設計。</p><p>第二是在合約中，檢查零知識證明所需的公開輸入（Public Input）變少了。在驗證 Groth16 證明的合約中，每多一個公開輸入的參數，會需要多做一個橢圓曲線的常數乘法和加法。（大概消耗 <a href="https://www.evm.codes/precompiled?fork=cancun#0x07">數千 gas</a> ）</p><pre tabindex=0><code class=language-circom data-lang=circom>pragma circom 2.2.0;
+
+include &#34;./commitment.circom&#34;;
+include &#34;./merkleTree.circom&#34;;
+include &#34;../../../node_modules/circomlib/circuits/comparators.circom&#34;;
+
+/**
+ * @title Withdraw template
+ * @dev Template for withdrawing value from a commitment
+ * @param maxTreeDepth The maximum depth of the Merkle trees
+ */
+template Withdraw(maxTreeDepth) {
+
+  //////////////////////// PUBLIC SIGNALS ////////////////////////
+
+  // Signals to compute commitments
+  signal input withdrawnValue;                   // Value being withdrawn
+
+  // Signals for merkle tree inclusion proofs
+  signal input stateRoot;                        // A known state root
+  signal input stateTreeDepth;                   // Current state tree depth
+  signal input ASPRoot;                          // Latest ASP root
+  signal input ASPTreeDepth;                     // Current ASP tree depth
+  signal input context;                          // keccak256(IPrivacyPool.Withdrawal, scope) % SNARK_SCALAR_FIELD
+
+  //////////////////// END OF PUBLIC SIGNALS ////////////////////
+
+
+  /////////////////////// PRIVATE SIGNALS ///////////////////////
+
+  // Signals to compute commitments
+  signal input label;                            // keccak256(scope, nonce) % SNARK_SCALAR_FIELD
+  signal input existingValue;                    // Value of the existing commitment
+  signal input existingNullifier;                // Nullifier of the existing commitment
+  signal input existingSecret;                   // Secret of the existing commitment
+  signal input newNullifier;                     // Nullifier for the new commitment
+  signal input newSecret;                        // Secret for the new commitment
+
+  // Signals for merkle tree inclusion proofs
+  signal input stateSiblings[maxTreeDepth];      // Siblings of the state tree
+  signal input stateIndex;                       // Indices for the state tree
+  signal input ASPSiblings[maxTreeDepth];        // Siblings of the ASP tree
+  signal input ASPIndex;                         // Indices for the ASP tree
+
+  /////////////////// END OF PRIVATE SIGNALS ///////////////////
+
+
+  /////////////////////// OUTPUT SIGNALS ///////////////////////
+
+  signal output newCommitmentHash;               // Hash of new commitment
+  signal output existingNullifierHash;           // Hash of the existing commitment nullifier
+
+  /////////////////// END OF OUTPUT SIGNALS ///////////////////
+
+  // 1. Compute existing commitment
+  component existingCommitmentHasher = CommitmentHasher();
+  existingCommitmentHasher.value &lt;== existingValue;
+  existingCommitmentHasher.label &lt;== label;
+  existingCommitmentHasher.nullifier &lt;== existingNullifier;
+  existingCommitmentHasher.secret &lt;== existingSecret;
+  signal existingCommitment &lt;== existingCommitmentHasher.commitment;
+
+  // 2. Output existing nullifier hash
+  existingNullifierHash &lt;== existingCommitmentHasher.nullifierHash;
+
+  // 3. Verify existing commitment is in state tree
+  component stateRootChecker = LeanIMTInclusionProof(maxTreeDepth);
+  stateRootChecker.leaf &lt;== existingCommitment;
+  stateRootChecker.leafIndex &lt;== stateIndex;
+  stateRootChecker.siblings &lt;== stateSiblings;
+  stateRootChecker.actualDepth &lt;== stateTreeDepth;
+
+  stateRoot === stateRootChecker.out;
+
+  // 4. Verify label is in ASP tree
+  component ASPRootChecker = LeanIMTInclusionProof(maxTreeDepth);
+  ASPRootChecker.leaf &lt;== label;
+  ASPRootChecker.leafIndex &lt;== ASPIndex;
+  ASPRootChecker.siblings &lt;== ASPSiblings;
+  ASPRootChecker.actualDepth &lt;== ASPTreeDepth;
+
+  ASPRoot === ASPRootChecker.out;
+
+  // 5. Check the withdrawn amount is valid
+  signal remainingValue &lt;== existingValue - withdrawnValue;
+  component remainingValueRangeCheck = Num2Bits(128);
+  remainingValueRangeCheck.in &lt;== remainingValue;
+  _ &lt;== remainingValueRangeCheck.out;
+  component withdrawnValueRangeCheck = Num2Bits(128);
+  withdrawnValueRangeCheck.in &lt;== withdrawnValue;
+  _ &lt;== withdrawnValueRangeCheck.out;
+
+  // 6. Check existing and new nullifier don&#39;t match
+  component nullifierEqualityCheck = IsEqual();
+  nullifierEqualityCheck.in[0] &lt;== existingNullifier; 
+  nullifierEqualityCheck.in[1] &lt;== newNullifier; 
+  nullifierEqualityCheck.out === 0;
+
+  // 7. Compute new commitment
+  component newCommitmentHasher = CommitmentHasher();
+  newCommitmentHasher.value &lt;== remainingValue;
+  newCommitmentHasher.label &lt;== label;
+  newCommitmentHasher.nullifier &lt;== newNullifier;
+  newCommitmentHasher.secret &lt;== newSecret;
+
+  // 8. Output new commitment hash
+  newCommitmentHash &lt;== newCommitmentHasher.commitment;
+  _ &lt;== newCommitmentHasher.nullifierHash;
+
+  // 9. Square context for integrity
+  signal contextSquared &lt;== context * context;
+}
+</code></pre><h2 id=合約>合約</h2><p>可以直接看到 PrivacyPool.sol</p><h3 id=存款>存款</h3><p>存款的部分，使用者把私下算好的雜湊值 <code>_precommitmentHash = Poseidon(nullifier, secret)</code> 傳給合約，並繳納存款。</p><p>合約會自動幫使用者產生新的標籤。合約會需要把標籤記下來（放 depositors 變數），日後怒退會用到。</p><p>其他功能和舊的龍捲風現金差不多，包含把存款束縛放到合約維護的雜湊樹中，以及從使用者身上取得存款。</p><p>這邊比較混淆的可能是 PoseidonT4 這個寫法，雖然名稱裡有 4 ，但實際上只吃三個參數。 PoseidonTX 只能收納 X-1 個參數，這是論文留下來的奇怪慣例。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-solidity data-lang=solidity><span style=display:flex><span>  <span style=color:#75715e>/// PrivacyPool.sol
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>deposit</span>(
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>address</span> _depositor,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>uint256</span> _value,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>uint256</span> _precommitmentHash
+</span></span><span style=display:flex><span>  ) <span style=color:#66d9ef>external</span> <span style=color:#66d9ef>payable</span> onlyEntrypoint <span style=color:#66d9ef>returns</span> (<span style=color:#66d9ef>uint256</span> _commitment) {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check deposits are enabled
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (dead) revert PoolIsDead();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (_value <span style=color:#f92672>&gt;=</span> type(<span style=color:#a6e22e>uint128</span>).max) revert InvalidDepositValue();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Compute label
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>uint256</span> _label <span style=color:#f92672>=</span> <span style=color:#66d9ef>uint256</span>(keccak256(abi.encodePacked(SCOPE, <span style=color:#f92672>++</span>nonce))) <span style=color:#f92672>%</span> Constants.SNARK_SCALAR_FIELD;
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Store depositor
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    depositors[_label] <span style=color:#f92672>=</span> _depositor;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Compute commitment hash
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    _commitment <span style=color:#f92672>=</span> PoseidonT4.hash([_value, _label, _precommitmentHash]);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Insert commitment in state (revert if already present)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    _insert(_commitment);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Pull funds from caller
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    _pull(msg.sender, _value);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    emit Deposited(_depositor, _commitment, _label, _value, _precommitmentHash);
+</span></span><span style=display:flex><span>  }
+</span></span></code></pre></div><h3 id=自行提款>自行提款</h3><p>這邊的提款函式是給不委託中繼人的提款者使用的。提款人要自己付燃氣手續費。</p><p>驗過證明之後，合約記得註銷符雜湊值，以及把剩餘的餘額做一筆新存款。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-solidity data-lang=solidity><span style=display:flex><span>  <span style=color:#75715e>/// PrivacyPool.sol
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>withdraw</span>(
+</span></span><span style=display:flex><span>    Withdrawal <span style=color:#66d9ef>memory</span> _withdrawal,
+</span></span><span style=display:flex><span>    ProofLib.WithdrawProof <span style=color:#66d9ef>memory</span> _proof
+</span></span><span style=display:flex><span>  ) <span style=color:#66d9ef>external</span> validWithdrawal(_withdrawal, _proof) {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Verify proof with Groth16 verifier
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>WITHDRAWAL_VERIFIER.verifyProof(_proof.pA, _proof.pB, _proof.pC, _proof.pubSignals)) revert InvalidProof();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Mark existing commitment nullifier as spent
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    _spend(_proof.existingNullifierHash());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Insert new commitment in state
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    _insert(_proof.newCommitmentHash());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Transfer out funds to procesooor
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    _push(_withdrawal.processooor, _proof.withdrawnValue());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    emit Withdrawn(
+</span></span><span style=display:flex><span>      _withdrawal.processooor, _proof.withdrawnValue(), _proof.existingNullifierHash(), _proof.newCommitmentHash()
+</span></span><span style=display:flex><span>    );
+</span></span><span style=display:flex><span>  }
+</span></span></code></pre></div><p>驗證的部分，分為迴路的驗證與合約的驗證。前者以另外部署的 <code>WITHDRAWAL_VERIFIER</code> 合約，做驗證 groth16 證明必要的橢圓曲線運算。後者以 <code>validWithdrawal</code> 修飾子去做。</p><p>裡面得檢查：</p><ul><li>合約交易的發送方，確實是零知識證明中 context 變數所綁定的處理人 processooor 。如果沒檢查這件事，其他人可以複製證明內容，並劫持提款到其他地址。</li><li>檢查零知識證明中所綁定的存款樹（他們稱狀態樹 state tree）的樹根，有在合約紀錄之中</li><li>檢查零知識證明中所綁定的關聯集樹根，也有在合約紀錄之中</li></ul><p>合約會滾動記錄雜湊樹的樹根。因為提款者在產生提款證明時，可能其他存款者也在存款。因此合約不能只記得一個樹根，而是要記得一段時間的樹根，才不會提款交易發出的時候，樹根都過期了。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-solidity data-lang=solidity><span style=display:flex><span>  <span style=color:#75715e>/// PrivacyPool.sol
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>modifier</span> <span style=color:#a6e22e>validWithdrawal</span>(Withdrawal <span style=color:#66d9ef>memory</span> _withdrawal, ProofLib.WithdrawProof <span style=color:#66d9ef>memory</span> _proof) {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check caller is the allowed processooor
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (msg.sender <span style=color:#f92672>!=</span> _withdrawal.processooor) revert InvalidProcessooor();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check the context matches to ensure its integrity
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (_proof.context() <span style=color:#f92672>!=</span> <span style=color:#66d9ef>uint256</span>(keccak256(abi.encode(_withdrawal, SCOPE))) <span style=color:#f92672>%</span> Constants.SNARK_SCALAR_FIELD) {
+</span></span><span style=display:flex><span>      revert ContextMismatch();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check the tree depth signals are less than the max tree depth
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (_proof.stateTreeDepth() <span style=color:#f92672>&gt;</span> MAX_TREE_DEPTH <span style=color:#f92672>||</span> _proof.ASPTreeDepth() <span style=color:#f92672>&gt;</span> MAX_TREE_DEPTH) revert InvalidTreeDepth();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check the state root is known
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>_isKnownRoot(_proof.stateRoot())) revert UnknownStateRoot();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check the ASP root is the latest
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (_proof.ASPRoot() <span style=color:#f92672>!=</span> ENTRYPOINT.latestRoot()) revert IncorrectASPRoot();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>_</span>;
+</span></span><span style=display:flex><span>  }
+</span></span></code></pre></div><h3 id=委託提款>委託提款</h3><p>在委託提款的情境中，提款者會指定中繼人，並約定好手續費。產好證明後，由中繼人對合約發起交易。</p><p>前述 <code>Withdrawal</code> 提款結構中的 processooor 值，會是 <code>Entrypoint.sol</code> 的地址，原因我們後面解釋。而 data 欄位值，則是下列中繼資料的序列化。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-solidity data-lang=solidity><span style=display:flex><span>  <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>RelayData</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>address</span> recipient; <span style=color:#75715e>/// The recipient of the funds withdrawn from the pool
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>address</span> feeRecipient; <span style=color:#75715e>/// The recipient of the fee
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>uint256</span> relayFeeBPS; <span style=color:#75715e>/// The relay fee in basis points
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  }
+</span></span></code></pre></div><p><code>recipient</code> 會是提款人的地址。<code>feeRecipient</code> 則是中繼者。最後費用則是以基點(basis points, bp) 計算。 100 bp 是收提款金額 1% 的意思， 50 bp 是 0.5% 。</p><p>中繼提款的函式長在 <code>Entrypoint.sol</code> 合約。這個合約管理眾多不同資產的池子。</p><p>注意合約開頭有個 <code>if (_withdrawal.processooor != address(this)) revert InvalidProcessooor();</code> ，檢查處理者必須是這個合約的地址。</p><p>接著 relay 函式會先以合約的身份呼叫池子的提款函式 <code>_pool.withdraw(_withdrawal, _proof);</code> 。這一步會先把錢提到合約這邊，然後再切分成小費與剩餘提款額度，分別給予中繼人與提款者。</p><p>（那步驟我第一次看時一度卡住，覺得怎麼錢被提了兩次。 withdraw 函式裡 _push 了一次，relay 函式裡又 _transfer 一次）</p><p>可以觀察 <code>_data</code> 結構是怎麼從提款結構的資料欄位解構出來的。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-solidity data-lang=solidity><span style=display:flex><span>  <span style=color:#75715e>/// Entrypoint.sol
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>relay</span>(
+</span></span><span style=display:flex><span>    IPrivacyPool.Withdrawal calldata _withdrawal,
+</span></span><span style=display:flex><span>    ProofLib.WithdrawProof calldata _proof,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>uint256</span> _scope
+</span></span><span style=display:flex><span>  ) <span style=color:#66d9ef>external</span> nonReentrant {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check withdrawn amount is non-zero
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (_proof.withdrawnValue() <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) revert InvalidWithdrawalAmount();
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check allowed processooor is this Entrypoint
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (_withdrawal.processooor <span style=color:#f92672>!=</span> <span style=color:#66d9ef>address</span>(this)) revert InvalidProcessooor();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Fetch pool by scope
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    IPrivacyPool _pool <span style=color:#f92672>=</span> scopeToPool[_scope];
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>address</span>(_pool) <span style=color:#f92672>==</span> <span style=color:#66d9ef>address</span>(<span style=color:#ae81ff>0</span>)) revert PoolNotFound();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Store pool asset
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    IERC20 _asset <span style=color:#f92672>=</span> IERC20(_pool.ASSET());
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>uint256</span> _balanceBefore <span style=color:#f92672>=</span> _assetBalance(_asset);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Process withdrawal
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    _pool.withdraw(_withdrawal, _proof);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Decode relay data
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    RelayData <span style=color:#66d9ef>memory</span> _data <span style=color:#f92672>=</span> abi.decode(_withdrawal.data, (RelayData));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (_data.relayFeeBPS <span style=color:#f92672>&gt;</span> assetConfig[_asset].maxRelayFeeBPS) revert RelayFeeGreaterThanMax();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>uint256</span> _withdrawnAmount <span style=color:#f92672>=</span> _proof.withdrawnValue();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Deduct fees
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>uint256</span> _amountAfterFees <span style=color:#f92672>=</span> _deductFee(_withdrawnAmount, _data.relayFeeBPS);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>uint256</span> _feeAmount <span style=color:#f92672>=</span> _withdrawnAmount <span style=color:#f92672>-</span> _amountAfterFees;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Transfer withdrawn funds to recipient
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    _transfer(_asset, _data.recipient, _amountAfterFees);
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Transfer fees to fee recipient
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    _transfer(_asset, _data.feeRecipient, _feeAmount);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check pool balance has not been reduced
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>uint256</span> _balanceAfter <span style=color:#f92672>=</span> _assetBalance(_asset);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (_balanceBefore <span style=color:#f92672>&gt;</span> _balanceAfter) revert InvalidPoolState();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    emit WithdrawalRelayed(msg.sender, _data.recipient, _asset, _withdrawnAmount, _feeAmount);
+</span></span><span style=display:flex><span>  }
+</span></span></code></pre></div><h3 id=怒退-1>怒退</h3><p>使用者在遲遲沒辦法得到關聯集提供者的許可時，可以怒退款。做法是產生零知識證明，並呼叫 ragequit 函式。</p><p>怒退使用了 commitment.circom 這個迴路，並把 <code>value</code> 和 <code>label</code> 這兩個輸入值 <a href=https://github.com/0xbow-io/privacy-pools-core/blob/7bc392dad5fa483f53cf74e25d7ad19f0fc6d85f/packages/circuits/src/index.ts#L12-L16>設為公開</a>。輸出值 <code>commitmentHash</code> <code>nullifierHash</code> 也是公開的。</p><p>合約中的 <code>ProofLib.RagequitProof</code> 這個參數結構（欄位沒列在本文），裡面檢查 <code>commitmentHash</code> <code>nullifierHash</code> <code>value</code> <code>label</code> 四個公開參數。</p><p>合約中，要檢查怒退者地址確實是當時的存款地址，用 <code>depositors[_label]</code> 這個變數。</p><p>注意提款迴路中，新與舊的存款束縛皆會分享同一個標籤。因此即使提款多次，合約中留下來最新的存款束縛，其 <code>label</code> 會是一樣的。因此怒退時，可以用帶有最新餘額的存款束縛，與 <code>depositors[_label]</code> 作比較。</p><p>如果沒有要求原始存款地址這個條件的話，會發生什麼事呢？可以知道的是，怒退者可以使用其他地址進行怒退。但怒退者有沒有辦法變相借怒退，達成清理蹤跡的提款效果？理論上應該不可行，因為有效的零知識證明會咬著 <code>label</code> ，暴露當時的存款束縛，也就把當時存款地址的關係綁在一起。</p><p>推測要求原始存款地址，可能只是實務上想避免無謂的分析成本。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-solidity data-lang=solidity><span style=display:flex><span>  <span style=color:#75715e>/// PrivacyPool.sol
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>ragequit</span>(ProofLib.RagequitProof <span style=color:#66d9ef>memory</span> _proof) <span style=color:#66d9ef>external</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check if caller is original depositor
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>uint256</span> _label <span style=color:#f92672>=</span> _proof.label();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (depositors[_label] <span style=color:#f92672>!=</span> msg.sender) revert OnlyOriginalDepositor();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Verify proof with Groth16 verifier
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>RAGEQUIT_VERIFIER.verifyProof(_proof.pA, _proof.pB, _proof.pC, _proof.pubSignals)) revert InvalidProof();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check commitment exists in state
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>_isInState(_proof.commitmentHash())) revert InvalidCommitment();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Mark existing commitment nullifier as spent
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    _spend(_proof.nullifierHash());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Transfer out funds to ragequitter
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    _push(msg.sender, _proof.value());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    emit Ragequit(msg.sender, _proof.commitmentHash(), _proof.label(), _proof.value());
+</span></span><span style=display:flex><span>  }
+</span></span></code></pre></div><p>合約裡面，有趣的小細節大概是因為從存款樹裡找 commitmentHash 在怒退情境中沒有隱私需求，所以可以直接在 EVM 裡用 mapping 找。</p><h2 id=關聯集>關聯集</h2><p>一直想了解隱私池怎麼處理關聯集和存款樹。</p><p>要產出提款迴路的證明，必須做出關聯集和存款樹的雜湊樹成員證明。迴路裡的變數要有樹根、自己的樹葉、以及必要的中間節點。</p><p>一般而言，必須先取得所有的葉子，再從所有的葉子算出需要的東西。</p><p>存款樹的話，因為其建構都在合約中進行，插入新葉子時，也會釋出事件（Events）。跑節點的人可以監聽事件去取得所有的葉子。沒跑節點的人，印象以往龍捲風現金是跟 web3 提供者（provider）拉事件回來。</p><p>關聯集的話，合約中僅有授權人士可以更新樹根，並會附上 IPFS CID。這些都沒什麼嚴格的檢查，全憑良心。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-solidity data-lang=solidity><span style=display:flex><span>  <span style=color:#75715e>/// Entrypoint.sol
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>updateRoot</span>(<span style=color:#66d9ef>uint256</span> _root, <span style=color:#66d9ef>string</span> <span style=color:#66d9ef>memory</span> _ipfsCID) <span style=color:#66d9ef>external</span> onlyRole(_ASP_POSTMAN) <span style=color:#66d9ef>returns</span> (<span style=color:#66d9ef>uint256</span> _index) {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Check provided values are non-zero
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (_root <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) revert EmptyRoot();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>uint256</span> _cidLength <span style=color:#f92672>=</span> <span style=color:#66d9ef>bytes</span>(_ipfsCID).length;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (_cidLength <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>32</span> <span style=color:#f92672>||</span> _cidLength <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>64</span>) revert InvalidIPFSCIDLength();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Push new association set and update index
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    associationSets.push(AssociationSetData(_root, _ipfsCID, block.timestamp));
+</span></span><span style=display:flex><span>    _index <span style=color:#f92672>=</span> associationSets.length <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    emit RootUpdated(_root, _ipfsCID, block.timestamp);
+</span></span><span style=display:flex><span>  }
+</span></span></code></pre></div><p>目前 <a href=https://github.com/0xbow-io/privacy-pools-website/blob/8d189574e9bca94ab776bc6e420f6f5bd94e6ba5/src/hooks/useASP.ts#L8>網站程式碼</a> 顯示，提款或怒退的時候，會去打一個 API ，取得所有系統現有的存款葉子和關聯集葉子。</p><p>實際用網站操作，並觀察開發者工具的網路分頁（Network tab）。結果發現是打 <code>https://api.0xbow.io/1/public/mt-leaves</code> 這個 API ，拉回一個 JSON 物件，分別有關聯集葉子近兩千筆，及存款樹葉子近四千筆。一個葉子 32 位元組，數千筆應該就幾 KB 大小，以前端而言應該也不罪過？</p><p>這裡最壞的情況是 API 壞掉了，無法透過網頁下載關聯集和存款樹。人們可以自行跑節點取得存款樹葉子，然後怒退。</p><h3 id=鏈下隱私>鏈下隱私</h3><p>隱私池這類工具目的在於清理鏈上蹤跡。但沒管到鏈下的隱私。因此透過網頁傳送提款需求，似乎還是會透漏 IP 資訊。要與其他工具搭配著用。</p><p>目前除了網頁之外，似乎也還沒看到可以自己架設的版本。如果有人有知道或是蓋出來可以分享一下。</p><h2 id=結語>結語</h2><p>龍捲風現金與隱私池是我很喜歡的專案。他們迴路和合約夠小，讀起來不會太累，能夠思考各種細節。同時又是個已經正在運作的專案，並產生各種社會衝擊。每次重看都會看到一些之前沒看到的東西。</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://ithelp.ithome.com.tw/articles/10382591>https://ithelp.ithome.com.tw/articles/10382591</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p><a href=https://ithelp.ithome.com.tw/articles/10383520>https://ithelp.ithome.com.tw/articles/10383520</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div></article><footer class="footer scrollappear"><p><span>&copy; 2025 <a href=https://liangcc.me/>CC's blog</a></span>
+<span>Powered by <a href=https://gohugo.io/ rel=noopener target=_blank>Hugo</a></span>
+<span>Theme is based on <a href=https://github.com/nielsenramon/chalk rel="noreferrer noopener" target=_blank>Chalk</a></span></p></footer></div></div></main><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js></script><script src=https://liangcc.me/javascripts/zooming.min.js></script><script src=https://liangcc.me/javascripts/retina.min.js></script><script src=https://liangcc.me/javascripts/svgxuse.min.js></script><script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script><script src=https://liangcc.me/javascripts/vendor.min.js></script><script src=https://liangcc.me/javascripts/webfonts.min.js></script><script src=https://liangcc.me/javascripts/scrollappear.min.js></script><script src=https://liangcc.me/javascripts/application.min.js></script><script src=https://liangcc.me/javascripts/themetoggle.min.js></script></body></html>

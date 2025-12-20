@@ -1,0 +1,74 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>數位憑證筆記 - CC's blog</title>
+<meta name=description content="為什麼數位憑證是個困難的問題？許多國家會在明年就要上路各種數位憑證。不做的話大家都要變成詐騙天堂，但設計不良的數位憑證會讓大家不知不覺變成監控國家。
+數位憑證背後的技術是密碼學，不管哪種解決方案，使用者看到的介面大概都差不多。大概是商家要使用者揭露某些資料，然後使用者在手機檢查一些要揭露哪些東西，按確定，然後秀給商家一個 QR Code 之類。
+不過底層用哪種密碼學方案，會影響是不是使用者的隱私受到保障。目前市面上技術方案分為兩種：
+
+加鹽雜湊值：像電子雞一樣，功能比較呆板但手機的運算比較輕量
+ZKID：像手機 App 一樣，功能比較豐富但手機的運算負擔比較重。
+
+
+
+    
+    
+      
+    
+
+YingTong 這一個小時的白板介紹真的是上手這個議題的精華。我這邊略過技術的部分，只筆記各種設計的考量。
+數位憑證的使用場景，會抽象出三種角色：發行者 (Issuer) 、使用者（Holder 或 Prover）、驗證者（Verifier）。
+發行者會發行憑證給使用者。
+使用者在各種應用場景出示（present）憑證所導出的欄位給驗證者看。
+除此之外，我們可能會假設發行的憑證會註冊在一個公開的註冊表（Registry）上。發行者具有撤銷使用者憑證的權利，註冊表可以看到憑證被註銷的記錄。驗證者在檢驗憑證時，也可能需要去註冊表上面看憑證是不是還有效。
+有了這些角色之後，我們就能定義一些理想的隱私條件。
+首先我們想要 發行者不可觀測（ unobservability） ，使用者在出示憑證的時候，發行者不能偵測到哪些憑證被出示了。這樣代表使用者生活中的數位足跡，不會被政府掌握。
+接著我們想要，即使發行者和一個或多個驗證者串通，他們沒辦法用各種出示記錄去連結到某一個人。這叫 發行者驗證者不可關聯 Issuer-Verifier unlinkability 。許多現行和即將推行的數位憑證，他們是基於加鹽雜湊值這個技術，都違反了這個條件。
+提供年齡 20 歲的雜湊值，會被爆搜，用 0~100 的歲數帶入就能找出雜湊值的輸入值是什麼，加鹽的意思是在雜湊值輸入加入範圍巨大的隨機數，使爆搜不可行。但現有設計的加鹽雜湊值常是靜態的，代表某甲在兩家商店的揭露雜湊值會長得一樣。多家商店串通便能辨識出顧客。
+
+下一個數位憑證的眉角在註銷，或「尚未註銷」。驗證者怎麼知道使用者的憑證仍然是有效，沒被注銷掉的呢？目前市面上有三種解決方案：
+第一種是使用者自行證明。使用者可以用密碼學的技術，證明自己不在黑名單內。這招有個小小缺陷是使用者出示憑證時必需上網。他要能查詢一個公開註冊表。
+第二種是頻繁的過期。使用者會有個會過期的令牌（Token）。使用者需要常去找發行人重新註冊。最大的缺點是這招要求使用者的裝置必須和數位憑證綁定，避免使用者把 Token 借給別人。EUID 標準要求裝置綁定。ZK passport 和 Rarimo 則是要求臉部辨識，確定出示憑證的使用者是本人。"><meta name=author content><link rel=icon type=image/x-icon href=https://liangcc.me/images/favicon-dark.ico><link rel=apple-touch-icon href=https://liangcc.me/images/apple-touch-icon-dark.png><link rel=stylesheet type=text/css title=light id=light href=https://liangcc.me/stylesheets/light.css><link rel=stylesheet type=text/css title=dark id=dark href=https://liangcc.me/stylesheets/dark.css disabled><link rel="preload stylesheet" as=style href=https://liangcc.me/custom.min.css><link rel="preload stylesheet" as=style href=https://liangcc.me/an-old-hope.min.css><script defer src=https://liangcc.me/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><meta name=generator content="Hugo 0.134.2"><meta property="og:url" content="https://liangcc.me/zh-tw/posts/2025-12-04_zkid/"><meta property="og:site_name" content="CC's blog"><meta property="og:title" content="數位憑證筆記"><meta property="og:description" content="為什麼數位憑證是個困難的問題？許多國家會在明年就要上路各種數位憑證。不做的話大家都要變成詐騙天堂，但設計不良的數位憑證會讓大家不知不覺變成監控國家。
+數位憑證背後的技術是密碼學，不管哪種解決方案，使用者看到的介面大概都差不多。大概是商家要使用者揭露某些資料，然後使用者在手機檢查一些要揭露哪些東西，按確定，然後秀給商家一個 QR Code 之類。
+不過底層用哪種密碼學方案，會影響是不是使用者的隱私受到保障。目前市面上技術方案分為兩種：
+加鹽雜湊值：像電子雞一樣，功能比較呆板但手機的運算比較輕量 ZKID：像手機 App 一樣，功能比較豐富但手機的運算負擔比較重。 YingTong 這一個小時的白板介紹真的是上手這個議題的精華。我這邊略過技術的部分，只筆記各種設計的考量。
+數位憑證的使用場景，會抽象出三種角色：發行者 (Issuer) 、使用者（Holder 或 Prover）、驗證者（Verifier）。
+發行者會發行憑證給使用者。
+使用者在各種應用場景出示（present）憑證所導出的欄位給驗證者看。
+除此之外，我們可能會假設發行的憑證會註冊在一個公開的註冊表（Registry）上。發行者具有撤銷使用者憑證的權利，註冊表可以看到憑證被註銷的記錄。驗證者在檢驗憑證時，也可能需要去註冊表上面看憑證是不是還有效。
+有了這些角色之後，我們就能定義一些理想的隱私條件。
+首先我們想要 發行者不可觀測（ unobservability） ，使用者在出示憑證的時候，發行者不能偵測到哪些憑證被出示了。這樣代表使用者生活中的數位足跡，不會被政府掌握。
+接著我們想要，即使發行者和一個或多個驗證者串通，他們沒辦法用各種出示記錄去連結到某一個人。這叫 發行者驗證者不可關聯 Issuer-Verifier unlinkability 。許多現行和即將推行的數位憑證，他們是基於加鹽雜湊值這個技術，都違反了這個條件。
+提供年齡 20 歲的雜湊值，會被爆搜，用 0~100 的歲數帶入就能找出雜湊值的輸入值是什麼，加鹽的意思是在雜湊值輸入加入範圍巨大的隨機數，使爆搜不可行。但現有設計的加鹽雜湊值常是靜態的，代表某甲在兩家商店的揭露雜湊值會長得一樣。多家商店串通便能辨識出顧客。
+下一個數位憑證的眉角在註銷，或「尚未註銷」。驗證者怎麼知道使用者的憑證仍然是有效，沒被注銷掉的呢？目前市面上有三種解決方案：
+第一種是使用者自行證明。使用者可以用密碼學的技術，證明自己不在黑名單內。這招有個小小缺陷是使用者出示憑證時必需上網。他要能查詢一個公開註冊表。
+第二種是頻繁的過期。使用者會有個會過期的令牌（Token）。使用者需要常去找發行人重新註冊。最大的缺點是這招要求使用者的裝置必須和數位憑證綁定，避免使用者把 Token 借給別人。EUID 標準要求裝置綁定。ZK passport 和 Rarimo 則是要求臉部辨識，確定出示憑證的使用者是本人。"><meta property="og:locale" content="zh_tw"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-12-04T00:00:00+00:00"><meta property="article:modified_time" content="2025-12-04T00:00:00+00:00"><meta property="og:image" content="https://liangcc.me/images/buffaloes.png"><meta itemprop=name content="數位憑證筆記"><meta itemprop=description content="為什麼數位憑證是個困難的問題？許多國家會在明年就要上路各種數位憑證。不做的話大家都要變成詐騙天堂，但設計不良的數位憑證會讓大家不知不覺變成監控國家。
+數位憑證背後的技術是密碼學，不管哪種解決方案，使用者看到的介面大概都差不多。大概是商家要使用者揭露某些資料，然後使用者在手機檢查一些要揭露哪些東西，按確定，然後秀給商家一個 QR Code 之類。
+不過底層用哪種密碼學方案，會影響是不是使用者的隱私受到保障。目前市面上技術方案分為兩種：
+加鹽雜湊值：像電子雞一樣，功能比較呆板但手機的運算比較輕量 ZKID：像手機 App 一樣，功能比較豐富但手機的運算負擔比較重。 YingTong 這一個小時的白板介紹真的是上手這個議題的精華。我這邊略過技術的部分，只筆記各種設計的考量。
+數位憑證的使用場景，會抽象出三種角色：發行者 (Issuer) 、使用者（Holder 或 Prover）、驗證者（Verifier）。
+發行者會發行憑證給使用者。
+使用者在各種應用場景出示（present）憑證所導出的欄位給驗證者看。
+除此之外，我們可能會假設發行的憑證會註冊在一個公開的註冊表（Registry）上。發行者具有撤銷使用者憑證的權利，註冊表可以看到憑證被註銷的記錄。驗證者在檢驗憑證時，也可能需要去註冊表上面看憑證是不是還有效。
+有了這些角色之後，我們就能定義一些理想的隱私條件。
+首先我們想要 發行者不可觀測（ unobservability） ，使用者在出示憑證的時候，發行者不能偵測到哪些憑證被出示了。這樣代表使用者生活中的數位足跡，不會被政府掌握。
+接著我們想要，即使發行者和一個或多個驗證者串通，他們沒辦法用各種出示記錄去連結到某一個人。這叫 發行者驗證者不可關聯 Issuer-Verifier unlinkability 。許多現行和即將推行的數位憑證，他們是基於加鹽雜湊值這個技術，都違反了這個條件。
+提供年齡 20 歲的雜湊值，會被爆搜，用 0~100 的歲數帶入就能找出雜湊值的輸入值是什麼，加鹽的意思是在雜湊值輸入加入範圍巨大的隨機數，使爆搜不可行。但現有設計的加鹽雜湊值常是靜態的，代表某甲在兩家商店的揭露雜湊值會長得一樣。多家商店串通便能辨識出顧客。
+下一個數位憑證的眉角在註銷，或「尚未註銷」。驗證者怎麼知道使用者的憑證仍然是有效，沒被注銷掉的呢？目前市面上有三種解決方案：
+第一種是使用者自行證明。使用者可以用密碼學的技術，證明自己不在黑名單內。這招有個小小缺陷是使用者出示憑證時必需上網。他要能查詢一個公開註冊表。
+第二種是頻繁的過期。使用者會有個會過期的令牌（Token）。使用者需要常去找發行人重新註冊。最大的缺點是這招要求使用者的裝置必須和數位憑證綁定，避免使用者把 Token 借給別人。EUID 標準要求裝置綁定。ZK passport 和 Rarimo 則是要求臉部辨識，確定出示憑證的使用者是本人。"><meta itemprop=datePublished content="2025-12-04T00:00:00+00:00"><meta itemprop=dateModified content="2025-12-04T00:00:00+00:00"><meta itemprop=wordCount content="85"><meta itemprop=image content="https://liangcc.me/images/buffaloes.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://liangcc.me/images/buffaloes.png"><meta name=twitter:title content="數位憑證筆記"><meta name=twitter:description content="為什麼數位憑證是個困難的問題？許多國家會在明年就要上路各種數位憑證。不做的話大家都要變成詐騙天堂，但設計不良的數位憑證會讓大家不知不覺變成監控國家。
+數位憑證背後的技術是密碼學，不管哪種解決方案，使用者看到的介面大概都差不多。大概是商家要使用者揭露某些資料，然後使用者在手機檢查一些要揭露哪些東西，按確定，然後秀給商家一個 QR Code 之類。
+不過底層用哪種密碼學方案，會影響是不是使用者的隱私受到保障。目前市面上技術方案分為兩種：
+加鹽雜湊值：像電子雞一樣，功能比較呆板但手機的運算比較輕量 ZKID：像手機 App 一樣，功能比較豐富但手機的運算負擔比較重。 YingTong 這一個小時的白板介紹真的是上手這個議題的精華。我這邊略過技術的部分，只筆記各種設計的考量。
+數位憑證的使用場景，會抽象出三種角色：發行者 (Issuer) 、使用者（Holder 或 Prover）、驗證者（Verifier）。
+發行者會發行憑證給使用者。
+使用者在各種應用場景出示（present）憑證所導出的欄位給驗證者看。
+除此之外，我們可能會假設發行的憑證會註冊在一個公開的註冊表（Registry）上。發行者具有撤銷使用者憑證的權利，註冊表可以看到憑證被註銷的記錄。驗證者在檢驗憑證時，也可能需要去註冊表上面看憑證是不是還有效。
+有了這些角色之後，我們就能定義一些理想的隱私條件。
+首先我們想要 發行者不可觀測（ unobservability） ，使用者在出示憑證的時候，發行者不能偵測到哪些憑證被出示了。這樣代表使用者生活中的數位足跡，不會被政府掌握。
+接著我們想要，即使發行者和一個或多個驗證者串通，他們沒辦法用各種出示記錄去連結到某一個人。這叫 發行者驗證者不可關聯 Issuer-Verifier unlinkability 。許多現行和即將推行的數位憑證，他們是基於加鹽雜湊值這個技術，都違反了這個條件。
+提供年齡 20 歲的雜湊值，會被爆搜，用 0~100 的歲數帶入就能找出雜湊值的輸入值是什麼，加鹽的意思是在雜湊值輸入加入範圍巨大的隨機數，使爆搜不可行。但現有設計的加鹽雜湊值常是靜態的，代表某甲在兩家商店的揭露雜湊值會長得一樣。多家商店串通便能辨識出顧客。
+下一個數位憑證的眉角在註銷，或「尚未註銷」。驗證者怎麼知道使用者的憑證仍然是有效，沒被注銷掉的呢？目前市面上有三種解決方案：
+第一種是使用者自行證明。使用者可以用密碼學的技術，證明自己不在黑名單內。這招有個小小缺陷是使用者出示憑證時必需上網。他要能查詢一個公開註冊表。
+第二種是頻繁的過期。使用者會有個會過期的令牌（Token）。使用者需要常去找發行人重新註冊。最大的缺點是這招要求使用者的裝置必須和數位憑證綁定，避免使用者把 Token 借給別人。EUID 標準要求裝置綁定。ZK passport 和 Rarimo 則是要求臉部辨識，確定出示憑證的使用者是本人。"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script></head><body><main class=main><div class="grid grid-centered"><div class=grid-cell><nav class="header-nav scrollappear"><a href=/ class=header-logo title="CC's blog">CC's blog</a><ul class=header-links><li><a href=/about title=About><svg class="icon-about"><use href="https://liangcc.me/icons/about.svg#icon-about" xlink:href="https://liangcc.me/icons/about.svg#icon-about"/></svg></a></li><li><a href=/index.xml rel="noreferrer noopener" target=_blank title=RSS><svg class="icon-rss"><use href="https://liangcc.me/icons/rss.svg#icon-rss" xlink:href="https://liangcc.me/icons/rss.svg#icon-rss"/></svg></a></li><li><a onclick=toggle() title="Toggle Theme"><svg class="icon-theme"><use href="https://liangcc.me/icons/theme.svg#icon-theme" xlink:href="https://liangcc.me/icons/theme.svg#icon-theme"/></svg></a></li></ul></nav><article class="article scrollappear"><header class=article-header><h1>數位憑證筆記</h1><div class=article-list-footer><span class=article-list-date>Dec 4, 2025
+</span><span class=article-list-divider>-</span>
+<span class=article-list-minutes>1 minute read</span></div></header><div class=article-content><p>為什麼數位憑證是個困難的問題？許多國家會在明年就要上路各種數位憑證。不做的話大家都要變成詐騙天堂，但設計不良的數位憑證會讓大家不知不覺變成監控國家。</p><p>數位憑證背後的技術是密碼學，不管哪種解決方案，使用者看到的介面大概都差不多。大概是商家要使用者揭露某些資料，然後使用者在手機檢查一些要揭露哪些東西，按確定，然後秀給商家一個 QR Code 之類。</p><p>不過底層用哪種密碼學方案，會影響是不是使用者的隱私受到保障。目前市面上技術方案分為兩種：</p><ul><li>加鹽雜湊值：像電子雞一樣，功能比較呆板但手機的運算比較輕量</li><li>ZKID：像手機 App 一樣，功能比較豐富但手機的運算負擔比較重。</li></ul><div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading=eager referrerpolicy=strict-origin-when-cross-origin src="https://www.youtube.com/embed/vqBef6XFB4A?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 title="YouTube video"></iframe></div><p>YingTong 這一個小時的白板介紹真的是上手這個議題的精華。我這邊略過技術的部分，只筆記各種設計的考量。</p><p>數位憑證的使用場景，會抽象出三種角色：發行者 (Issuer) 、使用者（Holder 或 Prover）、驗證者（Verifier）。</p><p>發行者會發行憑證給使用者。</p><p>使用者在各種應用場景出示（present）憑證所導出的欄位給驗證者看。</p><p>除此之外，我們可能會假設發行的憑證會註冊在一個公開的註冊表（Registry）上。發行者具有撤銷使用者憑證的權利，註冊表可以看到憑證被註銷的記錄。驗證者在檢驗憑證時，也可能需要去註冊表上面看憑證是不是還有效。</p><p>有了這些角色之後，我們就能定義一些理想的隱私條件。</p><p>首先我們想要 <strong>發行者不可觀測（ unobservability）</strong> ，使用者在出示憑證的時候，發行者不能偵測到哪些憑證被出示了。這樣代表使用者生活中的數位足跡，不會被政府掌握。</p><p>接著我們想要，即使發行者和一個或多個驗證者串通，他們沒辦法用各種出示記錄去連結到某一個人。這叫 <strong>發行者驗證者不可關聯 Issuer-Verifier unlinkability</strong> 。許多現行和即將推行的數位憑證，他們是基於加鹽雜湊值這個技術，都違反了這個條件。</p><p>提供年齡 20 歲的雜湊值，會被爆搜，用 0~100 的歲數帶入就能找出雜湊值的輸入值是什麼，加鹽的意思是在雜湊值輸入加入範圍巨大的隨機數，使爆搜不可行。但現有設計的加鹽雜湊值常是靜態的，代表某甲在兩家商店的揭露雜湊值會長得一樣。多家商店串通便能辨識出顧客。</p><hr><p>下一個數位憑證的眉角在註銷，或「尚未註銷」。驗證者怎麼知道使用者的憑證仍然是有效，沒被注銷掉的呢？目前市面上有三種解決方案：</p><p>第一種是使用者自行證明。使用者可以用密碼學的技術，證明自己不在黑名單內。這招有個小小缺陷是使用者出示憑證時必需上網。他要能查詢一個公開註冊表。</p><p>第二種是頻繁的過期。使用者會有個會過期的令牌（Token）。使用者需要常去找發行人重新註冊。最大的缺點是這招要求使用者的裝置必須和數位憑證綁定，避免使用者把 Token 借給別人。EUID 標準要求裝置綁定。ZK passport 和 Rarimo 則是要求臉部辨識，確定出示憑證的使用者是本人。</p><p>第三種，最糟的是背景連線通訊（ phone home）。驗證者會去和發行方問說憑證是否已經注銷。這違反「發行者不可觀測」和「發行者驗證者不可關聯」兩個隱私條件。</p><hr><p>前面提到的隱私條件都還是最基本的。有些進階的條件其實在各種應用場景也很不難想像，但目前的設計者不太考慮到。</p><p><strong>發行方隱私（ Issuer privacy ）</strong> 是人們比較沒想到的。一般設計者都想像發行方是政府，所以可能沒什麼隱私需求。然而有些場景像是公司發給員工一張員工證明，公司就是發行方。公司如果開除員工的時候，註冊表上面會顯示員工 -1 ，這也許會無意揭露公司的營運狀況。公司作為發行人，可能會想要發行者隱私。</p><p><strong>可否認出示（ Deniable presentation）</strong> 是 YingTong 覺得很重要應該做的東西。</p><p>美國研究指出，只要有郵遞區號（ZIP code）、生日、性別， 87% 情況下可以辨識出一個人的身份。代表即使揭露少少的資訊，對隱私的傷害也很大。因此即使有選擇性揭露，減少了資料洩漏的面積，我們希望資料揭露之後，能讓資料消失，不會再流到第三方。</p><p>另外是 <strong>長效假名（Long live psudonym）</strong> 。有些重複性的服務，或是像商家集點這種，即使單次的互動有選擇性揭露，長期的互動記錄也會被賣給第三方做利用。</p><p>但怎麼讓分享出去的資料 &mldr; 又取消分享的狀態？就是使用者分享出去的資料只對商家有意義。使用者對商家之外的人可以「否認」分享過這樣的資料。具體的做法是更改驗證憑證的邏輯：本來使用者證明「某甲的年齡大於 18 歲」，變成「『某甲的年齡大於 18 歲』或『我持有商家私鑰』」。對於商家轉述使用者的證明，使用者都可以否認，因為商家有能力偽造任何關於使用者的陳述。</p><p>YingTong 說必須要讓商家的介面很方便的製造假證明。甚至也要讓使用者的介面很容易製造任何過期的假證明，這樣可以做出使用者在一段時間後可否認的證明。</p><p>這也是我目前對某些密碼學設計感到詭異的地方。某些密碼學的招數要能奏效，必須要讓人們非常容易造假。甚至 UI 上做一個沒用的功能，目的就是要讓人們造假。</p><p>這看起來很神奇，但我想想其實就像手機截圖一樣。別人把你的對話截圖分享出去其實沒什麼效，你能否認。但能否認的程度來自於有多麽容易製造假的手機截圖。</p><hr><p>在分享這個討論的時候，收到一個有趣的回饋。在完美的隱私保護之下，會對實證個體經濟學者造成研究的困擾。他們的研究不需要辨識出個人，但所有和身份連結的變數都被隱藏之後，他們沒辦法從資料得出有幫助的結論。</p></div></article><footer class="footer scrollappear"><p><span>&copy; 2025 <a href=https://liangcc.me/>CC's blog</a></span>
+<span>Powered by <a href=https://gohugo.io/ rel=noopener target=_blank>Hugo</a></span>
+<span>Theme is based on <a href=https://github.com/nielsenramon/chalk rel="noreferrer noopener" target=_blank>Chalk</a></span></p></footer></div></div></main><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js></script><script src=https://liangcc.me/javascripts/zooming.min.js></script><script src=https://liangcc.me/javascripts/retina.min.js></script><script src=https://liangcc.me/javascripts/svgxuse.min.js></script><script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script><script src=https://liangcc.me/javascripts/vendor.min.js></script><script src=https://liangcc.me/javascripts/webfonts.min.js></script><script src=https://liangcc.me/javascripts/scrollappear.min.js></script><script src=https://liangcc.me/javascripts/application.min.js></script><script src=https://liangcc.me/javascripts/themetoggle.min.js></script></body></html>
