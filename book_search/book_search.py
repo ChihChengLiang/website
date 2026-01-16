@@ -26,12 +26,7 @@ MARKDOWN_TEMPLATE = """## {title}
 **Author**: {authors}  
 **Publisher**: {publisher}  
 **Published**: {published_date}  
-**ISBN-13**: {isbn13}  
-{isbn10_line}**Pages**: {page_count}  
-**Categories**: {categories}
-
-{description}
-
+**ISBN-13**: {isbn13}
 [View on Google Books]({link})
 """
 
@@ -70,9 +65,6 @@ def format_book_info(book):
     authors = ', '.join(volume_info.get('authors', ['N/A']))
     publisher = volume_info.get('publisher', 'N/A')
     published_date = volume_info.get('publishedDate', 'N/A')
-    description = volume_info.get('description', 'No description available.')
-    page_count = volume_info.get('pageCount', 'N/A')
-    categories = ', '.join(volume_info.get('categories', ['N/A']))
     link = volume_info.get('canonicalVolumeLink', 'N/A')
     
     # Get largest available cover image
@@ -88,29 +80,19 @@ def format_book_info(book):
     
     # Extract ISBNs
     isbn13 = 'N/A'
-    isbn10 = None
     
     for identifier in volume_info.get('industryIdentifiers', []):
         if identifier['type'] == 'ISBN_13':
             isbn13 = identifier['identifier']
-        elif identifier['type'] == 'ISBN_10':
-            isbn10 = identifier['identifier']
-    
-    # Build ISBN-10 line if available
-    isbn10_line = f"**ISBN-10**: {isbn10}  \n" if isbn10 else ""
-    
+
     return {
         'title': title,
         'authors': authors,
         'publisher': publisher,
         'published_date': published_date,
-        'description': description,
-        'page_count': page_count,
-        'categories': categories,
         'link': link,
         'image_url': image_url,
         'isbn13': isbn13,
-        'isbn10_line': isbn10_line
     }
 
 def select_book(books):
