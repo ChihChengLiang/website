@@ -23,11 +23,10 @@ MARKDOWN_TEMPLATE = """## {title}
 
 ![Cover]({image_url})
 
-**Author**: {authors}  
-**Publisher**: {publisher}  
-**Published**: {published_date}  
-**ISBN-13**: {isbn13}
-[View on Google Books]({link})
+- **Author**: {authors}
+- **Publisher**: {publisher}
+- **Published**: {published_date}
+- **ISBN-13**: {isbn13}
 """
 
 def search_books(query):
