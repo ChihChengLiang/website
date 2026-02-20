@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on CC's blog</title><link>https://liangcc.me/zh-tw/posts/</link><description>Recent content in Posts on CC's blog</description><generator>Hugo</generator><language>zh-tw</language><lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://liangcc.me/zh-tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>《智慧簡史》筆記（六）</title><link>https://liangcc.me/zh-tw/posts/2026-01-15_history_of_intelligence_6/</link><pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2026-01-15_history_of_intelligence_6/</guid><description>&lt;p>從靈長類演化到人類這一段，腦袋除了堆疊更多的皮質、更大的基底核，每種功能都更多一點更大一點之外，沒有什麼新東西了。硬體上只有量變沒質變。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on CC's blog</title><link>https://liangcc.me/zh-tw/posts/</link><description>Recent content in Posts on CC's blog</description><generator>Hugo</generator><language>zh-tw</language><lastBuildDate>Wed, 18 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://liangcc.me/zh-tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Lean 語言體驗</title><link>https://liangcc.me/zh-tw/posts/2026-02-18_lean_lang/</link><pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2026-02-18_lean_lang/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2026-02-18_lean_lang/images/lean.png">&lt;/p>
+&lt;p>最近在沉迷數學證明&lt;/p>
+&lt;p>Lean 是一個可以拿來寫數學證明的語言。開發者架設了一個 &lt;a href="https://adam.math.hhu.de/#/g/leanprover-community/nng4">網站&lt;/a>，把數學證明變成一關一關的遊戲，讓使用者可以透過遊戲學習 Lean 語言的用法。&lt;/p>
+&lt;p>我應該是在 2024 年底聽過這個語言，那時聽到陶哲軒說要用 AI 輔助數學證明，其中就要倚賴 Lean 語言。大概在半年以前看到那個遊戲網站，但我好像做了第一個還是第二個指令就停下來了。不知道是那天精神不好，還是伺服器斷線，還是在忙其他事，反正就是無法前進遊戲，一下子就分心放棄遊戲了。&lt;/p>
+&lt;p>最近聽了日本的朋友說他們的密碼學家都在嘗試用 Lean 描述密碼學中的數學。所以上週我又想起了這個遊戲。&lt;/p>
+&lt;p>這次再開起來之後，一下子就一關一關的玩下去。把從皮亞諾公設建構的自然數玩完了。&lt;/p>
+&lt;p>（嚴格來說，應該不算全破關。有一關放了費馬最後定理。關卡的說明寫說人類已知最簡短的證明需要百萬行的 Lean 程式碼。要全破可能真的要去念數學系）&lt;/p>
+&lt;p>自然數玩完之後，還有集合論、實分析、線性代數等關卡。現在在集合論慢慢前進中。&lt;/p>
+&lt;h2 id="使用-lean-語言寫證明的感覺是什麼呢">使用 Lean 語言寫證明的感覺是什麼呢？&lt;/h2>
+&lt;p>教學遊戲的第二關蠻適合描述用程式寫證明的過程是什麼。題目用文字描述是「如果 x 和 y 是自然數，且 y=x+7，則 2y=2(x+7)」&lt;/p>
+&lt;p>在遊戲的界面中，這個問題會被轉換為「目標」和「假設」。&lt;/p>
+&lt;p>「目標」是證明&lt;/p>
+&lt;p>2 × y = 2 × (x+7)&lt;/p>
+&lt;p>然後你有若干「假設」，假設的意思就是被假設是對的。&lt;/p>
+&lt;p>h: y = x + 7&lt;/p>
+&lt;p>接下來使用者在互動式的界面鍵入 &lt;code>rw[h]&lt;/code> 指令。這個指令表達我們想把目標的式子重寫（rw 是 rewrite 的縮寫），用帶入現有的假設 h 。Lean 會知道說這要把變數 y 都代換成 x + 7&lt;/p>
+&lt;p>指令執行之後，目標的式子會更新。變成&lt;/p>
+&lt;p>2 × (x+7) = 2 × (x+7)&lt;/p>
+&lt;p>看到等號左右兩邊的符號一樣時，再鍵入 &lt;code>rfl&lt;/code> 指令（reflexity 的縮寫，我也不知道是什麼意思），遊戲界面就會呈現這個證明完成了。&lt;/p></description></item><item><title>《智慧簡史》筆記（六）</title><link>https://liangcc.me/zh-tw/posts/2026-01-15_history_of_intelligence_6/</link><pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2026-01-15_history_of_intelligence_6/</guid><description>&lt;p>從靈長類演化到人類這一段，腦袋除了堆疊更多的皮質、更大的基底核，每種功能都更多一點更大一點之外，沒有什麼新東西了。硬體上只有量變沒質變。&lt;/p>
 &lt;p>超能力的方面，古人到近代心理學家羅列了一堆「就人類最特別」的能力：理性思考、預期未來需求、用工具。在經歷各種研究之後，如同前面章節所見，大多的超能力也都不是只有人類才有。真要講的話：就是人類會說話、使用語言溝通。&lt;/p>
 &lt;p>這裡的溝通要稍微講究一下。因為其他生物又要抗議了。&lt;/p>
 &lt;p>單細胞生物會使用化學訊號分享基因或關於環境的資訊。蜜蜂會跳舞分享食物的方向。老鼠會吱吱叫來表達危險或興奮。黑猩猩會用手勢來表達需求。長尾猴會有不同的聲音表達不同的威脅，像「獵豹！」或「老鷹！」之類。&lt;/p>
