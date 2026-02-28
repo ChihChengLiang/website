@@ -3,23 +3,6 @@ languageCode = 'en-us'
 title = "CC's blog"
 theme = 'chalk'
 
-[module]
-  [[module.mounts]]
-    source = 'assets'
-    target = 'assets'
-  [[module.mounts]]
-    source = 'themes/chalk/assets'
-    target = 'assets'
-  [[module.mounts]]
-    source = 'static'
-    target = 'static'
-  [[module.mounts]]
-    source = 'themes/chalk/static'
-    target = 'static'
-
-[author]
-  name = "CC Liang"
-
 [params.chalk]
   # chalk theme parameters
   about_enabled = true # Change to true if you wish to show an icon in the navigation that redirects to the about page
@@ -49,10 +32,6 @@ defaultContentLanguageInSubdir = false  # Keep English at root
   [languages.en]
     languageName = 'English'
     weight = 1
-    [languages.en.author]
-      name = "CC Liang"
   [languages.zh-TW]
     languageName = '中文'
     weight = 2
-    [languages.zh-TW.author]
-      name = "CC Liang"
