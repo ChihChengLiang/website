@@ -9,10 +9,10 @@
   <!-- Meta -->
   {{ if eq .Kind "page" }}
     <meta name="description" content="{{ .Summary }}" />
-    <meta name="author" content="{{ .Params.Author | default site.Author.name }}" />
+    <meta name="author" content="{{ .Params.Author | default site.Params.author }}" />
   {{ else }}
     <meta name="description" content="{{ site.Params.description }}" />
-    <meta name="author" content="{{ site.Author.name }}" />
+    <meta name="author" content="{{ site.Params.author }}" />
   {{ end }}
 
   <!-- Styles & Scripts -->
@@ -32,8 +32,10 @@
   <link rel="icon" type="image/x-icon" href="{{ $favicon.Permalink }}">
   <link rel="apple-touch-icon" href="{{ $appleicon.Permalink }}">
 
-  {{ $light_css := resources.Get "stylesheets/light.scss" | resources.ToCSS }}
-  {{ $dark_css := resources.Get "stylesheets/dark.scss" | resources.ToCSS }}
+  {{ $light_scss := resources.Get "stylesheets/light.scss" }}
+  {{ $dark_scss := resources.Get "stylesheets/dark.scss" }}
+  {{ $light_css := $light_scss | css.Sass }}
+  {{ $dark_css := $dark_scss | css.Sass }}
 
   {{ if site.Params.chalk.theme_toggle }}
     <!-- If theme toggle is enabled, default scheme is always light -->
