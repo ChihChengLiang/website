@@ -24,6 +24,9 @@ theme = 'chalk'
   images = ['images/buffaloes.png']
   title = "CC's blog"
 
+[site.Author]
+  name = "CC Liang"
+
 defaultContentLanguage = 'en'
 defaultContentLanguageInSubdir = false  # Keep English at root
 
