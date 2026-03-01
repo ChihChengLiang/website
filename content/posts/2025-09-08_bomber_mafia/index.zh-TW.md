@@ -1,5 +1,5 @@
 ---
-title: "失控的轟炸"
+title: "《失控的轟炸》閱讀心得 "
 date: 2025-09-08
 draft: false
 ---
