@@ -4,19 +4,28 @@ date: 2026-02-28T18:23:14+08:00
 draft: false
 ---
 
-Organizations 
-核爆末日
-Plurality 
-Of Boys and Men
-定刻発車
-Grammer
-The third pillar 
-Code breaker 
-How to fight a war
-Every Living Thing
-丈量世界
-精準轟炸
-Fortlandia
+After much procrastination I finally got time to finalize my 2025 book review.
+
+As my context window fill up, much memory faded and doing the 2024 style review no longer makes sense.
+
+## Every Living Thing
+
+![Cover](http://books.google.com/books/content?id=tbDREAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: Jason Roberts
+- **Publisher**: Hachette UK
+- **Published**: 2024-04-11
+- **ISBN-13**: 9781529400458
+
+## 萬物的名字
+
+![Cover](http://books.google.com/books/content?id=5mZrEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: 傑森．羅伯茲(Jason Roberts)
+- **Publisher**: 麥田
+- **Published**: 2025-06-26
+- **ISBN-13**: 9786263108998
+
 
 ## 準點發車：日本鐵路為什麼是世界上最準確的？
 
@@ -139,24 +148,6 @@ https://www.amazon.com/Boys-Men-Modern-Struggling-Matters/dp/0815739877
 - **Published**: 2025-04-16
 - **ISBN-13**: 9786269960613
 
-## Every Living Thing
-
-![Cover](http://books.google.com/books/content?id=tbDREAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
-
-- **Author**: Jason Roberts
-- **Publisher**: Hachette UK
-- **Published**: 2024-04-11
-- **ISBN-13**: 9781529400458
-
-## 萬物的名字
-
-![Cover](http://books.google.com/books/content?id=5mZrEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
-
-- **Author**: 傑森．羅伯茲(Jason Roberts)
-- **Publisher**: 麥田
-- **Published**: 2025-06-26
-- **ISBN-13**: 9786263108998
-
 ## Measuring the World
 
 ![Cover](http://books.google.com/books/content?id=uWwOGMoOwGAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
@@ -186,3 +177,40 @@ https://www.amazon.com/Boys-Men-Modern-Struggling-Matters/dp/0815739877
 
 
 https://www.openbook.org.tw/article/p-694
+
+## The Bomber Mafia
+
+![Cover](http://books.google.com/books/content?id=v8EYEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: Malcolm Gladwell
+- **Publisher**: Penguin UK
+- **Published**: 2021-04-27
+- **ISBN-13**: 9780141998381
+
+## 失控的轟炸：人道與人性的交戰，造就二戰最漫長的一夜（含21幅珍貴歷史圖片）
+
+![Cover](http://books.google.com/books/content?id=kTxvEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: 麥爾坎．葛拉威爾
+- **Publisher**: 時報文化出版
+- **Published**: 2022-04-22
+- **ISBN-13**: 9786263351301
+
+
+## Triumph of the City
+
+![Cover](http://books.google.com/books/content?id=-yWTIKsWGm4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: Edward Glaeser
+- **Publisher**: Penguin
+- **Published**: 2011-02-10
+- **ISBN-13**: 9781101475676
+
+## 城市的勝利：都市如何推動國家經濟，讓生活更富足、快樂、環保？（最爭議的21世紀都市規畫經典）
+
+![Cover](http://books.google.com/books/content?id=2lDNEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: 愛德華．格雷瑟(Edward Glaeser)
+- **Publisher**: 時報文化出版
+- **Published**: 2019-05-03
+- **ISBN-13**: 9789571377841
