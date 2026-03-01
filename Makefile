@@ -15,6 +15,6 @@ serve:
 
 book:
 	@read -p "Book title to search: " title; \
-	uv run book_search/book_search.py -c $${title}; \
+	uv run book_search/book_search.py -c "$${title}"; \
 
 s: serve
