@@ -17,9 +17,9 @@ Kevin Bryan taught a cool course called [Progress](https://kevinbryanecon.com/Pr
 > ... The world is a museum of passion projects.
 > -- John Collison
 
-History of science or history in general branch out from the theme of human progress. The books I bumped into accidentally got my into the world of dual biographies. Carl Linnaeus vs Comte de Buffon from Every Living Thing, Carl Friedrich Gauss  vs Alexander von Humboldt from Measuring the World, Koxinga vs Coyett from Lost Colony, and Hansell vs LeMay The Bomber Mafia are all such cases. I would even add Jennifer Doudna vs Feng Zhang from The Code Breaker. Putting people from very different cultural, social, and ideological background together adds depth and contrast to the story, which I enjoyed very much.
+History of science or history in general branch out from the theme of human progress. The books I bumped into accidentally got my into the world of dual biographies. Carl Linnaeus vs Comte de Buffon from Every Living Thing, Carl Friedrich Gauss  vs Alexander von Humboldt from Measuring the World, Koxinga vs Coyett from Lost Colony, and Hansell vs LeMay The Bomber Mafia are all such cases. I would even add Jennifer Doudna vs Feng Zhang from The Code Breaker. Putting people from very different cultural, social, and ideological background together adds layers of depth and contrast to the story, which I was entertained very much.
 
-I enjoyed all the books I read. But if I had to recommend, the top 2 I enjoyed the most are "Every Living Thing" and "A Brief History of Intelligence." More details below.
+I enjoyed all the books I read. But if I had to recommend, the top 2 books you mush read are "Every Living Thing" and "A Brief History of Intelligence." More details below.
 
 ## Every Living Thing
 
@@ -30,7 +30,7 @@ I enjoyed all the books I read. But if I had to recommend, the top 2 I enjoyed t
 - **Published**: 2024-04-11
 - **ISBN-13**: 9781529400458
 
-## 萬物的名字
+### 萬物的名字
 
 ![Cover](http://books.google.com/books/content?id=5mZrEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
 
@@ -39,6 +39,15 @@ I enjoyed all the books I read. But if I had to recommend, the top 2 I enjoyed t
 - **Published**: 2025-06-26
 - **ISBN-13**: 9786263108998
 
+Are life consist of individual species or are life continuous? How do you systematically record your empirical experience of different life forms? What is one "type" of plant? Two plants could be the same plants for a gardener if they are both white, but very different for pharmacy people if one of them is poisonous. Biology science starts with the categorization of the empirical evidence and then later movtivates theories to explain anomolies in evidence.
+
+This book can be enjoyed with two ways. One is the rich scientific history and philosoficall discussion. The other is the very different life and personalities of Linnaeus and Buffon.
+
+Linnaeus is like the real world professor Oak from Pokemon game. He sent his students to the world to collect seeds and samples. The difference being, prof Oak at least gives you a starter pack, while Linnaeus gives nothing to his fellows. No money, no resources, no contact or friends at distant land. Most of his student didn't make it back home, if not getting gravely sick or losing sanity.
+
+On the other hand, Buffon's family inherit a fortune when he was 10 years old. Buffon grew up endulging duelling, win and survived 3 times (poor Galois). He encountered some aristocratic firends and got interested in math and natural history. He ended up in French Academy of Sciences because his math achievement. He is known for Buffon's needle problem, which is a practical method to estimate number of needles in a box, but also a cool probabilisitc method to approximate the value of Pi. He is also richer than Linnaeus, who stuggled in poverty in whole life, even when he became famous. Buffon can get funding from himself or support from French Academy of Sciences to grow trees, conduct experimentss, publish books, and build a foundry or even a zoo.
+
+People usually recommend Every Living Thing along with Measuring the World. It's a brilliant idea to exam Gauss and Humboldt together. The former believe if you seek truth, you should stay and home and study the patterns of prime numbers, while the latter believe that you should get outdoor and experience the truth by yourself. Both are right and wrong in their own way, as we see Humboldt conduct galvanic frog leg electricity experiments on his body and suffer from great pain, while the real progress is made by Volta, who replaced frog leg with salt water soaked paper.
 
 
 ## A Brief History of Intelligence: Why the Evolution of the Brain Holds the Key to the Future of AI
