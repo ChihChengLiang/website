@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Insert Image",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/hugo-insert-image.sh '${file}'",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    }
+  ]
+}
