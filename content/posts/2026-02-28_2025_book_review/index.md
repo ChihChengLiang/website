@@ -4,9 +4,22 @@ date: 2026-02-28T18:23:14+08:00
 draft: false
 ---
 
-After much procrastination I finally got time to finalize my 2025 book review.
+After much procrastination I finally got time to finalize my 2025 book review. I'm fortunate to have a year to read more books than I can imagined.
 
-As my context window fill up, much memory faded and doing the 2024 style review no longer makes sense.
+As my context window fill up, much memory faded and doing the [2024 style review](posts/2025-01-13_2024_book_review/) no longer makes sense. What I realized what stays in my mind is not how useful the knowledge the book offered but how charismatic and entertaining the book is.
+
+The main theme of this year seem to be human progress and dual biographies.
+
+Human progress continues to facinates me. [Triumph of the City](posts/2025-11-05_triumph_of_the_city/), [Why Japanese trains are so punctual?](posts/2025-05-22_train/), [Technology and the Rise of Great Powers](posts/2025-11-10_general_purpose_tech/) are books on such topic and each I wrote review post, respectively. The more I read about them, the more I appreciate the modern life I'm living in. Every bits of convenience and safety we enjoyed come from people's hard (and much likely stressed) work.
+
+Kevin Bryan taught a cool course called [Progress](https://kevinbryanecon.com/Progress%202025/Progress%20-%20Class%201%20Introduction%20Slides.pdf), and a quote in the openning class resonates with me.
+
+> ... The world is a museum of passion projects.
+> -- John Collison
+
+History of science or history in general branch out from the theme of human progress. The books I bumped into accidentally got my into the world of dual biographies. Carl Linnaeus vs Comte de Buffon from Every Living Thing, Carl Friedrich Gauss  vs Alexander von Humboldt from Measuring the World, Koxinga vs Coyett from Lost Colony, and Hansell vs LeMay The Bomber Mafia are all such cases. I would even add Jennifer Doudna vs Feng Zhang from The Code Breaker. Putting people from very different cultural, social, and ideological background together adds depth and contrast to the story, which I enjoyed very much.
+
+I enjoyed all the books I read. But if I had to recommend, the top 2 I enjoyed the most are "Every Living Thing" and "A Brief History of Intelligence." More details below.
 
 ## Every Living Thing
 
@@ -25,6 +38,17 @@ As my context window fill up, much memory faded and doing the 2024 style review 
 - **Publisher**: 麥田
 - **Published**: 2025-06-26
 - **ISBN-13**: 9786263108998
+
+
+
+## A Brief History of Intelligence: Why the Evolution of the Brain Holds the Key to the Future of AI
+
+![Cover](http://books.google.com/books/content?id=iu-REAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: Max Bennett
+- **Publisher**: HarperCollins UK
+- **Published**: 2023-10-24
+- **ISBN-13**: 9780008560119
 
 
 ## 準點發車：日本鐵路為什麼是世界上最準確的？
@@ -214,3 +238,48 @@ https://www.openbook.org.tw/article/p-694
 - **Publisher**: 時報文化出版
 - **Published**: 2019-05-03
 - **ISBN-13**: 9789571377841
+
+## Project Hail Mary
+
+![Cover](http://books.google.com/books/content?id=_RH2DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: Andy Weir
+- **Publisher**: Random House
+- **Published**: 2021-05-04
+- **ISBN-13**: 9781473582583
+
+## Technology and the Rise of Great Powers
+
+![Cover](http://books.google.com/books/content?id=tNj2EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: Jeffrey Ding
+- **Publisher**: Princeton University Press
+- **Published**: 2024-08-20
+- **ISBN-13**: 9780691260372
+
+## 科技與大國崛起
+
+![Cover](http://books.google.com/books/content?id=a29jEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: 傑佛瑞•丁（Jeffrey Ding）
+- **Publisher**: 讀書共和國╱衛城出版
+- **Published**: 2025-06-04
+- **ISBN-13**: 9786267645253
+
+## Lost Colony
+
+![Cover](http://books.google.com/books/content?id=wGmYDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: Tonio Andrade
+- **Publisher**: Princeton University Press
+- **Published**: 2013-08-04
+- **ISBN-13**: 9780691159577
+
+## 決戰熱蘭遮：中國首次擊敗西方的關鍵戰役（全新審訂版）
+
+![Cover](http://books.google.com/books/content?id=cscJEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: 歐陽泰(Tonio Andrade)
+- **Publisher**: 時報文化出版
+- **Published**: 2017-12-22
+- **ISBN-13**: 9789571372174
