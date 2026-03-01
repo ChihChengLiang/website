@@ -98,9 +98,12 @@ Review post here  [Why Japanese trains are so punctual?](posts/2025-05-22_train/
 
 ## Of Boys and Men
 
-Why the Modern Male Is Struggling, Why It Matters, and What to Do about It 
+![Cover](http://books.google.com/books/content?id=WmZoEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
 
-https://www.amazon.com/Boys-Men-Modern-Struggling-Matters/dp/0815739877
+- **Author**: Richard V. Reeves
+- **Publisher**: Swift Press
+- **Published**: 2022-09-29
+- **ISBN-13**: 9781800750555
 
 ### 男性廢退
 
