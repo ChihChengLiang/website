@@ -13,4 +13,8 @@ new-zh:
 serve:
 	hugo server -D --navigateToChanged
 
+book:
+	@read -p "Book title to search: " title; \
+	uv run book_search/book_search.py -c $${title}; \
+
 s: serve
