@@ -4,24 +4,24 @@ date: 2026-02-28T18:23:14+08:00
 draft: false
 ---
 
-After much procrastination I finally got time to finalize my 2025 book review. I'm fortunate to have a year to read more books than I can imagined.
+After much procrastination I finally got time to finalize my 2025 book review. I'm fortunate to have had a year to read more books than I could have imagined.
 
-As my context window fill up, much memory faded and doing the [2024 style of review](posts/2025-01-13_2024_book_review/), which comments on all books, no longer makes sense. I'll just list most of them and comment just some.
+As my context window fills up, much memory faded and doing the [2024 style of review](posts/2025-01-13_2024_book_review/), which comments on all books, no longer makes sense. I'll just list most of them and comment on just some.
 
-What I realized what stays in my mind is not how useful the knowledge the book offered but how charismatic and entertaining the book is.
+What I realized is that what stays in my mind is not how useful the knowledge the book offered but how charismatic and entertaining the book is.
 
-The main theme of this year seem to be human progress and dual biographies.
+The main theme of this year seems to be human progress and dual biographies.
 
-Human progress continues to facinates me. [Triumph of the City](posts/2025-11-05_triumph_of_the_city/), [Why Japanese trains are so punctual?](posts/2025-05-22_train/), [Technology and the Rise of Great Powers](posts/2025-11-10_general_purpose_tech/) are books on such topic and each I wrote review post, respectively. The more I read about them, the more I appreciate the modern life I'm living in. Every bits of convenience and safety we enjoyed come from people's hard (and much likely stressed) work.
+Human progress continues to fascinate me. [Triumph of the City](posts/2025-11-05_triumph_of_the_city/), [Why Japanese trains are so punctual?](posts/2025-05-22_train/), [Technology and the Rise of Great Powers](posts/2025-11-10_general_purpose_tech/) are books on such topics and each I wrote a review post for, respectively. The more I read about them, the more I appreciate the modern life I'm living in. Every bit of convenience and safety we enjoy comes from people's hard (and most likely stressed) work.
 
-Kevin Bryan taught a cool course called [Progress](https://kevinbryanecon.com/Progress%202025/Progress%20-%20Class%201%20Introduction%20Slides.pdf), and a quote in the openning class resonates with me.
+Kevin Bryan taught a cool course called [Progress](https://kevinbryanecon.com/Progress%202025/Progress%20-%20Class%201%20Introduction%20Slides.pdf), and a quote in the opening class resonates with me.
 
 > ... The world is a museum of passion projects.
 > -- John Collison
 
-History of science or history in general branch out from the theme of human progress. The books I bumped into accidentally got my into the world of dual biographies. Carl Linnaeus vs Comte de Buffon from Every Living Thing, Carl Friedrich Gauss  vs Alexander von Humboldt from Measuring the World, Koxinga vs Coyett from Lost Colony, and Hansell vs LeMay The Bomber Mafia are all such cases. I would even add Jennifer Doudna vs Feng Zhang from The Code Breaker. Putting people from very different cultural, social, and ideological background together adds layers of depth and contrast to the story, which I was entertained very much.
+History of science or history in general branches out from the theme of human progress. The books I bumped into accidentally got me into the world of dual biographies. Carl Linnaeus vs Comte de Buffon from Every Living Thing, Carl Friedrich Gauss vs Alexander von Humboldt from Measuring the World, Koxinga vs Coyett from Lost Colony, and Hansell vs LeMay from The Bomber Mafia are all such cases. I would even add Jennifer Doudna vs Feng Zhang from The Code Breaker. Putting people from very different cultural, social, and ideological backgrounds together adds layers of depth and contrast to the story, which entertained me very much.
 
-I enjoyed all the books I read. But if I had to recommend, the top 2 books you mush read are "Every Living Thing" and "A Brief History of Intelligence." More details below.
+I enjoyed all the books I read. But if I had to recommend, the top 2 books you must read are "Every Living Thing" and "A Brief History of Intelligence." More details below.
 
 ## Every Living Thing
 
@@ -41,15 +41,15 @@ I enjoyed all the books I read. But if I had to recommend, the top 2 books you m
 - **Published**: 2025-06-26
 - **ISBN-13**: 9786263108998
 
-Are life consist of individual species or are life continuous? How do you systematically record your empirical experience of different life forms? What is one "type" of plant? Two plants could be the same plants for a gardener if they are both white, but very different for pharmacy people if one of them is poisonous. Biology science starts with the categorization of the empirical evidence and then later movtivates theories to explain anomolies in evidence.
+Does life consist of individual species or is life continuous? How do you systematically record your empirical experience of different life forms? What is one "type" of plant? Two plants could be the same plants for a gardener if they are both white, but very different for pharmacy people if one of them is poisonous. Biology as a science starts with the categorization of empirical evidence and then later motivates theories to explain anomalies in evidence.
 
-This book can be enjoyed with two ways. One is the rich scientific history and philosoficall discussion. The other is the very different life and personalities of Linnaeus and Buffon.
+This book can be enjoyed in two ways. One is the rich scientific history and philosophical discussion. The other is the very different life and personalities of Linnaeus and Buffon.
 
-Linnaeus is like the real world professor Oak from Pokemon game. He sent his students to the world to collect seeds and samples. The difference being, prof Oak at least gives you a starter pack, while Linnaeus gives nothing to his fellows. No money, no resources, no contact or friends at distant land. Most of his student didn't make it back home, if not getting gravely sick or losing sanity.
+Linnaeus is like the real world Professor Oak from the Pokemon game. He sent his students to the world to collect seeds and samples. The difference being that Prof. Oak at least gives you a starter pack, while Linnaeus gives nothing to his fellows. No money, no resources, no contacts or friends at distant lands. Most of his students didn't make it back home, if not getting gravely sick or losing sanity.
 
-On the other hand, Buffon's family inherit a fortune when he was 10 years old. Buffon grew up endulging duelling, win and survived 3 times (poor Galois). He encountered some aristocratic firends and got interested in math and natural history. He ended up in French Academy of Sciences because his math achievement. He is known for Buffon's needle problem, which is a practical method to estimate number of needles in a box, but also a cool probabilisitc method to approximate the value of Pi. He is also richer than Linnaeus, who stuggled in poverty in whole life, even when he became famous. Buffon can get funding from himself or support from French Academy of Sciences to grow trees, conduct experimentss, publish books, and build a foundry or even a zoo.
+On the other hand, Buffon's family inherited a fortune when he was 10 years old. Buffon grew up indulging in duelling, winning and surviving 3 times (poor Galois). He encountered some aristocratic friends and got interested in math and natural history. He ended up in French Academy of Sciences because of his math achievements. He is known for Buffon's needle problem, which is a practical method to estimate the number of needles in a box, but also a cool probabilistic method to approximate the value of Pi. He is also richer than Linnaeus, who struggled in poverty his whole life, even when he became famous. Buffon could get funding from himself or support from French Academy of Sciences to grow trees, conduct experiments, publish books, and build a foundry or even a zoo.
 
-People usually recommend Every Living Thing along with Measuring the World. It's a brilliant idea to exam Gauss and Humboldt together. The former believe if you seek truth, you should stay and home and study the patterns of prime numbers, while the latter believe that you should get outdoor and experience the truth by yourself. Both are right and wrong in their own way, as we see Humboldt conduct galvanic frog leg electricity experiments on his body and suffer from great pain, while the real progress is made by Volta, who replaced frog leg with salt water soaked paper.
+People usually recommend Every Living Thing along with Measuring the World. It's a brilliant idea to examine Gauss and Humboldt together. The former believed if you seek truth, you should stay at home and study the patterns of prime numbers, while the latter believed that you should get outdoors and experience the truth by yourself. Both are right and wrong in their own way, as we see Humboldt conduct galvanic frog leg electricity experiments on his body and suffer from great pain, while the real progress is made by Volta, who replaced frog leg with salt water soaked paper.
 
 
 ## A Brief History of Intelligence: Why the Evolution of the Brain Holds the Key to the Future of AI
@@ -61,7 +61,7 @@ People usually recommend Every Living Thing along with Measuring the World. It's
 - **Published**: 2023-10-24
 - **ISBN-13**: 9780008560119
 
-This is the second book I enjoyed the most. It covered a rich topic in evolution, neural science, and machine learning algorithms, but organized beautifully into just 5 breakthroughs. I followed the book closely and wrote 6 [notes](zh-tw/posts/2025-12-02_history_of_intelligence_1/), in chinese, unfortunately. I'll do machine translation once I procrastinate enough.
+This is the second book I enjoyed the most. It covered a rich topic in evolution, neural science, and machine learning algorithms, but organized beautifully into just 5 breakthroughs. I followed the book closely and wrote 6 [notes](zh-tw/posts/2025-12-02_history_of_intelligence_1/), in Chinese, unfortunately. I'll do machine translation once I procrastinate enough.
 
 ## 準點發車：日本鐵路為什麼是世界上最準確的？
 
