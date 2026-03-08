@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on CC's blog</title><link>https://liangcc.me/zh-tw/posts/</link><description>Recent content in Posts on CC's blog</description><generator>Hugo</generator><language>zh-tw</language><lastBuildDate>Wed, 18 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://liangcc.me/zh-tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Lean 語言體驗</title><link>https://liangcc.me/zh-tw/posts/2026-02-18_lean_lang/</link><pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2026-02-18_lean_lang/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2026-02-18_lean_lang/images/lean.png">&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on CC's blog</title><link>https://liangcc.me/zh-tw/posts/</link><description>Recent content in Posts on CC's blog</description><generator>Hugo</generator><language>zh-tw</language><lastBuildDate>Sun, 08 Mar 2026 21:45:15 +0800</lastBuildDate><atom:link href="https://liangcc.me/zh-tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>用 Lean 寫阿羅不可能定理</title><link>https://liangcc.me/zh-tw/posts/2026-03-08_lean_arrow/</link><pubDate>Sun, 08 Mar 2026 21:45:15 +0800</pubDate><guid>https://liangcc.me/zh-tw/posts/2026-03-08_lean_arrow/</guid><description>&lt;p>上回談到了 在學習 Lean 4 語言寫數學證明&lt;/p>
+&lt;p>開發者蓋的遊戲網頁非常好玩，我也很想把每個主題都玩完&lt;/p>
+&lt;p>但總覺得該是時候來碰一些比較實際的專案了&lt;/p>
+&lt;p>遊戲是某種精心設計，讓難度慢慢加強，吸引玩家黏著卻不放棄。實際的專案可以得到現實迎面一記的巴掌，比較能感受真的使用這個語言會碰到什麼樣的挑戰。&lt;/p>
+&lt;p>我想選一個稍微有點難度，但又不會太難的公式來證看看。要做的事情就是把紙上的公式變成 Lean 4 語言的程式碼。&lt;/p>
+&lt;p>最後選了「阿羅不可能定理（Arrow&amp;rsquo;s Impossibility Theorem）」。這是個經濟學教科書都會提到的定理。不少科普頻道也介紹過這個題目。&lt;/p>
+&lt;p>我找了一篇 2012 的論文（ &lt;a href="https://sites.math.rutgers.edu/~zeilberg/EM22/yu2012.pdf">Yu 2012&lt;/a> ），內容短短的，證明就一頁的篇幅。非常的 self contained&lt;/p>
+&lt;p>不可能出什麼問題對吧&lt;/p>
+&lt;h2 id="關於阿羅不可能定理">關於阿羅不可能定理&lt;/h2>
+&lt;p>Kenneth Arrow 證明：不可能設計出一種理想的投票機制，能夠理性的反映出選民的偏好。&lt;/p>
+&lt;p>投票機制可以看成一種機器：輸入是人們的對各種選項的偏好順序，寫在選票上。輸出是某種社會偏好，好像社會是一個人一樣，也對各種選項有偏好順序。&lt;/p>
+&lt;p>票箱把選票吃進去之後，人們把票箱打開，用某種演算法瞎忙一陣（例如計算得票最多的候選人），得到社會的共識：例如選民最喜歡哪個候選人。&lt;/p>
+&lt;p>假設你的選票不只能寫最喜歡誰，還能寫第二喜歡的人，一路寫到最不喜歡的人。選票也能允許你對有些選項一樣喜歡。那你有辦法設計一個演算法，從每個人選票的資訊，得到一個不錯的社會偏好嗎？&lt;/p>
+&lt;p>首先我們得討論「不錯」的定義是什麼。&lt;/p>
+&lt;p>阿羅先訂出了這個投票機制一些很基本的三個要求：&lt;/p>
+&lt;p>首先機制應該尊重選民「&lt;strong>一致（ Unanimity）&lt;/strong>」的偏好 ：如果所有選民偏好 A 選項優於 B 選項，那投票機制產生的社會偏好也要是 A 選項優於 B 選項。&lt;/p>
+&lt;p>再來，「&lt;strong>無關選項無干結果（Independence of Irrelevant Alternatives）&lt;/strong>」：如果票箱開出來的結果是偏好 A 優於 B 。現在再把選票全部倒出來，保留所有的 A 和 B ，但把每張選票的 C 選項位置任意調整。。C 是和 A B無關的選項，開票結果對於 A 與 B 的順序不該改變。&lt;/p>
+&lt;p>最後，「&lt;strong>不能獨裁&lt;/strong>」。不能有個選民比較「特別」，他的偏好是什麼，票開出來的結果就是什麼。&lt;/p>
+&lt;p>非常遺憾，阿羅證明，三個非常無辜、基本的要求不可兼得。&lt;/p>
+&lt;p>證明的大方向就是：假設有個投票機制符合「尊重一致的偏好」與「無關選項無干結果」，這會導向一個結論：這個機制存在一個獨裁者可以左右開票結果。&lt;/p>
+&lt;h2 id="實作過程">實作過程&lt;/h2>
+&lt;p>在開始實作前，我先讓 Claude 看了一下論文。和他說給我一點指引，但不要幫我寫任何程式。這個專案的目的是練習語言。&lt;/p></description></item><item><title>Lean 語言體驗</title><link>https://liangcc.me/zh-tw/posts/2026-02-18_lean_lang/</link><pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate><guid>https://liangcc.me/zh-tw/posts/2026-02-18_lean_lang/</guid><description>&lt;p>&lt;img src="https://liangcc.me/posts/2026-02-18_lean_lang/images/lean.png">&lt;/p>
 &lt;p>最近在沉迷數學證明&lt;/p>
 &lt;p>Lean 是一個可以拿來寫數學證明的語言。開發者架設了一個 &lt;a href="https://adam.math.hhu.de/#/g/leanprover-community/nng4">網站&lt;/a>，把數學證明變成一關一關的遊戲，讓使用者可以透過遊戲學習 Lean 語言的用法。&lt;/p>
 &lt;p>我應該是在 2024 年底聽過這個語言，那時聽到陶哲軒說要用 AI 輔助數學證明，其中就要倚賴 Lean 語言。大概在半年以前看到那個遊戲網站，但我好像做了第一個還是第二個指令就停下來了。不知道是那天精神不好，還是伺服器斷線，還是在忙其他事，反正就是無法前進遊戲，一下子就分心放棄遊戲了。&lt;/p>
