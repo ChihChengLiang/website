@@ -145,3 +145,77 @@ fields:
 
 我：好吧，這樣看起來不能用 Float 拿來做矩陣乘法。
 
+## 使用界
+
+我：我看到 Timeroot 實作了一個函式庫 https://github.com/Timeroot/ComputableReal 。裡面常理可以計算出來的結果都可以算出來耶。
+
+```lean
+example : |√3 - 2 * exp 1 / π| < 0.002 := by
+  native_decide
+```
+
+這個實作的原理是引入一個新的 `ComputableℝSeq`，這個結構會帶著序列的上界、下界、和柯西序列證明。雖然序列沒辦法直接相加，但是上界和下界可以！
+
+只要告訴 Lean 新的上界和下界，以及說服新的序列是柯西序列，那 Lean 可以很開心的接受我們對「實數」的加減乘除。
+
+但裡面有提到一個問題：要判斷正負號仍然是不可計算的。 $\sqrt 2 = \sqrt 2$ ？不能判斷。 $\sqrt 2 - \sqrt 2 = 0$ ？算不出來。 
+
+```lean
+example : Real.sqrt 2 = Real.sqrt 2 := by --hangs, never terminate
+  native_decide
+
+example : Real.sqrt 2 - Real.sqrt 2 = 0:= by --hangs
+  native_decide
+```
+
+我：哇這太過分了吧。難道我不能證明 $\sqrt 2 - \sqrt 2$ 兩項都是一樣的序列，相減之後變成都是 0 的序列？通靈師！
+
+Claude: 原因是系統還沒辦法判斷這兩個序列一樣，因此只能把他們當成兩個不同的序列運算。如專案 README 所說，$\sqrt 2 - \sqrt 2$ 上界用 `-1/2ⁿ`，下界用 `-1/2ⁿ`。因此在有限的迭代中，無法知道這到底是收斂到正數還是負數。
+
+Claude: 但如果你真的想要  $\sqrt 2 - \sqrt 2 = 0$ 這個結果的話，你可以用實數「環」的性質。**不是用「計算」得到結果，而是用「代數」。**
+
+```lean
+-- this works
+example : Real.sqrt 2 - Real.sqrt 2 = 0 := by ring
+```
+
+Claude: `norm_num` 其實也可以
+
+```lean
+-- this works
+example : Real.sqrt 2 - Real.sqrt 2 = 0 := by norm_num
+```
+
+我：啊等等。`norm_num` 看起來是個數值計算的方法耶，他有辦法駕馭實數嗎？
+
+Claude: `norm_num` 其實中間有代數的偷吃步。他偵測到 `x - x` 這種形式，知道可以抵銷。但下面第二題這種 $\sqrt 2 + \sqrt 2 = 2 * \sqrt 2$ ，`norm_num` 就卡關了。可是對 `ring` 而言還是小菜一碟。這些都是代數，沒運算。
+
+```lean
+example : Real.sqrt 2 - Real.sqrt 2 = 0 := by norm_num
+example : Real.sqrt 2 + Real.sqrt 2 = 2 * Real.sqrt 2 := by norm_num  -- fails
+example : Real.sqrt 2 + Real.sqrt 2 = 2 * Real.sqrt 2 := by ring
+```
+
+## norm_num
+
+我：我發現 norm_num 看起來可以乘開實數耶。他是靠運算還是靠代數？有什麼辦法檢視？
+
+```lean
+def C : Matrix (Fin 2) (Fin 2) ℝ :=
+  !![1, 1; 1, 1]
+
+example :  C * C = !![2, 2; 2,2] := by
+  unfold C
+  norm_num
+```
+
+Claude: 有數種做法，最快的是：
+
+```diff
++ set_option trace.Tactic.norm_num true
+example :  C * C = !![2, 2; 2,2] := by
+  unfold C
+  norm_num
+```
+
+Claude: norm_num 這裡做了很多失敗的嘗試。最後成功的地方是辨認出矩陣裡實數的 1 ，其實是自然數的 1 ，最後當成自然數乘開完成推論。
