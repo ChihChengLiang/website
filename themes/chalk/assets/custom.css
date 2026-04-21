@@ -1,4 +1,14 @@
 /* Place custom css here. */
+
+.think {
+  display: block;
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  border-left: 3px solid #aaa;
+  color: #888;
+  font-size: 0.9em;
+  background: transparent;
+}
 figure {
   margin: 0;
 }
