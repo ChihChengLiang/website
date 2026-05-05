@@ -32,34 +32,48 @@ AI 端出了今天的主角： Lotka–Volterra 方程式
 
 這方程式其實沒想像中可怕。讀者腦中數學 Token 夠的話不妨燒一下
 
-dR/dt = r_b R - r_c R P
+$$\frac{dR}{dt} = r_b R - r_c R P$$
 
-dP/dt = p_b RP - p_d P
+$$\frac{dP}{dt} = p_b R P - p_d P$$
 
-其中 R 是老鼠的數量， P 是其獵食者的數量。
-dR/dt 意思是明天老鼠數量的變化，dP/dt 是獵食者數量的變化。
+其中 $R$ 是老鼠的數量，$P$ 是其獵食者的數量。
+$dR/dt$ 意思是明天老鼠數量的變化，$dP/dt$ 是獵食者數量的變化。
 
 明天老鼠的數量變化，會是新出生的老鼠減去被獵食者吃掉的老鼠。
 
-新的老鼠是老鼠的出生率 rb 乘上現有幾隻老鼠。
+新的老鼠是老鼠的出生率 $r_b$ 乘上現有幾隻老鼠。
 
 老鼠有幾隻會被吃掉，要看今天上菜幾隻鼠條，以及有幾隻老鷹要服務。我們加個捕食率的參數，調整這個數量。捕食率可以詮釋為老鼠在路上逛來逛去，運氣有多差而被吃掉。
 
 再來看明天老鷹數量的變化。老鷹的增長來自於食物是否充足，減少來自於自然死亡。
 
-今天晚餐吃的老鼠，會變成孵寶貝的養分。食物來源充足的情況會生比較多老鷹。我們用 pb R P 表達。pb 可以看作出生率。
+今天晚餐吃的老鼠，會變成孵寶貝的養分。食物來源充足的情況會生比較多老鷹。我們用 $p_b R P$ 表達。$p_b$ 可以看作出生率。
 
-老鷹的自然死亡，用死亡率 pd 乘上老鷹數量表示。
+老鷹的自然死亡，用死亡率 $p_d$ 乘上老鷹數量表示。
 
 我們用個實際的例子：
 
-假設初始狀態有 40 隻老鼠 和 10 隻老鷹。
+假設今天有 40 隻老鼠（$R = 40$）和 10 隻老鷹（$P = 10$），以及以下參數：
 
-Todo: 完成例子
+- 老鼠出生率 $r_b = 0.6$
+- 捕食率 $r_c = 0.02$（每隻獵食者每隻老鼠的捕食機率）
+- 獵食者死亡率 $p_d = 0.4$
+- 獵食者增長率 $p_b = 0.01$
+
+代入老鼠的方程式：
+
+$$\frac{dR}{dt} = r_b R - r_c R P = 0.6 \times 40 - 0.02 \times 40 \times 10 = 24 - 8 = +16$$
+
+今天出生了 24 隻新老鼠，被吃掉 8 隻，明天老鼠變成 **56 隻**。
+
+再看老鷹：
+
+$$\frac{dP}{dt} = p_b R P - p_d P = 0.01 \times 40 \times 10 - 0.4 \times 10 = 4 - 4 = 0$$
+
+今天的食物剛好夠補上自然死亡，明天老鷹數量**持平**，仍是 10 隻。
+
 
 這個模型告訴我們的第一件事是捕食者與獵物的數量，會呈現週期性的變化。
-
-Todo: add representative photo 
 
 老鷹在食物充足的時候會數量增加，這導致老鼠被大量捕食而數量減少。老鼠的減少造成老鷹的食物變少，老鷹數量也會因此降下來。在老鷹數量降下來時，老鼠的捕食又變少了，因此老鼠的數量又回到一開始的水準。
 
@@ -71,21 +85,23 @@ Todo: add representative photo
 
 在毫無人類干預之下，這個模型的均衡這樣解。
 
-假設鷹鼠雙方的數量，剛好停在一個完全不會動的地方，明天的增減都是零。 dR/dt = 0 ，且 dP/dt = 0 。
+假設鷹鼠雙方的數量，剛好停在一個完全不會動的地方，明天的增減都是零。$dR/dt = 0$，且 $dP/dt = 0$。
 
 這可以解
 
-dR/dt = r_b R - r_c R P = 0
-得 R = 0 或 P = rb /rc
+$$\frac{dR}{dt} = r_b R - r_c R P = 0$$
 
-dP/dt = p_b RP - p_d P = 0 
-得 P = 0 或 R = pd /pb
+得 $R = 0$ 或 $P = r_b/r_c$
+
+$$\frac{dP}{dt} = p_b R P - p_d P = 0$$
+
+得 $P = 0$ 或 $R = p_d/p_b$
 
 這邊只有這兩個組合是合理的
 
-(R, P) = (0, 0)
+$$(R, P) = (0,\ 0)$$
 
-(R, P) = (pd/pb, rb/rc)
+$$(R, P) = \left(\frac{p_d}{p_b},\ \frac{r_b}{r_c}\right)$$
 
 第一個均衡是老鼠老鷹全滅。老鼠一隻都沒有，所以也不會生新的老鼠。老鷹沒老鼠吃，所以也不會生出新的老鷹來。
 
@@ -133,29 +149,29 @@ dP/dt = p_b RP - p_d P = 0
 
 我們看第一種完美的藥
 
-dR/dt = r_b R - r_c R P - k R
+$$\frac{dR}{dt} = r_b R - r_c R P - k R$$
 
-這個藥的效果是每期移除一些老鼠，以滅鼠率 k 乘上當下老鼠數量 R 表達
+這個藥的效果是每期移除一些老鼠，以滅鼠率 $k$ 乘上當下老鼠數量 $R$ 表達
 
-dR/dt = (r_b - k) R - r_c R P
+$$\frac{dR}{dt} = (r_b - k) R - r_c R P$$
 
 但我們整理變數後發現，實際上灑藥在數學上的效果，相當於降低出生率的值。我們只是讓下期增加的老鼠變少。
 
-(R, P) = (pd/pb, (rb - k) /rc)
+$$(R^*, P^*) = \left(\frac{p_d}{p_b},\ \frac{r_b - k}{r_c}\right)$$
 
 均衡打開來看，哇老鼠沒減少，但老鷹減少了。這個數學上的毒藥效果是把老鷹的食物減少。
 
-再來看第二種老鼠藥，我們假設他傷害老鼠和老鷹的效果分別是 k 和 l
+再來看第二種老鼠藥，我們假設他傷害老鼠和老鷹的效果分別是 $k$ 和 $l$
 
-dR/dt = r_b R - r_c R P - k R
+$$\frac{dR}{dt} = r_b R - r_c R P - k R$$
 
-dP/dt = p_b RP - p_d P - l P
+$$\frac{dP}{dt} = p_b R P - p_d P - l P$$
 
 老鼠效果一樣，老鷹變數一合併，相當於死亡率增加
 
 我們再看均衡
 
-(R, P) = ((pd + l)/pb, (rb - k) /rc)
+$$(R^*, P^*) = \left(\frac{p_d + l}{p_b},\ \frac{r_b - k}{r_c}\right)$$
 
 哇，灑了藥之後，老鼠不減反增了！越灑越多。這是怎麼回事？
 
@@ -167,8 +183,9 @@ dP/dt = p_b RP - p_d P - l P
 
 註：有加入時間的 delay differential equation 可以做，但沒解析解。
 
-dR/dt = αR(t) − βR(t)P(t)
-dP/dt = δR(t−τ)P(t−τ) − γP(t)
+$$\frac{dR}{dt} = r_b R(t) - r_c R(t) P(t)$$
+
+$$\frac{dP}{dt} = p_b R(t-\tau) P(t-\tau) - p_d P(t)$$
 
 ## 「不讓鼠來、不讓鼠住、不讓鼠吃」
 
@@ -204,24 +221,29 @@ https://www.cdc.gov.tw/Bulletin/Detail/t7U_mzNHOLqp8jDXZLkyhg?typeid=9
 
 這樣我們可以討論假設垃圾和廚餘控制住了，壓低天花板，對鼠口有什麼影響。
 
-更新的公式如下，老鼠的出生受到 (1-R/K) 項的抑制。
+更新的公式如下，老鼠的出生受到 $(1-R/K)$ 項的抑制。
 
-dR/dt = r_b R (1-R/K) - r_c R P
+$$\frac{dR}{dt} = r_b R \left(1 - \frac{R}{K}\right) - r_c R P$$
 
-dP/dt = p_b RP - p_d P
+$$\frac{dP}{dt} = p_b R P - p_d P$$
 
 照前面重複的步驟
 
-獵食者那條仍然可以算出 P = 0 或 R = pd/pb
+獵食者那條仍然可以算出 $P = 0$ 或 $R^* = p_d/p_b$
 
-dR/dt = r_b R (1-R/K) - r_c R P = 0
-得
-R =0 或
-P = r_b (1-R/K)/r_c = rb/rc (1-(pd/pb)/K)
-哇，老鼠的均衡數量沒受到影響耶！環境負載力的後果還是老鷹在承受
-而且這裡還有個**恐怖生態後果**。如果我們要均衡老鷹數量是正的，也就是 P* > 0 ，這要求 (1 - R*/K) 要是正的。也就是老鼠總量不能超越環境負載力，又或是環境負載力不能對老鼠數量有約束力。
-如果太激進的廚餘與垃圾政策壓迫到了老鼠數量，最後均衡會變成 (P, R) = (0,K) ，老鷹都餓死了，老鼠長到負載力天花板。
-負載力天花板的甜蜜點應該要剛好在 老鼠均衡數量的上方一點點 K > R* 。這樣可以壓制老鼠波動的高峰，又不影響老鷹的生存。
+$$\frac{dR}{dt} = r_b R \left(1 - \frac{R}{K}\right) - r_c R P = 0$$
+
+得 $R = 0$ 或
+
+$$P^* = \frac{r_b}{r_c}\left(1 - \frac{R^*}{K}\right) = \frac{r_b}{r_c}\left(1 - \frac{p_d/p_b}{K}\right)$$
+
+哇，老鼠的均衡數量沒受到影響耶！環境負載力的後果還是老鷹在承受。
+
+而且這裡還有個**恐怖生態後果**。如果我們要均衡老鷹數量是正的，也就是 $P^* > 0$，這要求 $(1 - R^*/K)$ 要是正的。也就是老鼠總量不能超越環境負載力，又或是環境負載力不能對老鼠數量有約束力。
+
+如果太激進的廚餘與垃圾政策壓迫到了老鼠數量，最後均衡會變成 $(P, R) = (0,\ K)$，老鷹都餓死了，老鼠長到負載力天花板。
+
+負載力天花板的甜蜜點應該要剛好在老鼠均衡數量的上方一點點 $K > R^*$。這樣可以壓制老鼠波動的高峰，又不影響老鷹的生存。
 
 ## 政策目標
 
@@ -229,18 +251,17 @@ P = r_b (1-R/K)/r_c = rb/rc (1-(pd/pb)/K)
 
 是人們目擊老鼠心生畏懼，心中產生負效用？
 
-難道我們不能學法國人說，整個城市都是為人類設計的，難道老鼠沒有與我們分享一樣日光的空間嗎？（TODO: add source and fix tone）
+巴黎有一批動物權利倡導者，提出了「挺鼠」的論點，認為城市空間不應只屬於人類。
 
-The pro-rat argument in Paris
-The main voices are a Paris councillor Douchka Marcovitch of the Parti animaliste and a pressure group called Paris Animaux Zoopolis (PAZ). Their arguments cluster around a few themes:
-The waste disposal argument
-Supporters claim rats eat around 100 tons of waste in Paris every day, thus preventing the city's sewer system from clogging up. The framing is that rats are a free waste management service the city is trying to kill. France 24
-The poison inefficiency argument
-Gentler methods than traditional rat poison exist — poison is both cruel and ultimately inefficient because rodents become immune to its toxicity and often learn to avoid the bait in the first place. This is actually consistent with our model — ~40% of Paris rats have developed resistance to anticoagulants. France 24
-The paradigm shift argument
-Marcovitch argues rats are auxiliaries in the disposal of waste, saying "we must change the paradigm" and ask about "the way of life of rats, so that we can find efficacious and ethical ways of dealing with them." City Journal
-The rights argument (more radical)
-PAZ argues urban space is exclusively reserved to humans and that we must end this anthropocentric idea — asking "by what right do we deprive certain animals of all access to the light of day?" City Journal
+主要聲音來自巴黎市議員 Douchka Marcovitch（動物黨籍），以及壓力團體「巴黎動物星球」（Paris Animaux Zoopolis，PAZ）。他們的論點圍繞幾個主題：
+
+**廢棄物處理論點**：支持者主張，老鼠每天在巴黎吃掉約 100 噸廢棄物，防止城市下水道堵塞。老鼠是一種免費的廢棄物管理服務，城市卻想把它消滅。（France 24）
+
+**藥毒無效論點**：比起傳統老鼠藥，有更溫和的方法存在——藥毒不僅殘忍，最終也缺乏效率，因為囓齒類動物會對其毒性產生免疫，甚至學會避開誘餌。這與我們的模型結論不謀而合——巴黎約有 40% 的老鼠已對抗凝血劑產生抗藥性。（France 24）
+
+**典範轉移論點**：Marcovitch 主張，老鼠是廢棄物處理的輔助者，表示「我們必須改變典範」，追問「老鼠的生活方式」，以找到有效且符合倫理的對策。（City Journal）
+
+**權利論點（較激進）**：PAZ 主張，都市空間不應獨屬人類，必須終結這種人類中心主義的觀念，質問「我們憑什麼剝奪某些動物見到日光的一切機會？」（City Journal）
 
 
 目前我聽到幾個合理的理由：
@@ -253,8 +274,13 @@ PAZ argues urban space is exclusively reserved to humans and that we must end th
 結論
 
 我們其實透過模型看到許多違反直覺的事。
-TODO: add recap
-Toso: add policy table 
+
+| 政策 | 直覺預期 | 模型預測 | 原因 |
+|------|----------|----------|------|
+| 完美殺鼠藥（只殺鼠） | 老鼠數量減少 | 老鼠均衡**不變**，老鷹均衡減少 | 等效於降低老鼠出生率，只是讓老鷹的食物變少 |
+| 有生物累積毒性的殺鼠藥 | 老鼠數量減少 | 老鼠均衡**增加** | 老鷹死亡率上升，天敵數量下降 |
+| 壓低環境負載力（清廚餘垃圾） | 老鼠數量減少 | 老鼠均衡不變，老鷹均衡減少；若壓太低則老鷹滅絕 | 老鼠均衡由獵食者參數決定，與老鼠本身的條件無關 |
+| 改善老鷹棲地（降低老鷹死亡率） | — | 老鼠均衡**減少** | 均衡老鼠數量 $R^* = p_d/p_b$，直接受獵食者死亡率影響 |
 
 老鼠問題看起來不是一件頭痛醫頭的事。反而是要頭痛醫腳，腳痛醫頭。
 
@@ -274,212 +300,147 @@ Toso: add policy table
 
 我們這邊證明均衡數量是平均數量
 
-Todo: change to Chinese 
 我們用獵食者方程式
-dP/dt = δRP − γP
-兩邊同除 P:
-(1/P) dP/dt = δR − γ
-The left side is d(ln P)/dt. Integrate over one full period T: 這代表百分比變化率
-[ln P]₀ᵀ = δ∫R dt − γT
-Since P is periodic, ln P(T) = ln P(0), so the left side is zero:
-0 = δ∫R dt − γT
-∫R dt / T = γ/δ
-Therefore:
-⟨R⟩ = γ/δ = R*
-R* is the time average of R. Exactly. Same argument applied to the rat equation gives ⟨P⟩ = P*.
+
+$$\frac{dP}{dt} = p_b R P - p_d P$$
+
+兩邊同除 $P$：
+
+$$\frac{1}{P}\frac{dP}{dt} = p_b R - p_d$$
+
+左側就是 $d(\ln P)/dt$，代表 $P$ 的百分比變化率。對一個完整週期 $T$ 積分：
+
+$$[\ln P]_0^T = p_b \int R \, dt - p_d T$$
+
+由於 $P$ 是週期函數，$\ln P(T) = \ln P(0)$，左側為零：
+
+$$0 = p_b \int R \, dt - p_d T$$
+
+$$\frac{1}{T}\int R \, dt = \frac{p_d}{p_b}$$
+
+因此：
+
+$$\langle R \rangle = \frac{p_d}{p_b} = R^*$$
+
+老鼠的時間平均值等於均衡值。對老鼠方程式施以相同步驟，可得 $\langle P \rangle = P^*$。
 
 ### 週期
 
+系統：
 
-The System
-
-dR/dt = αR − βRP
-dP/dt = δRP − γP
+$$\frac{dR}{dt} = r_b R - r_c R P, \qquad \frac{dP}{dt} = p_b R P - p_d P$$
 
 ───
 
-1. Equilibrium
+**1. 均衡**
 
-Set both derivatives to zero:
+令兩式的導數為零：
 
-Rat equation:
-αR − βRP = 0
-R(α − βP) = 0
+老鼠方程式：$r_b R - r_c R P = 0 \implies R(r_b - r_c P) = 0$
 
-So either R = 0 or P = α/β
+因此 $R = 0$ 或 $P = r_b/r_c$
 
-Predator equation:
-δRP − γP = 0
-P(δR − γ) = 0
+獵食者方程式：$p_b R P - p_d P = 0 \implies P(p_b R - p_d) = 0$
 
-So either P = 0 or R = γ/δ
+因此 $P = 0$ 或 $R = p_d/p_b$
 
-This gives two equilibria:
-• (R*, P*) = (0, 0) — trivial, both extinct
-• (R*, P*) = (γ/δ, α/β) — the coexistence equilibrium
+由此得到兩個均衡點：
+- $(R^*, P^*) = (0,\ 0)$ — 平庸解，全部滅絕
+- $(R^*, P^*) = (p_d/p_b,\ r_b/r_c)$ — 共存均衡
 
 ───
 
-2. Stability — Linearization
+**2. 穩定性——線性化**
 
-To understand behavior near the coexistence equilibrium, linearize. Let:
+為了瞭解共存均衡附近的行為，進行線性化。令：
 
-R = R* + r, P = P* + p
+$$R = R^* + r, \quad P = P^* + p$$
 
-Where r, p are small perturbations. Substituting into the equations and dropping second-order terms (rp ≈ 0):
+其中 $r, p$ 是微小的擾動。代入方程式後，捨去二階項（$rp \approx 0$）：
 
-Rat equation:
-d(R*+r)/dt = α(R*+r) − β(R*+r)(P*+p)
-dr/dt = αR* + αr − βR*P* − βR*p − βrP*
+老鼠方程式展開後，利用均衡條件 $r_b R^* = r_c R^* P^*$ 抵消，且 $r_c P^* = r_b$：
 
-Since αR* = βR*P* at equilibrium (they cancel):
-dr/dt = αr − βR*p − βrP*
+$$\frac{dr}{dt} = -r_c R^* \cdot p$$
 
-Wait — at equilibrium P* = α/β, so βP* = α:
-dr/dt = αr − αr − βR*p
-dr/dt = −βR*p
+獵食者方程式展開後，利用均衡條件 $p_b R^* P^* = p_d P^*$ 抵消，且 $p_b R^* = p_d$：
 
-Predator equation:
-dp/dt = δ(R*+r)(P*+p) − γ(P*+p)
-dp/dt = δR*P* + δR*p + δrP* − γP* − γp
-
-Since δR*P* = γP* at equilibrium (they cancel):
-dp/dt = δR*p + δrP* − γp
-
-And since δR* = γ:
-dp/dt = γp + δrP* − γp
-dp/dt = δP*r
+$$\frac{dp}{dt} = p_b P^* \cdot r$$
 
 ───
 
-3. The Linearized System
+**3. 線性化系統**
 
-Collecting the two linearized equations:
-
-dr/dt = −βR* · p
-dp/dt = δP* · r
-
-Write as a matrix:
-
-
+$$\begin{pmatrix} \dot{r} \\ \dot{p} \end{pmatrix} = \begin{pmatrix} 0 & -r_c R^* \\ p_b P^* & 0 \end{pmatrix} \begin{pmatrix} r \\ p \end{pmatrix}$$
 
 ───
 
-4. Eigenvalues
+**4. 特徵值**
 
-The characteristic equation of the matrix:
+$$\det(A - \lambda I) = 0 \implies \lambda^2 + r_c p_b R^* P^* = 0 \implies \lambda = \pm i\sqrt{r_c p_b R^* P^*}$$
 
-det(A − λI) = 0
-(0−λ)(0−λ) − (−βR*)(δP*) = 0
-λ² + βδR*P* = 0
-λ² = −βδR*P*
-
-Since R*, P*, β, δ are all positive, the right side is negative:
-
-λ = ±i√(βδR*P*)
-
-Pure imaginary eigenvalues — this confirms the equilibrium is a center, meaning the system orbits around it neither spiraling in nor out. Neutral stability.
+純虛數特徵值——確認均衡是一個「中心」，系統繞其環繞，既不螺旋收斂也不螺旋發散。中性穩定。
 
 ───
 
-5. The Oscillation Period
+**5. 震盪週期**
 
-The imaginary part of λ is the angular frequency:
+$\lambda$ 的虛部即為角頻率。代入 $R^* = p_d/p_b$ 與 $P^* = r_b/r_c$：
 
-ω = √(βδR*P*)
+$$\omega = \sqrt{r_c p_b \cdot \frac{p_d}{p_b} \cdot \frac{r_b}{r_c}} = \sqrt{r_b p_d}$$
 
-Substituting R* = γ/δ and P* = α/β:
+週期為：
 
-ω = √(βδ · γ/δ · α/β)
-ω = √(γα)
-ω = √(αγ)
-
-The period is:
-
-T = 2π/ω = 2π/√(αγ)
+$$T = \frac{2\pi}{\omega} = \frac{2\pi}{\sqrt{r_b p_d}}$$
 
 ───
 
-6. The Conserved Quantity
+**6. 守恆量**
 
-To confirm orbits are closed, we find V such that dV/dt = 0. Divide the two equations:
+將兩方程式相除後分離變數：
 
-dP/dR = (δRP − γP) / (αR − βRP)
-dP/dR = P(δR − γ) / R(α − βP)
+$$\frac{r_b - r_c P}{P}\, dP = \frac{p_b R - p_d}{R}\, dR$$
 
-Separate variables:
+兩側積分整理後得守恆量：
 
-(α − βP)/P · dP = (δR − γ)/R · dR
+$$V(R,P) = p_b R - p_d \ln R + r_c P - r_b \ln P = \text{常數}$$
 
-Integrate both sides:
-
-∫(α/P − β)dP = ∫(δ − γ/R)dR
-α ln P − βP = δR − γ ln R + constant
-
-Rearranging:
-
-V(R,P) = δR − γ ln R + βP − α ln P = constant
-
-This is the conserved quantity. Every trajectory is a level curve of V.
+每條軌跡都是 $V$ 的等位曲線。
 
 ───
 
-7. Why V has a minimum at equilibrium
+**7. 為何 V 在均衡點有極小值**
 
-Take partial derivatives:
+對 $V$ 求偏導令其為零：
 
-∂V/∂R = δ − γ/R = 0 → R = γ/δ = R*
-∂V/∂P = β − α/P = 0 → P = α/β = P*
+$$\frac{\partial V}{\partial R} = p_b - \frac{p_d}{R} = 0 \implies R = \frac{p_d}{p_b} = R^*$$
 
-The Hessian at (R*, P*):
+$$\frac{\partial V}{\partial P} = r_c - \frac{r_b}{P} = 0 \implies P = \frac{r_b}{r_c} = P^*$$
 
-∂²V/∂R² = γ/R*² > 0
-∂²V/∂P² = α/P*² > 0
-∂²V/∂R∂P = 0
-
-Positive definite — so (R*, P*) is a strict minimum of V. Moving away in any direction increases V. The level curves around this minimum are the closed orbits.
+在 $(R^*, P^*)$ 的 Hessian：$\partial^2 V/\partial R^2 = p_d/{R^*}^2 > 0$，$\partial^2 V/\partial P^2 = r_b/{P^*}^2 > 0$，交叉項為零。正定——因此 $(R^*, P^*)$ 是 $V$ 的嚴格極小值，等位曲線即為封閉軌道。
 
 ───
 
-Summary of results
+**結果摘要**
 
+| 結果 | 表達式 | 取決於 |
+|------|--------|--------|
+| 老鼠均衡 | $R^* = p_d/p_b$ | 僅獵食者參數 |
+| 獵食者均衡 | $P^* = r_b/r_c$ | 僅老鼠參數 |
+| 角頻率 | $\omega = \sqrt{r_b p_d}$ | 各一個參數 |
+| 週期 | $T = 2\pi/\sqrt{r_b p_d}$ | 各一個參數 |
+| 守恆量 | $V = p_b R - p_d \ln R + r_c P - r_b \ln P$ | 全部參數 |
 
-Result
-Expression
-Depends on
-
-Rat equilibrium
-R* = γ/δ
-Predator params only
-
-Predator equilibrium
-P* = α/β
-Rat params only
-
-Angular frequency
-ω = √(αγ)
-One param from each
-
-Period
-T = 2π/√(αγ)
-One param from each
-
-Conserved quantity
-V = δR − γ lnR + βP − α lnP
-All params
-
-
-
-The period T = 2π/√(αγ) is particularly elegant — it's the geometric mean of the rat birth rate and predator death rate, which are the two "restoring force" parameters that drive the cycle in opposite directions.
+週期 $T = 2\pi/\sqrt{r_b p_d}$ 特別優雅——它是老鼠出生率與獵食者死亡率的幾何平均，這兩個參數分別從相反方向驅動週期循環的「回復力」。
 
 ### 疾病
 
-The basic reproduction number for the disease is:
-R₀ = λS / ν · R
-R₀ > 1 means epidemic takes off. Crucially, R₀ scales linearly with rat population R. So both interventions matter, but differently:
+疾病的基本再生數 $R_0$ 為：
 
-A rat population oscillating between 20 and 80 (mean 50) is more dangerous than one sitting steadily at 50
-This is because the spike to 80 may push R₀ above 1 and trigger an outbreak, even if the average is fine. Epidemics don't care about averages — they care about threshold crossings.
+$$R_0 = \frac{\lambda S}{\nu} \cdot R$$
+
+$R_0 > 1$ 表示疫情將擴散。關鍵在於，$R_0$ 與老鼠族群數量 $R$ 呈線性比例。
+
+一個在 20 到 80 之間震盪（均值 50）的老鼠族群，比穩定維持在 50 隻的族群更危險。原因在於：當數量衝到 80，可能使 $R_0$ 超過 1，引發疫情爆發——即使平均值看起來無害。傳染病不在乎平均數，在乎的是有沒有越過臨界值。
 
 因此在避免疾病這塊，我們可能不在乎平均曝鼠時間，而是希望峰值不要太高。
 
