@@ -97,9 +97,9 @@ $$\frac{dP}{dt} = p_b R P - p_d P = 0$$
 
 這邊只有這兩個組合是合理的
 
-$$(R, P) = (0,\ 0)$$
+$$(R^\ast, P^\ast) = (0,\ 0)$$
 
-$$(R, P) = \left(\frac{p_d}{p_b},\ \frac{r_b}{r_c}\right)$$
+$$(R^\ast, P^\ast) = \left(\frac{p_d}{p_b},\ \frac{r_b}{r_c}\right)$$
 
 第一個均衡是老鼠老鷹全滅。老鼠一隻都沒有，所以也不會生新的老鼠。老鷹沒老鼠吃，所以也不會生出新的老鷹來。
 
@@ -155,7 +155,7 @@ $$\frac{dR}{dt} = (r_b - k) R - r_c R P$$
 
 但我們整理變數後發現，實際上灑藥在數學上的效果，相當於降低出生率的值。我們只是讓下期增加的老鼠變少。
 
-$$(R^*, P^*) = \left(\frac{p_d}{p_b},\ \frac{r_b - k}{r_c}\right)$$
+$$(R^\ast, P^\ast) = \left(\frac{p_d}{p_b},\ \frac{r_b - k}{r_c}\right)$$
 
 均衡打開來看，哇老鼠沒減少，但老鷹減少了。這個數學上的毒藥效果是把老鷹的食物減少。
 
@@ -169,7 +169,7 @@ $$\frac{dP}{dt} = p_b R P - p_d P - l P$$
 
 我們再看均衡
 
-$$(R^*, P^*) = \left(\frac{p_d + l}{p_b},\ \frac{r_b - k}{r_c}\right)$$
+$$(R^\ast, P^\ast) = \left(\frac{p_d + l}{p_b},\ \frac{r_b - k}{r_c}\right)$$
 
 哇，灑了藥之後，老鼠不減反增了！越灑越多。這是怎麼回事？
 
@@ -225,21 +225,21 @@ $$\frac{dP}{dt} = p_b R P - p_d P$$
 
 照前面重複的步驟
 
-獵食者那條仍然可以算出 $P = 0$ 或 $R^* = p_d/p_b$
+獵食者那條仍然可以算出 $P = 0$ 或 $R^\ast = p_d/p_b$
 
 $$\frac{dR}{dt} = r_b R \left(1 - \frac{R}{K}\right) - r_c R P = 0$$
 
 得 $R = 0$ 或
 
-$$P^* = \frac{r_b}{r_c}\left(1 - \frac{R^*}{K}\right) = \frac{r_b}{r_c}\left(1 - \frac{p_d/p_b}{K}\right)$$
+$$P^\ast = \frac{r_b}{r_c}\left(1 - \frac{R^\ast}{K}\right) = \frac{r_b}{r_c}\left(1 - \frac{p_d/p_b}{K}\right)$$
 
 哇，老鼠的均衡數量沒受到影響耶！環境負載力的後果還是老鷹在承受。
 
-而且這裡還有個**恐怖生態後果**。如果我們要均衡老鷹數量是正的，也就是 $P^* > 0$，這要求 $(1 - R^*/K)$ 要是正的。也就是老鼠總量不能超越環境負載力，又或是環境負載力不能對老鼠數量有約束力。
+而且這裡還有個**恐怖生態後果**。如果我們要均衡老鷹數量是正的，也就是 $P^\ast > 0$，這要求 $(1 - R^\ast/K)$ 要是正的。也就是老鼠總量不能超越環境負載力，又或是環境負載力不能對老鼠數量有約束力。
 
 如果太激進的廚餘與垃圾政策壓迫到了老鼠數量，最後均衡會變成 $(P, R) = (0,\ K)$，老鷹都餓死了，老鼠長到負載力天花板。
 
-負載力天花板的甜蜜點應該要剛好在老鼠均衡數量的上方一點點 $K > R^*$。這樣可以壓制老鼠波動的高峰，又不影響老鷹的生存。
+負載力天花板的甜蜜點應該要剛好在老鼠均衡數量的上方一點點 $K > R^\ast$。這樣可以壓制老鼠波動的高峰，又不影響老鷹的生存。
 
 ## 政策目標
 
@@ -276,7 +276,7 @@ $$P^* = \frac{r_b}{r_c}\left(1 - \frac{R^*}{K}\right) = \frac{r_b}{r_c}\left(1 -
 | 完美殺鼠藥（只殺鼠） | 老鼠數量減少 | 老鼠均衡**不變**，老鷹均衡減少 | 等效於降低老鼠出生率，只是讓老鷹的食物變少 |
 | 有生物累積毒性的殺鼠藥 | 老鼠數量減少 | 老鼠均衡**增加** | 老鷹死亡率上升，天敵數量下降 |
 | 壓低環境負載力（清廚餘垃圾） | 老鼠數量減少 | 老鼠均衡不變，老鷹均衡減少；若壓太低則老鷹滅絕 | 老鼠均衡由獵食者參數決定，與老鼠本身的條件無關 |
-| 改善老鷹棲地（降低老鷹死亡率） | — | 老鼠均衡**減少** | 均衡老鼠數量 $R^* = p_d/p_b$，直接受獵食者死亡率影響 |
+| 改善老鷹棲地（降低老鷹死亡率） | — | 老鼠均衡**減少** | 均衡老鼠數量 $R^\ast = p_d/p_b$，直接受獵食者死亡率影響 |
 
 老鼠問題看起來不是一件頭痛醫頭的事。反而是要頭痛醫腳，腳痛醫頭。
 
@@ -316,9 +316,9 @@ $$\frac{1}{T}\int R \, dt = \frac{p_d}{p_b}$$
 
 因此：
 
-$$\langle R \rangle = \frac{p_d}{p_b} = R^*$$
+$$\langle R \rangle = \frac{p_d}{p_b} = R^\ast$$
 
-老鼠的時間平均值等於均衡值。對老鼠方程式施以相同步驟，可得 $\langle P \rangle = P^*$。
+老鼠的時間平均值等於均衡值。對老鼠方程式施以相同步驟，可得 $\langle P \rangle = P^\ast$。
 
 ### 週期
 
@@ -341,8 +341,8 @@ $$\frac{dR}{dt} = r_b R - r_c R P, \qquad \frac{dP}{dt} = p_b R P - p_d P$$
 因此 $P = 0$ 或 $R = p_d/p_b$
 
 由此得到兩個均衡點：
-- $(R^*, P^*) = (0,\ 0)$ — 平庸解，全部滅絕
-- $(R^*, P^*) = (p_d/p_b,\ r_b/r_c)$ — 共存均衡
+- $(R^\ast, P^\ast) = (0,\ 0)$ — 平庸解，全部滅絕
+- $(R^\ast, P^\ast) = (p_d/p_b,\ r_b/r_c)$ — 共存均衡
 
 ───
 
@@ -350,29 +350,29 @@ $$\frac{dR}{dt} = r_b R - r_c R P, \qquad \frac{dP}{dt} = p_b R P - p_d P$$
 
 為了瞭解共存均衡附近的行為，進行線性化。令：
 
-$$R = R^* + r, \quad P = P^* + p$$
+$$R = R^\ast + r, \quad P = P^\ast + p$$
 
 其中 $r, p$ 是微小的擾動。代入方程式後，捨去二階項（$rp \approx 0$）：
 
-老鼠方程式展開後，利用均衡條件 $r_b R^* = r_c R^* P^*$ 抵消，且 $r_c P^* = r_b$：
+老鼠方程式展開後，利用均衡條件 $r_b R^\ast = r_c R^\ast P^\ast$ 抵消，且 $r_c P^\ast = r_b$：
 
-$$\frac{dr}{dt} = -r_c R^* \cdot p$$
+$$\frac{dr}{dt} = -r_c R^\ast \cdot p$$
 
-獵食者方程式展開後，利用均衡條件 $p_b R^* P^* = p_d P^*$ 抵消，且 $p_b R^* = p_d$：
+獵食者方程式展開後，利用均衡條件 $p_b R^\ast P^\ast = p_d P^\ast$ 抵消，且 $p_b R^\ast = p_d$：
 
-$$\frac{dp}{dt} = p_b P^* \cdot r$$
+$$\frac{dp}{dt} = p_b P^\ast \cdot r$$
 
 ───
 
 **3. 線性化系統**
 
-$$\begin{pmatrix} \dot{r} \\ \dot{p} \end{pmatrix} = \begin{pmatrix} 0 & -r_c R^* \\ p_b P^* & 0 \end{pmatrix} \begin{pmatrix} r \\ p \end{pmatrix}$$
+$$\begin{pmatrix} \dot{r} \\ \dot{p} \end{pmatrix} = \begin{pmatrix} 0 & -r_c R^\ast \\ p_b P^\ast & 0 \end{pmatrix} \begin{pmatrix} r \\ p \end{pmatrix}$$
 
 ───
 
 **4. 特徵值**
 
-$$\det(A - \lambda I) = 0 \implies \lambda^2 + r_c p_b R^* P^* = 0 \implies \lambda = \pm i\sqrt{r_c p_b R^* P^*}$$
+$$\det(A - \lambda I) = 0 \implies \lambda^2 + r_c p_b R^\ast P^\ast = 0 \implies \lambda = \pm i\sqrt{r_c p_b R^\ast P^\ast}$$
 
 純虛數特徵值——確認均衡是一個「中心」，系統繞其環繞，既不螺旋收斂也不螺旋發散。中性穩定。
 
@@ -380,7 +380,7 @@ $$\det(A - \lambda I) = 0 \implies \lambda^2 + r_c p_b R^* P^* = 0 \implies \lam
 
 **5. 震盪週期**
 
-$\lambda$ 的虛部即為角頻率。代入 $R^* = p_d/p_b$ 與 $P^* = r_b/r_c$：
+$\lambda$ 的虛部即為角頻率。代入 $R^\ast = p_d/p_b$ 與 $P^\ast = r_b/r_c$：
 
 $$\omega = \sqrt{r_c p_b \cdot \frac{p_d}{p_b} \cdot \frac{r_b}{r_c}} = \sqrt{r_b p_d}$$
 
@@ -408,11 +408,11 @@ $$V(R,P) = p_b R - p_d \ln R + r_c P - r_b \ln P = \text{常數}$$
 
 對 $V$ 求偏導令其為零：
 
-$$\frac{\partial V}{\partial R} = p_b - \frac{p_d}{R} = 0 \implies R = \frac{p_d}{p_b} = R^*$$
+$$\frac{\partial V}{\partial R} = p_b - \frac{p_d}{R} = 0 \implies R = \frac{p_d}{p_b} = R^\ast$$
 
-$$\frac{\partial V}{\partial P} = r_c - \frac{r_b}{P} = 0 \implies P = \frac{r_b}{r_c} = P^*$$
+$$\frac{\partial V}{\partial P} = r_c - \frac{r_b}{P} = 0 \implies P = \frac{r_b}{r_c} = P^\ast$$
 
-在 $(R^*, P^*)$ 的 Hessian：$\partial^2 V/\partial R^2 = p_d/{R^*}^2 > 0$，$\partial^2 V/\partial P^2 = r_b/{P^*}^2 > 0$，交叉項為零。正定——因此 $(R^*, P^*)$ 是 $V$ 的嚴格極小值，等位曲線即為封閉軌道。
+在 $(R^\ast, P^\ast)$ 的 Hessian：$\partial^2 V/\partial R^2 = p_d/{R^\ast}^2 > 0$，$\partial^2 V/\partial P^2 = r_b/{P^\ast}^2 > 0$，交叉項為零。正定——因此 $(R^\ast, P^\ast)$ 是 $V$ 的嚴格極小值，等位曲線即為封閉軌道。
 
 ───
 
@@ -420,8 +420,8 @@ $$\frac{\partial V}{\partial P} = r_c - \frac{r_b}{P} = 0 \implies P = \frac{r_b
 
 | 結果 | 表達式 | 取決於 |
 |------|--------|--------|
-| 老鼠均衡 | $R^* = p_d/p_b$ | 僅獵食者參數 |
-| 獵食者均衡 | $P^* = r_b/r_c$ | 僅老鼠參數 |
+| 老鼠均衡 | $R^\ast = p_d/p_b$ | 僅獵食者參數 |
+| 獵食者均衡 | $P^\ast = r_b/r_c$ | 僅老鼠參數 |
 | 角頻率 | $\omega = \sqrt{r_b p_d}$ | 各一個參數 |
 | 週期 | $T = 2\pi/\sqrt{r_b p_d}$ | 各一個參數 |
 | 守恆量 | $V = p_b R - p_d \ln R + r_c P - r_b \ln P$ | 全部參數 |
