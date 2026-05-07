@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CC's blog</title><link>https://liangcc.me/zh-tw/</link><description>Recent content on CC's blog</description><generator>Hugo</generator><language>zh-tw</language><lastBuildDate>Sun, 19 Apr 2026 23:37:43 +0800</lastBuildDate><atom:link href="https://liangcc.me/zh-tw/index.xml" rel="self" type="application/rss+xml"/><item><title>Lean 語言與真正的實數</title><link>https://liangcc.me/zh-tw/posts/2026-04-19_lean_real_number/</link><pubDate>Sun, 19 Apr 2026 23:37:43 +0800</pubDate><guid>https://liangcc.me/zh-tw/posts/2026-04-19_lean_real_number/</guid><description>&lt;p>經濟學課本：我們來介紹一個新觀念，矩陣的「最大值範數 （supremum norm）」 。想像一個「實數值」的矩陣，他的「最大值範數」就是元素裡面最大 &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> 的那個值。例如，矩陣 $\begin{bmatrix}1 &amp;amp; 3 \\ 2 &amp;amp; 4\end{bmatrix}$ 的最大值範數是 4 。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CC's blog</title><link>https://liangcc.me/zh-tw/</link><description>Recent content on CC's blog</description><generator>Hugo</generator><language>zh-tw</language><lastBuildDate>Tue, 05 May 2026 08:56:40 +0800</lastBuildDate><atom:link href="https://liangcc.me/zh-tw/index.xml" rel="self" type="application/rss+xml"/><item><title>老鼠藥的悖論</title><link>https://liangcc.me/zh-tw/posts/2026-05-04_rats/</link><pubDate>Tue, 05 May 2026 08:56:40 +0800</pubDate><guid>https://liangcc.me/zh-tw/posts/2026-05-04_rats/</guid><description>&lt;p>最近台北市老鼠的議題發酵中。民眾反映看到的老鼠變多了。&lt;/p>
+&lt;p>台北市因應所謂「鼠害」，投放老鼠藥。然而 &lt;a href="https://udn.com/news/story/7323/9478014">台灣猛禽協會指出&lt;/a>，使用老鼠藥並不會讓老鼠減少，反而會變多。&lt;/p>
+&lt;p>這是因為老鼠藥雖然殺死了老鼠，但也毒害了吃老鼠的老鷹。
+老鼠沒辦法用藥一口氣全滅，倖存的個體在極短時間內可以大量繁殖。而老鷹生得少，要長大需要很長時間。&lt;/p>
+&lt;p>因此過一段時間後，生出來的老鼠沒有老鷹捕食去抑制數量。老鼠將到處橫行。&lt;/p>
+&lt;p>因為這是一個稍微複雜的動態和因果關係。我感到背後有些數學在運作。&lt;/p>
+&lt;p>稍加研究之後，我掉到了一個老鼠坑裡，想回答一個問題，卻又釣出了更多的問題。老鼠的數學告訴了我們許多違反直覺的洞見。&lt;/p>
+&lt;p>頭痛醫頭的做法，看到老鼠就處理老鼠，最後老鼠的業是老鷹在擔。想用老鼠藥把老鼠趕盡殺絕，後果是老鼠反而變越多了。&lt;/p>
+&lt;p>此外，與老鼠藥相對的政策建議是「不讓鼠來、不讓鼠住、不讓鼠吃」。意圖是從源頭減少老鼠的數量。這會是比較好的做法嗎？數學說，讓老鼠挨餓的效果和你想像的不一樣。&lt;/p>
+&lt;p>先行揭露，我不是台北居民，我並沒有在當地第一手感受老鼠的影響。&lt;/p>
+&lt;p>我也沒有任何生態、公衛專業。請不要把這篇當成正經的公共議題討論。&lt;/p>
+&lt;p>我反而是想挑一個我陌生的議題，看其它領域的數學模型怎麼運作。想探討數學建模的能與不能。在一個正在發生的議題當下，當個數學習題練習。&lt;/p>
+&lt;h2 id="lotkavolterra-方程式">Lotka–Volterra 方程式&lt;/h2>
+&lt;p>Lotka–Volterra 是個百年公式了，它捕捉了獵食者與獵物的動態關係。在我們的情境裡，獵物是老鼠，獵食者可以是老鷹。&lt;/p>
+&lt;p>這方程式其實沒想像中可怕。我們簡單介紹一下可以幫助後面討論。&lt;/p>
+&lt;p>$$\frac{dR}{dt} = r_b R - r_c R P$$&lt;/p>
+&lt;p>$$\frac{dP}{dt} = p_b R P - p_d P$$&lt;/p>
+&lt;p>這兩條方程式是探討老鼠和老鷹隨著時間的變化。讀者可以挑一個喜歡的時間單位，下文會「下期」、「明天」交錯著用，意思都是下一個時間點。&lt;/p>
+&lt;p>其中 $R$ 是老鼠的數量，$P$ 是其老鷹的數量。
+$dR/dt$ 意思是明天老鼠數量的變化，$dP/dt$ 是老鷹數量的變化。&lt;/p>
+&lt;p>明天老鼠的數量變化，會是新出生的老鼠減去被老鷹吃掉的老鼠。&lt;/p>
+&lt;ul>
+&lt;li>新的老鼠 $r_b R$ ：老鼠的出生率 $r_b$ 乘上現有幾隻老鼠 $R$。&lt;/li>
+&lt;li>老鼠有幾隻會被吃掉 $r_c R P$ ：要看今天上菜幾隻鼠條，以及有幾隻老鷹要服務。我們加個捕食率的參數 $r_c$，調整老鼠被吃掉的數量。捕食率可以詮釋為老鼠在路上逛來逛去，運氣有多差而被吃掉。&lt;/li>
+&lt;/ul>
+&lt;p>再來看明天老鷹數量的變化。老鷹的增長來自於食物是否充足，減少來自於自然死亡。&lt;/p>
+&lt;ul>
+&lt;li>老鷹的增長 $p_b R P$：今天晚餐吃的老鼠，會變成孵老鷹寶寶的養分。食物來源充足的情況會生比較多老鷹。 $p_b$ 可以看作出生率。&lt;/li>
+&lt;li>老鷹的自然死亡 $p_d P$ ，用死亡率 $p_d$ 乘上現有老鷹數量 $P$ 表示。&lt;/li>
+&lt;/ul>
+&lt;p>我們算個實際的例子：&lt;/p></description></item><item><title>Lean 語言與真正的實數</title><link>https://liangcc.me/zh-tw/posts/2026-04-19_lean_real_number/</link><pubDate>Sun, 19 Apr 2026 23:37:43 +0800</pubDate><guid>https://liangcc.me/zh-tw/posts/2026-04-19_lean_real_number/</guid><description>&lt;p>經濟學課本：我們來介紹一個新觀念，矩陣的「最大值範數 （supremum norm）」 。想像一個「實數值」的矩陣，他的「最大值範數」就是元素裡面最大 &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> 的那個值。例如，矩陣 $\begin{bmatrix}1 &amp;amp; 3 \\ 2 &amp;amp; 4\end{bmatrix}$ 的最大值範數是 4 。&lt;/p>
 &lt;p>我（腦內小劇場）：&lt;/p>
 &lt;div class="think">
 &lt;p>好的，數學課本定義了最大值範數。數學上「範數 （Norm）」可以賦予一個數學物件一種「長度」的概念。矩陣是一種數學物件，我們可以給他一個數字當作長度，來和其他的矩陣比較。&lt;/p>
