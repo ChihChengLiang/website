@@ -313,14 +313,6 @@ Lotka–Volterra 方程式看起來仍然是課本中會介紹的模型之一，
 
 ## 附錄
 
-### 老鼠討論
-
-有學者建議，我們討論老鼠問題不應該只講老鼠，應該區分：溝鼠、小黃腹鼠、亞洲家鼠、玄鼠等等。每種鼠有不同的棲地習性。
-
-但在模型的場景中，我們其實需要的是一隻抽象的代表性老鼠就夠。除非上述老鼠在數學上是不一樣的老鼠，我們不需要分開討論。
-
-獵食者也是，我們只講一隻抽象的老鷹。但讀者腦袋可以自行代換喜歡的動物：鳳頭蒼鷹、黑鳶、貓頭鷹、或 Python 。會吃老鼠即可。
-
 ### 平均數量
 
 我們這邊證明均衡數量是平均數量
@@ -335,81 +327,74 @@ $$\frac{1}{P}\frac{dP}{dt} = p_b R - p_d$$
 
 左側就是 $d(\ln P)/dt$，代表 $P$ 的百分比變化率。對一個完整週期 $T$ 積分：
 
-$$[\ln P]_0^T = p_b \int R \, dt - p_d T$$
+$$[\ln P]_0^T = p_b \int R dt - p_d T$$
 
-由於 $P$ 是週期函數，$\ln P(T) = \ln P(0)$，左側為零：
+由於 $P$ 是週期函數，$\ln P(T) = \ln P(0)$ 。左側為零：
 
-$$0 = p_b \int R \, dt - p_d T$$
+$$0 = p_b \int R dt - p_d T$$
 
-$$\frac{1}{T}\int R \, dt = \frac{p_d}{p_b}$$
+$$\frac{1}{T}\int R dt = \frac{p_d}{p_b}$$
 
 因此：
 
-$$\langle R \rangle = \frac{p_d}{p_b} = R^\ast$$
+$$\bar{R} = \frac{p_d}{p_b} = R^\ast$$
 
-老鼠的時間平均值等於均衡值。對老鼠方程式施以相同步驟，可得 $\langle P \rangle = P^\ast$。
+在一個週期中老鼠數量的平均值，等於均衡值。對老鼠方程式施以相同步驟，可得 $ \bar{P} = P^\ast$。
 
 均衡數量等於一個週期的平均數量這點其實是 Lotka–Volterra 碰巧的性質。模型加料就會壞掉。均衡的性質再加入更多現實假設（如附載力上限、年齡結構、隨機性）後可能不再成立。
 
-### 週期
+### 週期的推導
 
 系統：
 
 $$\frac{dR}{dt} = r_b R - r_c R P, \qquad \frac{dP}{dt} = p_b R P - p_d P$$
 
-───
-
-**1. 均衡**
-
-令兩式的導數為零：
-
-老鼠方程式：$r_b R - r_c R P = 0 \implies R(r_b - r_c P) = 0$
-
-因此 $R = 0$ 或 $P = r_b/r_c$
-
-獵食者方程式：$p_b R P - p_d P = 0 \implies P(p_b R - p_d) = 0$
-
-因此 $P = 0$ 或 $R = p_d/p_b$
-
-由此得到兩個均衡點：
+記得我們有兩個均衡點：
 - $(R^\ast, P^\ast) = (0,\ 0)$ — 平庸解，全部滅絕
 - $(R^\ast, P^\ast) = (p_d/p_b,\ r_b/r_c)$ — 共存均衡
 
-───
 
-**2. 穩定性——線性化**
+#### 穩定性與線性化分析
 
-為了瞭解共存均衡附近的行為，進行線性化。令：
+我們假設以均衡為中心，讓狀態小小的偏移均衡。假裝他是個簡諧運動，這樣可以算出週期。
+
+進行線性化。令：
 
 $$R = R^\ast + r, \quad P = P^\ast + p$$
 
 其中 $r, p$ 是微小的擾動。代入方程式後，捨去二階項（$rp \approx 0$）：
 
+$$
+\frac{d(R^\ast+r)}{dt} = r_b (R^\ast + r) - r_c (R^\ast + r) (P^\ast + p)
+$$
+
 老鼠方程式展開後，利用均衡條件 $r_b R^\ast = r_c R^\ast P^\ast$ 抵消，且 $r_c P^\ast = r_b$：
 
 $$\frac{dr}{dt} = -r_c R^\ast \cdot p$$
 
-獵食者方程式展開後，利用均衡條件 $p_b R^\ast P^\ast = p_d P^\ast$ 抵消，且 $p_b R^\ast = p_d$：
+老鷹方程式展開後，利用均衡條件 $p_b R^\ast P^\ast = p_d P^\ast$ 抵消，且 $p_b R^\ast = p_d$：
 
 $$\frac{dp}{dt} = p_b P^\ast \cdot r$$
 
-───
+#### 線性化系統
 
-**3. 線性化系統**
+$$
+\begin{pmatrix}
+    \dot{r} \\\ \dot{p} 
+\end{pmatrix} = 
+\begin{pmatrix} 0 & -r_c R^\ast \\\ p_b P^\ast & 0 \end{pmatrix} 
+\begin{pmatrix} r \\\ p \end{pmatrix}
+$$
 
-$$\begin{pmatrix} \dot{r} \\ \dot{p} \end{pmatrix} = \begin{pmatrix} 0 & -r_c R^\ast \\ p_b P^\ast & 0 \end{pmatrix} \begin{pmatrix} r \\ p \end{pmatrix}$$
 
-───
-
-**4. 特徵值**
+#### 特徵值
 
 $$\det(A - \lambda I) = 0 \implies \lambda^2 + r_c p_b R^\ast P^\ast = 0 \implies \lambda = \pm i\sqrt{r_c p_b R^\ast P^\ast}$$
 
 純虛數特徵值——確認均衡是一個「中心」，系統繞其環繞，既不螺旋收斂也不螺旋發散。中性穩定。
 
-───
 
-**5. 震盪週期**
+#### 震盪週期
 
 $\lambda$ 的虛部即為角頻率。代入 $R^\ast = p_d/p_b$ 與 $P^\ast = r_b/r_c$：
 
@@ -419,58 +404,34 @@ $$\omega = \sqrt{r_c p_b \cdot \frac{p_d}{p_b} \cdot \frac{r_b}{r_c}} = \sqrt{r_
 
 $$T = \frac{2\pi}{\omega} = \frac{2\pi}{\sqrt{r_b p_d}}$$
 
-───
+週期是老鼠出生率和老鷹死亡率的幾何平均。老鼠生得越快與老鷹死得越快，會加速消長過程，減少週期。
 
-**6. 守恆量**
+#### 守恆量
 
 將兩方程式相除後分離變數：
 
-$$\frac{r_b - r_c P}{P}\, dP = \frac{p_b R - p_d}{R}\, dR$$
+$$\frac{r_b - r_c P}{P} dP = \frac{p_b R - p_d}{R} dR$$
 
 兩側積分整理後得守恆量：
 
-$$V(R,P) = p_b R - p_d \ln R + r_c P - r_b \ln P = \text{常數}$$
+$$V(R,P) = p_b R - p_d \ln R + r_c P - r_b \ln P = C$$
 
 每條軌跡都是 $V$ 的等位曲線。
 
-───
-
-**7. 為何 V 在均衡點有極小值**
-
-對 $V$ 求偏導令其為零：
-
-$$\frac{\partial V}{\partial R} = p_b - \frac{p_d}{R} = 0 \implies R = \frac{p_d}{p_b} = R^\ast$$
-
-$$\frac{\partial V}{\partial P} = r_c - \frac{r_b}{P} = 0 \implies P = \frac{r_b}{r_c} = P^\ast$$
-
-在 $(R^\ast, P^\ast)$ 的 Hessian：$\partial^2 V/\partial R^2 = p_d/{R^\ast}^2 > 0$，$\partial^2 V/\partial P^2 = r_b/{P^\ast}^2 > 0$，交叉項為零。正定——因此 $(R^\ast, P^\ast)$ 是 $V$ 的嚴格極小值，等位曲線即為封閉軌道。
-
-───
-
-**結果摘要**
-
-| 結果 | 表達式 | 取決於 |
-|------|--------|--------|
-| 老鼠均衡 | $R^\ast = p_d/p_b$ | 僅獵食者參數 |
-| 獵食者均衡 | $P^\ast = r_b/r_c$ | 僅老鼠參數 |
-| 角頻率 | $\omega = \sqrt{r_b p_d}$ | 各一個參數 |
-| 週期 | $T = 2\pi/\sqrt{r_b p_d}$ | 各一個參數 |
-| 守恆量 | $V = p_b R - p_d \ln R + r_c P - r_b \ln P$ | 全部參數 |
-
-週期 $T = 2\pi/\sqrt{r_b p_d}$ 特別優雅——它是老鼠出生率與獵食者死亡率的幾何平均，這兩個參數分別從相反方向驅動週期循環的「回復力」。
+等位曲線是繞著均衡點的軌道。針對狀態的干預，可以把軌道往外推或往內推。
 
 ### 疾病
 
-疾病的基本再生數 $R_0$ 為：
+疾病的基本傳染數 $R_0$ 為：
 
 $$R_0 = \frac{\lambda S}{\nu} \cdot R$$
+
+其中 $\lambda$ 是人鼠傳播率，$\nu$ 是恢復力，$S$ 是可能感染者。
 
 $R_0 > 1$ 表示疫情將擴散。關鍵在於，$R_0$ 與老鼠族群數量 $R$ 呈線性比例。
 
 一個在 20 到 80 之間震盪（均值 50）的老鼠族群，比穩定維持在 50 隻的族群更危險。原因在於：當數量衝到 80，可能使 $R_0$ 超過 1，引發疫情爆發——即使平均值看起來無害。傳染病不在乎平均數，在乎的是有沒有越過臨界值。
 
 因此在避免疾病這塊，我們可能不在乎平均曝鼠時間，而是希望峰值不要太高。
-
-但峰值在方程式裡沒有解析解，所以也不太好討論。另一種可能是用環境負載力去壓。
 
 [^dde]: 加入時間延遲的 delay differential equation 可以描述老鷹繁殖滯後的效果，但沒有解析解。長相大概像這樣 $\frac{dR}{dt} = r_b R(t) - r_c R(t)P(t)$，$\frac{dP}{dt} = p_b R(t-\tau)P(t-\tau) - p_d P(t)$
