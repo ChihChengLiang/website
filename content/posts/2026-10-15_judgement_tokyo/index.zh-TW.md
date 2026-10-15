@@ -4,6 +4,17 @@ date: 2026-10-15T12:11:23+08:00
 draft: false
 ---
 
+## 東京大審：二戰審判與現代亞洲的誕生
+
+![Cover](http://books.google.com/books/content?id=x9HwEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
+- **Author**: 蓋瑞．巴斯
+- **Publisher**: 讀書共和國╱衛城出版
+- **Published**: 2026-07-01
+- **ISBN-13**: 9786267835449
+
+讀完了衛城出版的《東京大審》
+
 人們要怎麼在一場橫跨多國的大戰中，那麼多的暴力之中取得正義呢？
 
 要用更多的暴力，對施暴者施以懲罰？
@@ -93,9 +104,32 @@ draft: false
 東京大審有點像是過去為了不同興趣和目的看的好幾本不同主題的書，最後都匯聚到這段二戰時期的亞洲戰場。
 
 - 「精準轟炸」談了空中轟炸怎麼一路發展到東京燃燒彈轟炸
+
+![失控的轟炸](http://books.google.com/books/content?id=kTxvEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api)
+
 - 「經濟武器」從物質的角度（不談種族主義）去討論美國的石油禁運怎麼影響日本的擴張策略。
+
+<div style="width:160px">
+
+![經濟武器](/images/judgement_tokyo/economic_weapon.webp)
+
+</div>
+
 - 「從經濟發展到民主」談為什麼日本可以在戰後從軍國主義轉型到民主。
+
+<div style="width:160px">
+
+![從經濟發展到民主](/images/judgement_tokyo/d2d.jpg)
+
+</div>
+
 - 連一本麵包史的書「百年麵包史」，也是談到很多日本歐式麵包是德國戰俘與日本人合作。中華料理是從滿洲國帶來。現在麵包店自助式夾麵包的模式是日本軍官戰後去墨西哥學來的。
+
+<div style="width:160px">
+
+![百年麵包史](/images/judgement_tokyo/bread.webp)
+
+</div>
 
 我像是腦袋有好幾張隱形的 Obsidian note 瞬間被連在一起。但我小小的 context window 只能把他們融成一團 slop
 
